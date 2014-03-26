@@ -1,10 +1,13 @@
+requirejs.config
+    baseurl: 'js'
+
 showingInfo = false
 
 arel.sceneReady ->
-    man = arel.Scene.getObject 'man'
-    man.setScale new arel.Vector3D 2, 2, 2
-    man.setTitle "Karel"
-    arel.Events.setListener man, (obj, type, params) -> objectClickHandler obj, type, params
+    arel.Debug.log 'Loading scene...'
+    model = arel.Scene.getObject 'family_house'
+    house = new Building model
+    arel.Events.setListener model, (obj, type, params) -> objectClickHandler obj, type, params
     return
 
 
@@ -14,9 +17,9 @@ objectClickHandler = (obj, type, params) ->
         if showingInfo
             document.getElementById('info').style.display = 'none'
             document.getElementById('name').innerHTML = obj.title
-            showingInfo = false
+            showingInfo = no
         else
             document.getElementById('info').style.display = 'block'
             document.getElementById('name').innerHTML = obj.title
-            showingInfo = true
+            showingInfo = yes
     return

@@ -2,7 +2,7 @@
 <results>
     <trackingdata url="TrackingData_Marker.xml"/>
 	<arel>layout.html</arel>
-    <object id='man'>
+    <object id='family_house'>
         <assets3d>
             <model>models/metaioman.md2</model>
             <texture></texture>

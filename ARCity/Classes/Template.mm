@@ -30,7 +30,7 @@
     
     
     // load our tracking configuration
-    NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_MarkerlessFast" ofType:@"xml" inDirectory:@"Assets"];
+    NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_MarkerlessFast" ofType:@"xml" inDirectory:@"GameSrc"];
 	if(trackingDataFile)
 	{
 		bool success = m_metaioSDK->setTrackingConfiguration([trackingDataFile UTF8String]);

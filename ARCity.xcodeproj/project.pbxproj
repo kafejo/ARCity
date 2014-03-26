@@ -71,7 +71,7 @@
 		9E6C931E177C87220048052B /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		9E6C9329177C87220048052B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		9E6C932A177C87220048052B /* Template.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Template.xib; path = ../Resources/Template.xib; sourceTree = "<group>"; };
-		9E7FFDF4177C856600477DDE /* Experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Experiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7FFDF4177C856600477DDE /* ARCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7FFDF7177C856600477DDE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9E7FFDF9177C856600477DDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9E7FFDFB177C856600477DDE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,7 +163,7 @@
 		9E7FFDF5177C856600477DDE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E7FFDF4177C856600477DDE /* Experiment.app */,
+				9E7FFDF4177C856600477DDE /* ARCity.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,9 +237,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9E7FFDF3177C856600477DDE /* Experiment */ = {
+		9E7FFDF3177C856600477DDE /* ARCity */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E7FFE11177C856600477DDE /* Build configuration list for PBXNativeTarget "Experiment" */;
+			buildConfigurationList = 9E7FFE11177C856600477DDE /* Build configuration list for PBXNativeTarget "ARCity" */;
 			buildPhases = (
 				9E7FFDF0177C856600477DDE /* Sources */,
 				9E7FFDF1177C856600477DDE /* Frameworks */,
@@ -249,9 +249,9 @@
 			);
 			dependencies = (
 			);
-			name = Experiment;
+			name = ARCity;
 			productName = Template;
-			productReference = 9E7FFDF4177C856600477DDE /* Experiment.app */;
+			productReference = 9E7FFDF4177C856600477DDE /* ARCity.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,7 +275,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9E7FFDF3177C856600477DDE /* Experiment */,
+				9E7FFDF3177C856600477DDE /* ARCity */,
 			);
 		};
 /* End PBXProject section */
@@ -405,7 +405,7 @@
 				GCC_PREFIX_HEADER = "ARCity/ARCity-Prefix.pch";
 				INFOPLIST_FILE = "ARCity/ARCity-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = Experiment;
+				PRODUCT_NAME = ARCity;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -424,7 +424,7 @@
 				GCC_PREFIX_HEADER = "ARCity/ARCity-Prefix.pch";
 				INFOPLIST_FILE = "ARCity/ARCity-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = Experiment;
+				PRODUCT_NAME = ARCity;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -441,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E7FFE11177C856600477DDE /* Build configuration list for PBXNativeTarget "Experiment" */ = {
+		9E7FFE11177C856600477DDE /* Build configuration list for PBXNativeTarget "ARCity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9E7FFE12177C856600477DDE /* Debug */,

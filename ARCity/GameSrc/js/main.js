@@ -2,14 +2,18 @@
 (function() {
   var objectClickHandler, showingInfo;
 
+  requirejs.config({
+    baseurl: 'js'
+  });
+
   showingInfo = false;
 
   arel.sceneReady(function() {
-    var man;
-    man = arel.Scene.getObject('man');
-    man.setScale(new arel.Vector3D(2, 2, 2));
-    man.setTitle("Karel");
-    arel.Events.setListener(man, function(obj, type, params) {
+    var house, model;
+    arel.Debug.log('Loading scene...');
+    model = arel.Scene.getObject('family_house');
+    house = new Building(model);
+    arel.Events.setListener(house.model, function(obj, type, params) {
       return objectClickHandler(obj, type, params);
     });
   });

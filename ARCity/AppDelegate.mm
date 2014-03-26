@@ -30,7 +30,7 @@
     self.viewController = [[[Template alloc] initWithNibName:@"Template" bundle:nil] autorelease];
 #else
 	NSString* arelConfigFile = [NSString stringWithFormat:@"arelConfig"];
-	NSString *arelDir = [NSString stringWithFormat:@"Assets"];
+	NSString *arelDir = [NSString stringWithFormat:@"GameSrc"];
 	NSString *arelConfigFilePath = [[NSBundle mainBundle] pathForResource:arelConfigFile ofType:@"xml" inDirectory:arelDir];
     NSLog(@"Will load AREL from %@", arelConfigFilePath);
 	self.viewController = [[[ARELViewController alloc] initWithNibName:@"ARELViewController" bundle:nil instructions:arelConfigFilePath] autorelease];
