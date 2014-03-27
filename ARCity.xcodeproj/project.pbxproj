@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		906FAA4F18E3581200372E5D /* metaioSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = metaioSDK.framework; sourceTree = "<group>"; };
-		906FAA5118E3645200372E5D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		906FAA5118E3645200372E5D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9E6C92FD177C85FF0048052B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		9E6C92FF177C86020048052B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9E6C9301177C86080048052B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
