@@ -48,6 +48,10 @@
 	<string>sPN3+TR7WPaq9FEcPHOtbDdfQ6qB5FEV/pRf+XpzvOs=</string>
 	<key>UIFileSharingEnabled</key>
 	<false/>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>iPad</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

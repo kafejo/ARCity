@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class Template;
+//@class Template;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

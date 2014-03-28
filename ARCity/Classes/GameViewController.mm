@@ -1,26 +1,33 @@
 //
-//  Template.m
+//  GameViewController.m
+//  ARCity
 //
-// Copyright 2007-2013 metaio GmbH. All rights reserved.
+//  Created by Aleš Kocur on 28/03/14.
+//  Copyright (c) 2014 metaio GmbH. All rights reserved.
 //
 
-#import "Template.h"
+#import "GameViewController.h"
 #import "EAGLView.h"
 
-@implementation Template
+@interface GameViewController () 
+@end
 
+@implementation GameViewController
 
-#pragma mark - UIViewController lifecycle
-
-- (void)dealloc
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    [super dealloc];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
 
-
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
     
     if( !m_metaioSDK )
     {
@@ -30,9 +37,9 @@
     
     
     // load our tracking configuration
-    NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_Marker" ofType:@"xml" inDirectory:@"GameSrc"];
-	if(trackingDataFile)
-	{
+    NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_Marker" ofType:@"xml"];
+	
+    if(trackingDataFile) {
 		bool success = m_metaioSDK->setTrackingConfiguration([trackingDataFile UTF8String]);
 		if( !success)
 			NSLog(@"No success loading the tracking configuration");
@@ -40,27 +47,50 @@
 	
 	//metaio::Vector3d scale = metaio::Vector3d(11.0, 11.0, 11.0);
 	//metaio::Rotation rotation = metaio::Rotation(metaio::Vector3d(M_PI_2, 0.0, 0.0));
-
+    
     // load content
-    NSString* earthModel = [[NSBundle mainBundle] pathForResource:@"test-building" ofType:@"obj" inDirectory:@"GameSrc/models"];
+    NSString* earthModel = [[NSBundle mainBundle] pathForResource:@"test-building" ofType:@"obj" inDirectory:@"Models"];
     
 	if(earthModel) {
 		// if this call was successful, m_earth will contain a pointer to the 3D model
-        m_earth =  m_metaioSDK->createGeometry([earthModel UTF8String]);
-        if(m_earth) {
+        m_house =  m_metaioSDK->createGeometry([earthModel UTF8String]);
+        if(m_house) {
             // scale it a bit down
             //m_earth->setScale(scale);
 			//m_earth->setRotation(rotation);
-            m_earth->setCoordinateSystemID(1);
+            m_house->setCoordinateSystemID(1);
             NSLog(@"Loaded");
         } else {
             NSLog(@"Error, could not load %@", earthModel);
         }
     }
-    
+
     
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+//setup splash image (shown till metaio SDK is loaded)
+- (void)loadSplashImage {
+    
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		if ([[[UIScreen mainScreen] currentMode] size].height > 960) {
+			self.splashImageView.image = [UIImage imageNamed:@"Default-568h.png"];
+		} else {
+			self.splashImageView.image = [UIImage imageNamed:@"Default.png"];
+		}
+	} else {
+		if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+			self.splashImageView.image = [UIImage imageNamed:@"Default-Landscape~ipad.png"];
+		} else {
+			self.splashImageView.image = [UIImage imageNamed:@"Default-Portrait~ipad.png"];
+		}
+	}
+}
 
 #pragma mark - @protocol metaioSDKDelegate
 
@@ -71,7 +101,7 @@
 
 - (void) onAnimationEnd: (metaio::IGeometry*) geometry  andName:(NSString*) animationName
 {
-	 NSLog(@"animation ended %@", animationName);
+    NSLog(@"animation ended %@", animationName);
 }
 
 
@@ -136,43 +166,16 @@
     }
 }
 
-#pragma mark - Handling Touches
 
 /*
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Here's how to pick a geometry
-	UITouch *touch = [touches anyObject];
-	CGPoint loc = [touch locationInView:glView];
-	
-    // get the scale factor (will be 2 for retina screens)
-    float scale = glView.contentScaleFactor;
-    
-	// ask SDK if the user picked an object
-	// the 'true' flag tells SDK to actually use the vertices for a hit-test, instead of just the bounding box
-    metaio::IGeometry* geometry = m_metaioSDK->getGeometryFromScreenCoordinates(loc.x * scale, loc.y * scale, true);
-	
-	if ( geometry && geometry != m_earthOcclusion )
-	{
-        if ( !m_earthOpened )
-		{
-			m_earth->startAnimation("Open", false);
-			m_earthIndicators->startAnimation("Grow", false);
-			m_earthOpened = true;
-		}
-		else
-		{
-			m_earth->startAnimation("Close", false);
-			m_earthIndicators->startAnimation("Shrink", false);
-			m_earthOpened = false;
-		}
-     
-	}
-    
-    
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
 */
-
 
 @end

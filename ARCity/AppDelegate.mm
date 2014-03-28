@@ -5,8 +5,8 @@
 //
 
 #import "AppDelegate.h"
-#import "ARELViewController.h"
-#import "Template.h"
+//#import "ARELViewController.h"
+//#import "Template.h"
 
 // With this macro you can decide whether you want to use the native or AREL-based template view
 // controller (implemented in Template.mm or ARELViewController.mm, respectively)
@@ -24,10 +24,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+	//self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
-#ifdef NATIVE
-    self.viewController = [[[Template alloc] initWithNibName:@"Template" bundle:nil] autorelease];
+//#ifdef NATIVE
+    //self.viewController = [[[Template alloc] initWithNibName:@"Template" bundle:nil] autorelease];
+/*
 #else
 	NSString* arelConfigFile = [NSString stringWithFormat:@"arelConfig"];
 	NSString *arelDir = [NSString stringWithFormat:@"GameSrc"];
@@ -35,9 +36,9 @@
     NSLog(@"Will load AREL from %@", arelConfigFilePath);
 	self.viewController = [[[ARELViewController alloc] initWithNibName:@"ARELViewController" bundle:nil instructions:arelConfigFilePath] autorelease];
 #endif
-
-	self.window.rootViewController = self.viewController;
-	[self.window makeKeyAndVisible];
+*/
+	//self.window.rootViewController = self.viewController;
+	//[self.window makeKeyAndVisible];
 	return YES;
 }
 
