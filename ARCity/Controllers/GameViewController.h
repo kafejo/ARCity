@@ -7,11 +7,13 @@
 //
 
 #import "MetaioSDKViewController.h"
+#import "Engine.h"
 
-@interface GameViewController : MetaioSDKViewController {
-    metaio::IGeometry *m_house;
-}
+@interface GameViewController : MetaioSDKViewController
 
 @property (nonatomic, assign) IBOutlet UIImageView *splashImageView;
+@property (retain, nonatomic) IBOutlet UIView *menuBar;
+@property (retain, nonatomic) IBOutlet UILabel *nameLabel;
+@property (retain, nonatomic) IBOutlet UILabel *populationLabel;
 
 @end

@@ -9,7 +9,8 @@
 #import "GameViewController.h"
 #import "EAGLView.h"
 
-@interface GameViewController () 
+@interface GameViewController ()
+
 @end
 
 @implementation GameViewController
@@ -29,42 +30,82 @@
     // Do any additional setup after loading the view.
     
     
-    if( !m_metaioSDK )
-    {
+    if (!m_metaioSDK) {
         NSLog(@"SDK instance is 0x0. Please check the license string");
         return;
     }
     
     
     // load our tracking configuration
-    NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_Marker" ofType:@"xml"];
+    NSString *trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_Marker" ofType:@"xml"];
 	
-    if(trackingDataFile) {
+    if (trackingDataFile) {
 		bool success = m_metaioSDK->setTrackingConfiguration([trackingDataFile UTF8String]);
 		if( !success)
 			NSLog(@"No success loading the tracking configuration");
 	}
-	
-	//metaio::Vector3d scale = metaio::Vector3d(11.0, 11.0, 11.0);
-	//metaio::Rotation rotation = metaio::Rotation(metaio::Vector3d(M_PI_2, 0.0, 0.0));
     
-    // load content
-    NSString* earthModel = [[NSBundle mainBundle] pathForResource:@"test-building" ofType:@"obj" inDirectory:@"Models"];
+    NSString* modelPath = [[NSBundle mainBundle] pathForResource:@"selection" ofType:@"zip" inDirectory:MODEL_PATH];
+    metaio::IGeometry *model = nil;
     
-	if(earthModel) {
-		// if this call was successful, m_earth will contain a pointer to the 3D model
-        m_house =  m_metaioSDK->createGeometry([earthModel UTF8String]);
-        if(m_house) {
-            // scale it a bit down
-            //m_earth->setScale(scale);
-			//m_earth->setRotation(rotation);
-            m_house->setCoordinateSystemID(1);
-            NSLog(@"Loaded");
-        } else {
-            NSLog(@"Error, could not load %@", earthModel);
-        }
+    if (modelPath) {
+        model = m_metaioSDK->createGeometry([modelPath UTF8String]);
+    } else {
+        NSLog(@"Cannot find model");
     }
+    model->setScale(metaio::Vector3d(6, 6, 6));
+    model->setRotation(metaio::Rotation(M_PI_2, 0, 0));
+    model->setCoordinateSystemID(1);
+    model->setTransparency(0.4f);
+    model->setVisible(false);
+    model->setAnimationSpeed(12.0f);
+    [[Engine sharedEngine] setSelection:model];
+    
+    self.nameLabel.text = @"";
+    self.populationLabel.text = @"";
+    
+    // First family house initialization
+    Building *building1 = [Building building];
+    building1.name = @"Karel's house";
+    building1.modelPathName = @"family-house-tex";
+    building1.population = 4;
+    
+    // Load building into game world
+    [self loadBuilding:building1 forID:1];
+    
+    Building *building2 = [Building building];
+    building2.name = @"Ludvig's house";
+    building2.modelPathName = @"family-house-tex";
+    building2.population = 2;
+    
+    [self loadBuilding:building2 forID:2];
+    
+}
 
+- (void)loadBuilding:(Building *)building forID:(NSInteger)markerID{
+    
+    // .ZIP model path, archive with geometry, textures and animations
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:building.modelPathName ofType:@"zip" inDirectory:MODEL_PATH];
+    
+    metaio::IGeometry *model = nil;
+    
+    // Test if path exist
+    if (modelPath) {
+        model = m_metaioSDK->createGeometry([modelPath UTF8String]);
+    } else {
+        NSLog(@"Cannot find model");
+    }
+    
+    // Test if geometry was loaded
+    if (model) {
+        building.model = model;
+        building.markerID = markerID;
+        
+        // Add whole building to gameboard
+        [[[Engine sharedEngine] buildings] addObject:building];
+    } else {
+        NSLog(@"Cannot load model at path: %@", modelPath);
+    }
     
 }
 
@@ -92,6 +133,41 @@
 	}
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+	CGPoint loc = [touch locationInView:glView];
+	
+    // get the scale factor (will be 2 for retina screens)
+    float scale = glView.contentScaleFactor;
+    
+	// ask SDK if the user picked an object
+	// the 'true' flag tells SDK to actually use the vertices for a hit-test, instead of just the bounding box
+    metaio::IGeometry* geometry = m_metaioSDK->getGeometryFromScreenCoordinates(loc.x * scale, loc.y * scale, true);
+	
+	if (geometry) {
+    
+    metaio::IGeometry *selection = [[Engine sharedEngine] selection];
+        
+        if (selection->isVisible()) {
+            selection->setVisible(false);
+            selection->stopAnimation();
+            self.nameLabel.text = @"";
+            self.populationLabel.text = @"";
+        } else {
+            Building *building = [[Engine sharedEngine] buildingForGeometry:geometry];
+            if (building) {
+                self.nameLabel.text = building.name;
+                self.populationLabel.text = [NSString stringWithFormat:@"Population: %ld", (long)building.population];
+            }
+            
+            selection->setCoordinateSystemID(geometry->getCoordinateSystemID());
+            selection->setVisible(true);
+            selection->startAnimation("Take 001", true);
+        }
+    }
+}
+
 #pragma mark - @protocol metaioSDKDelegate
 
 - (void) onSDKReady
@@ -102,6 +178,7 @@
 - (void) onAnimationEnd: (metaio::IGeometry*) geometry  andName:(NSString*) animationName
 {
     NSLog(@"animation ended %@", animationName);
+   
 }
 
 
@@ -178,4 +255,10 @@
 }
 */
 
+- (void)dealloc {
+    [_menuBar release];
+    [_nameLabel release];
+    [_populationLabel release];
+    [super dealloc];
+}
 @end

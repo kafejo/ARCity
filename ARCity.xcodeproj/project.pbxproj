@@ -23,8 +23,12 @@
 		9063720018E613CC00948C83 /* TrackingData_Marker.xml in Resources */ = {isa = PBXBuildFile; fileRef = 906371EF18E613CC00948C83 /* TrackingData_Marker.xml */; };
 		9063720218E6143900948C83 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9063720118E6143900948C83 /* iPhone.storyboard */; };
 		9063722918E617C800948C83 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 9063722818E617C700948C83 /* Models */; };
+		9063723E18E61CF600948C83 /* Building.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9063723D18E61CF600948C83 /* Building.mm */; };
+		9063724118E620D100948C83 /* Engine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9063724018E620D100948C83 /* Engine.mm */; };
 		906FAA5018E3581200372E5D /* metaioSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906FAA4F18E3581200372E5D /* metaioSDK.framework */; };
 		906FAA5218E3645200372E5D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 906FAA5118E3645200372E5D /* README.md */; };
+		907E65D318FD1E4600AFD8E0 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 907E65D118FD1E4600AFD8E0 /* menu-button.png */; };
+		907E65D418FD1E4600AFD8E0 /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 907E65D218FD1E4600AFD8E0 /* menu-button@2x.png */; };
 		9E6C92FE177C85FF0048052B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FD177C85FF0048052B /* OpenGLES.framework */; };
 		9E6C9300177C86020048052B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FF177C86020048052B /* Security.framework */; };
 		9E6C9302177C86080048052B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C9301177C86080048052B /* AVFoundation.framework */; };
@@ -67,8 +71,14 @@
 		906371EF18E613CC00948C83 /* TrackingData_Marker.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TrackingData_Marker.xml; sourceTree = "<group>"; };
 		9063720118E6143900948C83 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		9063722818E617C700948C83 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
+		9063723C18E61CF600948C83 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		9063723D18E61CF600948C83 /* Building.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Building.mm; sourceTree = "<group>"; };
+		9063723F18E620D100948C83 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		9063724018E620D100948C83 /* Engine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Engine.mm; sourceTree = "<group>"; };
 		906FAA4F18E3581200372E5D /* metaioSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = metaioSDK.framework; sourceTree = "<group>"; };
 		906FAA5118E3645200372E5D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		907E65D118FD1E4600AFD8E0 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		907E65D218FD1E4600AFD8E0 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
 		9E6C92FD177C85FF0048052B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		9E6C92FF177C86020048052B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9E6C9301177C86080048052B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				906371DE18E613CC00948C83 /* cancel.png */,
+				907E65D118FD1E4600AFD8E0 /* menu-button.png */,
+				907E65D218FD1E4600AFD8E0 /* menu-button@2x.png */,
 				906371DF18E613CC00948C83 /* Default-568h@2x.png */,
 				906371E018E613CC00948C83 /* Default-Landscape@2x~ipad.png */,
 				906371E118E613CC00948C83 /* Default-Landscape~ipad.png */,
@@ -154,6 +166,17 @@
 				906371E818E613CC00948C83 /* Icon@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		9063723B18E61CF600948C83 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9063723C18E61CF600948C83 /* Building.h */,
+				9063723D18E61CF600948C83 /* Building.mm */,
+				9063723F18E620D100948C83 /* Engine.h */,
+				9063724018E620D100948C83 /* Engine.mm */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		9E7FFDEB177C856600477DDE = {
@@ -204,6 +227,7 @@
 				9E7FFE06177C856600477DDE /* AppDelegate.h */,
 				9E7FFE07177C856600477DDE /* AppDelegate.mm */,
 				9E7FFE14177C85AF00477DDE /* Controllers */,
+				9063723B18E61CF600948C83 /* Classes */,
 				906371DC18E613CC00948C83 /* Resources */,
 				9E7FFDFE177C856600477DDE /* Supporting Files */,
 			);
@@ -234,8 +258,7 @@
 				906371D818E608A600948C83 /* GameViewController.h */,
 				906371D918E608A600948C83 /* GameViewController.mm */,
 			);
-			name = Controllers;
-			path = Classes;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +318,7 @@
 				906371DB18E60F7900948C83 /* iPad.storyboard in Resources */,
 				906371FA18E613CC00948C83 /* Icon@2x.png in Resources */,
 				906371F418E613CC00948C83 /* Default-Portrait@2x~ipad.png in Resources */,
+				907E65D418FD1E4600AFD8E0 /* menu-button@2x.png in Resources */,
 				906371F218E613CC00948C83 /* Default-Landscape@2x~ipad.png in Resources */,
 				906371F818E613CC00948C83 /* Icon-ipad.png in Resources */,
 				906371F018E613CC00948C83 /* cancel.png in Resources */,
@@ -303,6 +327,7 @@
 				906371F518E613CC00948C83 /* Default-Portrait~ipad.png in Resources */,
 				906371F318E613CC00948C83 /* Default-Landscape~ipad.png in Resources */,
 				906371F118E613CC00948C83 /* Default-568h@2x.png in Resources */,
+				907E65D318FD1E4600AFD8E0 /* menu-button.png in Resources */,
 				9063720018E613CC00948C83 /* TrackingData_Marker.xml in Resources */,
 				906371F918E613CC00948C83 /* Icon.png in Resources */,
 				906371F618E613CC00948C83 /* Default.png in Resources */,
@@ -316,11 +341,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9063724118E620D100948C83 /* Engine.mm in Sources */,
 				9E7FFE04177C856600477DDE /* main.m in Sources */,
 				9E7FFE08177C856600477DDE /* AppDelegate.mm in Sources */,
 				906371DA18E608A600948C83 /* GameViewController.mm in Sources */,
 				9E7FFE20177C85AF00477DDE /* EAGLView.mm in Sources */,
 				9E7FFE21177C85AF00477DDE /* MetaioSDKViewController.mm in Sources */,
+				9063723E18E61CF600948C83 /* Building.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +434,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARCity/ARCity-Prefix.pch";
 				INFOPLIST_FILE = "ARCity/ARCity-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = ARCity;
 				WRAPPER_EXTENSION = app;
 			};
@@ -426,7 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARCity/ARCity-Prefix.pch";
 				INFOPLIST_FILE = "ARCity/ARCity-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = ARCity;
 				WRAPPER_EXTENSION = app;
 			};
