@@ -1,0 +1,97 @@
+% program VLNA -- prida ~ tam kde je potřeba je soucasti texlive baliku
+\pdfoutput=1
+\documentclass[oneside,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{dipp}
+\usepackage{listings}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{filecontents}
+\usepackage{comment}
+\usepackage{listings}
+
+%
+%
+% START
+\begin{document}
+
+\def\,{\penalty10000\hskip.25em}
+\pagestyle{headings}
+\cislovat{2}
+\bakalarska
+\titul{Hra založená na rozšířené realitě pro platformu iOS}{Aleš Kocur}{Ing. David Procházka, Ph.D.}{Brno~2014}
+\obsah
+%
+% Přehled  literatury
+%
+\kapitola{Přehled literatury}
+% 
+% Úvod
+\sekce{iOS}
+Aplikace pro operační systém iOS byly vyvíjeny primárně v jazyku Objective-C, sekundárně C++, až do září roku 2014, kdy byl uveden nový programovací jazyk Swift. Práce bude zahrnovat zdrojový kód ve všech třech zmíněných jazycích (framework Metaio, o kterém se zmiňuji níže, je psán v C++) a jako hlavní literární zdroj bude využívat oficiální dokumentace iOS firmy Apple nazvaná \textit{iOS developer library} \cite{apple_library}. Dokumentace popisuje práci se systémovými frameworky, a to jak v jazyce Objective-C, tak Swift a popis jejich tříd a metod. Dále v ní nalezneme také konvence programování v těchto jazycích a iOS obecně. V práci se budu opírat zejména o část dokumentace týkající se frameworku \textit{CoreData} \cite{core_data}, která popisuje principy práce s daty v iOS a jejich perzistenci, a déle taky o principy programování pro iOS popsané v knize \textit{Programming iOS6} \cite{neuburg}, která nabízí obecnější pohled na programování pro iOS.
+
+Jazyk Swift je, jak již bylo zmíněno, poměrně nový jazyk, a proto je zatím dostupných publikací na toto téma velmi poskrovnu. Pro studium nového jazyka Swift vydal Apple e-book \textit{The Swift Programming Language} \cite{swift}. Jsou zde rozebrány jednotlivé obecné vlastnosti jazyka s názornými příklady praktického využití a také speciality Swiftu.
+Pro programování v jazyku C++ budu vycházet zejména z knihy \textit{The C++ Programming Language} \cite{c++}, a to hlavně z důvodu aktuálnosti -- jsou zde popisovány i nové funkce v C++11 standardu. Kniha také popisuje principy objektově orientovaného návrhu, kterým se celá práce bude řídit.
+
+\sekce{Rozšířená realita}
+Pro obecné studium rozšířené reality je dostupná velká řada publikací. \textit{Handbook of augmented reality} \cite{furht} je vhodná pro svůj široký záběr. Kniha je přehledně rozdělena do sekcí technologie, popisuje technologické principy a problém zobrazení rozšířené reality, a použití (např. v oborech jako je psychologie). Dále také porovnává mobilní frameworky pro tvorbu aplikací s rozšířenou realitou. \textit{Spatial augmented reality: merging real and virtual worlds} \cite{bimber} je další z řady knih o rozšířené realitě. Tato kniha je více zaměřena na technologii tvorby rozšířené reality než na její aplikaci, a navíc přidává kousky zdrojových kódů jako ukázky řešení jednotlivých problémových úloh. Kniha popisuje zejména vykreslovací algoritmy a algoritmy pro rozpoznávání různých typů markerů. 
+
+Po posouzení dostupných frameworků byl k práci vybrán framework Metaio. Veškeré dustupné funkce jsou zpracovány v online dokumentaci, která obsahuje všechny možné případy použití frameworku od detekce hran či markerů, až po vytváření vlastních 3D renderů, a využití doprovodných frameworků, jako je Junaio a podobně. K dispozici jsou také reference všech tříd frameworku a jejich metod. Jelikož se jedná o framework multiplatformní, jsou zde dostupné ukázky kódu ve více jazycích než jen Objective-C, např. Java, C++. Další literatura k tomuto konkrétnímu produktu neexistuje, nicméně pro bakalářskou práci naprosto vystačí.
+
+
+\begin{literatura}
+
+\citace{apple_library}{APPLE, 2014}
+{
+	\autor{APPLE, INC.}
+	\nazev{iOS developer library}
+	[online]. [cit. 2014-12-18]. Dostupné z: https://developer.apple.com/library/ios/navigation/	
+}
+
+\citace{core_data}{APPLE, 2014}{
+	\autor{APPLE, INC.}
+	\nazev{Core Data Programming Guide}
+	[online]. [cit. 2014-12-18]. Dostupné z: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ CoreData/cdProgrammingGuide.html
+}
+
+\citace{neuburg}{NEUBURG, 2013}{
+	\autor{NEUBURG, Matt}
+	\nazev{Programming iOS 6. 3rd edition}
+	Sebastopol: O´Reilly, 2013, xxvii, 1154 s. ISBN 978-1-449-36576-9.
+}
+
+\citace{swift}{APPLE, 2014}{
+	\autor{APPLE, INC.}
+	\nazev{The Swift Programming Language}
+	[online]. [cit. 2014-12-18]. Dostupné z: https://itunes.apple.com/us/book-series/swift-programming-series/id888896989?mt=11
+}
+
+\citace{c++}{STROUSTRUP, 2013}{
+	\autor{STROUSTRUP, Bjarne}
+	\nazev{The C++ Programming Language}
+	 Addison Wesley; 4 edition. 2013, 1368 s. ISBN 978-0321563842.
+}
+
+\citace{bimber}{BIMBER, 2005}{
+	\autor{BIMBER, Oliver}
+	\nazev{Spatial augmented reality: merging real and virtual worlds}
+	 Wellesley: A K Peters, 2005, xiii, 369 s. ISBN 15-688-1230-2
+}
+
+\citace{furht}{FURHT, 2011}{
+	\autor{FURHT, B.}
+	\nazev{Handbook of augmented reality}
+	New York, NY: Springer, 2011. 746 s. ISBN 978-1-4614-0063-9.
+}
+
+\citace{metaio}{Metaio, 2014}{
+	\autor{Metaio, gmbh}
+	\nazev{Metaio SDK Documentation}
+	[online]. [cit. 2014-12-18]. Dostupné z: http://dev.metaio.com/sdk/documentation/
+}
+
+
+
+\end{literatura}
+
+\end{document}
