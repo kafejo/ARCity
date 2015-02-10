@@ -10,29 +10,29 @@
 	<string>ARCity</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>A3728664-2ABF-43FC-8941-E7E97A9783C5</key>
+		<key>AEE14D9147939DD3B0A8B30F5E1A43440E3D6CCE</key>
 		<string>https://github.com/kafejo/ARCity.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ARCity.xcodeproj/project.xcworkspace</string>
+	<string>ARCity.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>A3728664-2ABF-43FC-8941-E7E97A9783C5</key>
+		<key>AEE14D9147939DD3B0A8B30F5E1A43440E3D6CCE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kafejo/ARCity.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A3728664-2ABF-43FC-8941-E7E97A9783C5</string>
+	<string>AEE14D9147939DD3B0A8B30F5E1A43440E3D6CCE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A3728664-2ABF-43FC-8941-E7E97A9783C5</string>
+			<string>AEE14D9147939DD3B0A8B30F5E1A43440E3D6CCE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ARCity</string>
 		</dict>

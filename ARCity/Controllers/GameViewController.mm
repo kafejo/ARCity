@@ -64,21 +64,20 @@
     self.nameLabel.text = @"";
     self.populationLabel.text = @"";
     
-    // First family house initialization
-    Building *building1 = [Building building];
-    building1.name = @"Karel's house";
-    building1.modelPathName = @"family-house-tex";
-    building1.population = 4;
+    for (int i = 1;i <= 20;i++) {
     
-    // Load building into game world
-    [self loadBuilding:building1 forID:1];
+        // First family house initialization
+        Building *building1 = [Building building];
+        building1.name = @"Karel's house";
+        building1.modelPathName = @"family-house-tex";
+        building1.population = 4;
+        
+        // Load building into game world
+        [self loadBuilding:building1 forID:i];
+    }
     
-    Building *building2 = [Building building];
-    building2.name = @"Ludvig's house";
-    building2.modelPathName = @"family-house-tex";
-    building2.population = 2;
+   
     
-    [self loadBuilding:building2 forID:2];
     
 }
 

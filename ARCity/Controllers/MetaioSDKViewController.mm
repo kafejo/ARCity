@@ -72,7 +72,6 @@
         [aContext release];
     }
     
-    
     // set the openGL context
     [glView setContext:context];
     [glView setFramebuffer];
