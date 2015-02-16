@@ -20,24 +20,49 @@
 \cislovat{2}
 \bakalarska
 \titul{Hra založená na rozšířené realitě pro platformu iOS}{Aleš Kocur}{Ing. David Procházka, Ph.D.}{Brno~2014}
+
 \obsah
+
+\newpage
 %
 % Přehled  literatury
 %
-\kapitola{Přehled literatury}
+\kapitola{Rešerše}
 % 
 % Úvod
+Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se bude zabývat aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. Cíl této práce je vytvořit hru pro mobilní operační systém iOS, která bude obohacena o prvky rozšířené reality.
+
+
 \sekce{iOS}
-Aplikace pro operační systém iOS byly vyvíjeny primárně v jazyku Objective-C, sekundárně C++, až do září roku 2014, kdy byl uveden nový programovací jazyk Swift. Práce bude zahrnovat zdrojový kód ve všech třech zmíněných jazycích (framework Metaio, o kterém se zmiňuji níže, je psán v C++) a jako hlavní literární zdroj bude využívat oficiální dokumentace iOS firmy Apple nazvaná \textit{iOS developer library} \cite{apple_library}. Dokumentace popisuje práci se systémovými frameworky, a to jak v jazyce Objective-C, tak Swift a popis jejich tříd a metod. Dále v ní nalezneme také konvence programování v těchto jazycích a iOS obecně. V práci se budu opírat zejména o část dokumentace týkající se frameworku \textit{CoreData} \cite{core_data}, která popisuje principy práce s daty v iOS a jejich perzistenci, a déle taky o principy programování pro iOS popsané v knize \textit{Programming iOS6} \cite{neuburg}, která nabízí obecnější pohled na programování pro iOS.
+Aplikace pro operační systém iOS byly vyvíjeny primárně v jazyku Objective-C, sekundárně C++, až do září roku 2014, kdy byl uveden nový programovací jazyk Swift. Ten se má podle strategie firmy Apple Inc. stát hlavním vývojovým jazykem pro tuto platformu. Práce bude zahrnovat zdrojový kód ve všech třech zmíněných jazycích (framework Metaio, o kterém se zmiňuji níže, je psán v C++) a jako hlavní literární zdroj budu využívat oficiální dokumentace iOS firmy Apple nazvaná \textit{iOS developer library} \cite{apple_library}. V práci se budu opírat zejména o část dokumentace týkající se frameworku \textit{CoreData} \cite{core_data}, která popisuje principy práce s daty v iOS a jejich perzistenci, a déle taky o principy programování pro iOS popsané v knize \textit{Programming iOS6} \cite{neuburg}, která nabízí obecnější pohled na programování pro iOS.
 
-Jazyk Swift je, jak již bylo zmíněno, poměrně nový jazyk, a proto je zatím dostupných publikací na toto téma velmi poskrovnu. Pro studium nového jazyka Swift vydal Apple e-book \textit{The Swift Programming Language} \cite{swift}. Jsou zde rozebrány jednotlivé obecné vlastnosti jazyka s názornými příklady praktického využití a také speciality Swiftu.
-Pro programování v jazyku C++ budu vycházet zejména z knihy \textit{The C++ Programming Language} \cite{c++}, a to hlavně z důvodu aktuálnosti -- jsou zde popisovány i nové funkce v C++11 standardu. Kniha také popisuje principy objektově orientovaného návrhu, kterým se celá práce bude řídit.
+\sekce{Rozšířená realita na iOS}
+Existuje řada frameworků poskytující možnosti práce s rozšířenou realitou, ale pouze málo z nich je komplexních a dobře zdokumentovaných, aby mohli sloužit k vytvoření hry. Byly hodnoceny tyto frameworky:
+\begin{itemize}
+\item 
+ARToolKit
+\item
+Metaio
+\item
+Qualcomm Vuforia
+\item
+Augmented kit
+\end{itemize}
 
-\sekce{Rozšířená realita}
-Pro obecné studium rozšířené reality je dostupná velká řada publikací. \textit{Handbook of augmented reality} \cite{furht} je vhodná pro svůj široký záběr. Kniha je přehledně rozdělena do sekcí technologie, popisuje technologické principy a problém zobrazení rozšířené reality, a použití (např. v oborech jako je psychologie). Dále také porovnává mobilní frameworky pro tvorbu aplikací s rozšířenou realitou. \textit{Spatial augmented reality: merging real and virtual worlds} \cite{bimber} je další z řady knih o rozšířené realitě. Tato kniha je více zaměřena na technologii tvorby rozšířené reality než na její aplikaci, a navíc přidává kousky zdrojových kódů jako ukázky řešení jednotlivých problémových úloh. Kniha popisuje zejména vykreslovací algoritmy a algoritmy pro rozpoznávání různých typů markerů. 
+\podsekce{ARToolKit}
+Tento framework poskytuje všechny základní funkce potřebné pro vytváření rozšířené reality, avšak má velmi omezenou dokumentaci a implementaci na iOS není plně kompatibilní s nejnověšími verzemi.
 
-Po posouzení dostupných frameworků byl k práci vybrán framework Metaio. Veškeré dustupné funkce jsou zpracovány v online dokumentaci, která obsahuje všechny možné případy použití frameworku od detekce hran či markerů, až po vytváření vlastních 3D renderů, a využití doprovodných frameworků, jako je Junaio a podobně. K dispozici jsou také reference všech tříd frameworku a jejich metod. Jelikož se jedná o framework multiplatformní, jsou zde dostupné ukázky kódu ve více jazycích než jen Objective-C, např. Java, C++. Další literatura k tomuto konkrétnímu produktu neexistuje, nicméně pro bakalářskou práci naprosto vystačí.
+\podsekce{Metaio}
+Metaio pro iOS je dostupné jako C++ framework, samotná práce tedy kombinuje programování ve 3 různých jazycích. V dokumentaci k tomuto frameworku lze nalézt příklady základní implementace jednotlivých funkcí. Další literatura k tomuto konkrétnímu produktu neexistuje, nicméně pro bakalářskou práci naprosto vystačí. Dokumentace uvádí měření ukazucí udržení výkonu vykreslování 60 snímků za vteřinu při 200 000 polygonech na iPhone 5S.
 
+\podsekce{Qualcomm Vuforia}
+Jedná se o poměrně nový framework (vyvíjen od roku 2011) a nabízí velmi komplexní funkce, které uspokojí i náročnější požadavky. Tento framework disponuje bohatou dokumentací avšak velká škála funkcí se promítá do licencování tohoto frameworku, které je omezeno počtem rozpoznaných objektů u neplacencýh licencí.
+
+\podsekce{Augmented kit}
+Framework psaný čistě pro platformu iOS a tedy v Objective-C. Vyniká jednoduchým API a dobrou dokumentací. Framework je vyvíjen teprve od roku 2012 a to se projevuje malou vývojářskou základnou.
+
+\sekce{Metodika}
+Prvním a zároveň velmi důležitým krokem bude zvolení správného frameworku na základě kriterií, mezi něž patří rychlost vykreslování, licencování a dokumentace. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
 
 \begin{literatura}
 
@@ -52,6 +77,12 @@ Po posouzení dostupných frameworků byl k práci vybrán framework Metaio. Ve�
 	\autor{APPLE, INC.}
 	\nazev{Core Data Programming Guide}
 	[online]. [cit. 2014-12-18]. Dostupné z: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ CoreData/cdProgrammingGuide.html
+}
+
+\citace{baum}{BAUM, 1901} {
+	\autor{L. Frank Baum}
+	\nazev{The Master Key: An Electrical Fairy Tale, Founded Upon the Mysteries of Electricity and the Optimism of Its Devotees}
+	BiblioBazaar, 2006, ISBN 978-1426409240
 }
 
 \citace{neuburg}{NEUBURG, 2013}{
@@ -90,7 +121,11 @@ Po posouzení dostupných frameworků byl k práci vybrán framework Metaio. Ve�
 	[online]. [cit. 2014-12-18]. Dostupné z: http://dev.metaio.com/sdk/documentation/
 }
 
-
+\citace{metaio_polycount}{Metaio, 2015}{
+	\autor{Metaio, gmbh}
+	\nazev{Metaio SDK Documentation - General guidelines}
+	[online]. [cit. 2015-02-16]. Dostupné z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/
+}
 
 \end{literatura}
 
