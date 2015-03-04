@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  16 FEB 2015 19:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  4 MAR 2015 20:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -656,11 +656,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./dipp
 .toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
+(Font)              <6> on input line 7.
 )
 \tf@toc=\write5
 \openout5 = `dipp.toc'.
@@ -669,14 +669,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
- (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
-
-Underfull \hbox (badness 1210) in paragraph at lines 53--54
+Underfull \hbox (badness 1210) in paragraph at lines 40--41
 \OT1/cmr/m/n/12 Tento fra-mework po-sky-tuje v^^Tsechny z^^Sakladn^^S^^P funkce
  pot^^Trebn^^Se pro vytv^^Sa^^Tren^^S^^P
  []
@@ -684,52 +677,28 @@ Underfull \hbox (badness 1210) in paragraph at lines 53--54
 [3
 
 
-] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-[]\OT1/cmr/m/sc/12 APPLE, INC. \OT1/cmr/m/it/12 Core Data Pro-gra-m-ming Gu-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-\OT1/cmr/m/it/12 ide \OT1/cmr/m/n/12 [on-line]. [cit. 2014-12-18]. Do-stupn^^Se
- z:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-\OT1/cmr/m/n/12 https://developer.apple.com/library/ios/documentation/Cocoa/Con
-ceptual/
- []
-
-
-Underfull \hbox (badness 3919) in paragraph at lines 98--99
-[]\OT1/cmr/m/sc/12 APPLE, INC. \OT1/cmr/m/it/12 The Swift Pro-gra-m-ming Lan-gu
--age \OT1/cmr/m/n/12 [on-line]. [cit. 2014-12-
- []
-
-[5] (./dipp.aux) ) 
+] [4] [5] (./dipp.aux) ) 
 Here is how much of TeX's memory you used:
- 19869 strings out of 493488
- 444915 string characters out of 3141326
+ 19844 strings out of 493488
+ 444534 string characters out of 3141326
  545823 words of memory out of 3000000
- 22787 multiletter control sequences out of 15000+200000
+ 22765 multiletter control sequences out of 15000+200000
  11549 words of font info for 40 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,8n,74p,969b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmss12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti12.pfb>
-Output written on dipp.pdf (5 pages, 120084 bytes).
+ 63i,8n,74p,815b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmss12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb>
+Output written on dipp.pdf (5 pages, 108287 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 55 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

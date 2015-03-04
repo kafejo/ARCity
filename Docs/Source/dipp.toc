@@ -1,10 +1,8 @@
 \select@language {czech}
 \contentsline {section}{\numberline {1}Re\IeC {\v s}er\IeC {\v s}e}{3}
-\contentsline {subsection}{\numberline {1.1}iOS}{3}
-\contentsline {subsection}{\numberline {1.2}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'a} realita na iOS}{3}
 \contentsline {subsubsection}{ARToolKit}{3}
-\contentsline {subsubsection}{Metaio}{4}
-\contentsline {subsubsection}{Qualcomm Vuforia}{4}
+\contentsline {subsubsection}{Metaio}{3}
+\contentsline {subsubsection}{Qualcomm Vuforia}{3}
 \contentsline {subsubsection}{Augmented kit}{4}
-\contentsline {subsection}{\numberline {1.3}Metodika}{4}
+\contentsline {subsection}{\numberline {1.1}C\IeC {\'\i }l pr\IeC {\'a}ce}{4}
 \contentsline {section}{\numberline {2}Reference}{5}

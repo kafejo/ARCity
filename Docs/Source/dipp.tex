@@ -30,24 +30,11 @@
 \kapitola{Rešerše}
 % 
 % Úvod
-Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se bude zabývat aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. Cíl této práce je vytvořit hru pro mobilní operační systém iOS, která bude obohacena o prvky rozšířené reality.
+Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se bude zabývat aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
 
+Jednou z populárních her je hra ARhrrrr, která využívá vytištěné hrací plochy k vizualizaci části města, kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Další konceptem je interakce s herní deskou, kdy hráč interaguje pomocí gest nebo stisknutím virtuálních tlačítek na desce. Tento koncept štěpí interakční část a zobrazovací a pro uživatele může být v některých případech obzvlášť nepříjemný. Z tohoto důvodu budu využívat koncept zmíněný prvně.
 
-\sekce{iOS}
-Aplikace pro operační systém iOS byly vyvíjeny primárně v jazyku Objective-C, sekundárně C++, až do září roku 2014, kdy byl uveden nový programovací jazyk Swift. Ten se má podle strategie firmy Apple Inc. stát hlavním vývojovým jazykem pro tuto platformu. Práce bude zahrnovat zdrojový kód ve všech třech zmíněných jazycích (framework Metaio, o kterém se zmiňuji níže, je psán v C++) a jako hlavní literární zdroj budu využívat oficiální dokumentace iOS firmy Apple nazvaná \textit{iOS developer library} \cite{apple_library}. V práci se budu opírat zejména o část dokumentace týkající se frameworku \textit{CoreData} \cite{core_data}, která popisuje principy práce s daty v iOS a jejich perzistenci, a déle taky o principy programování pro iOS popsané v knize \textit{Programming iOS6} \cite{neuburg}, která nabízí obecnější pohled na programování pro iOS.
-
-\sekce{Rozšířená realita na iOS}
-Existuje řada frameworků poskytující možnosti práce s rozšířenou realitou, ale pouze málo z nich je komplexních a dobře zdokumentovaných, aby mohli sloužit k vytvoření hry. Byly hodnoceny tyto frameworky:
-\begin{itemize}
-\item 
-ARToolKit
-\item
-Metaio
-\item
-Qualcomm Vuforia
-\item
-Augmented kit
-\end{itemize}
+Frameworků pro iOS poskytující možnosti práce s rozšířenou realitou existuje velká škála, ale pouze málo z nich je komplexních a dobře zdokumentovaných, aby mohli sloužit k vytvoření hry. 
 
 \podsekce{ARToolKit}
 Tento framework poskytuje všechny základní funkce potřebné pro vytváření rozšířené reality, avšak má velmi omezenou dokumentaci a implementaci na iOS není plně kompatibilní s nejnověšími verzemi.
@@ -61,23 +48,25 @@ Jedná se o poměrně nový framework (vyvíjen od roku 2011) a nabízí velmi k
 \podsekce{Augmented kit}
 Framework psaný čistě pro platformu iOS a tedy v Objective-C. Vyniká jednoduchým API a dobrou dokumentací. Framework je vyvíjen teprve od roku 2012 a to se projevuje malou vývojářskou základnou.
 
-\sekce{Metodika}
-Prvním a zároveň velmi důležitým krokem bude zvolení správného frameworku na základě kriterií, mezi něž patří rychlost vykreslování, licencování a dokumentace. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
+Za nejvhodnější framework jsem na základě kritérií - rychlosti, funkčnosti, srozumitelnosti API a licencování - a testovacího projektu zvolil Metaio.
+
+\sekce{Cíl práce}
+Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, které bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
 
 \begin{literatura}
 
-\citace{apple_library}{APPLE, 2014}
-{
-	\autor{APPLE, INC.}
-	\nazev{iOS developer library}
-	[online]. [cit. 2014-12-18]. Dostupné z: https://developer.apple.com/library/ios/navigation/	
-}
+%\citace{apple_library}{APPLE, 2014}
+%{
+%	\autor{APPLE, INC.}
+%	\nazev{iOS developer library}
+%	[online]. [cit. 2014-12-18]. Dostupné z: %https://developer.apple.com/library/ios/navigation/	
+%}
 
-\citace{core_data}{APPLE, 2014}{
-	\autor{APPLE, INC.}
-	\nazev{Core Data Programming Guide}
-	[online]. [cit. 2014-12-18]. Dostupné z: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ CoreData/cdProgrammingGuide.html
-}
+%\citace{core_data}{APPLE, 2014}{
+%	\autor{APPLE, INC.}
+%	\nazev{Core Data Programming Guide}
+%	[online]. [cit. 2014-12-18]. Dostupné z: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ CoreData/cdProgrammingGuide.html
+%}
 
 \citace{baum}{BAUM, 1901} {
 	\autor{L. Frank Baum}
@@ -85,23 +74,23 @@ Prvním a zároveň velmi důležitým krokem bude zvolení správného framewor
 	BiblioBazaar, 2006, ISBN 978-1426409240
 }
 
-\citace{neuburg}{NEUBURG, 2013}{
-	\autor{NEUBURG, Matt}
-	\nazev{Programming iOS 6. 3rd edition}
-	Sebastopol: O´Reilly, 2013, xxvii, 1154 s. ISBN 978-1-449-36576-9.
-}
-
-\citace{swift}{APPLE, 2014}{
-	\autor{APPLE, INC.}
-	\nazev{The Swift Programming Language}
-	[online]. [cit. 2014-12-18]. Dostupné z: https://itunes.apple.com/us/book-series/swift-programming-series/id888896989?mt=11
-}
-
-\citace{c++}{STROUSTRUP, 2013}{
-	\autor{STROUSTRUP, Bjarne}
-	\nazev{The C++ Programming Language}
-	 Addison Wesley; 4 edition. 2013, 1368 s. ISBN 978-0321563842.
-}
+%\citace{neuburg}{NEUBURG, 2013}{
+%	\autor{NEUBURG, Matt}
+%	\nazev{Programming iOS 6. 3rd edition}
+%	Sebastopol: O´Reilly, 2013, xxvii, 1154 s. ISBN 978-1-449-36576-9.
+%}
+%
+%\citace{swift}{APPLE, 2014}{
+%	\autor{APPLE, INC.}
+%	\nazev{The Swift Programming Language}
+%	[online]. [cit. 2014-12-18]. Dostupné z: https://itunes.apple.com/us/book-series/swift-programming-series/id888896989?mt=11
+%}
+%
+%\citace{c++}{STROUSTRUP, 2013}{
+%	\autor{STROUSTRUP, Bjarne}
+%	\nazev{The C++ Programming Language}
+%	 Addison Wesley; 4 edition. 2013, 1368 s. ISBN 978-0321563842.
+%}
 
 \citace{bimber}{BIMBER, 2005}{
 	\autor{BIMBER, Oliver}
