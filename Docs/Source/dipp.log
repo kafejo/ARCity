@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  10 MAR 2015 16:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  11 MAR 2015 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -654,16 +654,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./dipp
-.toc)
+.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+)
 \tf@toc=\write5
 \openout5 = `dipp.toc'.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
 
 [2
 
@@ -672,15 +673,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ] [4
 
-] [5] (./dipp.aux) ) 
+]
+Underfull \hbox (badness 1210) in paragraph at lines 53--54
+\OT1/cmr/m/n/12 Tento fra-mework po-sky-tuje v^^Tsechny z^^Sakladn^^S^^P funkce
+ pot^^Trebn^^Se pro vytv^^Sa^^Tren^^S^^P
+ []
+
+[5
+
+] [6] [7
+
+] [8] (./dipp.aux) ) 
 Here is how much of TeX's memory you used:
- 19845 strings out of 493488
- 444542 string characters out of 3141326
- 545823 words of memory out of 3000000
- 22766 multiletter control sequences out of 15000+200000
+ 19848 strings out of 493488
+ 444566 string characters out of 3141326
+ 543823 words of memory out of 3000000
+ 22769 multiletter control sequences out of 15000+200000
  11549 words of font info for 40 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,8n,74p,1403b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,8n,74p,1112b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
@@ -690,10 +701,10 @@ s/cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
 cm/cmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti12.pfb>
-Output written on dipp.pdf (5 pages, 108116 bytes).
+Output written on dipp.pdf (8 pages, 121069 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

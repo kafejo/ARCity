@@ -32,30 +32,51 @@
 % Úvod
 Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se bude zabývat aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
 
-Jednou z populárních her je hra ARhrrrr, která využívá vytištěné hrací plochy k vizualizaci části města, kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Například hra ARDefender požaduje vytištění markerů, na kterých si hráč následně postaví věže které střílí a nebo jiným způsobem interagují. Zároveň uživatel může markery posouvat a tím rozestavovat věže do jiných uskupení.
+Jednou z populárních her je hra ARhrrrr!, která využívá vytištěné hrací plochy k vizualizaci části města, kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Například hra ARDefender požaduje vytištění markerů, na kterých si hráč následně postaví věže které střílí a nebo jiným způsobem interagují. Zároveň uživatel může markery posouvat a tím rozestavovat věže do jiných uskupení.
 
-Vývoj her s rozšířenou realitou je stejně jako vývoj jakýchkoliv her složitý a časově náročný. Proto je důležitá správná volba frameworků zajišťující určité oblasti vývoje jako je v tomto případě vykreslování 3D modelů, animace, rozpoznávání markerů a podobně. Většina dostupných frameworků pro práci s rozšířenou realitou sdružuje všechny zmíněné oblasti do jednoho řešení a navíc nabízí i další funkce nebo multiplatformnost. Mezi nejznámnější frameworky patří ARToolKit, Metaio, Qualcomm Vuforia a Augmented kit. Metaio se v současné době jeví jako nejlepší volba pro tvorbu mobilních aplikací a to zejména díky velké komunitě, multiplatformnosti, skvělých výkonů a doplňujících nástrojů, se kterými si dokáže človek vytvořit jednoduchou aplikaci i bez znalosti programování. Další cestou jak vytvářet rozšířenou realitu v mobilních aplikacích je pak kombinace několika frameworků pro jednotlivé součásti. Analýzu obrazu dokáže zajistit opensource framework OpenCV, 3D modely a jejich animaci pak také opensource framework Cocos3d nebo komerční Unity, nicméně toto řešení vyžaduje velmi hluboké znalosti matematiky spojené s 3D modelováním pro získání stejného efektu jako při použítí komplexního řešení typu Metaio.
+Vývoj her s rozšířenou realitou je stejně jako vývoj jakýchkoliv her složitý a časově náročný. Proto je důležitá správná volba frameworků zajišťující určité oblasti vývoje jako je v tomto případě vykreslování 3D modelů, animace, rozpoznávání markerů a podobně. Většina dostupných frameworků pro práci s rozšířenou realitou sdružuje všechny zmíněné oblasti do jednoho řešení a navíc nabízí i další funkce nebo multiplatformnost. Mezi nejznámnější frameworky patří ARToolKit, Metaio, Qualcomm Vuforia a Augmented kit. Další cestou jak vytvářet rozšířenou realitu v mobilních aplikacích je pak kombinace několika frameworků pro jednotlivé součásti. Analýzu obrazu dokáže zajistit opensource framework OpenCV, 3D modely a jejich animaci pak také opensource framework Cocos3d nebo komerční Unity, nicméně toto řešení vyžaduje velmi hluboké znalosti matematiky spojené s 3D modelováním pro získání stejného efektu jako při použítí komplexního řešení typu Metaio.
 
-%Další konceptem je interakce s herní deskou, kdy hráč interaguje pomocí gest nebo stisknutím virtuálních tlačítek na desce. Tento koncept štěpí interakční část a zobrazovací a pro uživatele může být v některých případech obzvlášť nepříjemný. Z tohoto důvodu budu využívat koncept zmíněný prvně.
-%
-%Frameworků pro iOS poskytující možnosti práce s rozšířenou realitou existuje velká škála, ale pouze málo z nich je komplexních a dobře zdokumentovaných, aby mohli sloužit k vytvoření hry. 
-%
-%\podsekce{ARToolKit}
-%Tento framework poskytuje všechny základní funkce potřebné pro vytváření rozšířené reality, avšak má velmi omezenou dokumentaci a implementaci na iOS není plně kompatibilní s nejnověšími verzemi.
-%
-%\podsekce{Metaio}
-%Metaio pro iOS je dostupné jako C++ framework, samotná práce tedy kombinuje programování ve 3 různých jazycích. V dokumentaci k tomuto frameworku lze nalézt příklady základní implementace jednotlivých funkcí. Další literatura k tomuto konkrétnímu produktu neexistuje, nicméně pro bakalářskou práci naprosto vystačí. Dokumentace uvádí měření ukazucí udržení výkonu vykreslování 60 snímků za vteřinu při 200 000 polygonech na iPhone 5S.
-%
-%\podsekce{Qualcomm Vuforia}
-%Jedná se o poměrně nový framework (vyvíjen od roku 2011) a nabízí velmi komplexní funkce, které uspokojí i náročnější požadavky. Tento framework disponuje bohatou dokumentací avšak velká škála funkcí se promítá do licencování tohoto frameworku, které je omezeno počtem rozpoznaných objektů u neplacencýh licencí.
-%
-%\podsekce{Augmented kit}
-%Framework psaný čistě pro platformu iOS a tedy v Objective-C. Vyniká jednoduchým API a dobrou dokumentací. Framework je vyvíjen teprve od roku 2012 a to se projevuje malou vývojářskou základnou.
-%
-%Za nejvhodnější framework jsem na základě kritérií - rychlosti, funkčnosti, srozumitelnosti API a licencování - a testovacího projektu zvolil Metaio.
 
-\kapitola{Cíl práce}
+\kapitola{Cíl práce a metodika}
+\sekce{Cíl práce}
 Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, které bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
+
+\sekce{Metodika}
+Prvním a zároveň velmi důležitým krokem bude zvolení správného frameworku na základě kriterií, mezi něž patří rychlost vykreslování, licencování a dokumentace. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
+
+\kapitola{Rešerše frameworků a konceptů}
+
+\sekce{Frameworky}
+Frameworků pro iOS poskytující možnosti práce s rozšířenou realitou existuje velká škála, ale pouze málo z nich je komplexních a dobře zdokumentovaných, aby mohli sloužit k vytvoření hry.
+
+\podsekce{ARToolKit}
+Tento framework poskytuje všechny základní funkce potřebné pro vytváření rozšířené reality, avšak má velmi omezenou dokumentaci a implementace na iOS není plně kompatibilní s nejnověšími verzemi. Zároveň neposkytuje volné licence pro nekomerční nebo školní použití.
+
+\podsekce{Metaio}
+Metaio je multiplatformní framework který vyvíjí stejnojmenná německá firma od roku 2003. Mezi produkty Metaio najdeme framework pro rozšířenou realitu na všechny majoritní platformy a také sadu aplikačních nástrojů specializující se na usnadnění práce i samotný vývoj bez programování. Metaio pro iOS je dostupné jako C++ framework. V dokumentaci k tomuto frameworku lze nalézt příklady základní implementace jednotlivých funkcí. Dokumentace také uvádí měření, ukazucí udržení výkonu vykreslování 60 snímků za vteřinu při 200 000 polygonech na iPhone 5S, což je velmi dobrý výsledek.
+
+\podsekce{Qualcomm Vuforia}
+Jedná se o poměrně nový framework (vyvíjen od roku 2011) a nabízí velmi komplexní funkce, které uspokojí i náročnější požadavky. Tento framework disponuje bohatou dokumentací avšak velká škála funkcí se promítá do licencování tohoto frameworku, které je omezeno počtem rozpoznaných objektů u neplacených licencí.
+
+\podsekce{Augmented kit}
+Framework psaný čistě pro platformu iOS a tedy v Objective-C. Vyniká jednoduchým API a dobrou dokumentací. Framework je vyvíjen teprve od roku 2012 a to se projevuje malou vývojářskou základnou. Na druhou stranu má přívětivé licenční podmínky, kdy poskytuje volnou licenci pod podmínkou vodoznaku a nemožnosti aplikaci publikovat na AppStore.
+
+\sekce{Koncepty}
+Koncepty interakce s rozšířenou realitou můžeme rozdělit do třech kategorií.
+
+\podsekce{Interakce se zařízením}
+Veškerá interakce hráče probíhá pouze na zařízení, hráč vůbec nemanipuluje s prvky herního pole. Tento koncept je vhodný pro zejména pro typy her ve kterých nepotřebujeme pohybovat s objekty.
+
+\podsekce{Interakce s herní deskou}
+Dalším konceptem je interakce s herní deskou, kdy hráč interaguje pomocí gest nebo stisknutím virtuálních tlačítek na desce. Tento koncept štěpí interakční část a zobrazovací (hráč manipuluje s prvky na desce, ale výsledek vidí pouze přes zařízení) a pro uživatele může být v některých případech obzvlášť nepříjemný na ovládání.
+
+\podsekce{Smíšená interakce}
+Tento koncept kombinuje předchozí dva uvedené. Hráč v tomto případě primárně používá zařízení, ale má i možnost ovládat herní prvky v reálném prostřední na herní desce. Jako příklad lze uvést výše zmíněnou hru ARhrrrr!, kdy hráč může položit bonbony Skittles na herní plochu a hra je po rozpoznání bere jako miny, které, po střelbě do nich, vybouchnou.
+
+\kapitola{Závěr}
+Za nejvhodnější framework jsem na základě testovacího projektu a kritérií - rychlosti, funkčnosti, srozumitelnosti API a licencování - zvolil Metaio. Metaio se v současné době jeví jako nejlepší volba pro tvorbu mobilních aplikací s rozšířenou realitou a to zejména díky velké komunitě, multiplatformnosti, skvělých výkonů a doplňujících nástrojů. 
+
+Při výběru konceptu interakce bylo hlavními kritérii jednoduchost a přímočarost ovládání. Z tohoto důvodu bude hra využívat konceptu \textit{Interakce se zařízením}.
 
 \begin{literatura}
 
