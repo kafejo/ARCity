@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>84065EC8-DCF3-4ACD-9359-527141B20CC4</string>
+	<string>4BB4D318-B2A4-4E21-9396-0F8CA3C33813</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ARCity</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>AEE14D9147939DD3B0A8B30F5E1A43440E3D6CCE</key>
-		<string>https://github.com/kafejo/ARCity.git</string>
+		<string>https://bitbucket.org/kafejo/arcity.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ARCity.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kafejo/ARCity.git</string>
+	<string>https://bitbucket.org/kafejo/arcity.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
