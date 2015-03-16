@@ -1,5 +1,6 @@
 // Copyright 2007-2014 metaio GmbH. All rights reserved.
 #import "NativeViewController.h"
+#import "Engine.h"
 
 @implementation NativeViewController
 
@@ -18,92 +19,51 @@
 
 
 	// load our tracking configuration
-	NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_MarkerlessFast" ofType:@"xml" inDirectory:@"templatesContent_crossplatform"];
-	if (trackingDataFile)
-	{
+	NSString* trackingDataFile = [[NSBundle mainBundle] pathForResource:@"TrackingData_Marker" ofType:@"xml"];
+    
+	if (trackingDataFile) {
         const bool success = m_pMetaioSDK->setTrackingConfiguration(metaio::Path::fromUTF8([trackingDataFile UTF8String]));
-		if (!success)
-		{
+        
+		if (!success) {
 			NSLog(@"Failed to load tracking configuration");
 		}
-	}
-	else
-	{
+	} else {
 		NSLog(@"File not found");
 	}
 
-	metaio::Vector3d scale = metaio::Vector3d(11.f);
-	metaio::Rotation rotation = metaio::Rotation(metaio::Vector3d(M_PI_2, 0.f, 0.f));
+    
+    NSString* modelPath = [[NSBundle mainBundle] pathForResource:@"selection" ofType:@"zip"];
+    metaio::IGeometry *model = nil;
+    
+    if (modelPath) {
+        model = m_pMetaioSDK->createGeometry([modelPath UTF8String]);
+    } else {
+        NSLog(@"Cannot find model");
+    }
+    model->setScale(metaio::Vector3d(6, 6, 6));
+    model->setRotation(metaio::Rotation(M_PI_2, 0, 0));
+    model->setCoordinateSystemID(1);
+    model->setTransparency(0.4f);
+    model->setVisible(false);
+    model->setAnimationSpeed(12.0f);
+    [[Engine sharedEngine] setSelection:model];
+    
+//    self.nameLabel.text = @"";
+//    self.populationLabel.text = @"";
+    
+    for (int i = 1;i <= 20;i++) {
+        
+        // First family house initialization
+        Building *building1 = [Building building];
+        building1.name = @"Karel's house";
+        building1.modelPathName = @"family-house-tex";
+        building1.population = 4;
+        
+        // Load building into game world
+        [self loadBuilding:building1 forID:i];
+    }
 
-	// load content
-	NSString* earthModel = [[NSBundle mainBundle] pathForResource:@"Earth" ofType:@"zip" inDirectory:@"templatesContent_crossplatform"];
-
-	if (earthModel)
-	{
-		// if this call was successful, m_earth will contain a pointer to the 3D model
-		m_earth =  m_pMetaioSDK->createGeometry(metaio::Path::fromUTF8([earthModel UTF8String]));
-		if (m_earth)
-		{
-			// scale it a bit down
-			m_earth->setScale(scale);
-			m_earth->setRotation(rotation);
-		}
-		else
-		{
-			NSLog(@"error, could not load %@", earthModel);
-		}
-	}
-	else
-	{
-		NSLog(@"File not found");
-	}
-
-	// load content
-	NSString* earthOcclusionModel = [[NSBundle mainBundle] pathForResource:@"Earth_Occlusion" ofType:@"zip" inDirectory:@"templatesContent_crossplatform"];
-
-	if (earthOcclusionModel)
-	{
-		// if this call was successful, m_earth will contain a pointer to the 3D model
-		m_earthOcclusion =  m_pMetaioSDK->createGeometry(metaio::Path::fromUTF8([earthOcclusionModel UTF8String]));
-		if (m_earthOcclusion)
-		{
-			// scale it a bit down
-			m_earthOcclusion->setScale(scale);
-			m_earthOcclusion->setRotation(rotation);
-			m_earthOcclusion->setOcclusionMode(true);
-		}
-		else
-		{
-			NSLog(@"error, could not load %@", earthOcclusionModel);
-		}
-	}
-	else
-	{
-		NSLog(@"File not found");
-	}
-
-	// load content
-	NSString* earthIndicatorsModel = [[NSBundle mainBundle] pathForResource:@"EarthIndicators" ofType:@"zip" inDirectory:@"templatesContent_crossplatform"];
-
-	if (earthIndicatorsModel)
-	{
-		// if this call was successful, m_earth will contain a pointer to the 3D model
-		m_earthIndicators =  m_pMetaioSDK->createGeometry(metaio::Path::fromUTF8([earthIndicatorsModel UTF8String]));
-		if (m_earthIndicators)
-		{
-			// scale it a bit down
-			m_earthIndicators->setScale(scale);
-			m_earthIndicators->setRotation(rotation);
-		}
-		else
-		{
-			NSLog(@"error, could not load %@", earthIndicatorsModel);
-		}
-	}
-	else
-	{
-		NSLog(@"File not found");
-	}
+    
 }
 
 
@@ -197,6 +157,34 @@
 	}
 }
 
+- (void)loadBuilding:(Building *)building forID:(NSInteger)markerID{
+    
+    // .ZIP model path, archive with geometry, textures and animations
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:building.modelPathName ofType:@"zip"];
+    
+    metaio::IGeometry *model = nil;
+    
+    // Test if path exist
+    if (modelPath) {
+        model = m_pMetaioSDK->createGeometry([modelPath UTF8String]);
+    } else {
+        NSLog(@"Cannot find model");
+    }
+    
+    // Test if geometry was loaded
+    if (model) {
+        building.model = model;
+        building.markerID = markerID;
+        
+        // Add whole building to gameboard
+        [[[Engine sharedEngine] buildings] addObject:building];
+    } else {
+        NSLog(@"Cannot load model at path: %@", modelPath);
+    }
+    
+}
+
+
 
 #pragma mark - Handling Touches
 
@@ -214,21 +202,28 @@
 	// the 'true' flag tells SDK to actually use the vertices for a hit-test, instead of just the bounding box
 	 metaio::IGeometry* geometry = m_pMetaioSDK->getGeometryFromViewportCoordinates(loc.x * scale, loc.y * scale, true);
 
-	if (geometry && geometry != m_earthOcclusion)
-	{
-		if (!m_earthOpened)
-		{
-			m_earth->startAnimation("Open", false);
-			m_earthIndicators->startAnimation("Grow", false);
-			m_earthOpened = true;
-		}
-		else
-		{
-			m_earth->startAnimation("Close", false);
-			m_earthIndicators->startAnimation("Shrink", false);
-			m_earthOpened = false;
-		}
-	}
+    if (geometry) {
+        
+        metaio::IGeometry *selection = [[Engine sharedEngine] selection];
+        
+        if (selection->isVisible()) {
+            selection->setVisible(false);
+            selection->stopAnimation();
+//            self.nameLabel.text = @"";
+//            self.populationLabel.text = @"";
+        } else {
+            Building *building = [[Engine sharedEngine] buildingForGeometry:geometry];
+            if (building) {
+//                self.nameLabel.text = building.name;
+//                self.populationLabel.text = [NSString stringWithFormat:@"Population: %ld", (long)building.population];
+            }
+            
+            selection->setCoordinateSystemID(geometry->getCoordinateSystemID());
+            selection->setVisible(true);
+            selection->startAnimation("Take 001", true);
+        }
+    }
+
 }
 
 @end
