@@ -7,9 +7,9 @@
 \contentsline {subsection}{\numberline {3.1}Frameworky}{5}
 \contentsline {subsubsection}{ARToolKit}{5}
 \contentsline {subsubsection}{Metaio}{5}
-\contentsline {subsubsection}{Qualcomm Vuforia}{5}
-\contentsline {subsubsection}{Augmented kit}{5}
-\contentsline {subsection}{\numberline {3.2}Koncepty}{5}
+\contentsline {subsubsection}{Qualcomm Vuforia}{6}
+\contentsline {subsubsection}{Augmented kit}{6}
+\contentsline {subsection}{\numberline {3.2}Koncepty}{6}
 \contentsline {subsubsection}{Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{6}
 \contentsline {subsubsection}{Interakce s hern\IeC {\'\i } deskou}{6}
 \contentsline {subsubsection}{Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{6}

@@ -2,26 +2,23 @@
 //  Building.h
 //  ARCity
 //
-//  Created by Aleš Kocur on 28/03/14.
-//  Copyright (c) 2014 metaio GmbH. All rights reserved.
+//  Created by Aleš Kocur on 18/03/15.
+//  Copyright (c) 2015 metaio GmbH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <metaioSDK/MetaioSDKViewController.h>
-//#import "MetaioSDKViewController.h"
 
-#define MODEL_PATH @"Models"
+typedef NS_ENUM(NSUInteger, BuildingType) {
+    BuildingTypeHouse
+};
 
 @interface Building : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *modelPathName;
-@property (assign) NSInteger population;
-@property metaio::IGeometry *model;
+@property (nonatomic) metaio::IGeometry *geometry;
 
-+ (instancetype)buildingWithModel:(metaio::IGeometry *)model;
-+ (instancetype)building;
++ (instancetype)buildingWithType:(BuildingType)type metaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK;
 
-- (void)setMarkerID:(NSInteger)markerID;
+- (void)setMarkerId:(NSUInteger)marker_id;
 
 @end

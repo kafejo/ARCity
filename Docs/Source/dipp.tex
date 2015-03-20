@@ -9,6 +9,7 @@
 \usepackage{filecontents}
 \usepackage{comment}
 \usepackage{listings}
+\usepackage[export]{adjustbox}
 
 %
 %
@@ -50,10 +51,17 @@ Prvním a zároveň velmi důležitým krokem bude zvolení správného framewor
 Frameworků pro iOS poskytující možnosti práce s rozšířenou realitou existuje velká škála, ale pouze málo z nich je komplexních a dobře zdokumentovaných, aby mohli sloužit k vytvoření hry.
 
 \podsekce{ARToolKit}
-Tento framework poskytuje všechny základní funkce potřebné pro vytváření rozšířené reality, avšak má velmi omezenou dokumentaci a implementace na iOS není plně kompatibilní s nejnověšími verzemi. Zároveň neposkytuje volné licence pro nekomerční nebo školní použití.
+ARToolkit byl původně vyvinut Hirokazu Katou na Nara Institute of Science and Technology v roce 1999. Nyní je udržován jako open source projekt s komerčníma licencema od ARToolWork. Tento framework je dostupný pro všechny majoritní platformy (Windows, Linux, Mac OS X, SGI) s různými porty pro mobilní operační systémy (iOS, Android). Mezi jeho hlavní fukce patří kamerově pozicováné a orientováné sledování, sledování černých čtverců s možností definice vlastních typů, jednoduchá kalibrace kamer. Většinou je využit v projektech jako část komplexního toolkitu pro práci s rozšířenou realitou např. OSGART (kombinace ARToolKit a OpenSceneGraph) nebo ARToolKitPlus (rozšířená verze ARToolKitu).
 
 \podsekce{Metaio}
-Metaio je multiplatformní framework který vyvíjí stejnojmenná německá firma od roku 2003. Mezi produkty Metaio najdeme framework pro rozšířenou realitu na všechny majoritní platformy a také sadu aplikačních nástrojů specializující se na usnadnění práce i samotný vývoj bez programování. Metaio pro iOS je dostupné jako C++ framework. V dokumentaci k tomuto frameworku lze nalézt příklady základní implementace jednotlivých funkcí. Dokumentace také uvádí měření, ukazucí udržení výkonu vykreslování 60 snímků za vteřinu při 200 000 polygonech na iPhone 5S, což je velmi dobrý výsledek.
+Metaio je multiplatformní framework který vyvíjí stejnojmenná německá firma od roku 2003. Mezi produkty Metaio najdeme framework pro rozšířenou realitu na všechny majoritní platformy a také sadu aplikačních nástrojů specializující se na usnadnění práce i samotný vývoj bez programování. Metaio pro iOS je dostupné jako C++ framework. V dokumentaci k tomuto frameworku lze nalézt příklady základní implementace jednotlivých funkcí. Dokumentace také uvádí měření, ukazující udržení výkonu vykreslování 60 snímků za vteřinu při 200 000 polygonech na iPhone 5S.
+
+%\begin{figure}[h!]
+    \includegraphics[width=330px, left]{Polycount_SDK_iOS_20fps.png}
+ %   \caption{Awesome Image}
+  %  \label{fig:awesome_image}
+%\end{figure}
+%\includegraphics[width=400px]{Polycount_SDK_iOS_20fps}
 
 \podsekce{Qualcomm Vuforia}
 Jedná se o poměrně nový framework (vyvíjen od roku 2011) a nabízí velmi komplexní funkce, které uspokojí i náročnější požadavky. Tento framework disponuje bohatou dokumentací avšak velká škála funkcí se promítá do licencování tohoto frameworku, které je omezeno počtem rozpoznaných objektů u neplacených licencí.

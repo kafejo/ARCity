@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		907D15E31AB74FAB007F5A98 /* metaioSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FB177C85D90048052B /* metaioSDK.framework */; };
-		907D15E81AB7529F007F5A98 /* Building.mm in Sources */ = {isa = PBXBuildFile; fileRef = 907D15E61AB7529F007F5A98 /* Building.mm */; };
+		907D15E81AB7529F007F5A98 /* Plot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 907D15E61AB7529F007F5A98 /* Plot.mm */; };
 		907D15E91AB7529F007F5A98 /* Engine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 907D15E71AB7529F007F5A98 /* Engine.mm */; };
 		907D160B1AB752AC007F5A98 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 907D15EC1AB752AC007F5A98 /* cancel.png */; };
 		907D160C1AB752AC007F5A98 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 907D15ED1AB752AC007F5A98 /* Default-568h@2x.png */; };
@@ -39,6 +39,8 @@
 		907D16251AB752AC007F5A98 /* test-building.obj in Resources */ = {isa = PBXBuildFile; fileRef = 907D16071AB752AC007F5A98 /* test-building.obj */; };
 		907D16261AB752AC007F5A98 /* test-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 907D16081AB752AC007F5A98 /* test-building.png */; };
 		907D16271AB752AC007F5A98 /* TrackingData_Marker.xml in Resources */ = {isa = PBXBuildFile; fileRef = 907D16091AB752AC007F5A98 /* TrackingData_Marker.xml */; };
+		9095FA2E1ABC37FF006CD0FA /* plot.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9095FA2D1ABC37FF006CD0FA /* plot.zip */; };
+		90D5DBE31AB9BC9E006EA193 /* Building.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90D5DBE21AB9BC9E006EA193 /* Building.mm */; };
 		9E384CF4190ABC470037E16E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E384CF3190ABC470037E16E /* CoreImage.framework */; };
 		9E6C92FE177C85FF0048052B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FD177C85FF0048052B /* OpenGLES.framework */; };
 		9E6C9300177C86020048052B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FF177C86020048052B /* Security.framework */; };
@@ -64,13 +66,17 @@
 		9E93C40D194992A1001C21F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E93C40C194992A1001C21F8 /* Main.storyboard */; };
 		9E93C40F19499345001C21F8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E93C40E19499345001C21F8 /* GLKit.framework */; };
 		9ED7381119AB636A00626EDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7381019AB636A00626EDC /* Images.xcassets */; };
+		EB42A5BCD70E3523CE74B369 /* libPods-ARCity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33633EFF77C340E9C35271E6 /* libPods-ARCity.a */; };
 		F265F69019E83E8800D7E75C /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F265F68F19E83E8800D7E75C /* EventKitUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33633EFF77C340E9C35271E6 /* libPods-ARCity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARCity.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3557980C0616AEBCAB430D08 /* Pods-ARCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARCity/Pods-ARCity.release.xcconfig"; sourceTree = "<group>"; };
+		8BEBD8113AC29FFF917CD0C7 /* Pods-ARCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARCity/Pods-ARCity.debug.xcconfig"; sourceTree = "<group>"; };
 		907D15E41AB7529F007F5A98 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
-		907D15E51AB7529F007F5A98 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
-		907D15E61AB7529F007F5A98 /* Building.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Building.mm; sourceTree = "<group>"; };
+		907D15E51AB7529F007F5A98 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		907D15E61AB7529F007F5A98 /* Plot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Plot.mm; sourceTree = "<group>"; };
 		907D15E71AB7529F007F5A98 /* Engine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Engine.mm; sourceTree = "<group>"; };
 		907D15EC1AB752AC007F5A98 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		907D15ED1AB752AC007F5A98 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -101,6 +107,9 @@
 		907D16071AB752AC007F5A98 /* test-building.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "test-building.obj"; sourceTree = "<group>"; };
 		907D16081AB752AC007F5A98 /* test-building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-building.png"; sourceTree = "<group>"; };
 		907D16091AB752AC007F5A98 /* TrackingData_Marker.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TrackingData_Marker.xml; sourceTree = "<group>"; };
+		9095FA2D1ABC37FF006CD0FA /* plot.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = plot.zip; sourceTree = "<group>"; };
+		90D5DBE11AB9BC9E006EA193 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		90D5DBE21AB9BC9E006EA193 /* Building.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Building.mm; sourceTree = "<group>"; };
 		9E384CF3190ABC470037E16E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E6C92FB177C85D90048052B /* metaioSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = metaioSDK.framework; sourceTree = "<group>"; };
 		9E6C92FD177C85FF0048052B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -161,12 +170,22 @@
 				9E7FFDF8177C856600477DDE /* UIKit.framework in Frameworks */,
 				9E7FFDFA177C856600477DDE /* Foundation.framework in Frameworks */,
 				9E7FFDFC177C856600477DDE /* CoreGraphics.framework in Frameworks */,
+				EB42A5BCD70E3523CE74B369 /* libPods-ARCity.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F710E8AE208B40957CD316F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BEBD8113AC29FFF917CD0C7 /* Pods-ARCity.debug.xcconfig */,
+				3557980C0616AEBCAB430D08 /* Pods-ARCity.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		907D15EA1AB752AC007F5A98 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +219,7 @@
 		907D15F91AB752AC007F5A98 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9095FA2D1ABC37FF006CD0FA /* plot.zip */,
 				907D15FA1AB752AC007F5A98 /* family-house-tex.FBX */,
 				907D15FB1AB752AC007F5A98 /* family-house-tex.mtl */,
 				907D15FC1AB752AC007F5A98 /* family-house-tex.obj */,
@@ -234,6 +254,7 @@
 				9E7FFDFD177C856600477DDE /* ARCity */,
 				9E7FFDF6177C856600477DDE /* Frameworks */,
 				9E7FFDF5177C856600477DDE /* Products */,
+				1F710E8AE208B40957CD316F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,6 +290,7 @@
 				9E7FFDF7177C856600477DDE /* UIKit.framework */,
 				9E7FFDF9177C856600477DDE /* Foundation.framework */,
 				9E7FFDFB177C856600477DDE /* CoreGraphics.framework */,
+				33633EFF77C340E9C35271E6 /* libPods-ARCity.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -302,10 +324,12 @@
 		9E7FFE14177C85AF00477DDE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				907D15E51AB7529F007F5A98 /* Building.h */,
-				907D15E61AB7529F007F5A98 /* Building.mm */,
+				907D15E51AB7529F007F5A98 /* Plot.h */,
+				907D15E61AB7529F007F5A98 /* Plot.mm */,
 				907D15E41AB7529F007F5A98 /* Engine.h */,
 				907D15E71AB7529F007F5A98 /* Engine.mm */,
+				90D5DBE11AB9BC9E006EA193 /* Building.h */,
+				90D5DBE21AB9BC9E006EA193 /* Building.mm */,
 			);
 			name = Model;
 			path = Classes;
@@ -318,9 +342,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E7FFE11177C856600477DDE /* Build configuration list for PBXNativeTarget "ARCity" */;
 			buildPhases = (
+				7D7F776933CB7FEEF051BEFB /* Check Pods Manifest.lock */,
 				9E7FFDF0177C856600477DDE /* Sources */,
 				9E7FFDF1177C856600477DDE /* Frameworks */,
 				9E7FFDF2177C856600477DDE /* Resources */,
+				A1440FA22E26273E9A7F4816 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -376,6 +402,7 @@
 				907D16231AB752AC007F5A98 /* sphere.zip in Resources */,
 				907D16141AB752AC007F5A98 /* Icon.png in Resources */,
 				907D161A1AB752AC007F5A98 /* family-house-tex.obj in Resources */,
+				9095FA2E1ABC37FF006CD0FA /* plot.zip in Resources */,
 				907D16101AB752AC007F5A98 /* Default-Portrait~ipad.png in Resources */,
 				907D16151AB752AC007F5A98 /* Icon@2x.png in Resources */,
 				907D161C1AB752AC007F5A98 /* family-house-tex.zip in Resources */,
@@ -399,6 +426,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7D7F776933CB7FEEF051BEFB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A1440FA22E26273E9A7F4816 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARCity/Pods-ARCity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9E7FFDF0177C856600477DDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -406,9 +466,10 @@
 			files = (
 				9E7FFE04177C856600477DDE /* main.m in Sources */,
 				907D15E91AB7529F007F5A98 /* Engine.mm in Sources */,
-				907D15E81AB7529F007F5A98 /* Building.mm in Sources */,
+				907D15E81AB7529F007F5A98 /* Plot.mm in Sources */,
 				9E7FFE08177C856600477DDE /* AppDelegate.mm in Sources */,
 				9E7FFE22177C85AF00477DDE /* NativeViewController.mm in Sources */,
+				90D5DBE31AB9BC9E006EA193 /* Building.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +512,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,7 +537,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -486,6 +547,7 @@
 		};
 		9E7FFE12177C856600477DDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BEBD8113AC29FFF917CD0C7 /* Pods-ARCity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -497,7 +559,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARCity/ARCity-Prefix.pch";
 				INFOPLIST_FILE = "ARCity/ARCity-Info.plist";
-				OTHER_LDFLAGS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = ARCity;
 				WRAPPER_EXTENSION = app;
 			};
@@ -505,6 +568,7 @@
 		};
 		9E7FFE13177C856600477DDE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3557980C0616AEBCAB430D08 /* Pods-ARCity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -516,7 +580,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARCity/ARCity-Prefix.pch";
 				INFOPLIST_FILE = "ARCity/ARCity-Info.plist";
-				OTHER_LDFLAGS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = ARCity;
 				WRAPPER_EXTENSION = app;
 			};

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  11 MAR 2015 10:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  18 MAR 2015 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -558,38 +558,86 @@ eX document
 (/usr/local/texlive/2012/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write4
 
-Excluding comment 'comment') (./dipp.aux)
+Excluding comment 'comment')
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks38
+\XKV@tempa@toks=\toks39
+\XKV@depth=\count127
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box38
+)
+\tc@llx=\dimen178
+\tc@lly=\dimen179
+\tc@urx=\dimen180
+\tc@ury=\dimen181
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen182
+\adjbox@Height=\dimen183
+\adjbox@Depth=\dimen184
+\adjbox@Totalheight=\dimen185
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
+\c@checkoddpage=\count128
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box39
+\sift@deathcycles=\count129
+\@vwid@loff=\dimen186
+\@vwid@roff=\dimen187
+))
+(./dipp.aux)
 \openout1 = `dipp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucsencs.def
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count127
-\scratchdimen=\dimen178
-\scratchbox=\box38
-\nofMPsegments=\count128
-\nofMParguments=\count129
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count130
-\MPscratchDim=\dimen179
-\MPnumerator=\count131
-\makeMPintoPDFobject=\count132
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count130
+\scratchdimen=\dimen188
+\scratchbox=\box40
+\nofMPsegments=\count131
+\nofMParguments=\count132
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count133
+\MPscratchDim=\dimen189
+\MPnumerator=\count134
+\makeMPintoPDFobject=\count135
+\everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -638,7 +686,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count133
+\c@lstlisting=\count136
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-1.def
@@ -648,9 +696,9 @@ File: uni-1.def 2012/04/20 UCS: Unicode data U+0100..U+01FF
 File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 22.
+(Font)              <14.4> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 22.
+(Font)              <7> on input line 23.
  [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./dipp
@@ -673,22 +721,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ] [4
 
-]
-Underfull \hbox (badness 1210) in paragraph at lines 53--54
-\OT1/cmr/m/n/12 Tento fra-mework po-sky-tuje v^^Tsechny z^^Sakladn^^S^^P funkce
- pot^^Trebn^^Se pro vytv^^Sa^^Tren^^S^^P
+] <Polycount_SDK_iOS_20fps.png, id=24, 646.66594pt x 398.23781pt>
+File: Polycount_SDK_iOS_20fps.png Graphic file (type png)
+
+<use Polycount_SDK_iOS_20fps.png>
+Package pdftex.def Info: Polycount_SDK_iOS_20fps.png used on input line 60.
+(pdftex.def)             Requested size: 331.23871pt x 203.98578pt.
+
+Overfull \hbox (23.49976pt too wide) in paragraph at lines 60--65
+[][] 
  []
 
 [5
 
-] [6] [7
+ <./Polycount_SDK_iOS_20fps.png>] [6] [7
 
 ] [8] (./dipp.aux) ) 
 Here is how much of TeX's memory you used:
- 19848 strings out of 493488
- 444566 string characters out of 3141326
- 543823 words of memory out of 3000000
- 22769 multiletter control sequences out of 15000+200000
+ 20565 strings out of 493488
+ 456053 string characters out of 3141326
+ 549860 words of memory out of 3000000
+ 23452 multiletter control sequences out of 15000+200000
  11549 words of font info for 40 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  63i,8n,74p,1112b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -701,10 +754,10 @@ s/cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
 cm/cmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti12.pfb>
-Output written on dipp.pdf (8 pages, 121069 bytes).
+Output written on dipp.pdf (8 pages, 143044 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
