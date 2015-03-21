@@ -1,0 +1,10 @@
+/* 
+  Localized.strings
+  ARCity
+
+  Created by Aleš Kocur on 20/03/15.
+  Copyright (c) 2015 metaio GmbH. All rights reserved.
+*/
+
+"NEW_GAME" = "New game";
+"CONTINUE_GAME" = "Continue";

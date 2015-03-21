@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Plot.h"
 #import <metaioSDK/MetaioSDKViewController.h>
-
-#define GAMEBOARD_SIZE 20
+#import "GameSession+DataAccess.h"
 
 @protocol EngineProtocol<NSObject>
 
@@ -20,21 +19,13 @@
 
 @interface Engine : NSObject
 
-@property (nonatomic, strong) NSArray *plots;
-@property metaio::IGeometry *selection;
 @property (nonatomic) id<EngineProtocol> delegate;
-
+@property (nonatomic) GameSession *session;
 
 + (instancetype)sharedEngine;
 
-/// Setter for metaio SDK, it provides Augmeted reality functions
-- (void)setupWithMetaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK;
-
-/// Getter for metaio SDK
-- (metaio::IMetaioSDKIOS *)metaioSDK;
-
-/// Returns Plot object for given geometry
-- (Plot *)plotForGeometry:(metaio::IGeometry *)geometry;
+/// Main setup for game engine
+- (void)setupWithMetaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK gameSession:(GameSession *)session;
 
 /// Removes building from plot and scene
 - (void)removeBuildingAtPlot:(Plot *)plot;

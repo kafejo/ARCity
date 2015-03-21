@@ -1,12 +1,12 @@
 // Copyright 2007-2014 metaio GmbH. All rights reserved.
-#import "NativeViewController.h"
+#import "GameViewController.h"
 #import "Engine.h"
 
-@interface NativeViewController()<EngineProtocol>
+@interface GameViewController()<EngineProtocol>
 
 @end
 
-@implementation NativeViewController
+@implementation GameViewController
 
 
 #pragma mark - UIViewController lifecycle
@@ -22,7 +22,7 @@
     
     [self loadTrackingConfiguration];
     Engine *engine = [Engine sharedEngine];
-    [engine setupWithMetaioSDK:m_pMetaioSDK];
+    [engine setupWithMetaioSDK:m_pMetaioSDK gameSession:self.session];
     engine.delegate = self;
     
 }
@@ -135,12 +135,6 @@
 	}
 }
 
-- (void)loadBuilding:(Building *)building forID:(NSInteger)markerID{
-    
-    // .ZIP model path, archive with geometry, textures and animations
-   
-    
-}
 
 
 #pragma mark - Handling Touches
