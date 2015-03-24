@@ -10,8 +10,8 @@
 \contentsline {subsubsection}{Qualcomm Vuforia}{6}
 \contentsline {subsubsection}{Augmented kit}{6}
 \contentsline {subsection}{\numberline {3.2}Koncepty}{6}
-\contentsline {subsubsection}{Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{6}
-\contentsline {subsubsection}{Interakce s hern\IeC {\'\i } deskou}{6}
-\contentsline {subsubsection}{Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{6}
-\contentsline {section}{\numberline {4}Z\IeC {\'a}v\IeC {\v e}r}{7}
-\contentsline {section}{\numberline {5}Reference}{8}
+\contentsline {subsubsection}{Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{7}
+\contentsline {subsubsection}{Interakce s hern\IeC {\'\i } deskou}{7}
+\contentsline {subsubsection}{Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{7}
+\contentsline {section}{\numberline {4}Z\IeC {\'a}v\IeC {\v e}r}{8}
+\contentsline {section}{\numberline {5}Reference}{9}

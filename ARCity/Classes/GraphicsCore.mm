@@ -35,10 +35,12 @@
         
         if (graphicsCore.selection) {
             
-            graphicsCore.selection->setScale(metaio::Vector3d(1.5, 1.5, 1.5));
+            graphicsCore.selection->setScale(metaio::Vector3d(6, 6, 6));
             graphicsCore.selection->setRotation(metaio::Rotation(M_PI_2, 0, 0));
             graphicsCore.selection->setCoordinateSystemID(1000);
             graphicsCore.selection->setVisible(false);
+            graphicsCore.selection->setTransparency(0.4f);
+            graphicsCore.selection->setAnimationSpeed(12.0f);
             
         } else {
             NSLog(@"Error! Cannot load plot geometry!");
@@ -160,8 +162,8 @@
         
         if (geometry) {
 
-            geometry->setScale(metaio::Vector3d(6, 6, 6));
-            geometry->setRotation(metaio::Rotation(M_PI_2, 0, 0));
+//            geometry->setScale(metaio::Vector3d(6, 6, 6));
+//            geometry->setRotation(metaio::Rotation(M_PI_2, 0, 0));
             
         } else {
             NSLog(@"Error! Cannot load plot geometry!");
@@ -175,30 +177,82 @@
     return geometry;
 }
 
-- (NSInteger)markerIdWithTouchPoint:(CGPoint)touchPoint {
+- (NSNumber *)markerIdWithTouchPoint:(CGPoint)touchPoint {
     metaio::IGeometry *geometry = self.metaioSDK->getGeometryFromViewportCoordinates(touchPoint.x, touchPoint.y, true);
     
     if (geometry) {
-        return (NSInteger)geometry->getCoordinateSystemID();
+        return @(geometry->getCoordinateSystemID());
+    } else {
+        return nil;
     }
-    
-    NSLog(@"Not found");
-    
-    return -1;
+
 }
 
-- (void)selectPlotAtMarkerId:(NSInteger)markerId {
+- (void)selectMarkerId:(NSInteger)markerId {
     if (self.selection) {
         
         if (self.selection->getCoordinateSystemID() == (int)markerId) {
-            self.selection->setVisible(!self.selection->isVisible());
+            
+            if (self.selection->isVisible()) {
+
+                
+                self.selection->setVisible(false);
+                self.selection->stopAnimation();
+                
+                if (self.delegate) {
+                    [self.delegate didDeselectMarker:@(self.selection->getCoordinateSystemID())];
+                }
+            } else {
+                
+                self.selection->startAnimation("Take 001", true);
+                self.selection->setVisible(true);
+                
+                if (self.delegate) {
+                    [self.delegate didSelectMarker:@(self.selection->getCoordinateSystemID())];
+                }
+            }
+            
+            
+
         } else {
             self.selection->setCoordinateSystemID((int)markerId);
+            
+            self.selection->startAnimation("Take 001", true);
             self.selection->setVisible(true);
+            
+            if (self.delegate) {
+                [self.delegate didSelectMarker:@(self.selection->getCoordinateSystemID())];
+            }
         }
         
     } else {
         NSLog(@"Error: Missing selection geometry");
+    }
+}
+
+- (BOOL)isSelectedMarker {
+    return self.selection->isVisible();
+}
+- (NSNumber *)selectedMarkerId {
+    if (self.selection->isVisible()) {
+        return @(self.selection->getCoordinateSystemID());
+    } else {
+        return nil;
+    }
+}
+
+- (NSNumber *)deselectSelectedMarker {
+    if (self.selection->isVisible()) {
+        self.selection->setVisible(false);
+        self.selection->stopAnimation();
+        if (self.delegate) {
+            [self.delegate didDeselectMarker:@(self.selection->getCoordinateSystemID())];
+        }
+        
+        return @(self.selection->getCoordinateSystemID());
+        
+    } else {
+        return nil;
     }
 }
 

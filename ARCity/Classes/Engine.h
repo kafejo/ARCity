@@ -10,10 +10,12 @@
 #import "Plot.h"
 #import <metaioSDK/MetaioSDKViewController.h>
 #import "GameSession+DataAccess.h"
+#import "Building+DataAccess.h"
 
 @protocol EngineProtocol<NSObject>
 
 - (void)didSelectPlot:(Plot *)plot;
+- (void)didDeselectPlot:(Plot *)plot;
 
 @end
 
@@ -32,5 +34,13 @@
 
 /// Process touch and call appropriate delegate method if needed
 - (void)processTouchAtPoint:(CGPoint)touchPoint;
+
+- (BOOL)isSelectedPlot;
+
+/// Selected plot if any, otherwise nil
+- (Plot *)selectedPlot;
+
+/// Build house
+- (void)buildBuilding:(BuildingType)type atPlot:(Plot *)plot;
 
 @end

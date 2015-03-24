@@ -83,6 +83,9 @@ typedef NS_ENUM(NSInteger, MainMenuItemTag) {
     [self performSegueWithIdentifier:@"showGame" sender:self];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.0f;
+}
 
 #pragma mark - Navigation
 

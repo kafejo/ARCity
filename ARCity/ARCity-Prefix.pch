@@ -9,3 +9,5 @@
 	#import <Foundation/Foundation.h>
     #import "CoreData+MagicalRecord.h"
 #endif
+
+#define REGISTER_CELL_FOR_TABLE(_cellClass, _table) ([_table registerNib:[UINib nibWithNibName:NSStringFromClass([_cellClass class]) bundle:nil] forCellReuseIdentifier:[_cellClass identifier]])

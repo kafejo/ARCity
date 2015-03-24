@@ -11,7 +11,7 @@
 @implementation GameSession (DataAccess)
 
 + (instancetype)lastGameSession {
-    NSArray *session = [GameSession MR_findAllSortedBy:@"last_played" ascending:YES];
+    NSArray *session = [GameSession MR_findAllSortedBy:@"last_played" ascending:NO];
     
     if (session && session.count != 0) {
         return [session firstObject];

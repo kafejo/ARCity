@@ -9,7 +9,7 @@
 #import "Building.h"
 
 typedef NS_ENUM(NSUInteger, BuildingType) {
-    BuildingTypeHouse
+    BuildingTypeHouse = 0
 };
 
 @interface Building(DataAccess)

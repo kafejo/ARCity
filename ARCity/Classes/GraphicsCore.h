@@ -13,13 +13,25 @@
 
 @class GameSession;
 
+@protocol GraphicsCoreDelegate <NSObject>
+
+- (void)didDeselectMarker:(NSNumber *)markerId;
+- (void)didSelectMarker:(NSNumber *)markerId;
+
+@end
+
 @interface GraphicsCore : NSObject
+
+@property (nonatomic) id<GraphicsCoreDelegate> delegate;
 
 + (instancetype)graphicsCoreWithMetaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK;
 
-- (NSInteger)markerIdWithTouchPoint:(CGPoint)touchPoint;
-- (void)selectPlotAtMarkerId:(NSInteger)markerId;
+- (NSNumber *)markerIdWithTouchPoint:(CGPoint)touchPoint;
+- (void)selectMarkerId:(NSInteger)markerId;
 - (void)startDrawingGameSession:(GameSession *)session;
 - (void)stopDrawingCurrentGameSession;
+- (BOOL)isSelectedMarker;
+- (NSNumber *)selectedMarkerId;
+- (NSNumber *)deselectSelectedMarker;
 
 @end

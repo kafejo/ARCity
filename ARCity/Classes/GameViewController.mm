@@ -1,8 +1,12 @@
 // Copyright 2007-2014 metaio GmbH. All rights reserved.
 #import "GameViewController.h"
 #import "Engine.h"
+#import "BuildingMenu.h"
 
-@interface GameViewController()<EngineProtocol>
+@interface GameViewController()<EngineProtocol, BuildingMenuDelegate>
+@property (strong, nonatomic) IBOutlet BuildingMenu *buidingMenuView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *buildingMenuRightConstraint;
+
 
 @end
 
@@ -25,6 +29,8 @@
     [engine setupWithMetaioSDK:m_pMetaioSDK gameSession:self.session];
     engine.delegate = self;
     
+    self.buidingMenuView.delegate = self;
+    [self toggleBuildingMenu:false animated:false];
 }
 
 - (void)loadTrackingConfiguration {
@@ -43,11 +49,30 @@
 
 }
 
+#pragma mark - Building menu delegate
+
+- (void)buildingMenu:(BuildingMenu *)menu didSelectBuildingType:(BuildingType)buildingType {
+    Engine *engine = [Engine sharedEngine];
+    
+    if ([engine isSelectedPlot]) {
+        [engine buildBuilding:buildingType atPlot:[engine selectedPlot]];
+    }
+}
+
 #pragma mark - Engine delegate
 
 - (void)didSelectPlot:(Plot *)plot {
     NSLog(@"Did select plot at index: %lu", (unsigned long)plot.markerId);
+    
+    [self toggleBuildingMenu:YES];
+    
 }
+
+- (void)didDeselectPlot:(Plot *)plot {
+    NSLog(@"Did deselect plot at index: %lu", (unsigned long)plot.markerId);
+    [self toggleBuildingMenu:NO];
+}
+
 
 #pragma mark - @protocol metaioSDKDelegate
 
@@ -135,7 +160,39 @@
 	}
 }
 
+#pragma mark - Subview manipulations
 
+- (void)toggleBuildingMenu:(BOOL)show {
+    [self toggleBuildingMenu:show animated:YES];
+}
+
+- (void)toggleBuildingMenu:(BOOL)show animated:(BOOL)animated {
+    
+    if (show && self.buildingMenuRightConstraint.constant != 0) {
+        self.buildingMenuRightConstraint.constant = 0;
+        
+        if (animated) {
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                [self.buidingMenuView layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
+        
+    } else if(!show && self.buildingMenuRightConstraint.constant != -self.buidingMenuView.frame.size.width) {
+        self.buildingMenuRightConstraint.constant = -self.buidingMenuView.frame.size.width;
+        
+        if (animated) {
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                [self.buidingMenuView layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
+        
+    }
+    
+}
 
 #pragma mark - Handling Touches
 

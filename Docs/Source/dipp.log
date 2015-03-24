@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  18 MAR 2015 10:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  24 MAR 2015 08:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -607,37 +607,45 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen186
 \@vwid@roff=\dimen187
 ))
-(./dipp.aux)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count130
+\float@exts=\toks40
+\float@box=\box40
+\@float@everytoks=\toks41
+\@floatcapt=\box41
+) (./dipp.aux)
 \openout1 = `dipp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
- (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucsencs.def
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
+\scratchcounter=\count131
 \scratchdimen=\dimen188
-\scratchbox=\box40
-\nofMPsegments=\count131
-\nofMParguments=\count132
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count133
+\scratchbox=\box42
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count134
 \MPscratchDim=\dimen189
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
-\everyMPtoPDFconversion=\toks41
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks43
 ) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -686,7 +694,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count136
+\c@lstlisting=\count137
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-1.def
@@ -696,9 +704,9 @@ File: uni-1.def 2012/04/20 UCS: Unicode data U+0100..U+01FF
 File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 23.
+(Font)              <14.4> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 23.
+(Font)              <7> on input line 24.
  [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./dipp
@@ -725,23 +733,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 File: Polycount_SDK_iOS_20fps.png Graphic file (type png)
 
 <use Polycount_SDK_iOS_20fps.png>
-Package pdftex.def Info: Polycount_SDK_iOS_20fps.png used on input line 60.
-(pdftex.def)             Requested size: 331.23871pt x 203.98578pt.
+Package pdftex.def Info: Polycount_SDK_iOS_20fps.png used on input line 62.
+(pdftex.def)             Requested size: 321.20117pt x 197.80586pt.
+ [5
 
-Overfull \hbox (23.49976pt too wide) in paragraph at lines 60--65
-[][] 
- []
+] [6 <./Polycount_SDK_iOS_20fps.png>]
+[7] [8
 
-[5
-
- <./Polycount_SDK_iOS_20fps.png>] [6] [7
-
-] [8] (./dipp.aux) ) 
+] [9] (./dipp.aux) ) 
 Here is how much of TeX's memory you used:
- 20565 strings out of 493488
- 456053 string characters out of 3141326
- 549860 words of memory out of 3000000
- 23452 multiletter control sequences out of 15000+200000
+ 20623 strings out of 493488
+ 456821 string characters out of 3141326
+ 551235 words of memory out of 3000000
+ 23506 multiletter control sequences out of 15000+200000
  11549 words of font info for 40 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  63i,8n,74p,1112b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -754,10 +758,10 @@ s/cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
 cm/cmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti12.pfb>
-Output written on dipp.pdf (8 pages, 143044 bytes).
+Output written on dipp.pdf (9 pages, 144415 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
