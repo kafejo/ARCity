@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R19-iW-COp">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="fsU-Ag-51E">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="R19-iW-COp" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n3J-Kx-3OF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="n3N-6A-OGa" kind="relationship" relationship="rootViewController" id="etK-7m-xwe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q18-dN-S7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-609.375" y="424.64788732394362"/>
+        </scene>
+        <!--Main Menu View Controller-->
+        <scene sceneID="kLr-9S-sTW">
+            <objects>
+                <viewController id="n3N-6A-OGa" customClass="MainMenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cK2-zc-1yo"/>
+                        <viewControllerLayoutGuide type="bottom" id="P1u-fz-LaK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jN8-Jv-1ec">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HYb-g1-CRQ">
+                                <rect key="frame" x="0.0" y="130" width="600" height="381"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="mainMenuCell" rowHeight="60" id="WC3-SJ-udd" customClass="MainMenuCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WC3-SJ-udd" id="uuO-1g-60D">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DEW-GR-6Qo">
+                                                    <rect key="frame" x="20" y="19" width="560" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="DEW-GR-6Qo" secondAttribute="trailing" constant="20" id="D43-Oj-gdd"/>
+                                                <constraint firstItem="DEW-GR-6Qo" firstAttribute="leading" secondItem="uuO-1g-60D" secondAttribute="leading" constant="20" id="a6T-Qe-8VZ"/>
+                                                <constraint firstAttribute="centerY" secondItem="DEW-GR-6Qo" secondAttribute="centerY" id="iMz-8k-LtT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="DEW-GR-6Qo" id="YDp-4n-FsK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="n3N-6A-OGa" id="Y1p-6E-oGt"/>
+                                    <outlet property="delegate" destination="n3N-6A-OGa" id="3yk-h8-Seb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HYb-g1-CRQ" firstAttribute="top" secondItem="cK2-zc-1yo" secondAttribute="bottom" constant="110" id="FJS-oB-o2x"/>
+                            <constraint firstItem="HYb-g1-CRQ" firstAttribute="leading" secondItem="jN8-Jv-1ec" secondAttribute="leading" id="LGw-2h-btp"/>
+                            <constraint firstItem="P1u-fz-LaK" firstAttribute="top" secondItem="HYb-g1-CRQ" secondAttribute="bottom" constant="89" id="Sl1-dv-Vfr"/>
+                            <constraint firstAttribute="trailing" secondItem="HYb-g1-CRQ" secondAttribute="trailing" id="kCb-8Q-cBL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="n1N-0E-ssV"/>
+                    <connections>
+                        <outlet property="tableView" destination="HYb-g1-CRQ" id="2tf-UU-yQ0"/>
+                        <segue destination="uWu-mK-Lhe" kind="show" identifier="showGame" id="JZL-r7-4WD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K8A-oT-pgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204.375" y="424.64788732394362"/>
+        </scene>
+        <!--Native view controller-->
+        <scene sceneID="5pA-cH-BnI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhg-Y3-seg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <glkViewController storyboardIdentifier="NATIVE" preferredFramesPerSecond="30" id="uWu-mK-Lhe" userLabel="Native view controller" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zdP-Ic-GWF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Brp-Cv-YrY"/>
+                    </layoutGuides>
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" drawableDepthFormat="24" enableSetNeedsDisplay="NO" id="ouu-7c-sFl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJ7-Uj-Whw" customClass="BuildingMenu">
+                                <rect key="frame" x="470" y="0.0" width="130" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="7Rh-CO-cqP"/>
+                                    <constraint firstAttribute="height" constant="600" id="CFc-gb-ly6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CFc-gb-ly6"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fJ7-Uj-Whw" firstAttribute="top" secondItem="ouu-7c-sFl" secondAttribute="top" id="8pF-XK-ozv"/>
+                            <constraint firstAttribute="trailing" secondItem="fJ7-Uj-Whw" secondAttribute="trailing" id="WWR-Lf-aZo"/>
+                            <constraint firstItem="Brp-Cv-YrY" firstAttribute="top" secondItem="fJ7-Uj-Whw" secondAttribute="bottom" id="oTp-b9-psM"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="delegate" destination="uWu-mK-Lhe" id="VGr-k1-3jt"/>
+                        </connections>
+                    </glkView>
+                    <navigationItem key="navigationItem" id="VBo-zp-u0d"/>
+                    <connections>
+                        <outlet property="buidingMenuView" destination="fJ7-Uj-Whw" id="O4v-BO-Cnb"/>
+                        <outlet property="buildingMenuRightConstraint" destination="WWR-Lf-aZo" id="8vi-Un-IXD"/>
+                        <outlet property="glkView" destination="ouu-7c-sFl" id="vca-Fa-trv"/>
+                    </connections>
+                </glkViewController>
+            </objects>
+            <point key="canvasLocation" x="945" y="424"/>
+        </scene>
+    </scenes>
+</document>
