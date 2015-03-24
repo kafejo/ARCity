@@ -1,0 +1,6 @@
+#!/bin/bash
+# 1 AA = 36 000
+total_count=100000
+current_count=$(cat dipp.tex | sed '/^%/d' | sed '/^\\citace/d' | sed '/^\\autor/d'| sed '/^\\nazev/d' |tr -d '{' | tr -d '}' | wc -c)
+echo "(($current_count / $total_count) * 100)" | bc -l
+
