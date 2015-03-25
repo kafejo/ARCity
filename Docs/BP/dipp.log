@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  24 MAR 2015 09:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  25 MAR 2015 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,38 +684,56 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 ]
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-254.def
 File: uni-254.def 2012/04/20 UCS: Unicode data U+FE00..U+FEFF
-) [11
+)
+
+LaTeX Warning: Citation `baum' on page 11 undefined on input line 72.
+
+[11
+
+] [12
 
 ]
-[12
+Underfull \hbox (badness 1178) in paragraph at lines 112--113
+\OT1/cmr/m/n/12 Masov^^Te mul-tipla-ye-rov^^Sa on-line hra vyv^^S^^Pjen^^Sa sta
+rtu-pem Ni-an-tics Labs, kte-rou
+ []
 
-] [13
+[13
 
 ] [14
 
-] [15] (./dipp.aux) ) 
+] [15
+
+] [16
+
+] [17
+
+] [18] (./dipp.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 19874 strings out of 493488
- 445093 string characters out of 3141326
- 541823 words of memory out of 3000000
- 22790 multiletter control sequences out of 15000+200000
+ 19879 strings out of 493488
+ 445131 string characters out of 3141326
+ 544823 words of memory out of 3000000
+ 22795 multiletter control sequences out of 15000+200000
  11248 words of font info for 39 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,8n,74p,666b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmss10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmss12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmss17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmssbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti12.pfb>
-Output written on dipp.pdf (15 pages, 111499 bytes).
+ 63i,8n,74p,1132b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on dipp.pdf (18 pages, 124221 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

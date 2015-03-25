@@ -69,8 +69,7 @@ EN abstract
 % 
 % Úvod
 \sekce{Úvod}
-
-
+Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se zabývá aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
 
 % 
 % Cíl práce
@@ -78,18 +77,68 @@ EN abstract
 Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, které bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
 
 %
+% Rozšířená realita
+%
+
+\kapitola{Rozšířená realita}
+Rozšířenou realitou (angl. Augmented reality) je označováno zobrazování digitálních objektů (3D modelů, 2D obrazů) v reálném světě. Tohoto efektu lze dosáhnout pomocí tzv. okna, které nám sdružuje reálné prostředí s virtuálním. Může se jednat o jakoukoliv formu displaye od mobilního telefonu, až po sofistikované nástroje, jako jsou speciální brýle (např. Google Glass). Digitálním objektům je možné pomocí různých technik analýzy obrazu specifikovat pozici, natočení a velikost. 
+
+\sekce{Metody vizuálního sledování}
+\podsekce{Marker tracking}
+Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích technik postavení objektů je Marker Tracking. Jedná se většinou o černobíle čtvercové QR kódy, které uchovávají informaci o svém identifikačním čísle, orámované černým okrajem o pevné velikosti. Na základě přečteného identifikátoru lze přiřazovat jednotlivým markerům různé objekty. Černé rámování slouží k analýze vzdálenosti od markeru, jeho natočení a velikost. Tato metoda je velmi efektivní, analýza takového markeru na zařízení iPhone 5 s frameworkem Metaio v obrazu zabere průměrně 4,3 ms (na základě vlastního měření).
+
+\podsekce{Markerless tracking}
+Další možností jak umisťovat objekty do rozšířené reality je pomocí tzv. Markerless trackingu. Jedná se o princip podobný Marker trackingu s tím rozdílem, že namísto markerů jsou použity libovolné obrazy. Při analýze je pak potřeba vlastnit digitální predlohu takového obrázu a vyhledávat jej ve snímané realitě. Na základě porovnání natočení obrazu ve snímané realitě a předlohy je zjištěna aktuální vzdálenost od objektu, velikost a natočení. Tento princip analýzy je pomalejší oproti Marker trackingu a při nevhodné volbě předlohy (nízký kontrast barev) méně spolehlivý, zvláště při špatných světelných podmínkách.
+
+\podsekce{Sledování neznámých prostředí}
+Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a to pomocí detekce hran na základě pohybu kamery. Nejrozšířenější systémy takovéto analýzy jsou SLAM (Simultaneous localization and mapping) a jeho vylepšení PTAM (Parallel Tracking and Mapping). PTAM je vyvíjen Active Vision Laboratory na University of Oxford a od roku 2014 volně dostupný pod licencí GNU GPLv3. Tento systém dokáže analyzovat plochy a hrany v obrazu a na základě těchto informací pak vykreslovat správně umístěné a natočené virtuální objekty. Tyto systémy mají uplatnění mimo jiné také při navigaci autopilotovaného vozidla, vesmírných vozů a podobně.
+
+%
 % Aktuální hry a jejich koncepty
 %
-\kapitola{Aktuální hry a jejich koncepty}
+\kapitola{Využití rozšířené reality, hry a jejich koncepty}
+Rozšířená realita nabývá s vývojem stále výkonější mobilních telefonů na atraktivitě a rozšiřuje se i v komerční svéře. Mobilní aplikace dokáží interagovat s realitou např. přehráváním trailerů k filmům nad jeho plakátem, vizualizovat návrhy staveb nad prospekty nebo vizualizovat učební materiál v interaktivních učebnicích. Využití rozšířené reality je nespočetné a s přibývající dostupností technologií roste i počet nápadů na její uplatnění. Velké oblibě se těší zejména ve hrách, kde využívá prostředí hráče jako herní plochu a mobilní telefon jako okno do rozšířené reality.
 
 % 
 % ARHrrrr!
 \sekce{ARHrrrr!}
+Jednou z populárních her je hra ARhrrrr! z dílny Georgia Tech Augmented Environments Lab, která využívá vytištěné hrací plochy k vizualizaci části města (Markerless tracking), kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Hra je obohacena o různé doplňky, například položením bonbónu Skittles na herní plochu vznikne nášlapná mina, kterou můžeme kliknutím na ni odjistit. Hra je příkladem velmi dobrého konceptu zapojení rozšířené reality.
 
+%
+% Ingress
+% 
+
+\sekce{Ingress}
+Masově multiplayerová online hra vyvíjená startupem Niantics Labs, kterou zaštiťuje Google, dostupná pro iOS i Android. Celá hra má v pozadí příběh o \uv{Exotické hmotě} (Exotic Matter), která byla objevena vědci z CERNu, a je to zárodek mimozemského druhu zvaného Shapers. Osvícení (The Enlightened), jedna ze dvou frakcí, věří, že toto je úsvit nového věku. Druhá frakce, Rezistence (The Resistance) naopak brojí proti těmto mimozemským silám. Hra spočívá ve vytváření frakčních portálů na různých místech, zejména na městských památkách, veřejných budovách a podobně. Hráči chodí s telefony po městě a vytvářením takovýchto portálů přivlastňují danná uzemí své frakci. Mohou také stavět obranné prvky a bránit tak tyto portály před napadením frakce druhé. Zobrazování rozšířené reality je zjednodušené, pouze černé pozadí s obrysy některých budov. Hra se tedy více než na rozšířenou realitu zaměřuje na příběh a rozšířená realita zde slouží pouze jako část celé hry.
+
+%
+% PulzAR
+%
+
+\sekce{PulzAR}
+
+
+%
+% Drakerz-Confrontation
+%
+
+\sekce{Drakerz-Confrontation}
 
 % 
 % Nova stranka
 \newpage 
+
+\kapitola{Frameworky}
+
+% 
+% Nova stranka
+\newpage
+
+\kapitola{ARCity}
+
+% 
+% Nova stranka
+\newpage
 
 %
 % Závěr
