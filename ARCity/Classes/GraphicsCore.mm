@@ -101,15 +101,15 @@
     if (!item) {
         item = [GCItem item];
         
-        NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"plot" ofType:@"zip"];
+        NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"empty_zone" ofType:@"zip"];
         
         if (modelPath) {
             item.placeholder = self.metaioSDK->createGeometry([modelPath UTF8String]);
 
             if (item.placeholder) {
 
-                item.placeholder->setScale(metaio::Vector3d(1.5, 1.5, 1.5));
-                item.placeholder->setRotation(metaio::Rotation(M_PI_2, 0, 0));
+                item.placeholder->setScale(metaio::Vector3d(0.15, 0.15, 0.15));
+                //item.placeholder->setRotation(metaio::Rotation(M_PI_2, 0, 0));
                 item.placeholder->setCoordinateSystemID(plot.markerId.intValue);
 
             } else {
@@ -129,6 +129,7 @@
         
         item.object = [self loadGeometryFromPath:[plot.building pathToGeometry]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
+       [self applyBuildingSettings:item.object];
         
         if (item.placeholder->isVisible()) {
             item.placeholder->setVisible(false);
@@ -143,14 +144,34 @@
         // Then load new
         item.object = [self loadGeometryFromPath:[plot.building pathToGeometry]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
-        
+        [self applyBuildingSettings:item.object];
         
     } else if (!plot.building && item.object) {
         self.metaioSDK->unloadGeometry(item.object);
         item.placeholder->setVisible(true);
     }
+}
+
+- (void)applyBuildingSettings:(metaio::IGeometry *)object {
+    object->setScale(metaio::Vector3d(0.15, 0.15, 0.15));
     
+    NSInteger random = arc4random() % 4;
+    switch (random) {
+        case 0:
+            object->setRotation(metaio::Rotation(0, 0, M_PI));
+            break;
+        case 1:
+            object->setRotation(metaio::Rotation(0, 0, M_PI_2));
+            break;
+        case 2:
+            object->setRotation(metaio::Rotation(0, 0, M_PI + M_PI_2));
+            break;
+            
+        default:
+            break;
+    }
     
+    //item.object->setRotation(metaio::Rotation(M_PI_2, 0, 0));
 }
 
 - (metaio::IGeometry *)loadGeometryFromPath:(NSString *)path {
@@ -162,7 +183,7 @@
         
         if (geometry) {
 
-//            geometry->setScale(metaio::Vector3d(6, 6, 6));
+//            geometry->setScale(metaio::Vector3d(0.5, 0.5, 0.5));
 //            geometry->setRotation(metaio::Rotation(M_PI_2, 0, 0));
             
         } else {

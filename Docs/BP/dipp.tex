@@ -1,4 +1,5 @@
-% program VLNA -- prida ~ tam kde je potřeba je soucasti texlive baliku
+% !TEX encoding = UTF-8 Unicode
+% program VLNA -- prida ~ tam kde je pot≈ôeba je soucasti texlive baliku
 
 \pdfoutput=1
 \documentclass[twoside,12pt]{article}
@@ -11,6 +12,9 @@
 \usepackage{filecontents}
 \usepackage{comment}
 \usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{float}
+\usepackage{caption}
 
 %
 %
@@ -22,6 +26,7 @@
 \cislovat{2}
 
 \bakalarska
+
 
 \titul{Hra založená na rozšířené realitě pro platformu iOS}{Aleš Kocur}{Ing. David Procházka, Ph.D.}{Brno~2015}
 
@@ -43,92 +48,194 @@ EN abstract
 }{}
 
 
-
 \obsah
 
-% abstrakt
-% úvodní text
-% Aktuální hry a jejich koncepty
-% závěr
-% seznam pouzité literatury
-% přílohy, rejstříky a seznamy
 
-
-
+Ôªø%
+% √övod a c√≠l pr√°ce
 %
-% Přehled použité literatury
-%
-%\kapitola{Přehled použité literatury}
-
-
-﻿%
-% Úvod a cíl práce
-%
-\kapitola{Úvod a~cíl práce}
+\kapitola{Úvod a cíl práce}
 
 % 
-% Úvod
-\sekce{Úvod}
-Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se zabývá aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
+\sekce{√övod}
+My≈°lenku roz≈°√≠≈ôen√© reality (angl. Augmented reality) nast√≠nil ji≈æ p≈ôed v√≠ce ne≈æ sto lety americk√Ω spisovatel Lyman Frank Baum \cite{baum}, ale a≈æ v posledn√≠ch letech s n√°stupem mobiln√≠ch technologi√≠ z√≠sk√°v√° na sv√©m potencion√°lu v√≠ce ne≈æ kdy p≈ôedt√≠m. Mobiln√≠ technologie a p≈ôenositeln√° za≈ô√≠zen√≠ n√°m umo≈æ≈àuj√≠ pomoc√≠ senzor≈Ø sn√≠mat realitu a obohacovat ji o umƒõle vytvo≈ôen√© prvky. Toho se d√° vyu≈æ√≠t v cel√© ≈°k√°le odvƒõtv√≠ jako je z√°bavn√≠ pr≈Ømysl, medic√≠na, marketing, vzdƒõl√°v√°n√≠, navigace, sport a mnoho dal≈°√≠ho. Tato pr√°ce se zab√Ωv√° aplikac√≠ roz≈°√≠≈ôen√© reality v z√°bavn√≠m pr≈Ømyslu, konkr√©tnƒõ hrami. 
 
 % 
-% Cíl práce
-\sekce{Cíl práce}
-Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, které bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
+% C√≠l pr√°ce
+\sekce{C√≠l pr√°ce}
+C√≠lem pr√°ce je prozkoumat mo≈ænosti her v roz≈°√≠≈ôen√© realitƒõ na mobiln√≠ plaformƒõ iOS a vytvo≈ôit hru, kter√© bude roz≈°√≠≈ôen√© reality vyu≈æ√≠vat jako obohacuj√≠c√≠ho prvku pro hr√°ƒçe. Prvn√≠m a z√°rove≈à velmi d≈Øle≈æit√Ωm krokem je zvolen√≠ spr√°vn√©ho frameworku na z√°kladƒõ v√Ω≈°e uveden√Ωch krit√©ri√≠. Pot√© je pot≈ôeba d≈Økladnƒõ navrhnout hern√≠ syst√©m a jak a do jak√© m√≠ry se bude hra odehr√°vat v roz≈°√≠≈ôen√© realitƒõ. Dal≈°√≠m krokem bude zaopat≈ôen√≠ grafick√Ωch podklad≈Ø a model≈Ø pro hru a posledn√≠ krok spoƒç√≠v√° v samotn√© implementaci.
 
 %
-% Rozšířená realita
+% Roz≈°√≠≈ôen√° realita
 %
 
-\kapitola{Rozšířená realita}
-Rozšířenou realitou (angl. Augmented reality) je označováno zobrazování digitálních objektů (3D modelů, 2D obrazů) v reálném světě. Tohoto efektu lze dosáhnout pomocí tzv. okna, které nám sdružuje reálné prostředí s virtuálním. Může se jednat o jakoukoliv formu displaye od mobilního telefonu, až po sofistikované nástroje, jako jsou speciální brýle (např. Google Glass). Digitálním objektům je možné pomocí různých technik analýzy obrazu specifikovat pozici, natočení a velikost. 
+\kapitola{Roz≈°√≠≈ôen√° realita}
+Roz≈°√≠≈ôenou realitou (angl. Augmented reality) je oznaƒçov√°no zobrazov√°n√≠ digit√°ln√≠ch objekt≈Ø (3D model≈Ø, 2D obraz≈Ø) v re√°ln√©m svƒõtƒõ. Tohoto efektu lze dos√°hnout pomoc√≠ tzv. okna, kter√© n√°m sdru≈æuje re√°ln√© prost≈ôed√≠ s virtu√°ln√≠m. M≈Ø≈æe se jednat o jakoukoliv formu displaye od mobiln√≠ho telefonu, a≈æ po sofistikovan√© n√°stroje, jako jsou speci√°ln√≠ br√Ωle (nap≈ô. Google Glass). Digit√°ln√≠m objekt≈Øm je mo≈æn√© pomoc√≠ r≈Øzn√Ωch technik anal√Ωzy obrazu specifikovat pozici, natoƒçen√≠ a velikost. Metody vizu√°ln√≠ho sledov√°n√≠ lze rozdƒõlit do t≈ôech z√°kladn√≠ch kategori√≠ \cite{klein_visual_tracking}.
 
-\sekce{Metody vizuálního sledování}
+\sekce{Metody vizu√°ln√≠ho sledov√°n√≠}
 \podsekce{Marker tracking}
-Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích technik postavení objektů je Marker Tracking. Jedná se většinou o černobíle čtvercové QR kódy, které uchovávají informaci o svém identifikačním čísle, orámované černým okrajem o pevné velikosti. Na základě přečteného identifikátoru lze přiřazovat jednotlivým markerům různé objekty. Černé rámování slouží k analýze vzdálenosti od markeru, jeho natočení a velikost. Tato metoda je velmi efektivní, analýza takového markeru na zařízení iPhone 5 s frameworkem Metaio v obrazu zabere průměrně 4,3 ms (na základě vlastního měření).
+Jedn√≠m z nejjednodu≈°≈°√≠ch a tak√© nejspolehlivƒõj≈°√≠ch rozpozn√°vac√≠ch technik postaven√≠ objekt≈Ø je Marker Tracking. Jedn√° se vƒõt≈°inou o ƒçernob√≠le ƒçtvercov√© QR k√≥dy, kter√© uchov√°vaj√≠ informaci o sv√©m identifikaƒçn√≠m ƒç√≠sle, or√°movan√© ƒçern√Ωm okrajem o pevn√© velikosti. Na z√°kladƒõ p≈ôeƒçten√©ho identifik√°toru lze p≈ôi≈ôazovat jednotliv√Ωm marker≈Øm r≈Øzn√© objekty. ƒåern√© r√°mov√°n√≠ slou≈æ√≠ k anal√Ωze vzd√°lenosti od markeru, jeho natoƒçen√≠ a velikost. Tato metoda je velmi efektivn√≠, anal√Ωza takov√©ho markeru na za≈ô√≠zen√≠ iPhone 5 s frameworkem Metaio v obrazu zabere pr≈Ømƒõrnƒõ 4,3 ms (na z√°kladƒõ vlastn√≠ho mƒõ≈ôen√≠).
+
+\begin{figure}[H]
+    \includegraphics[width=350px, center]{images/marker-tracking.jpg}
+    \caption{Marker tracking}
+    \label{marker_tracking}
+\end{figure}
 
 \podsekce{Markerless tracking}
-Další možností jak umisťovat objekty do rozšířené reality je pomocí tzv. Markerless trackingu. Jedná se o princip podobný Marker trackingu s tím rozdílem, že namísto markerů jsou použity libovolné obrazy. Při analýze je pak potřeba vlastnit digitální predlohu takového obrázu a vyhledávat jej ve snímané realitě. Na základě porovnání natočení obrazu ve snímané realitě a předlohy je zjištěna aktuální vzdálenost od objektu, velikost a natočení. Tento princip analýzy je pomalejší oproti Marker trackingu a při nevhodné volbě předlohy (nízký kontrast barev) méně spolehlivý, zvláště při špatných světelných podmínkách.
+Dal≈°√≠ mo≈ænost√≠ jak umis≈•ovat objekty do roz≈°√≠≈ôen√© reality je pomoc√≠ tzv. Markerless trackingu. Jedn√° se o princip podobn√Ω Marker trackingu s t√≠m rozd√≠lem, ≈æe nam√≠sto marker≈Ø jsou pou≈æity libovoln√© obrazy. P≈ôi anal√Ωze je pak pot≈ôeba vlastnit digit√°ln√≠ predlohu takov√©ho obr√°zu a vyhled√°vat jej ve sn√≠man√© realitƒõ. Na z√°kladƒõ porovn√°n√≠ natoƒçen√≠ obrazu ve sn√≠man√© realitƒõ a p≈ôedlohy je zji≈°tƒõna aktu√°ln√≠ vzd√°lenost od objektu, velikost a natoƒçen√≠. Tento princip anal√Ωzy je pomalej≈°√≠ oproti Marker trackingu a p≈ôi nevhodn√© volbƒõ p≈ôedlohy (n√≠zk√Ω kontrast barev) m√©nƒõ spolehliv√Ω, zvl√°≈°tƒõ p≈ôi ≈°patn√Ωch svƒõteln√Ωch podm√≠nk√°ch.
 
-\podsekce{Sledování neznámých prostředí}
-Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a to pomocí detekce hran na základě pohybu kamery. Nejrozšířenější systémy takovéto analýzy jsou SLAM (Simultaneous localization and mapping) a jeho vylepšení PTAM (Parallel Tracking and Mapping). PTAM je vyvíjen Active Vision Laboratory na University of Oxford a od roku 2014 volně dostupný pod licencí GNU GPLv3. Tento systém dokáže analyzovat plochy a hrany v obrazu a na základě těchto informací pak vykreslovat správně umístěné a natočené virtuální objekty. Tyto systémy mají uplatnění mimo jiné také při navigaci autopilotovaného vozidla, vesmírných vozů a podobně.
+\begin{figure}[H]
+    \includegraphics[width=350px, center]{images/markerless-tracking.jpg}
+    \caption{Markerless tracking}
+    \label{markerless_tracking}
+\end{figure}
+
+\podsekce{Sledov√°n√≠ nezn√°m√Ωch prost≈ôed√≠}
+Umis≈•ovat virtu√°ln√≠ objekty do sn√≠man√© reality lze i bez zn√°m√Ωch vzor≈Ø a to pomoc√≠ detekce hran na z√°kladƒõ pohybu kamery. Nejroz≈°√≠≈ôenƒõj≈°√≠ syst√©my takov√©to anal√Ωzy jsou SLAM (Simultaneous localization and mapping) a jeho vylep≈°en√≠ PTAM (Parallel Tracking and Mapping). PTAM je vyv√≠jen Active Vision Laboratory na University of Oxford a od roku 2014 volnƒõ dostupn√Ω pod licenc√≠ GNU GPLv3. Tento syst√©m dok√°≈æe analyzovat plochy a hrany v obrazu a na z√°kladƒõ tƒõchto informac√≠ pak vykreslovat spr√°vnƒõ um√≠stƒõn√© a natoƒçen√© virtu√°ln√≠ objekty. Tyto syst√©my maj√≠ uplatnƒõn√≠ mimo jin√© tak√© p≈ôi navigaci autopilotovan√©ho vozidla, vesm√≠rn√Ωch voz≈Ø a podobnƒõ.
+
+\begin{figure}[H]
+    \includegraphics[width=350px, center]{images/slam.jpg}
+    \caption{SLAM: Simultaneous localization and mapping}
+    \label{slam}
+\end{figure}
+
 
 %
-% Aktuální hry a jejich koncepty
+% Aktu√°ln√≠ hry a jejich koncepty
 %
-\kapitola{Využití rozšířené reality, hry a jejich koncepty}
-Rozšířená realita nabývá s vývojem stále výkonější mobilních telefonů na atraktivitě a rozšiřuje se i v komerční svéře. Mobilní aplikace dokáží interagovat s realitou např. přehráváním trailerů k filmům nad jeho plakátem, vizualizovat návrhy staveb nad prospekty nebo vizualizovat učební materiál v interaktivních učebnicích. Využití rozšířené reality je nespočetné a s přibývající dostupností technologií roste i počet nápadů na její uplatnění. Velké oblibě se těší zejména ve hrách, kde využívá prostředí hráče jako herní plochu a mobilní telefon jako okno do rozšířené reality.
 
-% 
-% ARHrrrr!
-\sekce{ARHrrrr!}
-Jednou z populárních her je hra ARhrrrr! z dílny Georgia Tech Augmented Environments Lab, která využívá vytištěné hrací plochy k vizualizaci části města (Markerless tracking), kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Hra je obohacena o různé doplňky, například položením bonbónu Skittles na herní plochu vznikne nášlapná mina, kterou můžeme kliknutím na ni odjistit. Hra je příkladem velmi dobrého konceptu zapojení rozšířené reality.
+\kapitola{Vyu≈æit√≠ roz≈°√≠≈ôen√© reality, koncepty vyu≈æit√© ve hr√°ch}
+Roz≈°√≠≈ôen√° realita nab√Ωv√° s v√Ωvojem st√°le v√Ωkonƒõj≈°√≠ mobiln√≠ch telefon≈Ø na atraktivitƒõ a roz≈°i≈ôuje se i v komerƒçn√≠ sv√©≈ôe. Mobiln√≠ aplikace dok√°≈æ√≠ interagovat s realitou nap≈ô. p≈ôehr√°v√°n√≠m trailer≈Ø k film≈Øm nad jeho plak√°tem, vizualizovat n√°vrhy staveb nad prospekty nebo vizualizovat uƒçebn√≠ materi√°l v interaktivn√≠ch uƒçebnic√≠ch. Vyu≈æit√≠ roz≈°√≠≈ôen√© reality je nespoƒçetn√© a s p≈ôib√Ωvaj√≠c√≠ dostupnost√≠ technologi√≠ roste i poƒçet n√°pad≈Ø na jej√≠ uplatnƒõn√≠. Velk√© oblibƒõ se tƒõ≈°√≠ zejm√©na ve hr√°ch, kde vyu≈æ√≠v√° prost≈ôed√≠ hr√°ƒçe jako hern√≠ plochu a mobiln√≠ telefon jako okno do roz≈°√≠≈ôen√© reality.
+
+\sekce{Interakce se za≈ô√≠zen√≠m}
+Tento koncept je postaven na principu interakce hr√°ƒçe pouze se za≈ô√≠zen√≠m. Hr√°ƒç v≈Øbec nemanipuluje ani neinteraguje s prvky hern√≠ho pole. Tento koncept je vhodn√Ω pro zejm√©na pro typy her ve kter√Ωch nepot≈ôebujeme pohybovat s objekty a je charakteristick√Ω pro mapovƒõ (geolokaƒçnƒõ) zalo≈æen√© hry -- objekty jsou umis≈•ov√°ny do re√°ln√©ho svƒõta s koodin√°ty. Typick√Ωm p≈ôedstavitelem takov√©ho konceptu je hra Ingress.
 
 %
 % Ingress
 % 
 
-\sekce{Ingress}
-Masově multiplayerová online hra vyvíjená startupem Niantics Labs, kterou zaštiťuje Google, dostupná pro iOS i Android. Celá hra má v pozadí příběh o \uv{Exotické hmotě} (Exotic Matter), která byla objevena vědci z CERNu, a je to zárodek mimozemského druhu zvaného Shapers. Osvícení (The Enlightened), jedna ze dvou frakcí, věří, že toto je úsvit nového věku. Druhá frakce, Rezistence (The Resistance) naopak brojí proti těmto mimozemským silám. Hra spočívá ve vytváření frakčních portálů na různých místech, zejména na městských památkách, veřejných budovách a podobně. Hráči chodí s telefony po městě a vytvářením takovýchto portálů přivlastňují danná uzemí své frakci. Mohou také stavět obranné prvky a bránit tak tyto portály před napadením frakce druhé. Zobrazování rozšířené reality je zjednodušené, pouze černé pozadí s obrysy některých budov. Hra se tedy více než na rozšířenou realitu zaměřuje na příběh a rozšířená realita zde slouží pouze jako část celé hry.
+\podsekce{Ingress}
+Masovƒõ multiplayerov√° online hra vyv√≠jen√° startupem Niantics Labs, kterou za≈°ti≈•uje Google, dostupn√° pro iOS i Android. Cel√° hra m√° v pozad√≠ p≈ô√≠bƒõh o \uv{Exotick√© hmotƒõ} (Exotic Matter), kter√° byla objevena vƒõdci z CERNu, a je to z√°rodek mimozemsk√©ho druhu zvan√©ho Shapers. Osv√≠cen√≠ (The Enlightened), jedna ze dvou frakc√≠, vƒõ≈ô√≠, ≈æe toto je √∫svit nov√©ho vƒõku. Druh√° frakce, Rezistence (The Resistance) naopak broj√≠ proti tƒõmto mimozemsk√Ωm sil√°m. Hra spoƒç√≠v√° ve vytv√°≈ôen√≠ frakƒçn√≠ch port√°l≈Ø na r≈Øzn√Ωch m√≠stech, zejm√©na na mƒõstsk√Ωch pam√°tk√°ch, ve≈ôejn√Ωch budov√°ch a podobnƒõ. Hr√°ƒçi chod√≠ s telefony po mƒõstƒõ a vytv√°≈ôen√≠m takov√Ωchto port√°l≈Ø p≈ôivlast≈àuj√≠ dann√° uzem√≠ sv√© frakci. Mohou tak√© stavƒõt obrann√© prvky a br√°nit tak tyto port√°ly p≈ôed napaden√≠m frakce druh√©. Zobrazov√°n√≠ roz≈°√≠≈ôen√© reality je zjednodu≈°en√©, pouze ƒçern√© pozad√≠ s obrysy nƒõkter√Ωch budov. Hra se tedy v√≠ce ne≈æ na roz≈°√≠≈ôenou realitu zamƒõ≈ôuje na p≈ô√≠bƒõh a roz≈°√≠≈ôen√° realita zde slou≈æ√≠ pouze jako ƒç√°st cel√© hry. V√≠ce informac√≠ lze z√≠skat na ofici√°ln√≠ch webov√Ωch str√°nk√°ch hry www.ingress.com \cite{ingress}.
+
+
+\begin{figure}[H]
+    \includegraphics[width=320px, center]{images/ingress.jpg}
+    \caption{Screenshot ze hry Ingress}
+    \label{ingress_screenshot}
+\end{figure}
+
+\sekce{Interakce s hern√≠ deskou}
+Dal≈°√≠m konceptem je interakce s hern√≠ deskou, kdy hr√°ƒç interaguje pomoc√≠ gest nebo stisknut√≠m virtu√°ln√≠ch tlaƒç√≠tek na desce. Tento koncept ≈°tƒõp√≠ interakƒçn√≠ ƒç√°st a zobrazovac√≠ (hr√°ƒç manipuluje s prvky na desce, ale v√Ωsledek vid√≠ pouze p≈ôes za≈ô√≠zen√≠) a pro u≈æivatele m≈Ø≈æe b√Ωt v p≈ô√≠padech mobiln√≠ho telefonu obzvl√°≈°≈• nep≈ô√≠jemn√Ω na ovl√°d√°n√≠, v√≠ce vhodn√Ω je nap≈ô√≠klad na br√Ωle. Z tohoto d≈Øvodu je tak√© tento koncept v mobiln√≠ch hr√°ch t√©mƒõ≈ô nepou≈æ√≠van√Ω. Mezi hry vyu≈æ√≠vaj√≠c√≠ tohoto p≈ô√≠stupu jsou povƒõt≈°inou hry p≈Øvodem deskov√© ƒçi karetn√≠ a roz≈°√≠≈ôenou realitu zde vyu≈æ√≠vaj√≠ sp√≠≈°e pro zv√Ω≈°en√≠ intenzity z√°≈æitku ze hry vizualizacema proces≈Ø, kter√© si jinak ƒçlovƒõk mus√≠ pouze p≈ôedstavovat. 
 
 %
-% PulzAR
+% Drakerz-Confrontation 
 %
 
-\sekce{PulzAR}
+\podsekce{Drakerz Confrontation}
+Karetn√≠ hra vyv√≠jen√° od roku 2010 francouzskou firmou Peoleo s prvn√≠ alpha verz√≠ vydanou roku 2013 ve Francii \cite{venturebeat}. Dnes je hra dostupn√° pouze pro PC a nejsou ≈æ√°dn√© informace, zda doraz√≠ v budoucnu i na mobiln√≠ platformy. Drakerz Confrontation hr√°ƒçi maj√≠ karty s r≈Øzn√Ωmi typy drak≈Ø s r≈Øzn√Ωmi vlastnostmi a schopnostmi. Hra vyu≈æ√≠v√° roz≈°√≠≈ôen√© reality k vizualizaci drak≈Ø nad kartami polo≈æen√Ωmi na stole. Ke hran√≠ je pot≈ôeba vlastnit kameru p≈ôipojitelnou k PC, na kter√©m se pak vizualizace zobrazuj√≠. Vizualizovan√© jsou jak pohyby drak≈Ø po hern√≠ plo≈°e, tak nap≈ô. boje i prostoje. V√≠ce informac√≠ lze nal√©zt na ofici√°ln√≠ch str√°nk√°ch hry www.drakerz.com \cite{peoleo_about}, kde je tak√© mo≈æn√© zakoupit karty nebo hru st√°hnout.
 
 
-%
-% Drakerz-Confrontation
-%
+\begin{figure}[H]
+    \includegraphics[width=424px, center]{images/drakerz-confrontation.jpg}
+    \caption{Screenshot ze hry Drakerz Confrontation}
+    \label{drakerz_screenshot}
+\end{figure}
 
-\sekce{Drakerz-Confrontation}
+\sekce{Sm√≠≈°en√° interakce}
+Tento koncept kombinuje p≈ôedchoz√≠ dva uveden√©. Hr√°ƒç v tomto p≈ô√≠padƒõ prim√°rnƒõ pou≈æ√≠v√° za≈ô√≠zen√≠, ale m√° i mo≈ænost ovl√°dat hern√≠ prvky v re√°ln√©m prost≈ôedn√≠ na hern√≠ desce. Typick√Ωm p≈ô√≠kladem sm√≠≈°en√© interakce je hra ARHrrrr!.
+
+% 
+% ARHrrrr!
+\podsekce{ARHrrrr!}
+Jednou z popul√°rn√≠ch her je hra ARhrrrr! z d√≠lny Georgia Tech Augmented Environments Lab, kter√° vyu≈æ√≠v√° vyti≈°tƒõn√© hrac√≠ plochy k vizualizaci ƒç√°sti mƒõsta (Markerless tracking), kterou napadaj√≠ zombie a hr√°ƒç v roli snipera v helikopt√©≈ôe se pohybuje nad hrac√≠ plochou a st≈ô√≠l√≠. Tento koncept hern√≠ plochy kombinovan√© s interakc√≠ pomoc√≠ mobiln√≠ho za≈ô√≠zen√≠ vyu≈æ√≠v√° vƒõt≈°ina her a to z d≈Øvodu zachov√°n√≠ ve≈°ker√© u≈æivatelsk√© interakce na jednom m√≠stƒõ, na za≈ô√≠zen√≠. Hra je obohacena o r≈Øzn√© dopl≈àky, nap≈ô√≠klad polo≈æen√≠m bonb√≥nu Skittles na hern√≠ plochu vznikne n√°≈°lapn√° mina, kterou m≈Ø≈æeme kliknut√≠m na ni odjistit (p≈ô√≠klad interakce s hern√≠ plochou). R≈Øzn√© barvy bonb√≥n≈Ø maj√≠ nav√≠c r≈Øzn√© funkce.
+
+\begin{figure}[H]
+    \includegraphics[width=424px, center]{images/arhrrrr.jpg}
+    \caption{Screenshot ze hry ARhrrrr!}
+    \label{arhrrrr_screenshot}
+\end{figure}
+
 
 % 
 % Nova stranka
 \newpage 
 
-\kapitola{Frameworky}
+\kapitola{Framework}
+
+\sekce{Krit√©ria hodnocen√≠}
+Krit√©ria hodnocen√≠ se odv√≠j√≠ od n√°roƒçnosti po≈æadavk≈Ø na aplikaci, v tomto p≈ô√≠padƒõ hra. Je tedy d≈Øle≈æit√©, aby framework umƒõl dob≈ôe pracovat s 3D modely a prov√°dƒõt animace, aby hra byla zaj√≠mav√°. Dal≈°√≠m aspektem je rychlost z√°visl√° na poƒçtu zobrazovan√Ωch objekt≈Ø a posledn√≠m nem√©nƒõ d≈Øle≈æit√Ωm faktorem jsou licenƒçn√≠ podm√≠nky pro pou≈æ√≠v√°n√≠.
+
+\sekce{P≈ôehled framework≈Ø}
+
+\podsekce{ARToolKit}
+ARToolkit byl p≈Øvodnƒõ vyvinut Hirokazu Katou na Nara Institute of Science and Technology v roce 1999. Nyn√≠ je udr≈æov√°n The Human Interface Technology Lab na University of Washington jako open source projekt s komerƒçn√≠ma licencema od ARToolWork. Tento framework je dostupn√Ω pro v≈°echny majoritn√≠ platformy (Windows, Linux, Mac OS X, SGI) s r≈Øzn√Ωmi porty pro mobiln√≠ operaƒçn√≠ syst√©my (iOS, Android). Mobiln√≠ verze tohoto frameworku portuj√≠ ji≈æ konkr√©tn√≠ firmy a vyd√°vaj√≠ jako vlastn√≠ produkt, nejsou tedy volnƒõ dostupn√© ‚Äì- nepoda≈ôilo se sestavit testovac√≠ projekt pro tento framework a benchmarky uveden√© v dokumentaci jsou velmi nep≈ôesnƒõ specifikovan√© (chyb√≠ specifikace hardwaru, na kter√©m byly tyto mƒõ≈ôen√≠ prov√°dƒõny). 
+
+\begin{figure}[H]
+    \includegraphics[width=324px, center]{images/artoolkit_benchmark.jpg}
+    \caption{Chyba sledov√°n√≠ z√°visl√° na velikosti markeru}
+    \label{artoolkit_benchmark}
+\end{figure}
+
+Mezi hlavn√≠ fukce frameworku pat≈ô√≠ kamerovƒõ pozicovan√© a orientov√°n√© sledov√°n√≠, sledov√°n√≠ ƒçern√Ωch ƒçtverc≈Ø s mo≈ænost√≠ definice vlastn√≠ch typ≈Ø, jednoduch√° kalibrace kamer \cite{artoolkit_features}. Podpora vykreslov√°n√≠ model≈Ø je pouze n√≠zko√∫rov≈àov√°, lze renderovat objekty pomoc√≠ OpenGL. Vƒõt≈°inou je vyu≈æit v projektech jako ƒç√°st komplexn√≠ho toolkitu pro pr√°ci s roz≈°√≠≈ôenou realitou nap≈ô. OSGART (kombinace ARToolKit a OpenSceneGraph) \cite{osgart} nebo ARToolKitPlus (roz≈°√≠≈ôen√° verze ARToolKitu, v√Ωvoj ukonƒçen roku 2006) \cite{wagner_schmalstieg}. 
+
+\podsekce{Metaio}
+Metaio je multiplatformn√≠ framework kter√Ω vyv√≠j√≠ stejnojmenn√° nƒõmeck√° firma od roku 2003. Mezi produkty Metaio najdeme framework pro roz≈°√≠≈ôenou realitu na v≈°echny majoritn√≠ platformy a tak√© sadu aplikaƒçn√≠ch n√°stroj≈Ø specializuj√≠c√≠ se na usnadnƒõn√≠ pr√°ce i samotn√Ω v√Ωvoj bez programov√°n√≠. Metaio pro iOS je dostupn√© jako C++ framework. 
+Dokumentace uv√°d√≠ mƒõ≈ôen√≠, ukazuj√≠c√≠ udr≈æen√≠ v√Ωkonu vykreslov√°n√≠ 60 sn√≠mk≈Ø za vte≈ôinu (FPS) p≈ôi 200 000 polygonech na iPhone 5S.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=424px, center]{images/Polycount_SDK_iOS_20fps.png}
+\captionsetup{justification=centering}
+    \caption{Rychlost vykreslov√°n√≠ (v FPS) pro jednotliv√© iOS za≈ô√≠zen√≠ z√°visl√© na poƒçtu vykreslovan√Ωch polygon≈Ø}
+    \label{metaio_benchmark}
+\end{figure}
+
+Tak√© byl vytvo≈ôen testovac√≠ projekt, jeho≈æ jedin√Ωm√∫kolem bylo rozezn√°vat 20 r≈Øzn√Ωch marker≈Ø. Na tomto projektu pak byly provedeny zkou≈°ky rychlosti nalezen√≠ markeru v obrazu. Test byl prov√°dƒõn na za≈ô√≠zen√≠ iPhone 5 (model A1429) firmy Apple. Z v√Ωsledn√Ωch hodnot byl vypoƒç√≠t√°n pr≈Ømƒõr 4,31 ms. 
+
+
+Metaio SDK dok√°≈æe pracovat s modely ve form√°tech OBJ, MD2 a FBX a podporuje tak√© jejich animace. Pod podm√≠nkou vodoznaku a nemo≈ænosti publikovat aplikaci na AppStore nab√≠z√≠ volnou licenci na v≈°echny verze sv√©ho frameworku. 
+
+\podsekce{Qualcomm Vuforia}
+Jedn√° se o pomƒõrnƒõ nov√Ω framework vyv√≠jen√Ω od roku 2011 a nab√≠z√≠ velk√© mno≈æstv√≠ funkc√≠. Jako hlavn√≠ lze uv√©st tzv. markerless recognition (mo≈ænost vykreslovat objekty nad obr√°zky), podporu frameworku Unity (framework usnad≈àuj√≠c√≠ v√Ωvoj 3D her) nebo takzvan√© virtu√°ln√≠ tlaƒç√≠tka (Virtual buttons, tlaƒç√≠tka prom√≠tan√° do virtu√°ln√≠ reality a interakce s nimi). Samotn√Ω framework nab√≠z√≠ aplikaƒçn√≠ rozhran√≠ pro C++, Javu, Objective-C a .NET, co≈æ v√Ωznamn√Ωm zp≈Øsobem usnad≈àuje portace aplikace na r≈Øzn√© platformy. ≈†irok√© spektrum funkc√≠ se odr√°≈æ√≠ na licenƒçn√≠ch podm√≠nk√°ch frameworku, u neplacen√Ωch licenc√≠ je omezen poƒçet rozpoznan√Ωch objekt≈Ø (pozn. v pr≈Øbƒõhu tvorby t√©to pr√°ce byly zmƒõnƒõny licenƒçn√≠ podm√≠nky a framework je dostupn√Ω zdarma s vodoznakem a nemo≈ænost√≠ publikovat aplikaci). Velk√Ωm m√≠nusem je stejnƒõ jako v p≈ô√≠padƒõ ARToolKitu pouze n√≠zko√∫rov≈àov√° podpora vykreslov√°n√≠ objekt≈Ø pomoc√≠ OpenGL. Pro podporu zobrazov√°n√≠ model≈Ø ve form√°tech nap≈ô. OBJ, FBX a podobnƒõ je pot≈ôeba vyu≈æ√≠t nƒõjak√© dal≈°√≠ pomocn√© knihovny \cite{vuforia_3dformats}.
+
+\podsekce{Augmented kit}
+Framework psan√Ω ƒçistƒõ pro platformu iOS a tedy v Objective-C. Vynik√° jednoduch√Ωm API a dobrou dokumentac√≠. Nab√≠z√≠ pouze z√°kladn√≠ slu≈æby vykreslovan√≠ objekt≈Ø na markerech, ƒçi GPS sou≈ôadnic a gyroskopu. Framework je vyv√≠jen teprve od roku 2012 firmou Luteg Software Technologies a to se projevuje velmi malou v√Ωvoj√°≈ôskou z√°kladnou. Na druhou stranu m√° p≈ô√≠vƒõtiv√© licenƒçn√≠ podm√≠nky, kdy poskytuje volnou licenci pod podm√≠nkou vodoznaku a nemo≈ænosti aplikaci publikovat na AppStore. 
+
+\sekce{V√Ωbƒõr frameworku}
+
+% 
+% Nova stranka
+\newpage
+\kapitola{Metaio}
+\sekce{Form√°t 3D model≈Ø}
+Z√°kladem dobr√©ho n√°vrhu aplikace je spr√°vn√° volba technologi√≠. Mezi nƒõ v tomto p≈ô√≠padƒõ pat≈ô√≠ i volba form√°tu pro 3D modely. Framework Metaio podporuje renderov√°n√≠ objekt≈Ø ve form√°tech OBJ, MD2 a FBX. Pro tvorbu model≈Ø byl pou≈æit 3D modelovac√≠ n√°stroj 3Ds Max od firmy Autodesk a to ƒçistƒõ z d≈Øvod≈Ø z√°kladn√≠ znalosti tohoto softwaru. Tato pr√°ce se nezab√Ωv√° porovn√°v√°n√≠m modelovac√≠ch softwar≈Ø. Krit√©rii pro v√Ωbƒõr form√°tu jsou podpora exportu z 3Ds Max, podpora animac√≠, podpora textur.
+
+\podsekce{OBJ}
+Otev≈ôen√Ω form√°t vyvinut√Ω firmou Wavefront Technologies pro p≈ôenos 3D objekt≈Ø. Form√°t specifikuje pozice ka≈æd√©ho vertexu v objektu, UV sou≈ôadnice textury vertexu a plochy (faces) ka≈æd√©ho polygonu \cite{obj_wiki}. Obsahuje podporu textur pomoc√≠ p≈ôilo≈æen√Ωch materi√°l≈Ø ve form√°tu MTL (Material Template Library). Form√°t OBJ je standardnƒõ textov√Ω form√°t, m≈Ø≈æe se v≈°ak vyskytovat i v bin√°rn√≠ podobƒõ. Takov√Ωto bin√°rn√≠ soubor m√° pak p≈ô√≠ponu .mod. Form√°t bohu≈æel nem√° podporu animac√≠ \cite{obj_doc} a t√≠m nevyhovuje v jednom ze t≈ô√≠ bod≈Ø dan√Ωch krit√©ri√≠.
+
+\podsekce{MD2}
+Form√°t MD2 se stal popul√°rn√≠m d√≠ky firmƒõ id Software's \cite{md2_wiki}, kter√° jej pou≈æila v id Tech 2 zn√°m√Ω jako Quake II engine \cite{quake_engine} pro modely v≈°ech postav ve h≈ôe Quake II a dal≈°√≠ch, rovnƒõ≈æ postaven√Ωch na tomto enginu. MD2 m√° podporu key-frame animac√≠ a textur. MD2 byl pozdƒõji nahrazen novƒõj≈°√≠m form√°tem MD3 \cite{id_tech_3_wiki}. Tento form√°t je nyn√≠ ji≈æ zastaral√Ω a nem√° valnou podporu v 3Ds Maxu, vyjma komerƒçn√≠ho pluginu \cite{qtip_plugin}. 
+
+\podsekce{FBX}
+Propriet√°rn√≠ form√°t FBX (FilmBoX) je od roku 2006 vyv√≠jen a spravov√°n firmou Autodesk \cite{autodesk_fbx}. Firma pro u≈æ√≠v√°n√≠ tohoto form√°tu vydala FBX SDK, kter√Ω umo≈æ≈àuje zapis, ƒçten√≠ a konverze tohoto form√°tu \cite{autodesk_fbx_sdk}. Form√°t podporuje animace, textury a jeliko≈æ je vyv√≠jen stejnou firmou jako 3Ds Max, m√° v tomto softwaru i n√°le≈æitou podporu pro export.
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Form√°t & Podpora animac√≠ & Podpora textur & Podpora exportu 3Ds Max  \\ \hline
+OBJ    & Ne              & Ano            & Ano                      \\ \hline
+MD2    & Ano             & Ano            & Pouze komerƒçn√≠m pluginem \\ \hline
+FBX    & Ano             & Ano            & Ano                      \\ \hline
+\end{tabular}
+\caption{Shrnut√≠ krit√©ri√≠ pro form√°ty}
+\end{table}
+
+
+Na z√°kladƒõ dan√Ωch krit√©ri√≠ byl zvolen za nejvhodnƒõj≈°√≠ form√°t FBX. Metaio sice podporuje tento form√°t, ale vyu≈æ√≠v√° k tomu utility zvan√© MeshConvertor, kter√© je pot≈ôeba dodat FBX model s p≈ô√≠padn√Ωmi UV mapami textur modelu. V√Ωsledn√Ωm souborem je archiv form√°tu ZIP, kter√Ω obsahuje informace o dan√©m modelu, p≈ôilo≈æen√© textury, n√°zvy animac√≠ a metadata. Tento zip lze pak ji≈æ lze snadno pou≈æ√≠vat v Metaio SDK.
+
 
 % 
 % Nova stranka
@@ -141,20 +248,20 @@ Masově multiplayerová online hra vyvíjená startupem Niantics Labs, kterou za
 \newpage
 
 %
-% Závěr
+% Z√°vƒõr
 %
-\kapitola{Závěr}
-Závěr
+\kapitola{Z√°vƒõr}
+Z√°vƒõr
 
 %
-% Návrhy na vylepšení
-\sekce{Návrhy na vylepšení}
+% N√°vrhy na vylep≈°en√≠
+\sekce{N√°vrhy na vylep≈°en√≠}
 
 %
 %
-% Přílohy
-\kapitola{Přílohy}
-Na přiloženém CD jsou k dispozici tyto přílohy: 
+% P≈ô√≠lohy
+\kapitola{P≈ô√≠lohy}
+Na p≈ôilo≈æen√©m CD jsou k dispozici tyto p≈ô√≠lohy: 
 \begin{itemize}
 \item priloha1
 \end{itemize}
@@ -164,6 +271,209 @@ Na přiloženém CD jsou k dispozici tyto přílohy:
 % Literatura
 % 
 \begin{literatura}
+
+\citace{baum}{BAUM, 1901} {
+	\autor{L. Frank Baum}
+	\nazev{The Master Key: An Electrical Fairy Tale, Founded Upon the Mysteries of Electricity and the Optimism of Its Devotees}
+	BiblioBazaar, 2006, ISBN 978-1426409240
+}
+
+
+\citace{klein_visual_tracking}{Klein, 2012}
+{
+	\autor{KLEIN, Georg.}
+	\nazev{Visual Tracking Methods for Augmented Reality. }
+	 [online]. [cit. 2015-03-31]. Dostupn√© z: 		http://www.raeng.org.uk/publications/other/georg-klein-presentation-frontiers-of-engineering
+}
+
+\citace{peoleo_about}{Peoleo, 2015}
+{
+	\autor{Peoleo}
+	\nazev{Drakerz-Confrontation About}
+	 [online]. [cit. 2015-03-31]. Dostupn√© z: http://www.drakerz.com/qu-est-ce-que-drakerz.html/
+}
+
+\citace{venturebeat}{Venture Beat, 2014}
+{
+	\autor{Venture Beat}
+	\nazev{Drakerz-Confrontation augmented-reality card game launches in the U.S.}
+	 [online]. [cit. 2015-03-31]. Dostupn√© z: http://venturebeat.com/2014/07/01/drazkerz-confrontation-augmented-reality-card-game-launches-in-the-u-s/
+}
+
+\citace{ingress}{Niatics Labs, 2015}
+{
+	\autor{Niatics Labs}
+	\nazev{Ingress official website}
+	 [online]. [cit. 2015-04-01]. Dostupn√© z: https://www.ingress.com/
+}
+
+\citace{obj_wiki}{Wikipedia, 2015}
+{
+	\autor{Wikipedia}
+	\nazev{Wikipedia}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://en.wikipedia.org/wiki/Wavefront\_.obj\_file
+}
+
+\citace{obj_doc}{Paul Burke, 2015}
+{
+	\autor{Paul Burke}
+	\nazev{Object Files (.obj)}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://paulbourke.net/dataformats/obj/
+}
+
+\citace{quake_engine}{M.H. Williams, 2011}
+{
+	\autor{M.H. Williams}
+	\nazev{id Software Wants To Shorten Dev Cycles}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://web.archive.org/web/20110827005123/http://www.industrygamers.com/news/id-software-wants-to-shorten-dev-cycles/
+}
+
+\citace{md2_wiki}{Wikipedia, 2015}
+{
+	\autor{Wikipedia}
+	\nazev{Wikipedia}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://en.wikipedia.org/wiki/MD2\_\%28file\_format\%29
+}
+
+\citace{id_tech_3_wiki}{Wikipedia, 2015}
+{
+	\autor{Wikipedia}
+	\nazev{Wikipedia}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://en.wikipedia.org/wiki/Id\_Tech\_3
+}
+
+\citace{qtip_plugin}{QTiP, 2015}
+{
+	\autor{QTiP}
+	\nazev{QTiP}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://www.qtipplugin.com/
+}
+
+\citace{autodesk_fbx}{Autodesk, 2015}
+{
+	\autor{Autodesk}
+	\nazev{FBX}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://www.autodesk.com/products/fbx/overview
+}
+
+\citace{autodesk_fbx_sdk}{Autodesk, 2015}
+{
+	\autor{Autodesk}
+	\nazev{FBX SDK}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://usa.autodesk.com/adsk/servlet/pc/item?siteID=123112\&id=10775847
+}
+
+\citace{artoolkit_features}{HITLab, 2015}
+{
+	\autor{The Human Interface Technology Lab, University of Washington}
+	\nazev{Feature list}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: http://www.hitl.washington.edu/artoolkit/documentation/features.htm
+}
+
+\citace{osgart}{HITLab NZ, 2015}
+{
+	\autor{The Human Interface Technology Laboratory New Zealand}
+	\nazev{OSGART website}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: https://www.artoolworks.com/community/osgart/
+}
+
+\citace{wagner_schmalstieg}{WAGNER, SCHMALSTIEG, 2007}
+{
+	\autor{Daniel Wagner and Dieter Schmalstieg}
+	\nazev{ARToolKitPlus for Pose Tracking on Mobile Devices}
+In Proc. 12th Computer Vision Winter Workshop (CVWW'07), Sankt Lambrecht, Austria, February 2007
+}
+
+\citace{vuforia_3dformats}{Qualcomm, 2015}
+{
+	\autor{Qualcomm}
+	\nazev{3D File Formats}
+	 [online]. [cit. 2015-04-02]. Dostupn√© z: https://developer.vuforia.com/library/articles/Solution/3D-File-Formats
+}
+
+
+
+
+% Obrazky
+
+\citace{ingress_screenshot}{Flickr, 2015}
+{
+	\autor{Yahoo Inc.}
+	\nazev{Flickr}
+	[online]. [cit. 2015-04-02]. Flickr
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: https://farm9.staticflickr.com/8219/8266348091\_08fe415355\_o.jpg
+}
+
+\citace{drakerz_screenshot}{Game guide, 2015}
+{
+	\autor{Game guide}
+	\nazev{Game guide}
+	[online]. [cit. 2015-04-02]. Game guide
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://game-guide.fr/wp-content/uploads/2014/03/drakerz-confrontation-05.jpg
+}
+
+\citace{arhrrrr_screenshot}{Engadget, 2015}
+{
+	\autor{Engadget}
+	\nazev{Engadget}
+	[online]. [cit. 2015-04-02]. Engadget
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://www.blogcdn.com/www.engadget.com/media/2009/06/arhrrrr-pic-rm-eng.jpg
+}
+
+\citace{marker_tracking}{VTTResearch, 2015}
+{
+	\autor{VTTResearch}
+	\nazev{Marker tracking}
+	[online]. [cit. 2015-04-02]. VTTResearch
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://virtual.vtt.fi/virtual/proj2/multimedia/media/images/MultiMarker.jpg
+}
+
+\citace{markerless_tracking}{Wikipedia, 2015}
+{
+	\autor{Wikipedia}
+	\nazev{Wikipedia}
+	[online]. [cit. 2015-04-02]. Wikipedia.org
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://upload.wikimedia.org/wikipedia/commons/f/f4/App\_iSkull,\_an\_augmented\_human\_skull.jpg
+}
+
+\citace{slam}{Department of Engineering Science, University of Oxford, 2008}
+{
+	\autor{Department of Engineering Science, University of Oxford}
+	\nazev{SLAM}
+	[online]. [cit. 2015-04-02]. 
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://www.robots.ox.ac.uk/~lav/Papers/castle\_etal\_iswc2008/castle\_etal\_iswc2008.jpg
+}
+
+\citace{artoolkit_benchmark}{HITLab, 2015}
+{
+	\autor{The Human Interface Technology Lab, University of Washington}
+	\nazev{ARToolKit Benchmarks}
+	[online]. [cit. 2015-04-03]. 
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://www.hitl.washington.edu/artoolkit/documentation/benchmark.htm
+}
+
+\citace{metaio_benchmark}{Metaio, 2015}
+{
+	\autor{Metaio GmbH}
+	\nazev{Metaio iOS polycount}
+	[online]. [cit. 2015-04-03]. 
+	Obr√°zek ve form√°tu: JPEG. Dostupn√© z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/
+}
+
+
+
+
+
+%
+%\citace{template}{Venture Beat, 2014}
+%{
+%	\autor{Venture Beat}
+%	\nazev{Drakerz-Confrontation augmented-reality card game launches in the U.S.}
+%	 [online]. [cit. 2015-03-31]. Dostupn√© z: http://venturebeat.com/2014/07/01/drazkerz-confrontation-augmented-reality-card-game-launches-in-the-u-s/
+%}
+
+
+
 
 \end{literatura}
 

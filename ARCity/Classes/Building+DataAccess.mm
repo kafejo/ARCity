@@ -23,7 +23,7 @@
 
 - (NSString *)pathToGeometry {
     if (self.type == BuildingTypeHouse) {
-        return [[NSBundle mainBundle] pathForResource:@"family-house-tex" ofType:@"zip"];
+        return [[NSBundle mainBundle] pathForResource:@"main_zone" ofType:@"zip"];
     } else {
         return @"";
     }

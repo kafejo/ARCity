@@ -1,0 +1,18 @@
+FBXMeshConverter version 1.1.0
+Fbx-Conversion log of empty_zone.FBX
+
+logfile-output: empty_zone.log
+fbx-output-path: 
+file import started...
+file import done.
+
+
+file export started...
+writing mfbx file...
+writing mfbx file done. [2 meshes][36;36 vtx]
+creating zip package started...
+adding file to zip: outer-block-map.jpg
+adding file to zip: block-map.jpg
+adding file to zip: empty_zone.mfbx
+creating zip package done.
+file export done.

@@ -10,7 +10,6 @@
 #import "Building.h"
 #import "GameSession.h"
 
-
 @implementation Plot
 
 @dynamic markerId;
