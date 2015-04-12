@@ -15,6 +15,16 @@
 \usepackage[export]{adjustbox}
 \usepackage{float}
 \usepackage{caption}
+\usepackage{colortbl}
+\usepackage{tabularx}
+
+\sloppy
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 
 %
 %
@@ -40,7 +50,7 @@ Rád bych poděkoval..
 \newpage\null\thispagestyle{empty}\newpage
 
 \abstrakt{
-Tato práce se zabývá rozšířenou realitou a jejím využitím ve hrách na~platformě iOS. Zkoumá aktuální přístupy her, které rozšířenou realitu využívají. Práce se zabývá jejich koncepty interakce a přidaných hodnot oproti hrám normálním. Dále jsou představeny frameworky nabízející práci s rozšířenou realitou na mobilní platformě iOS a jejich srovnání na základě vhodnosti pro tvorbu hry. Poslední částí práce je návrh vlastní hry a následná implementace s použitím nejlépe ohodnoceného frameworku.
+Tato práce se zabývá rozšířenou realitou a jejím využitím ve hrách na~platformě iOS. Zkoumá aktuální přístupy her, které rozšířenou realitu využívají. Práce se zabývá jejich koncepty interakce a přidaných hodnot oproti běžným počítačovým hrám. Dále jsou představeny frameworky nabízející práci s rozšířenou realitou na mobilní platformě iOS a jejich srovnání na základě vhodnosti pro tvorbu hry. Poslední částí práce je návrh vlastní hry a následná implementace s použitím nejlépe ohodnoceného frameworku.
 }{}
 
 \abstract{
@@ -57,24 +67,24 @@ EN abstract
 \kapitola{Úvod a cíl práce}
 
 % 
-\sekce{úvod}
-Myšlenku rozšířené reality (angl. Augmented reality) nastínil již před více než sto lety americký spisovatel Lyman Frank Baum \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Tato práce se zabývá aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
+\sekce{Úvod}
+Myšlenku rozšířené reality (angl. \textit{Augmented reality}) nastínil již před více než sto lety americký spisovatel \textit{Lyman Frank Baum} \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Mobilní zařízení jsou v současné době nejrychleji rostoucím odvětvím \cite{mobile_economy}, jejich hardwarové konfigurace zajišťují prostředky pro bezproblémové vykreslování detailních modelů i chod herního enginu. Mnohé firmy vidí v AR a VR (Virtual reality) budoucnost hraní a proto investují do jejich výzkumu \cite{guardian_samsung}. Tato práce se zabývá aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
 
 % 
 % Cíl práce
 \sekce{Cíl práce}
-Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, které bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
+Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, která bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
 
 %
 % Rozšířená realita
 %
 
 \kapitola{Rozšířená realita}
-Rozšířenou realitou (angl. Augmented reality) je označováno zobrazování digitálních objektů (3D modelů, 2D obrazů) v reálném světě. Tohoto efektu lze dosáhnout pomocí tzv. okna, které nám sdružuje reálné prostředí s virtuálním. Může se jednat o jakoukoliv formu displaye od mobilního telefonu, až po sofistikované nástroje, jako jsou speciální brýle (např. Google Glass). Digitálním objektům je možné pomocí různých technik analýzy obrazu specifikovat pozici, natočení a velikost. Metody vizuálního sledování lze rozdělit do třech základních kategorií \cite{klein_visual_tracking}.
+Rozšířenou realitou (angl. \textit{Augmented reality}) je označováno zobrazování digitálních objektů (3D modelů, 2D obrazů) v reálném světě. Tohoto efektu lze dosáhnout pomocí tzv. okna, které nám sdružuje reálné prostředí s virtuálním. Může se jednat o jakoukoliv formu displaye od mobilního telefonu, až po sofistikované nástroje, jako jsou speciální brýle (např. \textit{Google Glass}). Digitálním objektům je možné pomocí různých technik analýzy obrazu specifikovat pozici, natočení a velikost. Metody vizuálního sledování lze rozdělit do třech základních kategorií \cite{klein_visual_tracking}.
 
 \sekce{Metody vizuálního sledování}
 \podsekce{Marker tracking}
-Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích technik postavení objektů je Marker Tracking. Jedná se většinou o černobíle čtvercové QR kódy, které uchovávají informaci o svém identifikačním čísle, orámované černým okrajem o pevné velikosti. Na základě přečteného identifikátoru lze přiřazovat jednotlivým markerům různé objekty. Černé rámování slouží k analýze vzdálenosti od markeru, jeho natočení a velikost. Tato metoda je velmi efektivní, analýza takového markeru na zařízení iPhone 5 s frameworkem Metaio v obrazu zabere průměrně 4,3 ms (na základě vlastního měření).
+Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích technik postavení objektů je \textit{Marker Tracking}. Jedná se většinou o černobíle čtvercové \textit{QR kódy}, které uchovávají informaci o svém identifikačním čísle, orámované černým okrajem o pevné velikosti. Na základě přečteného identifikátoru lze přiřazovat jednotlivým markerům různé objekty. Černé rámování slouží k analýze vzdálenosti od markeru, jeho natočení a velikost. Tato metoda je velmi efektivní, analýza takového markeru na zařízení \textit{iPhone 5} s frameworkem \textit{Metaio} v obrazu zabere průměrně 4,3 ms (na základě vlastního měření). Další výhodou této metody je možnost definice velkého množství markerů s různým identifikátorem a na každém identifikátoru pak lze zobrazovat odlišné objekty.
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/marker-tracking.jpg}
@@ -83,7 +93,7 @@ Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích tech
 \end{figure}
 
 \podsekce{Markerless tracking}
-Další možností jak umisťovat objekty do rozšířené reality je pomocí tzv. Markerless trackingu. Jedná se o princip podobný Marker trackingu s tím rozdílem, že namísto markerů jsou použity libovolné obrazy. Při analýze je pak potřeba vlastnit digitální predlohu takového obrázu a vyhledávat jej ve snímané realitě. Na základě porovnání natočení obrazu ve snímané realitě a předlohy je zjištěna aktuální vzdálenost od objektu, velikost a natočení. Tento princip analýzy je pomalejší oproti Marker trackingu a při nevhodné volbě předlohy (nízký kontrast barev) méně spolehlivý, zvláště při špatných světelných podmínkách.
+Další možností jak umisťovat objekty do rozšířené reality je pomocí tzv. \textit{Markerless trackingu}. Jedná se o princip podobný Marker trackingu s tím rozdílem, že namísto markerů jsou použity libovolné obrazy. Při analýze je pak potřeba vlastnit digitální předlohu takového obrazu a vyhledávat jej ve snímané realitě. Na základě porovnání natočení obrazu ve snímané realitě a předlohy je zjištěna aktuální vzdálenost od objektu, velikost a natočení. Z důvodu zrychlení je v průběhu snímání porovnáván vzor z posledního sejmutého frame. Tento princip analýzy je pomalejší zvláště při špatných světelných podmínkách \cite{handbook_of_ar}.
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/markerless-tracking.jpg}
@@ -92,7 +102,7 @@ Další možností jak umisťovat objekty do rozšířené reality je pomocí tz
 \end{figure}
 
 \podsekce{Sledování neznámých prostředí}
-Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a to pomocí detekce hran na základě pohybu kamery. Nejrozšířenější systémy takovéto analýzy jsou SLAM (Simultaneous localization and mapping) a jeho vylepšení PTAM (Parallel Tracking and Mapping). PTAM je vyvíjen Active Vision Laboratory na University of Oxford a od roku 2014 volně dostupný pod licencí GNU GPLv3. Tento systém dokáže analyzovat plochy a hrany v obrazu a na základě těchto informací pak vykreslovat správně umístěné a natočené virtuální objekty. Tyto systémy mají uplatnění mimo jiné také při navigaci autopilotovaného vozidla, vesmírných vozů a podobně.
+Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a to pomocí detekce hran na základě pohybu kamery. Nejrozšířenější systémy takovéto analýzy jsou \textit{SLAM (Simultaneous localization and mapping)} a jeho vylepšení \textit{PTAM (Parallel Tracking and Mapping)}. \textit{PTAM} je vyvíjen \textit{Active Vision Laboratory na University of Oxford} a od roku 2014 volně dostupný pod licencí \textit{GNU GPLv3}. Tento systém dokáže analyzovat plochy a hrany v obrazu a na základě těchto informací pak vykreslovat správně umístěné a natočené virtuální objekty. Tyto systémy mají uplatnění mimo jiné také při navigaci autopilotovaného vozidla, vesmírných vozů a podobně.
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/slam.jpg}
@@ -109,14 +119,14 @@ Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a
 Rozšířená realita nabývá s vývojem stále výkonější mobilních telefonů na atraktivitě a rozšiřuje se i v komerční svéře. Mobilní aplikace dokáží interagovat s realitou např. přehráváním trailerů k filmům nad jeho plakátem, vizualizovat návrhy staveb nad prospekty nebo vizualizovat učební materiál v interaktivních učebnicích. Využití rozšířené reality je nespočetné a s přibývající dostupností technologií roste i počet nápadů na její uplatnění. Velké oblibě se těší zejména ve hrách, kde využívá prostředí hráče jako herní plochu a mobilní telefon jako okno do rozšířené reality.
 
 \sekce{Interakce se zařízením}
-Tento koncept je postaven na principu interakce hráče pouze se zařízením. Hráč vůbec nemanipuluje ani neinteraguje s prvky herního pole. Tento koncept je vhodný pro zejména pro typy her ve kterých nepotřebujeme pohybovat s objekty a je charakteristický pro mapově (geolokačně) založené hry -- objekty jsou umisťovány do reálného světa s koodináty. Typickým představitelem takového konceptu je hra Ingress.
+Tento koncept je postaven na principu interakce hráče pouze se zařízením. Hráč vůbec nemanipuluje ani neinteraguje s prvky herního pole. Tento koncept je vhodný pro zejména pro typy her ve kterých nepotřebujeme pohybovat s objekty a je charakteristický pro mapově (geolokačně) založené hry -- objekty jsou umisťovány do reálného světa s koodináty. Typickým představitelem takového konceptu je hra \textit{Ingress}.
 
 %
 % Ingress
 % 
 
 \podsekce{Ingress}
-Masově multiplayerová online hra vyvíjená startupem Niantics Labs, kterou zaštiťuje Google, dostupná pro iOS i Android. Celá hra má v pozadí příběh o \uv{Exotické hmotě} (Exotic Matter), která byla objevena vědci z CERNu, a je to zárodek mimozemského druhu zvaného Shapers. Osvícení (The Enlightened), jedna ze dvou frakcí, věří, že toto je √∫svit nového věku. Druhá frakce, Rezistence (The Resistance) naopak brojí proti těmto mimozemským silám. Hra spočívá ve vytváření frakčních portálů na různých místech, zejména na městských památkách, veřejných budovách a podobně. Hráči chodí s telefony po městě a vytvářením takovýchto portálů přivlastňují danná uzemí své frakci. Mohou také stavět obranné prvky a bránit tak tyto portály před napadením frakce druhé. Zobrazování rozšířené reality je zjednodušené, pouze černé pozadí s obrysy některých budov. Hra se tedy více než na rozšířenou realitu zaměřuje na příběh a rozšířená realita zde slouží pouze jako část celé hry. Více informací lze získat na oficiálních webových stránkách hry www.ingress.com \cite{ingress}.
+Masově multiplayerová online hra vyvíjená startupem \textit{Niantics Labs}, kterou zaštiťuje \textit{Google}, dostupná pro \textit{iOS} i \textit{Android}. Celá hra má v pozadí příběh o \uv{Exotické hmotě} (\textit{Exotic Matter}), která byla objevena vědci z \textit{CERNu}, a je to zárodek mimozemského druhu zvaného Shapers. Osvícení (The Enlightened), jedna ze dvou frakcí, věří, že toto je úsvit nového věku. Druhá frakce, Rezistence (The Resistance) naopak brojí proti těmto mimozemským silám. Hra spočívá ve vytváření frakčních portálů na různých místech, zejména na městských památkách, veřejných budovách a podobně. Hráči chodí s telefony po městě a vytvářením takovýchto portálů přivlastňují danná uzemí své frakci. Mohou také stavět obranné prvky a bránit tak tyto portály před napadením frakce druhé. Zobrazování rozšířené reality je zjednodušené, pouze černé pozadí s obrysy některých budov. Hra se tedy více než na rozšířenou realitu zaměřuje na příběh a rozšířená realita zde slouží pouze jako část celé hry. Více informací lze získat na oficiálních webových stránkách hry \textit{www.ingress.com} \cite{ingress}.
 
 
 \begin{figure}[H]
@@ -133,7 +143,7 @@ Dalším konceptem je interakce s herní deskou, kdy hráč interaguje pomocí g
 %
 
 \podsekce{Drakerz Confrontation}
-Karetní hra vyvíjená od roku 2010 francouzskou firmou Peoleo s první alpha verzí vydanou roku 2013 ve Francii \cite{venturebeat}. Dnes je hra dostupná pouze pro PC a nejsou žádné informace, zda dorazí v budoucnu i na mobilní platformy. Drakerz Confrontation hráči mají karty s různými typy draků s různými vlastnostmi a schopnostmi. Hra využívá rozšířené reality k vizualizaci draků nad kartami položenými na stole. Ke hraní je potřeba vlastnit kameru připojitelnou k PC, na kterém se pak vizualizace zobrazují. Vizualizované jsou jak pohyby draků po herní ploše, tak např. boje i prostoje. Více informací lze nalézt na oficiálních stránkách hry www.drakerz.com \cite{peoleo_about}, kde je také možné zakoupit karty nebo hru stáhnout.
+Karetní hra vyvíjená od roku 2010 francouzskou firmou \textit{Peoleo} s první alpha verzí vydanou roku 2013 ve Francii \cite{venturebeat}. Dnes je hra dostupná pouze pro PC a nejsou žádné informace, zda dorazí v budoucnu i na mobilní platformy. \textit{Drakerz Confrontation} hráči mají karty s různými typy draků s různými vlastnostmi a schopnostmi. Hra využívá rozšířené reality k vizualizaci draků nad kartami položenými na stole. Ke hraní je potřeba vlastnit kameru připojitelnou k PC, na kterém se pak vizualizace zobrazují. Vizualizované jsou jak pohyby draků po herní ploše, tak např. boje i prostoje. Více informací lze nalézt na oficiálních stránkách hry \textit{www.drakerz.com} \cite{peoleo_about}, kde je také možné zakoupit karty nebo hru stáhnout.
 
 
 \begin{figure}[H]
@@ -143,12 +153,12 @@ Karetní hra vyvíjená od roku 2010 francouzskou firmou Peoleo s první alpha v
 \end{figure}
 
 \sekce{Smíšená interakce}
-Tento koncept kombinuje předchozí dva uvedené. Hráč v tomto případě primárně používá zařízení, ale má i možnost ovládat herní prvky v reálném prostřední na herní desce. Typickým příkladem smíšené interakce je hra ARHrrrr!.
+Tento koncept kombinuje předchozí dva uvedené. Hráč v tomto případě primárně používá zařízení, ale má i možnost ovládat herní prvky v reálném prostřední na herní desce. Typickým příkladem smíšené interakce je hra \textit{ARHrrrr!}.
 
 % 
 % ARHrrrr!
 \podsekce{ARHrrrr!}
-Jednou z populárních her je hra ARhrrrr! z dílny Georgia Tech Augmented Environments Lab, která využívá vytištěné hrací plochy k vizualizaci části města (Markerless tracking), kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Hra je obohacena o různé doplňky, například položením bonbónu Skittles na herní plochu vznikne nášlapná mina, kterou můžeme kliknutím na ni odjistit (příklad interakce s herní plochou). Různé barvy bonbónů mají navíc různé funkce.
+Jednou z populárních her je hra \textit{ARhrrrr!} z dílny \textit{Georgia Tech Augmented Environments Lab}, která využívá vytištěné hrací plochy k vizualizaci části města (Markerless tracking), kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Hra je obohacena o různé doplňky, například položením bonbónu \textit{Skittles} na herní plochu vznikne nášlapná mina, kterou můžeme kliknutím na ni odjistit (příklad interakce s herní plochou). Různé barvy bonbónů mají navíc různé funkce.
 
 \begin{figure}[H]
     \includegraphics[width=424px, center]{images/arhrrrr.jpg}
@@ -169,7 +179,7 @@ Kritéria hodnocení se odvíjí od náročnosti požadavků na aplikaci, v tomt
 \sekce{Přehled frameworků}
 
 \podsekce{ARToolKit}
-ARToolkit byl původně vyvinut Hirokazu Katou na Nara Institute of Science and Technology v roce 1999. Nyní je udržován The Human Interface Technology Lab na University of Washington jako open source projekt s komerčníma licencema od ARToolWork. Tento framework je dostupný pro všechny majoritní platformy (Windows, Linux, Mac OS X, SGI) s různými porty pro mobilní operační systémy (iOS, Android). Mobilní verze tohoto frameworku portují již konkrétní firmy a vydávají jako vlastní produkt, nejsou tedy volně dostupné ‚Äì- nepodařilo se sestavit testovací projekt pro tento framework a benchmarky uvedené v dokumentaci jsou velmi nepřesně specifikované (chybí specifikace hardwaru, na kterém byly tyto měření prováděny). 
+\textit{ARToolkit} byl původně vyvinut \textit{Hirokazu Katou na Nara Institute of Science and Technology} v roce 1999. Nyní je udržován \textit{The Human Interface Technology Lab na University of Washington} jako open source projekt s komerčníma licencema od \textit{ARToolWork}. Tento framework je dostupný pro všechny majoritní platformy (\textit{Windows, Linux, OS X, SGI}) s různými porty pro mobilní operační systémy (\textit{iOS, Android}). Mobilní verze tohoto frameworku portují již konkrétní firmy a vydávají jako vlastní produkt, nejsou tedy volně dostupné -- nepodařilo se sestavit testovací projekt pro tento framework a benchmarky uvedené v dokumentaci jsou velmi nepřesně specifikované (chybí specifikace hardwaru, na kterém byly tyto měření prováděny). 
 
 \begin{figure}[H]
     \includegraphics[width=324px, center]{images/artoolkit_benchmark.jpg}
@@ -177,11 +187,11 @@ ARToolkit byl původně vyvinut Hirokazu Katou na Nara Institute of Science and 
     \label{artoolkit_benchmark}
 \end{figure}
 
-Mezi hlavní fukce frameworku patří kamerově pozicované a orientováné sledování, sledování černých čtverců s možností definice vlastních typů, jednoduchá kalibrace kamer \cite{artoolkit_features}. Podpora vykreslování modelů je pouze nízko√∫rovňová, lze renderovat objekty pomocí OpenGL. Většinou je využit v projektech jako část komplexního toolkitu pro práci s rozšířenou realitou např. OSGART (kombinace ARToolKit a OpenSceneGraph) \cite{osgart} nebo ARToolKitPlus (rozšířená verze ARToolKitu, vývoj ukončen roku 2006) \cite{wagner_schmalstieg}. 
+Mezi hlavní fukce frameworku patří kamerově pozicované a orientováné sledování, sledování černých čtverců s možností definice vlastních typů, jednoduchá kalibrace kamer \cite{artoolkit_features}. Podpora vykreslování modelů je pouze nízkoúrovňová, lze renderovat objekty pomocí \textit{OpenGL}. Většinou je využit v projektech jako část komplexního toolkitu pro práci s rozšířenou realitou např. \textit{OSGART} (kombinace \textit{ARToolKit} a \textit{OpenSceneGraph}) \cite{osgart} nebo \textit{ARToolKitPlus} (rozšířená verze \textit{ARToolKitu}, vývoj ukončen roku 2006) \cite{wagner_schmalstieg}. 
 
 \podsekce{Metaio}
-Metaio je multiplatformní framework který vyvíjí stejnojmenná německá firma od roku 2003. Mezi produkty Metaio najdeme framework pro rozšířenou realitu na všechny majoritní platformy a také sadu aplikačních nástrojů specializující se na usnadnění práce i samotný vývoj bez programování. Metaio pro iOS je dostupné jako C++ framework. 
-Dokumentace uvádí měření, ukazující udržení výkonu vykreslování 60 snímků za vteřinu (FPS) při 200 000 polygonech na iPhone 5S.
+\textit{Metaio} je multiplatformní framework který vyvíjí stejnojmenná německá firma od roku 2003. Mezi produkty \textit{Metaio} najdeme framework pro rozšířenou realitu na všechny majoritní platformy a také sadu aplikačních nástrojů specializující se na usnadnění práce i samotný vývoj bez programování. \textit{Metaio} pro \textit{iOS} je dostupné jako \textit{C++} framework. 
+Dokumentace uvádí měření, ukazující udržení výkonu vykreslování 60 snímků za vteřinu (FPS) při 200 000 polygonech na \textit{iPhone 5S}.
 
 \begin{figure}[H]
 \centering
@@ -191,34 +201,93 @@ Dokumentace uvádí měření, ukazující udržení výkonu vykreslování 60 s
     \label{metaio_benchmark}
 \end{figure}
 
-Také byl vytvořen testovací projekt, jehož jediným√∫kolem bylo rozeznávat 20 různých markerů. Na tomto projektu pak byly provedeny zkoušky rychlosti nalezení markeru v obrazu. Test byl prováděn na zařízení iPhone 5 (model A1429) firmy Apple. Z výsledných hodnot byl vypočítán průměr 4,31 ms. 
+Také byl vytvořen testovací projekt, jehož jedinýmúkolem bylo rozeznávat 20 různých markerů. Na tomto projektu pak byly provedeny zkoušky rychlosti nalezení markeru v obrazu. Test byl prováděn na zařízení \textit{iPhone 5} (model A1429) firmy \textit{Apple}. Z výsledných hodnot byl vypočítán průměr 4,31 ms. 
 
 
-Metaio SDK dokáže pracovat s modely ve formátech OBJ, MD2 a FBX a podporuje také jejich animace. Pod podmínkou vodoznaku a nemožnosti publikovat aplikaci na AppStore nabízí volnou licenci na všechny verze svého frameworku. 
+\textit{Metaio SDK} dokáže pracovat s modely ve formátech \textit{OBJ}, \textit{MD2} a \textit{FBX} a podporuje také jejich animace. Pod podmínkou vodoznaku a nemožnosti publikovat aplikaci na \textit{AppStore} nabízí volnou licenci na všechny verze svého frameworku. 
 
 \podsekce{Qualcomm Vuforia}
-Jedná se o poměrně nový framework vyvíjený od roku 2011 a nabízí velké množství funkcí. Jako hlavní lze uvést tzv. markerless recognition (možnost vykreslovat objekty nad obrázky), podporu frameworku Unity (framework usnadňující vývoj 3D her) nebo takzvané virtuální tlačítka (Virtual buttons, tlačítka promítaná do virtuální reality a interakce s nimi). Samotný framework nabízí aplikační rozhraní pro C++, Javu, Objective-C a .NET, což významným způsobem usnadňuje portace aplikace na různé platformy. ≈†iroké spektrum funkcí se odráží na licenčních podmínkách frameworku, u neplacených licencí je omezen počet rozpoznaných objektů (pozn. v průběhu tvorby této práce byly změněny licenční podmínky a framework je dostupný zdarma s vodoznakem a nemožností publikovat aplikaci). Velkým mínusem je stejně jako v případě ARToolKitu pouze nízko√∫rovňová podpora vykreslování objektů pomocí OpenGL. Pro podporu zobrazování modelů ve formátech např. OBJ, FBX a podobně je potřeba využít nějaké další pomocné knihovny \cite{vuforia_3dformats}.
+Jedná se o poměrně nový framework vyvíjený od roku 2011 a nabízí velké množství funkcí. Jako hlavní lze uvést tzv. markerless recognition (možnost vykreslovat objekty nad obrázky), podporu frameworku \textit{Unity} (framework usnadňující vývoj 3D her) nebo takzvané virtuální tlačítka (\textit{Virtual buttons}, tlačítka promítaná do virtuální reality a interakce s nimi). Samotný framework nabízí aplikační rozhraní pro \textit{C++}, \textit{Javu}, \textit{Objective-C} a \textit{.NET}, což významným způsobem usnadňuje portace aplikace na různé platformy. Široké spektrum funkcí se odráží na licenčních podmínkách frameworku, u neplacených licencí je omezen počet rozpoznaných objektů (pozn. v průběhu tvorby této práce byly změněny licenční podmínky a framework je dostupný zdarma s vodoznakem a nemožností publikovat aplikaci). Velkým mínusem je stejně jako v případě \textit{ARToolKitu} pouze nízkoúrovňová podpora vykreslování objektů pomocí \textit{OpenGL}. Pro podporu zobrazování modelů ve formátech např. \textit{OBJ}, \textit{FBX} a podobně je potřeba využít nějaké další pomocné knihovny \cite{vuforia_3dformats}.
 
 \podsekce{Augmented kit}
-Framework psaný čistě pro platformu iOS a tedy v Objective-C. Vyniká jednoduchým API a dobrou dokumentací. Nabízí pouze základní služby vykreslovaní objektů na markerech, či GPS souřadnic a gyroskopu. Framework je vyvíjen teprve od roku 2012 firmou Luteg Software Technologies a to se projevuje velmi malou vývojářskou základnou. Na druhou stranu má přívětivé licenční podmínky, kdy poskytuje volnou licenci pod podmínkou vodoznaku a nemožnosti aplikaci publikovat na AppStore. 
+Framework psaný čistě pro platformu \textit{iOS} a tedy v \textit{Objective-C}. Vyniká jednoduchým API a dobrou dokumentací. Nabízí pouze základní služby vykreslovaní objektů na markerech, či GPS souřadnic a gyroskopu. Framework je vyvíjen teprve od roku 2012 firmou \textit{Luteg Software Technologies} a to se projevuje velmi malou vývojářskou základnou. Na druhou stranu má přívětivé licenční podmínky, kdy poskytuje volnou licenci pod podmínkou vodoznaku a nemožnosti aplikaci publikovat na \textit{AppStore}. 
+
+\newpage
+\kapitola{Metodika}
+Pro zvolení správných technologií je nutné jako první navrhnout konceptuální model celé hry. Na základě tohoto modelu je pak potřeba zvolit technologie tak, abychom dosáhli danných kritérií. Konkrétně se jedná o volbu frameworku, 3D formátu pro modely a modelovací nástroj.
+
+\sekce{Koncept hry}
+Základní koncept hry spočívá v budování města -- budov -- a řízení ekonomiky tohoto města -- od toho znikl název ARCity -- ovlivňováním ekonomických parametrů (DPH, počet volných pracovních míst, obyvatelné parcely). Hra se je vizualizována na hrací desce o rozměrech 5x5 markerů. Každý marker představuje parcelu pro vytvoření takzvané zóny. Základní surovinou pro řízení hry jsou peníze. Základními ukazateli jsou pak spokojenost a počet obyvatel.  Za peníze může hráč nechat na prázných parcelách vystavět specifické zóny. Základní typy zón jsou čtyři -- obytná zóna, průmyslová zóna, obchodní zóna a kulturní zóna. Každá z těchto zón může ovlivňovat ukazatele, přinášet suroviny (peníze) nebo naopak spotřebovávat. Uprostřed města je již od počátku hry postavena radnice, která slouží k možnosti za určitých podmínek postoupit do vyšší úrovně. Vyšší úroveň nám pak otevírá nové možnosti jak vylepšovat zóny. Cílem hry je postavit město na nejvyšší úrovni. 
+
+Na začátku hry je hráči dovoleno stavět pouze základní zóny bez možnosti je vylepšit. Hráč může takovéto vylepšení odemknout získáním vyšší městské úrovně. Pro získání úrovně je potřeba splnit limity danné pro každou úrověň zvlášť, jedná se o kombinaci počtu obyvatel, jejich spokojenosti a městského rozpočtu. Po splnění těchto požadavků je hráči umožněno vylepšovat své zóny a tím dosáhnout větších profitů, obyvatel, pracovních míst a podobně.
+
+Hra využívá marker trackingu a je spustitelná na zařízeních se systémem iOS 8 s primárním cílením pro \textit{iPad}. Modely zón a budov jsou texturované a animované. Interakce se hrou probíhá pouze skrze mobilní zařízení, nikoliv s hrací deskou.
+
+\podsekce{Obytná zóna}
+Slouží k navýšení maximálního počtu obyvatel, které může město ubytovat. Počet obyvatel, kteří ve městě žijí (přistěhují se nebo se odstěhují), je závislý na stavu spokojenosti a počtu pracovních míst.
+
+\podsekce{Průmyslová zóna}
+Zaměstnává lidi ve městě -- vytváří pracovní místa a generuje peníze. Snižuje však kulturu města (ukazatel spokojenosti). 
+
+\podsekce{Kulturní zóna}
+Zvyšuje spokojenost obyvatel města, ale musí být dotována z městského rozpočtu.
+
+\podsekce{Obchodní zóna}
+Stejně jako průmyslová zóna vytváří pracovní místa, ale pouze v menším množství. Nemá však takový vliv na snižování spokojenosti uživatel. Také generuje malé množství peněz a jedná se o nejdražší zónu.
+
 
 \sekce{Výběr frameworku}
+Pro výběr frameworku byly na základě herního konceptu stanoveny tyto kritéria:
+\begin{itemize}
+	\item Spustitelnost pod iOS
+	\item Marker tracking
+	\item Podpora 3D formátu modelů
+	\item Animovatelnost modelů
+	\item Volná licence / akademická licence
+	\item Dokumentace, tutoriály
+\end{itemize}
 
-% 
-% Nova stranka
-\newpage
-\kapitola{Metaio}
+Výsledky pro tyto kritéria jednotlivých představených frameworků můžeme videt v Tabulce \ref{table:frameworks-compare}.
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}l |C{25mm}|
+>{\columncolor[HTML]{66E865}}C{25mm} |C{25mm}|C{25mm}|}
+\hline
+\textbf{Framework}             & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{ARToolKit}} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{Metaio}} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{Qualcomm Vuforia}} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{Augmented kit}} \\ \hline
+\textbf{Podpora iOS}                   & \textit{Částečně}                                                 & \textit{Ano}                                                   & \textit{Ano}                                                             & \textit{Ano}                                                          \\ \hline
+\textbf{Marker tracking}       & \cellcolor[HTML]{FFFFFF}\textit{Ano}                              & \textit{Ano}                                                   & \cellcolor[HTML]{FFFFFF}\textit{Ano}                                     & \cellcolor[HTML]{FFFFFF}\textit{Ne}                                   \\ \hline
+\textbf{3D formát modelů}      & \textit{Ne, pouze OpenGL}                                         & \textit{OBJ, FBX, MD2}                                         & \textit{Ne, pouze OpenGL}                                                & \textit{Ne}                                                           \\ \hline
+\textbf{Animace}               & \textit{Pouze GLUT}                                               & \textit{Ano (FBX, MD2)}                                        & \textit{Pouze GLUT}                                                              & \textit{Ne}                                                           \\ \hline
+\textbf{Licence}               & \textit{Komerční}                                                 & \textit{Omezená s vodoznakem}                                  & \textit{Omezená s vodoznakem}                                            & \textit{Omezená s vodoznakem}                                         \\ \hline
+\textbf{Dokumentace/tutoriály} & \textit{Ano/ne}                                                   & \textit{Ano/ano}                                               & \textit{Ano/ano}                                                         & \textit{Ano/pouze ukázka}                                             \\ \hline
+\end{tabular}
+}
+\caption{Porovnání frameworků}
+\label{table:frameworks-compare}
+\end{table}
+
+Po porovnání výsledků byl vyhodnocen jako nejvhodnější framework Metaio, který jako jediný splňuje všechna daná kritéria.
+
 \sekce{Formát 3D modelů}
-Základem dobrého návrhu aplikace je správná volba technologií. Mezi ně v tomto případě patří i volba formátu pro 3D modely. Framework Metaio podporuje renderování objektů ve formátech OBJ, MD2 a FBX. Pro tvorbu modelů byl použit 3D modelovací nástroj 3Ds Max od firmy Autodesk a to čistě z důvodů základní znalosti tohoto softwaru. Tato práce se nezabývá porovnáváním modelovacích softwarů. Kritérii pro výběr formátu jsou podpora exportu z 3Ds Max, podpora animací, podpora textur.
+Základem dobrého návrhu aplikace je správná volba technologií. Mezi ně v tomto případě patří i volba formátu pro 3D modely. Framework Metaio podporuje renderování objektů ve formátech \textit{OBJ}, \textit{MD2} a \textit{FBX}. 
+%Pro tvorbu modelů byl použit 3D modelovací nástroj \textit{3Ds Max} od firmy \textit{Autodesk} a to čistě z důvodů základní znalosti tohoto softwaru. Tato práce se nezabývá porovnáváním modelovacích softwarů.
+Kritérii pro výběr formátu jsou podpora exportu z \textit{3Ds Max}, podpora animací, podpora textur.
 
 \podsekce{OBJ}
-Otevřený formát vyvinutý firmou Wavefront Technologies pro přenos 3D objektů. Formát specifikuje pozice každého vertexu v objektu, UV souřadnice textury vertexu a plochy (faces) každého polygonu \cite{obj_wiki}. Obsahuje podporu textur pomocí přiložených materiálů ve formátu MTL (Material Template Library). Formát OBJ je standardně textový formát, může se však vyskytovat i v binární podobě. Takovýto binární soubor má pak příponu .mod. Formát bohužel nemá podporu animací \cite{obj_doc} a tím nevyhovuje v jednom ze tří bodů daných kritérií.
+Otevřený formát vyvinutý firmou \textit{Wavefront Technologies} pro přenos 3D objektů. Formát specifikuje pozice každého vertexu v objektu, UV souřadnice textury vertexu a plochy (faces) každého polygonu \cite{obj_wiki}. Obsahuje podporu textur pomocí přiložených materiálů ve formátu \textit{MTL (Material Template Library)}. Formát \textit{OBJ} je standardně textový formát, může se však vyskytovat i v binární podobě. Takovýto binární soubor má pak příponu .mod. Formát bohužel nemá podporu animací \cite{obj_doc} a tím nevyhovuje v jednom ze tří bodů daných kritérií.
 
 \podsekce{MD2}
-Formát MD2 se stal populárním díky firmě id Software's \cite{md2_wiki}, která jej použila v id Tech 2 známý jako Quake II engine \cite{quake_engine} pro modely všech postav ve hře Quake II a dalších, rovněž postavených na tomto enginu. MD2 má podporu key-frame animací a textur. MD2 byl později nahrazen novějším formátem MD3 \cite{id_tech_3_wiki}. Tento formát je nyní již zastaralý a nemá valnou podporu v 3Ds Maxu, vyjma komerčního pluginu \cite{qtip_plugin}. 
+Formát \textit{MD2} se stal populárním díky firmě \textit{id Software's} \cite{md2_wiki}, která jej použila v \textit{id Tech 2} známý jako \textit{Quake II engine} \cite{quake_engine} pro modely všech postav ve hře \textit{Quake II} a dalších, rovněž postavených na tomto enginu. \textit{MD2} má podporu key-frame animací a textur. \textit{MD2} byl později nahrazen novějším formátem \textit{MD3} \cite{id_tech_3_wiki}. Tento formát je nyní již zastaralý a nemá valnou podporu v \textit{3Ds Maxu}, vyjma komerčního pluginu \cite{qtip_plugin}. 
 
 \podsekce{FBX}
-Proprietární formát FBX (FilmBoX) je od roku 2006 vyvíjen a spravován firmou Autodesk \cite{autodesk_fbx}. Firma pro užívání tohoto formátu vydala FBX SDK, který umožňuje zapis, čtení a konverze tohoto formátu \cite{autodesk_fbx_sdk}. Formát podporuje animace, textury a jelikož je vyvíjen stejnou firmou jako 3Ds Max, má v tomto softwaru i náležitou podporu pro export.
+Proprietární formát \textit{FBX} (FilmBoX) je od roku 2006 vyvíjen a spravován firmou \textit{Autodesk} \cite{autodesk_fbx}. Firma pro užívání tohoto formátu vydala \textit{FBX SDK}, který umožňuje zapis, čtení a konverze tohoto formátu \cite{autodesk_fbx_sdk}. Formát podporuje animace, textury a jelikož je vyvíjen stejnou firmou jako \textit{3Ds Max}, má v tomto softwaru i náležitou podporu pro export.
 
 
 \begin{table}[H]
@@ -234,7 +303,7 @@ FBX    & Ano             & Ano            & Ano                      \\ \hline
 \end{table}
 
 
-Na základě daných kritérií byl zvolen za nejvhodnější formát FBX. Metaio sice podporuje tento formát, ale využívá k tomu utility zvané MeshConvertor, které je potřeba dodat FBX model s případnými UV mapami textur modelu. Výsledným souborem je archiv formátu ZIP, který obsahuje informace o daném modelu, přiložené textury, názvy animací a metadata. Tento zip lze pak již lze snadno používat v Metaio SDK.
+Na základě daných kritérií byl zvolen za nejvhodnější formát \textit{FBX}. Metaio sice podporuje tento formát, ale využívá k tomu utility zvané MeshConvertor, které je potřeba dodat \textit{FBX} model s případnými UV mapami textur modelu. Výsledným souborem je archiv formátu \textit{ZIP}, který obsahuje informace o daném modelu, přiložené textury, názvy animací a metadata. Tento \textit{ZIP} lze pak již lze snadno používat v \textit{Metaio SDK}.
 
 
 % 
@@ -242,6 +311,49 @@ Na základě daných kritérií byl zvolen za nejvhodnější formát FBX. Metai
 \newpage
 
 \kapitola{ARCity}
+
+Tato kapitola popisuje jednotlivé součásti hry.  
+
+\sekce{Metaio}
+Metaio SDK je knihovna napsaná v jazyce C++ a pro použití v Cocoa touch projektu, který je vyvíjen v jazyce Objective-C (nebo také nově ve Swiftu), stačí knihovnu přilinkovat do tzv. bundle. Pro použití knihoven psaných v C++ má Cocoa touch speciální formát s příponou .mm, kterému se říká Objective-C++. Touto příponou dáváme překladači najevo kombinování těchto dvou jazyků v jednom souboru. 
+
+\sekce{Cocoapods}
+Pro usnadnění připojování pomocných frameworků do projektu vznikl open source projekt s názvem Cocoapods. Tento tzv. dependency manager napsaný v jazyce Ruby má za úkol přidávat, odebírat nebo aktualizovat použité externí frameworky. Seznam frameworků je definován textovým sobourem s názvem Podfile, jsou v něm definice zdrojů, verzí a targetu projektu, do kterých mají být frameworky přilinkovány. Veškeré frameworky použité v této hře jsou vydány pod svobodými licencemi (většinou MIT).
+
+\podsekce{MagicalRecord}
+MagicalRecord je framework, který usnadňuje práci s klasickým Core Data frameworkem. Zjednodušuje práci s daty zaváděním \textit{Active record} přístupu známého zejména z Ruby on Rails. Konkrétně se jedná o udržování defaultních kontextů a jejich vytváření, vytváření, update, mazání objektů a také jejich import. Tento framework je dostupný pod MIT licencí \cite{magical_record}.
+
+\podsekce{TFTableDescriptor}
+TFTableDescriptor slouží jako pomocník při sestavování tabulek. Tabulky lze sestavit pomocí popisu  speciálními třídami TFTableDescriptor, TFSectionDescriptor a TFRowDescriptor. Tento framework je vyvíjen firmou The Funtasty pod otevřenou licencí MIT \cite{tftabledescriptor}.
+
+
+\sekce{Model}
+Pro vývoj aplikací na platformu iOS se využívá takzvaného \textit{MVC} (Model-View-Controller) přístupu. Základní model hry se skládá z těchto tříd:
+
+\begin{itemize}
+	\item \textbf{Engine} - jádro hry, řídí celou herní logiku, obsluhuje ostatní komponenty modelu
+	\item \textbf{GraphicsCore} - grafické jádro hry, zajišťuje vykreslování objektů na správných markerech, deleguje změny stavů, spouští animace a překládá koordináty
+	\item \textbf{GraphicsItem} - představuje jeden vykreslovaný objekt v herní scéně, jejich vytváření je řízeno z CraphicsCore.
+	\item \textbf{MetaioSDK} - třída frameworku Metaio, instance této třídy je držena v GraphicsCore a je pomocí ní řízeno vykreslování objektů ve scéně
+	\item \textbf{GameSession} - uchovává informace o stavu hry, obsahuje reference na hráče a či herní plochu
+	\item \textbf{User} - obsahuje informace o uživateli (peníze, spokojenost, \dots)
+	\item \textbf{Plot} - představuje herní parcelu, obsahuje informace o zóně a metody pro jejich vytváření a mazání
+	\item \textbf{Zone} - jsou vytvářeny Ploty, obsahují informace na základě typu
+\end{itemize}
+
+Jak v modelu jednotlivé třídy figurují je navrženo jednoduchým UML diagramem tříd.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=424px, center]{images/model.png}
+\captionsetup{justification=centering}
+    \caption{Jednoduchý diagram tříd}
+    \label{class_diagram}
+\end{figure}
+
+Tento návrh zajišťuje striktní oddělení herní logiky od grafického vykreslování. Pro uchování stavu hry stačí ukládat instance GameSession se svými kompozicemi. Uloženou GameSession lze pak přiřadit Enginu, který dokáže na jejím základě obnovit grafický obraz hry. Grafické jádro monitoruje změny v GameSession přiřazené v Enginu a na jejich základě provádí změny viditelné části hry. 
+
+\sekce{Uživatelské rozhraní}
 
 % 
 % Nova stranka
@@ -388,10 +500,44 @@ In Proc. 12th Computer Vision Winter Workshop (CVWW'07), Sankt Lambrecht, Austri
 {
 	\autor{Qualcomm}
 	\nazev{3D File Formats}
-	 [online]. [cit. 2015-04-02]. Dostupné z: https://developer.vuforia.com/library/articles/Solution/3D-File-Formats
+	 [online]. [cit. 2015-04-02]. Dostupné z: https://developer.vuforia.com/library/articles/Solution/3D-File-Formats.
 }
 
+\citace{handbook_of_ar}{Springer Science, 2011}
+{
+	\autor{Springer Science}
+	\nazev{Markerless Tracking for Augmented Reality: Feature Matching: Image Patches. Handbook of augmented reality}
+	 New York: Springer, c2011, 259–260. ISBN 978-1-4614-0063-9.
+}
+ 
 
+\citace{guardian_samsung}{The Guardian, 2015}
+{
+	\autor{The Guardian}
+	\nazev{Samsung creates drone, robotics and virtual reality lab}
+	[online]. [cit. 2015-04-12]. Dostupné z: http://www.theguardian.com/technology/2015/feb/10/samsung-independent-drone-robotics-virtual-reality-lab
+}
+
+\citace{mobile_economy}{GSMA Mobile Economy, 2015}
+{
+	\autor{GSMA Mobile Economy}
+	\nazev{The Mobile Economy 2015}
+	[online]. [cit. 2015-04-12]. Dostupné z: http://www.gsmamobileeconomy.com/GSMA\_Global\_Mobile\_Economy\_Report\_2015.pdf
+}
+
+\citace{magical_record}{Magical Panda Software, 2015}
+{
+	\autor{Magical Panda Software}
+	\nazev{MagicalRecord}
+	[online]. [cit. 2015-04-12]. Dostupné z: https://github.com/magicalpanda/MagicalRecord
+}
+
+\citace{tftabledescriptor}{The Funtasty, 2015}
+{
+	\autor{The Funtasty}
+	\nazev{TFTableDescriptor}
+	[online]. [cit. 2015-04-12]. Dostupné z: https://github.com/thefuntasty/TFTableDescriptor
+}
 
 
 % Obrazky
