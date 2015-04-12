@@ -1,20 +1,34 @@
 \select@language {czech}
-\contentsline {section}{\numberline {1}\IeC {\'U}vod a~c\IeC {\'\i }l pr\IeC {\'a}ce}{11}
-\contentsline {subsection}{\numberline {1.1}\IeC {\'U}vod}{11}
+\contentsline {section}{\numberline {1}\IeC {\'U}vod a c\IeC {\'\i }l pr\IeC {\'a}ce}{11}
+\contentsline {subsection}{\numberline {1.1}\IeC {\'u}vod}{11}
 \contentsline {subsection}{\numberline {1.2}C\IeC {\'\i }l pr\IeC {\'a}ce}{11}
 \contentsline {section}{\numberline {2}Roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'a} realita}{12}
 \contentsline {subsection}{\numberline {2.1}Metody vizu\IeC {\'a}ln\IeC {\'\i }ho sledov\IeC {\'a}n\IeC {\'\i }}{12}
 \contentsline {subsubsection}{Marker tracking}{12}
-\contentsline {subsubsection}{Markerless tracking}{12}
-\contentsline {subsubsection}{Sledov\IeC {\'a}n\IeC {\'\i } nezn\IeC {\'a}m\IeC {\'y}ch prost\IeC {\v r}ed\IeC {\'\i }}{12}
-\contentsline {section}{\numberline {3}Vyu\IeC {\v z}it\IeC {\'\i } roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'e} reality, hry a jejich koncepty}{13}
-\contentsline {subsection}{\numberline {3.1}ARHrrrr!}{13}
-\contentsline {subsection}{\numberline {3.2}Ingress}{13}
-\contentsline {subsection}{\numberline {3.3}PulzAR}{13}
-\contentsline {subsection}{\numberline {3.4}Drakerz-Confrontation}{13}
-\contentsline {section}{\numberline {4}Frameworky}{14}
-\contentsline {section}{\numberline {5}ARCity}{15}
-\contentsline {section}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{16}
-\contentsline {subsection}{\numberline {6.1}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{16}
-\contentsline {section}{\numberline {7}P\IeC {\v r}\IeC {\'\i }lohy}{17}
-\contentsline {section}{\numberline {8}Reference}{18}
+\contentsline {subsubsection}{Markerless tracking}{13}
+\contentsline {subsubsection}{Sledov\IeC {\'a}n\IeC {\'\i } nezn\IeC {\'a}m\IeC {\'y}ch prost\IeC {\v r}ed\IeC {\'\i }}{13}
+\contentsline {section}{\numberline {3}Vyu\IeC {\v z}it\IeC {\'\i } roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'e} reality, koncepty vyu\IeC {\v z}it\IeC {\'e} ve hr\IeC {\'a}ch}{15}
+\contentsline {subsection}{\numberline {3.1}Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{15}
+\contentsline {subsubsection}{Ingress}{15}
+\contentsline {subsection}{\numberline {3.2}Interakce s hern\IeC {\'\i } deskou}{16}
+\contentsline {subsubsection}{Drakerz Confrontation}{17}
+\contentsline {subsection}{\numberline {3.3}Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{17}
+\contentsline {subsubsection}{ARHrrrr!}{18}
+\contentsline {section}{\numberline {4}Framework}{19}
+\contentsline {subsection}{\numberline {4.1}Krit\IeC {\'e}ria hodnocen\IeC {\'\i }}{19}
+\contentsline {subsection}{\numberline {4.2}P\IeC {\v r}ehled framework\IeC {\r u}}{19}
+\contentsline {subsubsection}{ARToolKit}{19}
+\contentsline {subsubsection}{Metaio}{20}
+\contentsline {subsubsection}{Qualcomm Vuforia}{21}
+\contentsline {subsubsection}{Augmented kit}{21}
+\contentsline {subsection}{\numberline {4.3}V\IeC {\'y}b\IeC {\v e}r frameworku}{21}
+\contentsline {section}{\numberline {5}Metaio}{22}
+\contentsline {subsection}{\numberline {5.1}Form\IeC {\'a}t 3D model\IeC {\r u}}{22}
+\contentsline {subsubsection}{OBJ}{22}
+\contentsline {subsubsection}{MD2}{22}
+\contentsline {subsubsection}{FBX}{22}
+\contentsline {section}{\numberline {6}ARCity}{24}
+\contentsline {section}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{25}
+\contentsline {subsection}{\numberline {7.1}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{25}
+\contentsline {section}{\numberline {8}P\IeC {\v r}\IeC {\'\i }lohy}{26}
+\contentsline {section}{\numberline {9}Reference}{27}
