@@ -25,7 +25,8 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-
+\clubpenalty 10000
+\widowpenalty 10000
 %
 %
 % START
@@ -87,13 +88,13 @@ Rozšířenou realitou (angl. \textit{Augmented reality}) je označováno zobraz
 Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích technik postavení objektů je \textit{Marker Tracking}. Jedná se většinou o černobíle čtvercové \textit{QR kódy}, které uchovávají informaci o svém identifikačním čísle, orámované černým okrajem o pevné velikosti. Na základě přečteného identifikátoru lze přiřazovat jednotlivým markerům různé objekty. Černé rámování slouží k analýze vzdálenosti od markeru, jeho natočení a velikost. Tato metoda je velmi efektivní, analýza takového markeru na zařízení \textit{iPhone 5} s frameworkem \textit{Metaio} v obrazu zabere průměrně 4,3 ms (na základě vlastního měření). Další výhodou této metody je možnost definice velkého množství markerů s různým identifikátorem a na každém identifikátoru pak lze zobrazovat odlišné objekty.
 
 \begin{figure}[H]
-    \includegraphics[width=350px, center]{images/marker-tracking.jpg}
+    \includegraphics[width=330px, center]{images/marker-tracking.jpg}
     \caption{Marker tracking}
     \label{marker_tracking}
 \end{figure}
 
 \podsekce{Markerless tracking}
-Další možností jak umisťovat objekty do rozšířené reality je pomocí tzv. \textit{Markerless trackingu}. Jedná se o princip podobný Marker trackingu s tím rozdílem, že namísto markerů jsou použity libovolné obrazy. Při analýze je pak potřeba vlastnit digitální předlohu takového obrazu a vyhledávat jej ve snímané realitě. Na základě porovnání natočení obrazu ve snímané realitě a předlohy je zjištěna aktuální vzdálenost od objektu, velikost a natočení. Z důvodu zrychlení je v průběhu snímání porovnáván vzor z posledního sejmutého frame. Tento princip analýzy je pomalejší zvláště při špatných světelných podmínkách \cite{handbook_of_ar}.
+Další možností jak umisťovat objekty do rozšířené reality je pomocí tzv. \textit{Markerless trackingu}. Jedná se o princip podobný Marker trackingu s tím rozdílem, že namísto markerů jsou použity libovolné obrazy. Při analýze je pak potřeba vlastnit digitální předlohu takového obrazu a vyhledávat jej ve snímané realitě. Na základě porovnání natočení obrazu ve snímané realitě a předlohy je zjištěna aktuální vzdálenost od objektu, velikost a natočení. Z důvodu zrychlení je v průběhu snímání porovnáván vzor z posledního sejmutého frame. Tento princip analýzy může být pomalejší zvláště při špatných světelných podmínkách \cite{handbook_of_ar}.
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/markerless-tracking.jpg}
@@ -247,7 +248,7 @@ Pro výběr frameworku byly na základě herního konceptu stanoveny tyto krité
 	\item Dokumentace, tutoriály
 \end{itemize}
 
-Výsledky pro tyto kritéria jednotlivých představených frameworků můžeme videt v Tabulce \ref{table:frameworks-compare}.
+Výsledky pro tyto kritéria jednotlivých představených frameworků můžeme vidět v Tabulce \ref{table:frameworks-compare}.
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
@@ -303,7 +304,10 @@ FBX    & Ano             & Ano            & Ano                      \\ \hline
 \end{table}
 
 
-Na základě daných kritérií byl zvolen za nejvhodnější formát \textit{FBX}. Metaio sice podporuje tento formát, ale využívá k tomu utility zvané MeshConvertor, které je potřeba dodat \textit{FBX} model s případnými UV mapami textur modelu. Výsledným souborem je archiv formátu \textit{ZIP}, který obsahuje informace o daném modelu, přiložené textury, názvy animací a metadata. Tento \textit{ZIP} lze pak již lze snadno používat v \textit{Metaio SDK}.
+Na základě daných kritérií byl zvolen za nejvhodnější formát \textit{FBX}. Metaio sice podporuje tento formát, ale využívá k tomu utility zvané MeshConvertor, které je potřeba dodat \textit{FBX} model s případnými UV mapami textur modelu. Výsledným souborem je archiv formátu \textit{ZIP}, který obsahuje informace o daném modelu, přiložené textury, názvy animací a metadata. Tento \textit{ZIP} pak již lze snadno používat v \textit{Metaio SDK}.
+
+\sekce{Modelovací nástroj}
+Jediné kritérium stanovené pro výběr modelovacího nástroje je podpora exportu do \textit{FBX}. Jelikož tuto možnost mají všechny majoritní modelovací nástroje (\textit{Autodesk 3Ds Max}, \textit{Blender}, \textit{Maya}, \dots), rozhodl jsem se pro použití \textit{3Ds Maxu} od firmy \textit{Autodesk} pouze na základě předešlých znalostí prostředí tohoto programu. \textit{Autodesk} poskytuje na své produkty akademickou licenci.
 
 
 % 
@@ -315,20 +319,22 @@ Na základě daných kritérií byl zvolen za nejvhodnější formát \textit{FB
 Tato kapitola popisuje jednotlivé součásti hry.  
 
 \sekce{Metaio}
-Metaio SDK je knihovna napsaná v jazyce C++ a pro použití v Cocoa touch projektu, který je vyvíjen v jazyce Objective-C (nebo také nově ve Swiftu), stačí knihovnu přilinkovat do tzv. bundle. Pro použití knihoven psaných v C++ má Cocoa touch speciální formát s příponou .mm, kterému se říká Objective-C++. Touto příponou dáváme překladači najevo kombinování těchto dvou jazyků v jednom souboru. 
+\textit{Metaio SDK} je knihovna napsaná v jazyce \textit{C++} a pro použití v \textit{Cocoa touch} projektu, který je vyvíjen v jazyce \textit{Objective-C} (nebo také nově ve \textit{Swiftu}), stačí knihovnu přilinkovat do tzv. bundle. Pro použití knihoven psaných v \textit{C++} má \textit{Cocoa touch} speciální formát s příponou .mm, kterému se říká \textit{Objective-C++}. Touto příponou dáváme překladači najevo kombinování těchto dvou jazyků v jednom souboru. 
 
 \sekce{Cocoapods}
-Pro usnadnění připojování pomocných frameworků do projektu vznikl open source projekt s názvem Cocoapods. Tento tzv. dependency manager napsaný v jazyce Ruby má za úkol přidávat, odebírat nebo aktualizovat použité externí frameworky. Seznam frameworků je definován textovým sobourem s názvem Podfile, jsou v něm definice zdrojů, verzí a targetu projektu, do kterých mají být frameworky přilinkovány. Veškeré frameworky použité v této hře jsou vydány pod svobodými licencemi (většinou MIT).
+Pro usnadnění připojování pomocných frameworků do projektu vznikl open source projekt s názvem \textit{Cocoapods}. Tento tzv. dependency manager napsaný v jazyce \textit{Ruby} má za úkol přidávat, odebírat nebo aktualizovat použité externí frameworky. Seznam frameworků je definován textovým sobourem s názvem Podfile, jsou v něm definice zdrojů, verzí a targetu projektu, do kterých mají být frameworky přilinkovány. Veškeré frameworky použité v této hře jsou vydány pod svobodými licencemi (většinou \textit{MIT}).
 
 \podsekce{MagicalRecord}
-MagicalRecord je framework, který usnadňuje práci s klasickým Core Data frameworkem. Zjednodušuje práci s daty zaváděním \textit{Active record} přístupu známého zejména z Ruby on Rails. Konkrétně se jedná o udržování defaultních kontextů a jejich vytváření, vytváření, update, mazání objektů a také jejich import. Tento framework je dostupný pod MIT licencí \cite{magical_record}.
+\textit{MagicalRecord} je framework, který usnadňuje práci s klasickým \textit{Core Data} frameworkem. Zjednodušuje práci s daty zaváděním \textit{Active record} přístupu známého zejména z \textit{Ruby on Rails}. Konkrétně se jedná o udržování defaultních kontextů a jejich vytváření, vytváření, update, mazání objektů a také jejich import. Tento framework je dostupný pod \textit{MIT} licencí \cite{magical_record}.
 
 \podsekce{TFTableDescriptor}
-TFTableDescriptor slouží jako pomocník při sestavování tabulek. Tabulky lze sestavit pomocí popisu  speciálními třídami TFTableDescriptor, TFSectionDescriptor a TFRowDescriptor. Tento framework je vyvíjen firmou The Funtasty pod otevřenou licencí MIT \cite{tftabledescriptor}.
+\textit{TFTableDescriptor} slouží jako pomocník při sestavování tabulek. Tabulky lze sestavit pomocí popisu  speciálními třídami \textit{TFTableDescriptor}, \textit{TFSectionDescriptor} a \textit{TFRowDescriptor}. Tento framework je vyvíjen firmou \textit{The Funtasty} pod otevřenou licencí \textit{MIT} \cite{tftabledescriptor}.
 
+
+\podsekce{Dalsi ktere jeste treba pouziju}
 
 \sekce{Model}
-Pro vývoj aplikací na platformu iOS se využívá takzvaného \textit{MVC} (Model-View-Controller) přístupu. Základní model hry se skládá z těchto tříd:
+Pro vývoj aplikací na platformu \textit{iOS} se využívá takzvaného \textit{MVC} (Model-View-Controller) přístupu. Základní model hry se skládá z těchto tříd:
 
 \begin{itemize}
 	\item \textbf{Engine} - jádro hry, řídí celou herní logiku, obsluhuje ostatní komponenty modelu
@@ -345,16 +351,17 @@ Jak v modelu jednotlivé třídy figurují je navrženo jednoduchým UML diagram
 
 \begin{figure}[H]
 \centering
-    \includegraphics[width=424px, center]{images/model.png}
+    \includegraphics[width=400px, center]{images/model.png}
 \captionsetup{justification=centering}
     \caption{Jednoduchý diagram tříd}
     \label{class_diagram}
 \end{figure}
 
-Tento návrh zajišťuje striktní oddělení herní logiky od grafického vykreslování. Pro uchování stavu hry stačí ukládat instance GameSession se svými kompozicemi. Uloženou GameSession lze pak přiřadit Enginu, který dokáže na jejím základě obnovit grafický obraz hry. Grafické jádro monitoruje změny v GameSession přiřazené v Enginu a na jejich základě provádí změny viditelné části hry. 
+Tento návrh zajišťuje striktní oddělení herní logiky od grafického vykreslování. Pro uchování stavu hry stačí ukládat instance \textit{GameSession} se svými kompozicemi. Uloženou \textit{GameSession} lze pak přiřadit \textit{Enginu}, který dokáže na jejím základě obnovit grafický obraz hry. Grafické jádro monitoruje změny v \textit{GameSession} přiřazené v \textit{Enginu} a na jejich základě provádí změny viditelné části hry. 
 
 \sekce{Uživatelské rozhraní}
 
+Popsat navrh uživatelskeho rozhrani
 % 
 % Nova stranka
 \newpage
