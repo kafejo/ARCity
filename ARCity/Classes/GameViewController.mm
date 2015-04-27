@@ -1,12 +1,15 @@
 // Copyright 2007-2014 metaio GmbH. All rights reserved.
 #import "GameViewController.h"
 #import "Engine.h"
-#import "BuildingMenu.h"
+#import "ZoneMenu.h"
 
-@interface GameViewController()<EngineProtocol, BuildingMenuDelegate>
-@property (strong, nonatomic) IBOutlet BuildingMenu *buidingMenuView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *buildingMenuRightConstraint;
+@interface GameViewController()<EngineProtocol, ZoneMenuDelegate>
+@property (strong, nonatomic) IBOutlet ZoneMenu *zoneMenuView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *zoneMenuRightConstraint;
 
+@property (strong, nonatomic) IBOutlet UIButton *moneyButton;
+@property (strong, nonatomic) IBOutlet UIButton *populationButton;
+@property (strong, nonatomic) IBOutlet UIButton *satisfactionButton;
 
 @end
 
@@ -29,7 +32,7 @@
     [engine setupWithMetaioSDK:m_pMetaioSDK gameSession:self.session];
     engine.delegate = self;
     
-    self.buidingMenuView.delegate = self;
+    self.zoneMenuView.delegate = self;
     [self toggleBuildingMenu:false animated:false];
 }
 
@@ -51,13 +54,14 @@
 
 #pragma mark - Building menu delegate
 
-- (void)buildingMenu:(BuildingMenu *)menu didSelectBuildingType:(BuildingType)buildingType {
+- (void)zoneMenu:(ZoneMenu *)menu didSelectZoneType:(ZoneType)zoneType {
     Engine *engine = [Engine sharedEngine];
     
     if ([engine isSelectedPlot]) {
-        [engine buildBuilding:buildingType atPlot:[engine selectedPlot]];
+        [engine buildZone:zoneType atPlot:[engine selectedPlot]];
     }
 }
+
 
 #pragma mark - Engine delegate
 
@@ -168,23 +172,23 @@
 
 - (void)toggleBuildingMenu:(BOOL)show animated:(BOOL)animated {
     
-    if (show && self.buildingMenuRightConstraint.constant != 0) {
-        self.buildingMenuRightConstraint.constant = 0;
+    if (show && self.zoneMenuRightConstraint.constant != 0) {
+        self.zoneMenuRightConstraint.constant = 0;
         
         if (animated) {
             [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                [self.buidingMenuView layoutIfNeeded];
+                [self.zoneMenuView layoutIfNeeded];
             } completion:^(BOOL finished) {
                 
             }];
         }
         
-    } else if(!show && self.buildingMenuRightConstraint.constant != -self.buidingMenuView.frame.size.width) {
-        self.buildingMenuRightConstraint.constant = -self.buidingMenuView.frame.size.width;
+    } else if(!show && self.zoneMenuRightConstraint.constant != -self.zoneMenuView.frame.size.width) {
+        self.zoneMenuRightConstraint.constant = -self.zoneMenuView.frame.size.width;
         
         if (animated) {
             [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                [self.buidingMenuView layoutIfNeeded];
+                [self.zoneMenuView layoutIfNeeded];
             } completion:^(BOOL finished) {
                 
             }];
@@ -209,5 +213,12 @@
     [[Engine sharedEngine] processTouchAtPoint:CGPointMake(loc.x * scale, loc.y * scale)];
 	
 }
+
+#pragma mark - Actions 
+
+- (IBAction)showMenu:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end

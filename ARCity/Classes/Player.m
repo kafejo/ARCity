@@ -1,19 +1,18 @@
 //
-//  GameSession.m
+//  Player.m
 //  ARCity
 //
 //  Created by Aleš Kocur on 27/04/15.
 //  Copyright (c) 2015 metaio GmbH. All rights reserved.
 //
 
-#import "GameSession.h"
 #import "Player.h"
-#import "Plot.h"
+#import "GameSession.h"
 
-@implementation GameSession
 
-@dynamic last_played;
-@dynamic plots;
-@dynamic player;
+@implementation Player
+
+@dynamic money;
+@dynamic session;
 
 @end

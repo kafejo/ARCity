@@ -9,6 +9,8 @@
 #import "Engine.h"
 #import "Plot+DataAccess.h"
 #import "GraphicsCore.h"
+#import "Player.h"
+#import "GlobalConfig.h"
 
 @interface Engine ()<GraphicsCoreDelegate>
 
@@ -69,7 +71,7 @@
     return plot;
 }
 
-- (void)removeBuildingAtPlot:(Plot *)plot {
+- (void)removeZoneAtPlot:(Plot *)plot {
 //    if (plot.building) {
 //        self.metaioSDK->unloadGeometry(plot.building.geometry);
 //    }
@@ -102,13 +104,27 @@
     }
 }
 
-- (void)buildBuilding:(BuildingType)type atPlot:(Plot *)plot {
-    Building *building = [Building buildingWithType:type];
-    plot.building = building;
-    building.plot = plot;
+- (void)buildZone:(ZoneType)type atPlot:(Plot *)plot completion:(void(^)(BOOL success))completion {
     
-    [self.session.managedObjectContext MR_saveOnlySelfAndWait];
-    
+    if ([self canBuyZone:type]) {
+        Zone *zone = [Zone zoneWithType:type];
+        plot.plotZone = zone;
+        zone.plot = plot;
+        completion(YES);
+        [self.session.managedObjectContext MR_saveOnlySelfAndWait];
+    } else {
+        completion(NO);
+    }
+}
+
+#pragma mark - Statistics
+
+
+
+#pragma mark - Player helpers
+
+- (BOOL)canBuyZone:(ZoneType)zoneType {
+    return [[GlobalConfig priceForZone:zoneType] integerValue] <= self.session.player.money.integerValue;
 }
 
 #pragma mark - Graphics core delegate

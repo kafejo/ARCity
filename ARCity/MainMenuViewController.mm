@@ -10,16 +10,18 @@
 #import "MainMenuCell.h"
 #import "GameSession+DataAccess.h"
 #import "GameViewController.h"
+#import <TFTableDescriptor.h>
 
-typedef NS_ENUM(NSInteger, MainMenuItemTag) {
-    MainMenuItemTagContinue,
-    MainMenuItemTagNewGame
-};
+static NSString * const kRowTagContinue = @"RowTagContinue";
+static NSString * const kRowTagNewGame = @"RowTagNewGame";
+static NSString * const kRowTagAbout = @"RowTagAbout";
 
-@interface MainMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface MainMenuViewController ()<TFTableDescriptorDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic) GameSession *session;
+
+@property (nonatomic, strong) TFTableDescriptor *tableDescriptor;
 
 @end
 
@@ -30,61 +32,34 @@ typedef NS_ENUM(NSInteger, MainMenuItemTag) {
     // Do any additional setup after loading the view.
     
     self.session = [GameSession lastGameSession];
+    REGISTER_CELL_FOR_TABLE(MainMenuCell, self.tableView);
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)configureCell:(MainMenuCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-
+    TFTableDescriptor *table = [TFTableDescriptor descriptorWithTable:self.tableView];
+    TFSectionDescriptor *section = [TFSectionDescriptor descriptorWithData:nil];
     
-    if (self.session && indexPath.row == 0) {
-        cell.titleLabel.text =  NSLocalizedString(@"CONTINUE_GAME", @"Menu item for continuing in last played game");
-        cell.tag = MainMenuItemTagContinue;
-        
-    } else if ((self.session && indexPath.row == 1) || (self.session == nil && indexPath.row == 0)) {
-        cell.titleLabel.text =  NSLocalizedString(@"NEW_GAME", @"Menu item for creating new game");
-        cell.tag = MainMenuItemTagNewGame;
+    
+    if (self.session) {
+        [section addRow:[TFRowDescriptor descriptorWithRowClass:[MainMenuCell class] data:NSLocalizedString(@"CONTINUE_GAME", @"Menu item for continuing in last played game") tag:kRowTagContinue]];
     }
     
+    [section addRow:[TFRowDescriptor descriptorWithRowClass:[MainMenuCell class] data:NSLocalizedString(@"NEW_GAME", @"Menu item for creating new game") tag:kRowTagNewGame]];
+    
+    [section addRow:[TFRowDescriptor descriptorWithRowClass:[MainMenuCell class] data:NSLocalizedString(@"ABOUT", @"Menu item for showing about") tag:kRowTagAbout]];
 
+    [table addSection:section];
+    self.tableDescriptor = table;
+    self.tableDescriptor.delegate = self;
 }
 
-#pragma mark - UITableView delegate
+#pragma mark - TFTableDescritor delegate
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableDescriptor:(TFTableDescriptor *)descriptor didSelectRow:(TFRowDescriptor *)rowDescriptor {
     
-    MainMenuCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"mainMenuCell" forIndexPath:indexPath];
-    
-    [self configureCell:cell atIndexPath:indexPath];
-    
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.session ? 2 : 1;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   
-    MainMenuCell *cell = (MainMenuCell *)[tableView cellForRowAtIndexPath:indexPath];
-    
-    if (cell.tag == MainMenuItemTagNewGame) {
+    if ([rowDescriptor.tag isEqualToString:kRowTagNewGame]) {
         self.session = [GameSession newSession];
     }
     
     [self performSegueWithIdentifier:@"showGame" sender:self];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.0f;
 }
 
 #pragma mark - Navigation
@@ -104,5 +79,8 @@ typedef NS_ENUM(NSInteger, MainMenuItemTag) {
     
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end

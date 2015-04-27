@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ZoneCell">
+            <rect key="frame" x="0.0" y="0.0" width="192" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="192" height="195"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house_zone" translatesAutoresizingMaskIntoConstraints="NO" id="oIL-8X-R5L">
+                        <rect key="frame" x="37" y="15" width="119" height="111"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="House zone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="72D-6j-rZ8">
+                        <rect key="frame" x="10" y="126" width="172" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="svF-RL-KXw">
+                        <rect key="frame" x="10" y="154" width="172" height="16"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="svF-RL-KXw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Ayu-Yx-Dqv"/>
+                <constraint firstItem="72D-6j-rZ8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="F3O-Sv-MBY"/>
+                <constraint firstItem="svF-RL-KXw" firstAttribute="top" secondItem="72D-6j-rZ8" secondAttribute="bottom" constant="6" id="X1j-4R-zQp"/>
+                <constraint firstItem="72D-6j-rZ8" firstAttribute="top" secondItem="oIL-8X-R5L" secondAttribute="bottom" id="Zea-Xz-Fon"/>
+                <constraint firstItem="oIL-8X-R5L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="gY5-y7-zm4"/>
+                <constraint firstAttribute="trailing" secondItem="svF-RL-KXw" secondAttribute="trailing" constant="10" id="kpE-XL-g9G"/>
+                <constraint firstAttribute="centerX" secondItem="oIL-8X-R5L" secondAttribute="centerX" id="r2o-Wu-S6q"/>
+                <constraint firstAttribute="trailing" secondItem="72D-6j-rZ8" secondAttribute="trailing" constant="10" id="wfm-TM-7By"/>
+            </constraints>
+            <size key="customSize" width="192" height="195"/>
+            <connections>
+                <outlet property="zoneImage" destination="oIL-8X-R5L" id="Hgx-im-jk8"/>
+                <outlet property="zoneName" destination="72D-6j-rZ8" id="0EC-Td-5Tx"/>
+                <outlet property="zonePrice" destination="svF-RL-KXw" id="UPi-eb-Fzc"/>
+            </connections>
+            <point key="canvasLocation" x="221" y="326.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="house_zone" width="119" height="111"/>
+    </resources>
+</document>

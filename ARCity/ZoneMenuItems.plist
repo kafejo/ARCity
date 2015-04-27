@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>zone_id</key>
+		<integer>0</integer>
+		<key>name</key>
+		<string>House zone</string>
+		<key>image</key>
+		<string>house_zone</string>
+	</dict>
+	<dict>
+		<key>zone_id</key>
+		<integer>1</integer>
+		<key>name</key>
+		<string>Industry zone</string>
+		<key>image</key>
+		<string>industry_zone</string>
+	</dict>
+	<dict>
+		<key>zone_id</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>Shopping zone</string>
+		<key>image</key>
+		<string>shopping_zone</string>
+	</dict>
+	<dict>
+		<key>zone_id</key>
+		<integer>3</integer>
+		<key>name</key>
+		<string>Cultural zone</string>
+		<key>image</key>
+		<string>cultural_zone</string>
+	</dict>
+</array>
+</plist>

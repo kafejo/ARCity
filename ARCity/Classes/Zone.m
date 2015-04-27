@@ -1,16 +1,16 @@
 //
-//  Building.m
+//  Zone.m
 //  ARCity
 //
-//  Created by Aleš Kocur on 20/03/15.
+//  Created by Aleš Kocur on 27/04/15.
 //  Copyright (c) 2015 metaio GmbH. All rights reserved.
 //
 
-#import "Building.h"
+#import "Zone.h"
 #import "Plot.h"
 
 
-@implementation Building
+@implementation Zone
 
 @dynamic type_id;
 @dynamic plot;

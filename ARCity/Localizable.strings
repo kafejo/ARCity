@@ -8,3 +8,9 @@
 
 "NEW_GAME" = "New game";
 "CONTINUE_GAME" = "Continue";
+"ABOUT" = "About";
+
+"HOUSE_ZONE" = "House zone";
+"INDUSTRIAL_ZONE" = "Industrial zone";
+"SHOPPING_ZONE" = "Shopping zone";
+"CULTURAL_ZONE" = "Cultural zone";

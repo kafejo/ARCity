@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <metaioSDK/MetaioSDKViewController.h>
-#import "Building+DataAccess.h"
+#import "Zone+DataAccess.h"
 
 @interface GCItem : NSObject
 
 @property (nonatomic) metaio::IGeometry *placeholder;
 @property (nonatomic) metaio::IGeometry *object;
-@property (nonatomic) BuildingType type;
+@property (nonatomic) ZoneType type;
 
 + (instancetype)item;
 

@@ -20,4 +20,15 @@
     // Configure the view for the selected state
 }
 
+- (void)configureWithData:(id)data {
+    if ([data isKindOfClass:[NSString class]]) {
+        self.titleLabel.text = data;
+    }
+}
+
++ (NSNumber *)height {
+    return @60;
+}
+
+
 @end

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZoneMenu">
+            <connections>
+                <outlet property="collectionView" destination="0Hv-W7-DBt" id="ETg-JG-acI"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="O1t-bu-s5Y"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="-1" width="671" height="223"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0Hv-W7-DBt">
+                    <rect key="frame" x="0.0" y="30" width="671" height="193"/>
+                    <color key="backgroundColor" red="0.99994128942489624" green="0.99999648332595825" blue="0.99987083673477173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CLK-cG-L5O">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ifm-y0-fF2"/>
+                        <outlet property="delegate" destination="-1" id="buB-iy-MOa"/>
+                    </connections>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT ZONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="671" translatesAutoresizingMaskIntoConstraints="NO" id="l5j-oA-gcc">
+                    <rect key="frame" x="0.0" y="0.0" width="671" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="671" id="H5C-nT-K07"/>
+                        <constraint firstAttribute="height" constant="30" id="LqE-Wz-bR5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.99994128942489624" green="0.99999648332595825" blue="0.99987083673477173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="H5C-nT-K07"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="l5j-oA-gcc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0a6-cp-xns"/>
+                <constraint firstAttribute="bottom" secondItem="0Hv-W7-DBt" secondAttribute="bottom" id="Nce-0Z-fTH"/>
+                <constraint firstAttribute="trailing" secondItem="l5j-oA-gcc" secondAttribute="trailing" id="SWB-VP-cpD"/>
+                <constraint firstItem="0Hv-W7-DBt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="W0m-L5-f6N"/>
+                <constraint firstAttribute="trailing" secondItem="0Hv-W7-DBt" secondAttribute="trailing" id="ZaV-HB-gca"/>
+                <constraint firstItem="0Hv-W7-DBt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zju-2t-4cC"/>
+                <constraint firstItem="l5j-oA-gcc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gIW-Hx-2CK"/>
+                <constraint firstItem="0Hv-W7-DBt" firstAttribute="top" secondItem="l5j-oA-gcc" secondAttribute="bottom" id="smS-vR-x9p"/>
+                <constraint firstAttribute="trailing" secondItem="l5j-oA-gcc" secondAttribute="trailing" id="xXV-Bl-RUK"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="SWB-VP-cpD"/>
+                    <exclude reference="W0m-L5-f6N"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="389.5" y="485.5"/>
+        </view>
+    </objects>
+</document>

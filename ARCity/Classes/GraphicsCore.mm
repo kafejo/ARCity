@@ -125,9 +125,9 @@
     }
     
     // If plot have a building but CGItem not, create its geometry
-    if (plot.building && !item.object) {
+    if (plot.plotZone && !item.object) {
         
-        item.object = [self loadGeometryFromPath:[plot.building pathToGeometry]];
+        item.object = [self loadGeometryFromPath:[plot.plotZone pathToGeometry]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
        [self applyBuildingSettings:item.object];
         
@@ -136,17 +136,17 @@
         }
         
     } // Plot changed his building
-    else if (plot.building && item.object && item.type != plot.building.type) {
+    else if (plot.plotZone && item.object && item.type != plot.plotZone.type) {
        
         // first unload current geometry
         self.metaioSDK->unloadGeometry(item.object);
         
         // Then load new
-        item.object = [self loadGeometryFromPath:[plot.building pathToGeometry]];
+        item.object = [self loadGeometryFromPath:[plot.plotZone pathToGeometry]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
         [self applyBuildingSettings:item.object];
         
-    } else if (!plot.building && item.object) {
+    } else if (!plot.plotZone && item.object) {
         self.metaioSDK->unloadGeometry(item.object);
         item.placeholder->setVisible(true);
     }

@@ -10,7 +10,7 @@
 #import "Plot.h"
 #import <metaioSDK/MetaioSDKViewController.h>
 #import "GameSession+DataAccess.h"
-#import "Building+DataAccess.h"
+#import "Zone+DataAccess.h"
 
 @protocol EngineProtocol<NSObject>
 
@@ -30,7 +30,7 @@
 - (void)setupWithMetaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK gameSession:(GameSession *)session;
 
 /// Removes building from plot and scene
-- (void)removeBuildingAtPlot:(Plot *)plot;
+- (void)removeZoneAtPlot:(Plot *)plot;
 
 /// Process touch and call appropriate delegate method if needed
 - (void)processTouchAtPoint:(CGPoint)touchPoint;
@@ -40,7 +40,7 @@
 /// Selected plot if any, otherwise nil
 - (Plot *)selectedPlot;
 
-/// Build house
-- (void)buildBuilding:(BuildingType)type atPlot:(Plot *)plot;
+/// Build zone
+- (void)buildZone:(ZoneType)type atPlot:(Plot *)plot completion:(void(^)(BOOL success))completion;
 
 @end

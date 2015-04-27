@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TFBasicDescriptedCell.h>
 
-@interface MainMenuCell : UITableViewCell
+@interface MainMenuCell : TFBasicDescriptedCell
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 

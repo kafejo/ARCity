@@ -24,10 +24,10 @@
     return plot;
 }
 
-- (void)removeBuilding {
+- (void)removeZone {
     
-    if (self.building) {
-        self.building = nil;
+    if (self.plotZone) {
+        self.plotZone = nil;
     }
     
 }

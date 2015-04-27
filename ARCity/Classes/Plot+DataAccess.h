@@ -15,6 +15,6 @@
 /// Fetch or create plot
 + (instancetype)plotWithMarkerId:(NSUInteger)markerId forSession:(GameSession *)session;
 
-- (void)removeBuilding;
+- (void)removeZone;
 
 @end
