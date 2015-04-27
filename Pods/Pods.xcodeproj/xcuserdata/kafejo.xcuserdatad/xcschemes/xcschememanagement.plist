@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ARCity-TFTableDescriptor-TFTableDescriptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ARCity-TFTableDescriptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ARCity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4E1063D23DF13F70BB5D9CFA</key>
+		<key>2422D603806CEBE9C2D5A4F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0B12B4C28AEB054A7CF34A9</key>
+		<key>3430C904EEDFE4C9E45326CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3C290EFA07BD08B4AB29EB0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D56296A09CFA354FE39562F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

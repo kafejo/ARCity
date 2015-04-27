@@ -2,11 +2,14 @@ PODS:
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
+  - TFTableDescriptor (1.2.0)
 
 DEPENDENCIES:
   - MagicalRecord (~> 2.2)
+  - TFTableDescriptor (~> 1.2)
 
 SPEC CHECKSUMS:
-  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  TFTableDescriptor: 83aa48081017fad3fc4ba89866a67b2ea7f31813
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.4

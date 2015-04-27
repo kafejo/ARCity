@@ -1,0 +1,1 @@
+../../../TFTableDescriptor/Pod/Classes/TFBasicDescriptedHeaderFooterView.h

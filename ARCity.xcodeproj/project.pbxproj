@@ -30,8 +30,6 @@
 		9086117D1AC991BC00E9D555 /* main_zone.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9086117C1AC991BC00E9D555 /* main_zone.zip */; };
 		90908B661ABDA7A500970666 /* BuildingMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 90908B651ABDA7A500970666 /* BuildingMenu.m */; };
 		90908B681ABDA7C300970666 /* BuildingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90908B671ABDA7C300970666 /* BuildingMenu.xib */; };
-		90908B6C1ABDA89600970666 /* BuildingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90908B6A1ABDA89600970666 /* BuildingCell.m */; };
-		90908B6D1ABDA89600970666 /* BuildingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90908B6B1ABDA89600970666 /* BuildingCell.xib */; };
 		90908B701ABDB3FE00970666 /* BuildingMenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90908B6F1ABDB3FE00970666 /* BuildingMenuItems.plist */; };
 		9095FA2E1ABC37FF006CD0FA /* plot.zip in Resources */ = {isa = PBXBuildFile; fileRef = 9095FA2D1ABC37FF006CD0FA /* plot.zip */; };
 		9095FA331ABC4F36006CD0FA /* ARCityModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9095FA311ABC4F36006CD0FA /* ARCityModel.xcdatamodeld */; };
@@ -104,9 +102,6 @@
 		90908B641ABDA7A500970666 /* BuildingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingMenu.h; sourceTree = "<group>"; };
 		90908B651ABDA7A500970666 /* BuildingMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingMenu.m; sourceTree = "<group>"; };
 		90908B671ABDA7C300970666 /* BuildingMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildingMenu.xib; sourceTree = "<group>"; };
-		90908B691ABDA89600970666 /* BuildingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingCell.h; sourceTree = "<group>"; };
-		90908B6A1ABDA89600970666 /* BuildingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingCell.m; sourceTree = "<group>"; };
-		90908B6B1ABDA89600970666 /* BuildingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildingCell.xib; sourceTree = "<group>"; };
 		90908B6F1ABDB3FE00970666 /* BuildingMenuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BuildingMenuItems.plist; sourceTree = "<group>"; };
 		9095FA2D1ABC37FF006CD0FA /* plot.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = plot.zip; sourceTree = "<group>"; };
 		9095FA321ABC4F36006CD0FA /* ARCityModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ARCityModel.xcdatamodel; sourceTree = "<group>"; };
@@ -277,9 +272,6 @@
 				90908B641ABDA7A500970666 /* BuildingMenu.h */,
 				90908B651ABDA7A500970666 /* BuildingMenu.m */,
 				90908B671ABDA7C300970666 /* BuildingMenu.xib */,
-				90908B691ABDA89600970666 /* BuildingCell.h */,
-				90908B6A1ABDA89600970666 /* BuildingCell.m */,
-				90908B6B1ABDA89600970666 /* BuildingCell.xib */,
 				90908B6F1ABDB3FE00970666 /* BuildingMenuItems.plist */,
 			);
 			name = "Bulding menu";
@@ -521,7 +513,6 @@
 				907D160C1AB752AC007F5A98 /* Default-568h@2x.png in Resources */,
 				9086117B1AC9617000E9D555 /* empty_zone.zip in Resources */,
 				907D16161AB752AC007F5A98 /* menu-button.png in Resources */,
-				90908B6D1ABDA89600970666 /* BuildingCell.xib in Resources */,
 				907D160B1AB752AC007F5A98 /* cancel.png in Resources */,
 				907D16171AB752AC007F5A98 /* menu-button@2x.png in Resources */,
 				907D160D1AB752AC007F5A98 /* Default-Landscape@2x~ipad.png in Resources */,
@@ -578,7 +569,6 @@
 				9095FA331ABC4F36006CD0FA /* ARCityModel.xcdatamodeld in Sources */,
 				9095FA471ABC58DB006CD0FA /* GameSession+DataAccess.m in Sources */,
 				9095FA3A1ABC5165006CD0FA /* MainMenuViewController.mm in Sources */,
-				90908B6C1ABDA89600970666 /* BuildingCell.m in Sources */,
 				9095FA401ABC5597006CD0FA /* MainMenuCell.m in Sources */,
 				9E7FFE08177C856600477DDE /* AppDelegate.mm in Sources */,
 				9095FA5C1ABC8812006CD0FA /* GCItem.mm in Sources */,

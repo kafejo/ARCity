@@ -7,15 +7,15 @@
 //
 
 #import "BuildingMenu.h"
-#import "BuildingCell.h"
+
 
 NSString * const kBuildingMenuItemNameKey = @"name";
 NSString * const kBuildingMenuItemImageKey = @"image";
 NSString * const kBuildingMenuItemEnumKey = @"building_id";
 
-@interface BuildingMenu()<UITableViewDataSource, UITableViewDelegate>
+@interface BuildingMenu()<UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UICollectionView *tableView;
 @property (nonatomic, strong) NSArray *items;
 
 @end
@@ -45,7 +45,7 @@ NSString * const kBuildingMenuItemEnumKey = @"building_id";
     [self addSubview:self.contentView];
     self.contentView.frame = self.bounds;
     
-    REGISTER_CELL_FOR_TABLE(BuildingCell, self.tableView);
+//    REGISTER_CELL_FOR_TABLE(BuildingCell, self.tableView);
     
     self.items = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"BuildingMenuItems" ofType:@"plist"]];
     

@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_MagicalRecord_Core 2
 #define COCOAPODS_VERSION_PATCH_MagicalRecord_Core 0
 
+// TFTableDescriptor
+#define COCOAPODS_POD_AVAILABLE_TFTableDescriptor
+#define COCOAPODS_VERSION_MAJOR_TFTableDescriptor 1
+#define COCOAPODS_VERSION_MINOR_TFTableDescriptor 2
+#define COCOAPODS_VERSION_PATCH_TFTableDescriptor 0
+

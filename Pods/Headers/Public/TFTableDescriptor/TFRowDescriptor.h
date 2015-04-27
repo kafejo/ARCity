@@ -1,0 +1,1 @@
+../../../TFTableDescriptor/Pod/Classes/TFRowDescriptor.h

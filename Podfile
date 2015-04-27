@@ -6,6 +6,6 @@ inhibit_all_warnings!
 target 'ARCity' do
 
 pod 'MagicalRecord', '~> 2.2'
-
+pod 'TFTableDescriptor', '~> 1.2'
 end
 
