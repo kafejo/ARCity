@@ -21,11 +21,13 @@
     return (ZoneType)[self.type_id integerValue];
 }
 
-- (NSString *)pathToGeometry {
-    if (self.type == ZoneTypeHouse) {
-        return [[NSBundle mainBundle] pathForResource:@"house_zone" ofType:@"zip"];
-    } else {
-        return @"";
+- (ZoneLevel)level {
+    return (ZoneLevel)[self.level_id integerValue];
+}
+
+- (void)setLevel:(ZoneLevel)level {
+    if (ZoneLevel1 <= level && level <= ZoneLevel3) {
+        self.level_id = @(level);
     }
 }
 

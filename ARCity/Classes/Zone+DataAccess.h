@@ -12,7 +12,14 @@ typedef NS_ENUM(NSUInteger, ZoneType) {
     ZoneTypeHouse = 0,
     ZoneTypeIndustry,
     ZoneTypeShopping,
-    ZoneTypeCultural
+    ZoneTypeCultural,
+    ZoneTypeCityHall
+};
+
+typedef NS_ENUM(NSUInteger, ZoneLevel) {
+    ZoneLevel1 = 0,
+    ZoneLevel2,
+    ZoneLevel3
 };
 
 @interface Zone(DataAccess)
@@ -20,6 +27,7 @@ typedef NS_ENUM(NSUInteger, ZoneType) {
 + (instancetype)zoneWithType:(ZoneType)type;
 
 - (ZoneType)type;
-- (NSString *)pathToGeometry;
+- (ZoneLevel)level;
+- (void)setLevel:(ZoneLevel)level;
 
 @end

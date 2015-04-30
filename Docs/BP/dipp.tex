@@ -330,9 +330,6 @@ Pro usnadnění připojování pomocných frameworků do projektu vznikl open so
 \podsekce{TFTableDescriptor}
 \textit{TFTableDescriptor} slouží jako pomocník při sestavování tabulek. Tabulky lze sestavit pomocí popisu  speciálními třídami \textit{TFTableDescriptor}, \textit{TFSectionDescriptor} a \textit{TFRowDescriptor}. Tento framework je vyvíjen firmou \textit{The Funtasty} pod otevřenou licencí \textit{MIT} \cite{tftabledescriptor}.
 
-
-\podsekce{Dalsi ktere jeste treba pouziju}
-
 \sekce{Model}
 Pro vývoj aplikací na platformu \textit{iOS} se využívá takzvaného \textit{MVC} (Model-View-Controller) přístupu. Základní model hry se skládá z těchto tříd:
 
@@ -361,7 +358,99 @@ Tento návrh zajišťuje striktní oddělení herní logiky od grafického vykre
 
 \sekce{Uživatelské rozhraní}
 
-Popsat navrh uživatelskeho rozhrani
+Rozhraní, jakým uživatelé, hráči, interagují s prvky hry, jsou kritickou částí návrhu. Důležitou roli zde hrají zaběhlé principy daného systému, řekněme konvence, na které jsou uživatelé zvyklí -- setkávají se s nimy napříč všemi aplikacemi. V případě operačního systému iOS je jednou z hlavních domén uživatelského rozhraní navigační bar umístěný vždy nahoře po celé šířce displaye.    
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=300px, center]{images/nav_bar_iphone.png}
+\captionsetup{justification=centering}
+    \caption{Navigation bar}
+    \label{navigation_bar}
+\end{figure}
+
+Z toho můžeme usoudit, že uživatel je zvyklý veškeré důležité navigační prvky a statická data (např. titulek) hledat právě na tomto místě, a koncipovat návrh tak, abychom všechny statické data a navigační prvky směřovali na horní část obrazovky. Jelikož je vetšinou takovýchto navigačních informací velké množství a zobrazovat jej na každé obrazovce není z hlediska šetření místa pro samotný obsah příliš dobré, začalo se používat, a dnes je již konvencí, menu reprezentované ikonou se třemi vodorovnými čarami (známé také jako \textit{hamburger menu}). 
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=300px, center]{images/hamburger_menu.png}
+\captionsetup{justification=centering}
+    \caption{Hamburger menu}
+    \label{hamburger-menu}
+\end{figure}
+
+
+Dalším důležitým aspektem návrhu rozhraní je rozměr samotného zařízení. Tato hra je primárně cílena na \textit{iPad}. Máme tedy k dispozici plochu čítající 2048 x 1536 pixelů s úhlopříčkou 12,9 palce. Hlavním obsahem hry je okno pro zobrazování rozšířené reality, je tudíž nutné pro něj vymezit dostatečně velký prostor. Z daného rozlišení můžeme usoudit, že při natočení zařízení do tzv. \textit{portrait} módu, tj. kratší stranou k sobě, výška displaye představuje oněch 2048 pixelů. Při využití části zhruba 500 pixelů na navigaci a ovládání, získáme přibližně čtvercovou plochu pro zobrazení okna rozšířené reality. Při takovém držení \textit{iPadu} oběma rukama zároveň, využívá hráč k ovládání své palce. Dosah a příjemnost takového ovládání ilustruje obrázek 123.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=300px, center]{images/ipad-toucharea.png}
+\captionsetup{justification=centering}
+    \caption{Rozdělení dosazitelnosti prvků na iPadu 3. generace v portrait módu}
+    \label{class_diagram}
+\end{figure}
+
+
+Jak můžeme vidět, nejdosažitelnější části displaye se nachází ve spodních části displaye. Na základě takovéto úvahy dojdeme k závěru, že pro snadno dosažitelné ovládací prvky by se mělo ovládání hry vyskytovat někde ve spodní části displaye. Jelikož prostřední část máme vyhrazenou pro okno do rozšířené reality, jediné místo zbývá na spodním okraji displaye. 
+
+Složením výše uvedených věcí do jednoho získáme ideální návrh rozhraní. Horní část o přibližné velikosti 100 pixelů vyčleníme pro navigaci a ukazatele, prostřední část, asi 1500 pixelů pro okno do rozšířené reality a zbylých zhruba 400 px ve spodní části vymezíme na ovládání. Po návrhu konkrétních ovládacích prvků pak můžeme návrh optimalizovat ve prospěch ještě většího okna pro rozšířenou realitu.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=300px, center]{images/ipad_layout_ux.jpg}
+\captionsetup{justification=centering}
+    \caption{Výsledný návrh rozložení prvků}
+    \label{class_diagram}
+\end{figure}
+
+Z konceptu hry vyplývají 2 hlavní ovládací prvky. První umožňující stavbu zón a druhý zobrazení informací o vybrané postavené zóně s možností zónu vylepšit. Z tohoto předpokladu lze vyvodit, za jakých okolností je potřeba toto ovládání zobrazovat. V prvním případě je to když uživatel vybere práznou parcelu pro stavu zóny, v druhém pak při výběru nějaké konkrétní zóny. V kterémkoliv jiném případě není ovládací části potřeba a můžeme ji skrýt ve prospěch zvětšení plochy pro okno do rozšířené reality.
+
+\podsekce{Design}
+
+Design je velmi subjektivní součást návrhu rozhraní a jeho líbivost není nikdy zaručena, protože je hodnocen subjektivně hodnotitelem na základě jeho vkusu. Nehledě na tuto skutečnost, měl by se design držet několika pravidel:
+
+\begin{itemize}
+\item Jednoduchost
+\item Intuitivnost
+\item Vypovídající o své funkci (tzv. self-explanatory)
+\item Ohled na různá postižení (např. poruchy barvocitu) 
+\end{itemize}
+
+Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, design pro veškeré prvky, postavený na typografii použitím bezpatkového písma Helvetica Neue navrženého Maxem Miedingerem v řezech Light a Bold, doplněný o piktogramy vyjadřující povahu jednotlivých zón a statistik.  
+ 
+ \begin{figure}[H]
+\centering
+    \includegraphics[width=430px, center]{images/ipad-layout.jpg}
+\captionsetup{justification=centering}
+    \caption{Ukázka z grafického návrhu aplikace}
+    \label{class_diagram}
+\end{figure}
+ 
+ \sekce{Ukládání dat}
+ 
+ Hra využívá pro ukládání dat zmíněný MagicalRecord framework, který obaluje systémovou knihovnu zvanou Core Data. Návrh datového modelu vychází z UML diagramu tříd ukládané části -- GameSession, Plot, Zone a Player.
+ 
+ \begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/core-data-model.png}
+\captionsetup{justification=centering}
+    \caption{Datový model}
+    \label{class_diagram}
+\end{figure}
+
+ \sekce{Výpočty ukazatelů}
+ 
+ Hra pracuje se třemi typy ukazatelů stavu hry:
+  
+ \begin{itemize}
+\item Peníze
+\item Populace (aktuální/maximální)
+\item Spokojenost obyvatel
+\end{itemize}
+ 
+ Ukazatel typu Peníze stojí na jednoduchém principu přičítání a odečítání hodnot stanovených jako cena za stavbu/vylepšení/provoz. Stejně tak maximální hodnota populace je součet postavených obytých zón respektive jejich kapacit, které se odvíjí od jejich úrovně vylepšení. Změna těchto hodnot probíhá právě při zmíněných úkonech -- stavba, vylepšení, provoz budovy.
+ 
+ Jinými typy ukazatelů jsou aktuální stav populace a spokojenost. Tyto hodnoty jsou vypočítávány v pravidelných intervalech a jsou ovlivňovány více aspekty.
+ 
 % 
 % Nova stranka
 \newpage
@@ -613,9 +702,29 @@ In Proc. 12th Computer Vision Winter Workshop (CVWW'07), Sankt Lambrecht, Austri
 	Obrázek ve formátu: JPEG. Dostupné z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/
 }
 
+\citace{hamburger-menu}{Dribble, 2015}
+{
+	\autor{Davide 'Folletto' Casali}
+	\nazev{Hamburger Icon / Lexicon Nugget 2}
+	[online]. [cit. 2015-04-28]. 
+	Obrázek ve formátu: JPEG. Dostupné z: https://dribbble.com/shots/880056-Hamburger-Icon-Lexicon-Nugget-2
+}
 
+\citace{importance-driven-layout}{Apple, 2015}
+{
+	\autor{Apple Inc.}
+	\nazev{Adaptivity and Layout}
+	[online]. [cit. 2015-04-28]. 
+	Obrázek ve formátu: JPEG. Dostupné z: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LayoutandAppearance.html\#//apple\_ref/doc/uid/TP40006556-CH54-SW1
+}
 
-
+\citace{navigation_bar}{Apple, 2015}
+{
+	\autor{Apple Inc.}
+	\nazev{Bars}
+	[online]. [cit. 2015-04-28]. 
+	Obrázek ve formátu: JPEG. Dostupné z: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html\#//apple\_ref/doc/uid/TP40006556-CH12-SW1
+}
 
 %
 %\citace{template}{Venture Beat, 2014}

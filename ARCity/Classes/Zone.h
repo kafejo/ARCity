@@ -2,7 +2,7 @@
 //  Zone.h
 //  ARCity
 //
-//  Created by Aleš Kocur on 27/04/15.
+//  Created by Aleš Kocur on 28/04/15.
 //  Copyright (c) 2015 metaio GmbH. All rights reserved.
 //
 
@@ -14,6 +14,8 @@
 @interface Zone : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * type_id;
+@property (nonatomic, retain) NSNumber * currentPopulation;
+@property (nonatomic, retain) NSNumber * level_id;
 @property (nonatomic, retain) Plot *plot;
 
 @end

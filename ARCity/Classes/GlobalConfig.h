@@ -13,8 +13,23 @@
 
 //+ (instancetype)config;
 
-+ (NSNumber *)priceForZone:(ZoneType)zoneType;
++ (NSNumber *)priceForZone:(ZoneType)zoneType level:(ZoneLevel)level;
 
++ (NSNumber *)satisfactionFactorForZone:(ZoneType)zoneType level:(ZoneLevel)level;
++ (NSNumber *)populationFaktorForZone:(ZoneType)zoneType level:(ZoneLevel)level;
++ (NSNumber *)jobVacanciesFaktorForZone:(ZoneType)zoneType level:(ZoneLevel)level;
 
++ (NSNumber *)startingPlayerMoney;
++ (NSNumber *)defaultTaxValue;
++ (NSNumber *)defaultSatisfaction;
+
++ (UIImage *)iconForZoneType:(ZoneType)zoneType;
+
++ (NSString *)pathToModelForZoneType:(ZoneType)zoneType level:(ZoneLevel)level;
+
++ (NSTimeInterval)gameSpeed;
++ (NSNumberFormatter *)currencyFormatter;
++ (ZoneLevel)maximumLevel;
++ (NSNumber *)defaultPopulation;
 
 @end

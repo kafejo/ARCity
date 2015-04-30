@@ -8,20 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "Plot.h"
-#import <metaioSDK/MetaioSDKViewController.h>
 #import "GameSession+DataAccess.h"
 #import "Zone+DataAccess.h"
 
-@protocol EngineProtocol<NSObject>
+#import <metaioSDK/MetaioSDKViewController.h>
+
+@protocol EngineDelegate<NSObject>
 
 - (void)didSelectPlot:(Plot *)plot;
 - (void)didDeselectPlot:(Plot *)plot;
+
+- (void)didChangeSatisfaction:(NSNumber *)satisfaction;
+- (void)didChangePopulation:(NSNumber *)population maximum:(NSNumber *)populationMaximum;
+- (void)didChangeMoney:(NSNumber *)money;
 
 @end
 
 @interface Engine : NSObject
 
-@property (nonatomic) id<EngineProtocol> delegate;
+@property (nonatomic) id<EngineDelegate> delegate;
 @property (nonatomic) GameSession *session;
 
 + (instancetype)sharedEngine;
@@ -42,5 +47,16 @@
 
 /// Build zone
 - (void)buildZone:(ZoneType)type atPlot:(Plot *)plot completion:(void(^)(BOOL success))completion;
+- (void)upgradeZoneAtPlot:(Plot *)plot completion:(void(^)(BOOL success))completion;
+
+- (BOOL)canUpgradeZone:(Zone *)zone;
+
+- (void)pauseGame;
+- (void)unpauseGame;
+
+#pragma mark - Access stats
+
+- (NSNumber *)money;
+- (NSNumber *)populationMaximum;
 
 @end

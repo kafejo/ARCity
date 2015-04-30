@@ -2,14 +2,19 @@
 #import "GameViewController.h"
 #import "Engine.h"
 #import "ZoneMenu.h"
+#import "Plot+DataAccess.h"
+#import "ZoneInfoView.h"
+#import "LoadingView.h"
+#import "GlobalConfig.h"
 
-@interface GameViewController()<EngineProtocol, ZoneMenuDelegate>
+@interface GameViewController()<EngineDelegate, ZoneMenuDelegate>
 @property (strong, nonatomic) IBOutlet ZoneMenu *zoneMenuView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *zoneMenuRightConstraint;
 
 @property (strong, nonatomic) IBOutlet UIButton *moneyButton;
 @property (strong, nonatomic) IBOutlet UIButton *populationButton;
 @property (strong, nonatomic) IBOutlet UIButton *satisfactionButton;
+@property (strong, nonatomic) IBOutlet ZoneInfoView *zoneInfoView;
+@property (strong, nonatomic) LoadingView *loadingView;
 
 @end
 
@@ -22,10 +27,21 @@
 {
 	[super viewDidLoad];
 
-	if (!m_pMetaioSDK) {
-		NSLog(@"SDK instance is NULL. Please check the license string");
-		return;
-	}
+    self.loadingView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LoadingView class]) owner:nil options:nil] firstObject];
+    [self.view addSubview:self.loadingView];
+    [self.view bringSubviewToFront:self.loadingView];
+    self.loadingView.frame = [UIScreen mainScreen].bounds;
+    
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (!m_pMetaioSDK) {
+        NSLog(@"SDK instance is NULL. Please check the license string");
+        return;
+    }
     
     [self loadTrackingConfiguration];
     Engine *engine = [Engine sharedEngine];
@@ -33,8 +49,18 @@
     engine.delegate = self;
     
     self.zoneMenuView.delegate = self;
-    [self toggleBuildingMenu:false animated:false];
+    self.zoneMenuView.hidden = YES;
+    self.zoneInfoView.hidden = YES;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.loadingView show];
+    
+    [self didChangeMoney:[Engine sharedEngine].money];
+    
+}
+
 
 - (void)loadTrackingConfiguration {
     // load tracking configuration
@@ -52,13 +78,21 @@
 
 }
 
-#pragma mark - Building menu delegate
+#pragma mark - Zone menu delegate
 
 - (void)zoneMenu:(ZoneMenu *)menu didSelectZoneType:(ZoneType)zoneType {
     Engine *engine = [Engine sharedEngine];
     
     if ([engine isSelectedPlot]) {
-        [engine buildZone:zoneType atPlot:[engine selectedPlot]];
+        [engine buildZone:zoneType atPlot:[engine selectedPlot] completion:^(BOOL success) {
+            
+            if (success) {
+                NSLog(@"Built!");
+                [self showMenuByPlot:[engine selectedPlot]];
+            } else {
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NOT_ENOUGH_MONEY", nil) message:NSLocalizedString(@"NOT_ENOUGH_MONEY_FOR_ZONE", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil] show];
+            }
+        }];
     }
 }
 
@@ -66,15 +100,40 @@
 #pragma mark - Engine delegate
 
 - (void)didSelectPlot:(Plot *)plot {
-    NSLog(@"Did select plot at index: %lu", (unsigned long)plot.markerId);
-    
-    [self toggleBuildingMenu:YES];
+    NSLog(@"Did select plot at index: %lu", (unsigned long)plot.markerId.integerValue);
+    [self showMenuByPlot:plot];
     
 }
 
+- (void)showMenuByPlot:(Plot *)plot {
+    
+    if ([plot hasZone]) {
+        
+        [self.zoneInfoView setupWithZone:plot.plotZone];
+        self.zoneInfoView.hidden = NO;
+        self.zoneMenuView.hidden = YES;
+    } else {
+        self.zoneMenuView.hidden = NO;
+        self.zoneInfoView.hidden = YES;
+    }
+}
+
 - (void)didDeselectPlot:(Plot *)plot {
-    NSLog(@"Did deselect plot at index: %lu", (unsigned long)plot.markerId);
-    [self toggleBuildingMenu:NO];
+    NSLog(@"Did deselect plot at index: %lu", (unsigned long)plot.markerId.integerValue);
+    self.zoneMenuView.hidden = YES;
+    self.zoneInfoView.hidden = YES;
+}
+
+- (void)didChangeMoney:(NSNumber *)money {
+    [self.moneyButton setTitle:[[GlobalConfig currencyFormatter] stringFromNumber:money] forState:UIControlStateNormal];
+}
+
+- (void)didChangeSatisfaction:(NSNumber *)satisfaction {
+    [self.satisfactionButton setTitle:[NSString stringWithFormat:@"%0.0f%%", satisfaction.floatValue * 100.0] forState:UIControlStateNormal];
+}
+
+- (void)didChangePopulation:(NSNumber *)population maximum:(NSNumber *)populationMaximum {
+    [self.populationButton setTitle:[NSString stringWithFormat:@"%@/%@", population, populationMaximum] forState:UIControlStateNormal];
 }
 
 
@@ -83,6 +142,7 @@
 - (void)onSDKReady
 {
 	NSLog(@"The SDK is ready");
+    [self.loadingView hide];
 }
 
 
@@ -166,38 +226,38 @@
 
 #pragma mark - Subview manipulations
 
-- (void)toggleBuildingMenu:(BOOL)show {
-    [self toggleBuildingMenu:show animated:YES];
-}
-
-- (void)toggleBuildingMenu:(BOOL)show animated:(BOOL)animated {
-    
-    if (show && self.zoneMenuRightConstraint.constant != 0) {
-        self.zoneMenuRightConstraint.constant = 0;
-        
-        if (animated) {
-            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                [self.zoneMenuView layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-        }
-        
-    } else if(!show && self.zoneMenuRightConstraint.constant != -self.zoneMenuView.frame.size.width) {
-        self.zoneMenuRightConstraint.constant = -self.zoneMenuView.frame.size.width;
-        
-        if (animated) {
-            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                [self.zoneMenuView layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-        }
-        
-    }
-    
-}
-
+//- (void)toggleBuildingMenu:(BOOL)show {
+//    [self toggleBuildingMenu:show animated:YES];
+//}
+//
+//- (void)toggleBuildingMenu:(BOOL)show animated:(BOOL)animated {
+//    
+//    if (show && self.zoneMenuBottomConstraint.constant != 0) {
+//        self.zoneMenuBottomConstraint.constant = 0;
+//        
+//        if (animated) {
+//            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//                [self.zoneMenuView layoutIfNeeded];
+//            } completion:^(BOOL finished) {
+//                
+//            }];
+//        }
+//        
+//    } else if(!show && self.zoneMenuBottomConstraint.constant != -self.zoneMenuView.frame.size.height) {
+//        self.zoneMenuBottomConstraint.constant = -self.zoneMenuView.frame.size.height;
+//        
+//        if (animated) {
+//            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//                [self.zoneMenuView layoutIfNeeded];
+//            } completion:^(BOOL finished) {
+//                
+//            }];
+//        }
+//        
+//    }
+//    
+//}
+//
 #pragma mark - Handling Touches
 
 
@@ -218,6 +278,21 @@
 
 - (IBAction)showMenu:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)upgradeSelectedZone:(id)sender {
+    
+    if ([[Engine sharedEngine] isSelectedPlot]) {
+        Plot *selectedPlot = [[Engine sharedEngine] selectedPlot];
+        
+        [[Engine sharedEngine] upgradeZoneAtPlot:selectedPlot completion:^(BOOL success) {
+            if (success) {
+                [self.zoneInfoView setupWithZone:selectedPlot.plotZone];
+            }
+        }];
+        
+    }
+    
 }
 
 

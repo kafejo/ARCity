@@ -17,4 +17,7 @@
 
 - (void)removeZone;
 
+- (BOOL)hasZone;
+
+
 @end

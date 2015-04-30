@@ -79,10 +79,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="6eW-6N-UQ2"/>
                                 <exclude reference="FJS-oB-o2x"/>
                                 <exclude reference="LGw-2h-btp"/>
                                 <exclude reference="kCb-8Q-cBL"/>
-                                <exclude reference="6eW-6N-UQ2"/>
                             </mask>
                         </variation>
                     </view>
@@ -90,7 +90,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="tableView" destination="HYb-g1-CRQ" id="2tf-UU-yQ0"/>
-                        <segue destination="uWu-mK-Lhe" kind="show" identifier="showGame" id="JZL-r7-4WD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8A-oT-pgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,7 +99,7 @@
         <!--Native view controller-->
         <scene sceneID="5pA-cH-BnI">
             <objects>
-                <glkViewController storyboardIdentifier="NATIVE" preferredFramesPerSecond="30" id="uWu-mK-Lhe" userLabel="Native view controller" customClass="GameViewController" sceneMemberID="viewController">
+                <glkViewController storyboardIdentifier="GameViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" preferredFramesPerSecond="30" id="uWu-mK-Lhe" userLabel="Native view controller" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdP-Ic-GWF"/>
                         <viewControllerLayoutGuide type="bottom" id="Brp-Cv-YrY"/>
@@ -126,7 +125,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjd-zg-4Jz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjd-zg-4Jz" userLabel="Status bar">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
                                 <subviews>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-if-Xl8">
@@ -189,12 +188,104 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkr-uF-6BK" userLabel="Zone info" customClass="ZoneInfoView">
+                                <rect key="frame" x="0.0" y="874" width="768" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZONE INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcu-xZ-cWt">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4AG-pH-YBz"/>
+                                            <constraint firstAttribute="width" constant="671" id="iYJ-CL-Npr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.99994128940000004" green="0.99999648330000002" blue="0.99987083669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="iYJ-CL-Npr"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="industrial_zone" translatesAutoresizingMaskIntoConstraints="NO" id="Vo9-BO-g5o">
+                                        <rect key="frame" x="20" y="32" width="119" height="111"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This zone is used for increase population limit" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="im9-9g-kme">
+                                        <rect key="frame" x="164" y="82" width="414" height="22"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YC-3b-wOK">
+                                        <rect key="frame" x="628" y="85" width="115" height="45"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="12" maxX="15" maxY="12"/>
+                                        <state key="normal" title="UPGRADE">
+                                            <color key="titleColor" red="0.99994128942489624" green="0.99999648332595825" blue="0.99987083673477173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="upgradeSelectedZone:" destination="uWu-mK-Lhe" eventType="touchUpInside" id="qKr-vT-b3k"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKz-hZ-YkL">
+                                        <rect key="frame" x="687" y="40" width="56" height="22"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 2 for 200 000$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNs-1T-6GN">
+                                        <rect key="frame" x="620" y="63" width="123" height="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Industrial zone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVu-fj-k7N">
+                                        <rect key="frame" x="164" y="52" width="127" height="22"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yKz-hZ-YkL" secondAttribute="trailing" constant="25" id="1pD-h0-uZf"/>
+                                    <constraint firstAttribute="bottom" secondItem="5YC-3b-wOK" secondAttribute="bottom" constant="20" id="2sU-qN-fLz"/>
+                                    <constraint firstItem="5YC-3b-wOK" firstAttribute="top" secondItem="FNs-1T-6GN" secondAttribute="bottom" constant="6" id="7RC-8S-IEn"/>
+                                    <constraint firstItem="fcu-xZ-cWt" firstAttribute="leading" secondItem="nkr-uF-6BK" secondAttribute="leading" id="PXN-aw-tbE"/>
+                                    <constraint firstAttribute="trailing" secondItem="fcu-xZ-cWt" secondAttribute="trailing" id="QoH-0A-beg"/>
+                                    <constraint firstItem="fVu-fj-k7N" firstAttribute="leading" secondItem="Vo9-BO-g5o" secondAttribute="trailing" constant="25" id="SnD-3y-X0F"/>
+                                    <constraint firstItem="yKz-hZ-YkL" firstAttribute="top" secondItem="fcu-xZ-cWt" secondAttribute="bottom" constant="10" id="XbZ-XA-1oQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="FNs-1T-6GN" secondAttribute="trailing" constant="25" id="Y3y-hU-kAv"/>
+                                    <constraint firstAttribute="height" constant="150" id="Yot-DA-bws"/>
+                                    <constraint firstItem="Vo9-BO-g5o" firstAttribute="leading" secondItem="nkr-uF-6BK" secondAttribute="leading" constant="20" id="dRK-Ow-5aW"/>
+                                    <constraint firstAttribute="trailing" secondItem="5YC-3b-wOK" secondAttribute="trailing" constant="25" id="dwM-dp-dYa"/>
+                                    <constraint firstItem="5YC-3b-wOK" firstAttribute="leading" secondItem="im9-9g-kme" secondAttribute="trailing" constant="50" id="lIQ-7v-zLw"/>
+                                    <constraint firstItem="im9-9g-kme" firstAttribute="leading" secondItem="Vo9-BO-g5o" secondAttribute="trailing" constant="25" id="nV0-bg-x20"/>
+                                    <constraint firstAttribute="centerY" secondItem="Vo9-BO-g5o" secondAttribute="centerY" constant="-12" id="oeB-lX-IbJ"/>
+                                    <constraint firstItem="fVu-fj-k7N" firstAttribute="top" secondItem="fcu-xZ-cWt" secondAttribute="bottom" constant="22" id="qaF-qJ-w0y"/>
+                                    <constraint firstItem="im9-9g-kme" firstAttribute="top" secondItem="fVu-fj-k7N" secondAttribute="bottom" constant="8" id="w9g-TR-Gy4"/>
+                                    <constraint firstItem="fcu-xZ-cWt" firstAttribute="top" secondItem="nkr-uF-6BK" secondAttribute="top" id="zul-HI-aLC"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="upgradeButton" destination="5YC-3b-wOK" id="4qd-1L-oZR"/>
+                                    <outlet property="zoneCurrentLevelLabel" destination="yKz-hZ-YkL" id="RME-O0-FgW"/>
+                                    <outlet property="zoneDescriptionLabel" destination="im9-9g-kme" id="p5f-Mf-xAu"/>
+                                    <outlet property="zoneIconView" destination="Vo9-BO-g5o" id="O7L-hW-Yro"/>
+                                    <outlet property="zoneNameLabel" destination="fVu-fj-k7N" id="HYu-yA-p7D"/>
+                                    <outlet property="zoneNextLevelLabel" destination="FNs-1T-6GN" id="f20-oO-R2m"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Brp-Cv-YrY" firstAttribute="top" secondItem="nkr-uF-6BK" secondAttribute="bottom" id="8Qc-ch-fxt"/>
                             <constraint firstItem="pjd-zg-4Jz" firstAttribute="top" secondItem="ouu-7c-sFl" secondAttribute="top" id="Ozt-gq-MVG"/>
                             <constraint firstItem="pjd-zg-4Jz" firstAttribute="leading" secondItem="ouu-7c-sFl" secondAttribute="leading" id="P1j-Lu-PAh"/>
+                            <constraint firstAttribute="trailing" secondItem="nkr-uF-6BK" secondAttribute="trailing" id="Uln-of-kTt"/>
                             <constraint firstAttribute="trailing" secondItem="fJ7-Uj-Whw" secondAttribute="trailing" id="WWR-Lf-aZo"/>
                             <constraint firstAttribute="trailing" secondItem="pjd-zg-4Jz" secondAttribute="trailing" id="fPL-eL-lf9"/>
+                            <constraint firstItem="nkr-uF-6BK" firstAttribute="leading" secondItem="ouu-7c-sFl" secondAttribute="leading" id="hnL-xW-vdP"/>
                             <constraint firstItem="Brp-Cv-YrY" firstAttribute="top" secondItem="fJ7-Uj-Whw" secondAttribute="bottom" id="oTp-b9-psM"/>
                             <constraint firstItem="fJ7-Uj-Whw" firstAttribute="leading" secondItem="ouu-7c-sFl" secondAttribute="leading" id="ywI-fa-L2o"/>
                         </constraints>
@@ -203,12 +294,13 @@
                         </connections>
                     </glkView>
                     <navigationItem key="navigationItem" id="VBo-zp-u0d"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="glkView" destination="ouu-7c-sFl" id="vca-Fa-trv"/>
                         <outlet property="moneyButton" destination="dCB-Pj-cUM" id="G6J-GF-zY2"/>
                         <outlet property="populationButton" destination="WZh-31-dtQ" id="2fJ-j8-YeK"/>
                         <outlet property="satisfactionButton" destination="0aL-if-Xl8" id="WAB-yK-FS4"/>
-                        <outlet property="zoneMenuRightConstraint" destination="WWR-Lf-aZo" id="Rjr-ut-LXo"/>
+                        <outlet property="zoneInfoView" destination="nkr-uF-6BK" id="zxV-Ec-bfz"/>
                         <outlet property="zoneMenuView" destination="fJ7-Uj-Whw" id="Hc9-cK-UlV"/>
                     </connections>
                 </glkViewController>
@@ -218,6 +310,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="industrial_zone" width="119" height="111"/>
         <image name="main_menu_bg" width="768" height="1024"/>
         <image name="menu" width="45" height="45"/>
         <image name="money" width="40" height="37"/>

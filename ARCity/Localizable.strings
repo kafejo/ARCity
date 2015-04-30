@@ -11,6 +11,17 @@
 "ABOUT" = "About";
 
 "HOUSE_ZONE" = "House zone";
+"HOUSE_ZONE_DESC" = "This zone is used for increase population limit";
+
 "INDUSTRIAL_ZONE" = "Industrial zone";
+"INDUSTRIAL_ZONE_DESC" = "Zone that generates job vacancies";
+
 "SHOPPING_ZONE" = "Shopping zone";
+"SHOPPING_ZONE_DESC" = "This zone adds small amout of job vacancies and it increase satisfaction for a little bit";
+
 "CULTURAL_ZONE" = "Cultural zone";
+"CULTURAL_ZONE_DESC" = "Main purpose of this zone is to increase satisfaction rapidly";
+
+"NOT_ENOUGH_MONEY" = "Not enough money!";
+"NOT_ENOUGH_MONEY_FOR_ZONE" = "You don't have enough money to build this zone!";
+"OK" = "Ok";

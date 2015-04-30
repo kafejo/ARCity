@@ -10,6 +10,7 @@
 #import "Plot+DataAccess.h"
 #import "GCItem.h"
 #import "GameSession+DataAccess.h"
+#import "GlobalConfig.h"
 
 @interface GraphicsCore ()
 
@@ -127,8 +128,9 @@
     // If plot have a building but CGItem not, create its geometry
     if (plot.plotZone && !item.object) {
         
-        item.object = [self loadGeometryFromPath:[plot.plotZone pathToGeometry]];
+        item.object = [self loadGeometryFromPath:[GlobalConfig pathToModelForZoneType:plot.plotZone.type level:plot.plotZone.level]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
+        item.type = plot.plotZone.type;
        [self applyBuildingSettings:item.object];
         
         if (item.placeholder->isVisible()) {
@@ -142,9 +144,10 @@
         self.metaioSDK->unloadGeometry(item.object);
         
         // Then load new
-        item.object = [self loadGeometryFromPath:[plot.plotZone pathToGeometry]];
+        item.object = [self loadGeometryFromPath:[GlobalConfig pathToModelForZoneType:plot.plotZone.type level:plot.plotZone.level]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
         [self applyBuildingSettings:item.object];
+        item.type = plot.plotZone.type;
         
     } else if (!plot.plotZone && item.object) {
         self.metaioSDK->unloadGeometry(item.object);
@@ -155,21 +158,21 @@
 - (void)applyBuildingSettings:(metaio::IGeometry *)object {
     object->setScale(metaio::Vector3d(0.15, 0.15, 0.15));
     
-    NSInteger random = arc4random() % 4;
-    switch (random) {
-        case 0:
-            object->setRotation(metaio::Rotation(0, 0, M_PI));
-            break;
-        case 1:
-            object->setRotation(metaio::Rotation(0, 0, M_PI_2));
-            break;
-        case 2:
-            object->setRotation(metaio::Rotation(0, 0, M_PI + M_PI_2));
-            break;
-            
-        default:
-            break;
-    }
+//    NSInteger random = arc4random() % 4;
+//    switch (random) {
+//        case 0:
+//            object->setRotation(metaio::Rotation(0, 0, M_PI));
+//            break;
+//        case 1:
+//            object->setRotation(metaio::Rotation(0, 0, M_PI_2));
+//            break;
+//        case 2:
+//            object->setRotation(metaio::Rotation(0, 0, M_PI + M_PI_2));
+//            break;
+//            
+//        default:
+//            break;
+//    }
     
     //item.object->setRotation(metaio::Rotation(M_PI_2, 0, 0));
 }

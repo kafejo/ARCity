@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *zoneImage;
 @property (strong, nonatomic) IBOutlet UILabel *zoneName;
 @property (strong, nonatomic) IBOutlet UILabel *zonePrice;
+@property (assign, nonatomic) ZoneType zoneType;
 
 - (void)configureWithZoneType:(ZoneType)type;
 

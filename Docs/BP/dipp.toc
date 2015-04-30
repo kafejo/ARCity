@@ -38,10 +38,12 @@
 \contentsline {subsection}{\numberline {6.2}Cocoapods}{26}
 \contentsline {subsubsection}{MagicalRecord}{26}
 \contentsline {subsubsection}{TFTableDescriptor}{26}
-\contentsline {subsubsection}{Dalsi ktere jeste treba pouziju}{26}
 \contentsline {subsection}{\numberline {6.3}Model}{26}
 \contentsline {subsection}{\numberline {6.4}U\IeC {\v z}ivatelsk\IeC {\'e} rozhran\IeC {\'\i }}{28}
-\contentsline {section}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{29}
-\contentsline {subsection}{\numberline {7.1}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{29}
-\contentsline {section}{\numberline {8}P\IeC {\v r}\IeC {\'\i }lohy}{30}
-\contentsline {section}{\numberline {9}Reference}{31}
+\contentsline {subsubsection}{Design}{31}
+\contentsline {subsection}{\numberline {6.5}Ukl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } dat}{33}
+\contentsline {subsection}{\numberline {6.6}V\IeC {\'y}po\IeC {\v c}ty ukazatel\IeC {\r u}}{33}
+\contentsline {section}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{34}
+\contentsline {subsection}{\numberline {7.1}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{34}
+\contentsline {section}{\numberline {8}P\IeC {\v r}\IeC {\'\i }lohy}{35}
+\contentsline {section}{\numberline {9}Reference}{36}

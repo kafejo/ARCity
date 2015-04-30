@@ -12,6 +12,7 @@
 #import "GameViewController.h"
 #import <TFTableDescriptor.h>
 
+
 static NSString * const kRowTagContinue = @"RowTagContinue";
 static NSString * const kRowTagNewGame = @"RowTagNewGame";
 static NSString * const kRowTagAbout = @"RowTagAbout";
@@ -51,6 +52,16 @@ static NSString * const kRowTagAbout = @"RowTagAbout";
     self.tableDescriptor.delegate = self;
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+// 
+//}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+// 
+//}
+
 #pragma mark - TFTableDescritor delegate
 
 - (void)tableDescriptor:(TFTableDescriptor *)descriptor didSelectRow:(TFRowDescriptor *)rowDescriptor {
@@ -59,23 +70,27 @@ static NSString * const kRowTagAbout = @"RowTagAbout";
         self.session = [GameSession newSession];
     }
     
-    [self performSegueWithIdentifier:@"showGame" sender:self];
+    [self pushToGameController];
 }
 
 #pragma mark - Navigation
+
+- (void)pushToGameController {
+    
+    GameViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"GameViewControllerID"];
+    
+    if (!self.session) {
+        self.session = [GameSession newSession];
+    }
+    controller.session = self.session;
+    
+    [self.navigationController pushViewController:controller animated:NO];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"showGame"]) {
-        GameViewController *controller = segue.destinationViewController;
-        
-        if (!self.session) {
-            self.session = [GameSession newSession];
-        }
-        controller.session = self.session;
-    }
     
 }
 

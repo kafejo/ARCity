@@ -24,6 +24,7 @@
 }
 
 - (void)configureWithZoneType:(ZoneType)type {
+    self.zoneType = type;
     switch (type) {
         case ZoneTypeHouse:
             self.zoneImage.image = [UIImage imageNamed:@"house_zone"];
@@ -49,11 +50,13 @@
         default:
             break;
     }
+    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
     numberFormatter.currencySymbol = @"$";
     numberFormatter.maximumFractionDigits = 0;
-    self.zonePrice.text = [numberFormatter stringFromNumber:[GlobalConfig priceForZone:type]];
+    self.zonePrice.text = [numberFormatter stringFromNumber:[GlobalConfig priceForZone:type level:ZoneLevel1]];
+    
 }
 
 @end

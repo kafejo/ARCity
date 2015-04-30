@@ -7,6 +7,9 @@
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES">
         <attribute name="money" optional="YES" attributeType="Integer 32" defaultValueString="500000" syncable="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="satisfaction" optional="YES" attributeType="Float" defaultValueString="50" syncable="YES"/>
+        <attribute name="tax" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameSession" inverseName="player" inverseEntity="GameSession" syncable="YES"/>
     </entity>
     <entity name="Plot" representedClassName="Plot" syncable="YES">
@@ -15,13 +18,15 @@
         <relationship name="plotZone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Zone" inverseName="plot" inverseEntity="Zone" syncable="YES"/>
     </entity>
     <entity name="Zone" representedClassName="Zone" syncable="YES">
+        <attribute name="currentPopulation" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="level_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="plot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotZone" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Zone" positionX="-261" positionY="90" width="128" height="73"/>
-        <element name="GameSession" positionX="-36" positionY="27" width="128" height="88"/>
-        <element name="Plot" positionX="-171" positionY="-106" width="128" height="88"/>
-        <element name="Player" positionX="-144" positionY="9" width="128" height="75"/>
+        <element name="GameSession" positionX="34" positionY="-108" width="128" height="88"/>
+        <element name="Player" positionX="-198" positionY="-106" width="128" height="118"/>
+        <element name="Plot" positionX="-47" positionY="74" width="128" height="88"/>
+        <element name="Zone" positionX="-236" positionY="45" width="128" height="105"/>
     </elements>
 </model>

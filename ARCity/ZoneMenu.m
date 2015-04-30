@@ -75,6 +75,15 @@ NSString * const kZoneMenuItemEnumKey = @"zone_id";
     return [ZoneCell preferredSize];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.delegate) {
+        ZoneCell *cell = (ZoneCell *)[collectionView cellForItemAtIndexPath:[[collectionView indexPathsForSelectedItems] firstObject]];
+        [self.delegate zoneMenu:self didSelectZoneType:cell.zoneType];
+    }
+    
+}
+
 //#pragma mark - UITableView delegate 
 //
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,9 +110,6 @@ NSString * const kZoneMenuItemEnumKey = @"zone_id";
 //}
 //
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.delegate) {
-//        [self.delegate buildingMenu:self didSelectBuildingType:(BuildingType)[self.items[indexPath.row][kBuildingMenuItemEnumKey] integerValue]];
-//    }
-//}
+//   //}
 
 @end
