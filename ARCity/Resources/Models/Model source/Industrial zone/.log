@@ -1,0 +1,6 @@
+FBXMeshConverter version 1.1.0
+Fbx-Conversion log of Model source/House/level2/
+
+logfile-output: Model source/House/.log
+fbx-output-path: Model source/House/
+Error: given file is no FBX, DAE, OBJ or DXF (according to extension).

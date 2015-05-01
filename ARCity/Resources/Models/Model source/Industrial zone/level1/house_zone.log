@@ -1,0 +1,21 @@
+FBXMeshConverter version 1.1.0
+Fbx-Conversion log of Model source/House/level1/house_zone.FBX
+
+logfile-output: Model source/House/level1/house_zone.log
+fbx-output-path: Model source/House/level1/
+file import started...
+file import done.
+
+
+file export started...
+writing mfbx file...
+writing mfbx file done. [5 meshes][96;96;158;31;31 vtx]
+creating zip package started...
+adding file to zip: skyscraper1.jpg
+adding file to zip: skyscraper2.jpg
+adding file to zip: skyscraper3.jpg
+adding file to zip: outer-block-map.jpg
+adding file to zip: block-map.jpg
+adding file to zip: house_zone.mfbx
+creating zip package done.
+file export done.
