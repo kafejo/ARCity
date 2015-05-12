@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  29 APR 2015 12:20
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.4.25)  12 MAY 2015 15:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -646,6 +646,93 @@ Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 \TX@delta=\dimen198
 \TX@cols=\count132
 \TX@ftn=\toks43
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/mh/mathtools.sty
+Package: mathtools 2012/04/24 v1.12 mathematical typesetting tools
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count133
+\calc@Bcount=\count134
+\calc@Adimen=\dimen199
+\calc@Bdimen=\dimen200
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count135
+\calc@Cskip=\skip48
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/mh/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks44
+\ex@=\dimen201
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen202
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count136
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count137
+\leftroot@=\count138
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count139
+\DOTSCASE@=\count140
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box42
+\strutbox@=\box43
+\big@size=\dimen203
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count141
+\c@MaxMatrixCols=\count142
+\dotsspace@=\muskip10
+\c@parentequation=\count143
+\dspbrk@lvl=\count144
+\tag@help=\toks45
+\row@=\count145
+\column@=\count146
+\maxfields@=\count147
+\andhelp@=\toks46
+\eqnshift@=\dimen204
+\alignsep@=\dimen205
+\tagshift@=\dimen206
+\tagwidth@=\dimen207
+\totwidth@=\dimen208
+\lineht@=\dimen209
+\@envbody=\toks47
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks48
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+\g_MT_multlinerow_int=\count148
+\l_MT_multwidth_dim=\dimen210
+\origjot=\skip52
+\l_MT_shortvdotswithinadjustabove_dim=\dimen211
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen212
+\l_MT_above_intertext_dim=\dimen213
+\l_MT_below_intertext_dim=\dimen214
+\l_MT_above_shortintertext_dim=\dimen215
+\l_MT_below_shortintertext_dim=\dimen216
 ) (./dipp.aux
 
 LaTeX Warning: Label `class_diagram' multiply defined.
@@ -659,37 +746,43 @@ LaTeX Warning: Label `class_diagram' multiply defined.
 
 LaTeX Warning: Label `class_diagram' multiply defined.
 
+
+LaTeX Warning: Label `screenshot3' multiply defined.
+
+
+LaTeX Warning: Label `screenshot3' multiply defined.
+
 )
 \openout1 = `dipp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count133
-\scratchdimen=\dimen199
-\scratchbox=\box42
-\nofMPsegments=\count134
-\nofMParguments=\count135
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count136
-\MPscratchDim=\dimen200
-\MPnumerator=\count137
-\makeMPintoPDFobject=\count138
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count149
+\scratchdimen=\dimen217
+\scratchbox=\box44
+\nofMPsegments=\count150
+\nofMParguments=\count151
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count152
+\MPscratchDim=\dimen218
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
+\everyMPtoPDFconversion=\toks50
 ) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -738,7 +831,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count139
+\c@lstlisting=\count155
 
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
@@ -749,291 +842,319 @@ File: uni-1.def 2012/04/20 UCS: Unicode data U+0100..U+01FF
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
-)
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 42.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 42.
- [1
+) [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 47.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 47.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 47.
- [2
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ] [3] [4
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 51.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
  [5] [6] [7]
 [8
 
-] (./dipp.toc)
+] (./dipp.toc [9])
 \tf@toc=\write5
 \openout5 = `dipp.toc'.
 
- [9] [10
+ [10] [11
 
-] [11
 
 ]
 <images/marker-tracking.jpg, id=49, 745.78625pt x 557.08125pt>
 File: images/marker-tracking.jpg Graphic file (type jpg)
 
 <use images/marker-tracking.jpg>
-Package pdftex.def Info: images/marker-tracking.jpg used on input line 91.
+Package pdftex.def Info: images/marker-tracking.jpg used on input line 95.
 (pdftex.def)             Requested size: 331.23871pt x 247.4201pt.
  [12
 
- <./images/marker-tracking.jpg>]
+]
 <images/markerless-tracking.jpg, id=53, 481.8pt x 321.2pt>
 File: images/markerless-tracking.jpg Graphic file (type jpg)
 
 <use images/markerless-tracking.jpg>
-Package pdftex.def Info: images/markerless-tracking.jpg used on input line 100.
+Package pdftex.def Info: images/markerless-tracking.jpg used on input line 105.
 
 (pdftex.def)             Requested size: 351.31378pt x 234.2143pt.
-
-<images/slam.jpg, id=54, 283.0575pt x 192.72pt>
+ [13 <./images/marker-tracking.jpg>]
+<images/slam.jpg, id=58, 283.0575pt x 192.72pt>
 File: images/slam.jpg Graphic file (type jpg)
  <use images/slam.jpg>
-Package pdftex.def Info: images/slam.jpg used on input line 109.
+Package pdftex.def Info: images/slam.jpg used on input line 115.
 (pdftex.def)             Requested size: 351.31378pt x 239.21144pt.
- [13 <./images/markerless-tracking.jpg>] [14 <./images/slam.jpg>]
-Underfull \hbox (badness 1253) in paragraph at lines 130--131
+ [14 <./images/markerless-tracking.jpg>]
+Underfull \hbox (badness 1609) in paragraph at lines 124--125
+\OT1/cmr/m/n/12 Z uve-den^^Sych in-for-mac^^S^^P vypl^^Syv^^Sa, ^^Tze im-ple-me
+nta^^Tcn^^Te nej-jed-nodu^^Ts^^Ts^^S^^Pm a nej-do-
+ []
+
+[15 <./images/slam.jpg>]
+Underfull \hbox (badness 1253) in paragraph at lines 141--142
 \OT1/cmr/m/n/12 Masov^^Te mul-tipla-ye-rov^^Sa on-line hra vyv^^S^^Pjen^^Sa sta
 rtu-pem \OT1/cmr/m/it/12 Ni-an-tics Labs\OT1/cmr/m/n/12 , kte-rou
  []
 
-<images/ingress.jpg, id=62, 770.88pt x 1134.2375pt>
+<images/ingress.jpg, id=65, 770.88pt x 1134.2375pt>
 File: images/ingress.jpg Graphic file (type jpg)
  <use images/ingress.jpg>
-Package pdftex.def Info: images/ingress.jpg used on input line 134.
+Package pdftex.def Info: images/ingress.jpg used on input line 146.
 (pdftex.def)             Requested size: 321.20117pt x 472.58626pt.
 
-[15
+[16
 
-] [16 <./images/ingress.jpg>]
-<images/drakerz-confrontation.jpg, id=69, 821.0675pt x 440.64626pt>
+] [17 <./images/ingress.jpg>]
+<images/drakerz-confrontation.jpg, id=72, 821.0675pt x 440.64626pt>
 File: images/drakerz-confrontation.jpg Graphic file (type jpg)
 
 <use images/drakerz-confrontation.jpg>
-Package pdftex.def Info: images/drakerz-confrontation.jpg used on input line 15
-1.
+Package pdftex.def Info: images/drakerz-confrontation.jpg used on input line 16
+3.
 (pdftex.def)             Requested size: 425.59155pt x 228.40448pt.
- [17 <./images/drakerz-confrontation.jpg>] <images/arhrrrr.jpg, id=73, 602.25pt
+ [18 <./images/drakerz-confrontation.jpg>] <images/arhrrrr.jpg, id=76, 602.25pt
  x 351.3125pt>
 File: images/arhrrrr.jpg Graphic file (type jpg)
  <use images/arhrrrr.jpg>
-Package pdftex.def Info: images/arhrrrr.jpg used on input line 165.
+Package pdftex.def Info: images/arhrrrr.jpg used on input line 178.
 (pdftex.def)             Requested size: 425.59155pt x 248.27036pt.
 
-[18 <./images/arhrrrr.jpg>]
-<images/artoolkit_benchmark.jpg, id=77, 401.5pt x 301.125pt>
-File: images/artoolkit_benchmark.jpg Graphic file (type jpg)
+[19 <./images/arhrrrr.jpg>]
+<images/artoolkit_benchmark.png, id=81, 682.55pt x 501.875pt>
+File: images/artoolkit_benchmark.png Graphic file (type png)
 
-<use images/artoolkit_benchmark.jpg>
-Package pdftex.def Info: images/artoolkit_benchmark.jpg used on input line 186.
+<use images/artoolkit_benchmark.png>
+Package pdftex.def Info: images/artoolkit_benchmark.png used on input line 203.
 
-(pdftex.def)             Requested size: 325.21619pt x 243.92828pt.
- [19
+(pdftex.def)             Requested size: 401.50146pt x 295.223pt.
+ [20
 
- <./images/artoolkit_benchmark.jpg>]
-<images/Polycount_SDK_iOS_20fps.png, id=82, 646.66594pt x 398.23781pt>
+ <./images/artoolkit_benchmark.png (PNG copy)>]
+<images/Polycount_SDK_iOS_20fps.png, id=85, 646.66594pt x 398.23781pt>
 File: images/Polycount_SDK_iOS_20fps.png Graphic file (type png)
 
 <use images/Polycount_SDK_iOS_20fps.png>
 Package pdftex.def Info: images/Polycount_SDK_iOS_20fps.png used on input line 
-199.
+219.
 (pdftex.def)             Requested size: 425.59155pt x 262.09033pt.
- [20 <./images/Polycount_SDK_iOS_20fps.png>] [21] [22
+ [21] [22 <./images/Polycount_SDK_iOS_20fps.png>] [23] [24
 
-] [23] [24] [25]
-Underfull \hbox (badness 2050) in paragraph at lines 338--339
+] [25] [26] [27
+
+] [28]
+Underfull \hbox (badness 2050) in paragraph at lines 365--366
 []\OT1/cmr/bx/n/12 GraphicsCore \OT1/cmr/m/n/12 - gra-fick^^Se j^^Sadro hry, za
 ji^^Tst[]uje vy-kres-lov^^San^^S^^P ob-jekt^^Wu na
  []
 
-[26
-
-] <images/model.png, id=107, 568.1225pt x 391.4625pt>
+<images/model.png, id=113, 845.1575pt x 612.2875pt>
 File: images/model.png Graphic file (type png)
+ <use images/model.png>
+Package pdftex.def Info: images/model.png used on input line 378.
+(pdftex.def)             Requested size: 421.57654pt x 305.4236pt.
 
-<use images/model.png>
-Package pdftex.def Info: images/model.png used on input line 351.
-(pdftex.def)             Requested size: 401.50146pt x 276.66203pt.
- [27 <./images/model.png>]
-<images/nav_bar_iphone.png, id=112, 449.68pt x 61.22874pt>
+[29] <images/nav_bar_iphone.png, id=117, 1541.76pt x 130.4875pt>
 File: images/nav_bar_iphone.png Graphic file (type png)
 
 <use images/nav_bar_iphone.png>
-Package pdftex.def Info: images/nav_bar_iphone.png used on input line 365.
-(pdftex.def)             Requested size: 301.1261pt x 41.0034pt.
-
-<images/hamburger_menu.png, id=113, 401.5pt x 301.125pt>
+Package pdftex.def Info: images/nav_bar_iphone.png used on input line 392.
+(pdftex.def)             Requested size: 421.57654pt x 35.68008pt.
+ [30 <./images/model.png> <./images/nav_bar_iphone.png>] <images/hamburger_menu
+.png, id=123, 155.58125pt x 130.4875pt>
 File: images/hamburger_menu.png Graphic file (type png)
 
 <use images/hamburger_menu.png>
-Package pdftex.def Info: images/hamburger_menu.png used on input line 375.
-(pdftex.def)             Requested size: 301.1261pt x 225.86156pt.
- [28 <./images/nav_bar_iphone.png (PNG copy)> <./images/hamburger_menu.png (PNG
- copy)>]
-<images/ipad-toucharea.png, id=117, 649.7073pt x 916.6245pt>
+Package pdftex.def Info: images/hamburger_menu.png used on input line 402.
+(pdftex.def)             Requested size: 100.37537pt x 84.18668pt.
+
+<images/ipad-toucharea.png, id=124, 649.7073pt x 916.6245pt>
 File: images/ipad-toucharea.png Graphic file (type png)
 
 <use images/ipad-toucharea.png>
-Package pdftex.def Info: images/ipad-toucharea.png used on input line 386.
+Package pdftex.def Info: images/ipad-toucharea.png used on input line 413.
 (pdftex.def)             Requested size: 301.1261pt x 424.84131pt.
- [29 <./images/ipad-toucharea.png>]
-<images/ipad_layout_ux.jpg, id=122, 2707.11375pt x 3397.69376pt>
+ [31 <./images/hamburger_menu.png>]
+<images/ipad_layout_ux.jpg, id=130, 2707.11375pt x 3397.69376pt>
 File: images/ipad_layout_ux.jpg Graphic file (type jpg)
 
 <use images/ipad_layout_ux.jpg>
-Package pdftex.def Info: images/ipad_layout_ux.jpg used on input line 399.
+Package pdftex.def Info: images/ipad_layout_ux.jpg used on input line 426.
 (pdftex.def)             Requested size: 301.1261pt x 377.89503pt.
- [30 <./images/ipad_layout_ux.jpg>]
-<images/ipad-layout.jpg, id=126, 2707.11375pt x 3397.69376pt>
+ [32 <./images/ipad-toucharea.png>] [33 <./images/ipad_layout_ux.jpg>]
+<images/ipad-layout.jpg, id=138, 2707.11375pt x 3397.69376pt>
 File: images/ipad-layout.jpg Graphic file (type jpg)
 
 <use images/ipad-layout.jpg>
-Package pdftex.def Info: images/ipad-layout.jpg used on input line 422.
+Package pdftex.def Info: images/ipad-layout.jpg used on input line 451.
 (pdftex.def)             Requested size: 431.61407pt x 541.67203pt.
- [31]
-<images/core-data-model.png, id=131, 454.69875pt x 317.185pt>
+ [34]
+<images/core-data-model.png, id=142, 436.63126pt x 295.1025pt>
 File: images/core-data-model.png Graphic file (type png)
 
 <use images/core-data-model.png>
-Package pdftex.def Info: images/core-data-model.png used on input line 434.
-(pdftex.def)             Requested size: 401.50146pt x 280.08192pt.
- [32 <./images/ipad-layout.jpg>] [33 <./images/core-data-model.png>] [34
+Package pdftex.def Info: images/core-data-model.png used on input line 463.
+(pdftex.def)             Requested size: 401.50146pt x 271.36249pt.
+ [35 <./images/ipad-layout.jpg>] [36 <./images/core-data-model.png>] [37] [38]
+<images/screenshot1.jpg, id=160, 1541.76pt x 2055.68pt>
+File: images/screenshot1.jpg Graphic file (type jpg)
 
-] [35
+<use images/screenshot1.jpg>
+Package pdftex.def Info: images/screenshot1.jpg used on input line 546.
+(pdftex.def)             Requested size: 401.50146pt x 535.31111pt.
+
+<images/screenshot2.png, id=161, 1541.76pt x 2055.68pt>
+File: images/screenshot2.png Graphic file (type png)
+
+<use images/screenshot2.png>
+Package pdftex.def Info: images/screenshot2.png used on input line 554.
+(pdftex.def)             Requested size: 401.50146pt x 535.31111pt.
+ [39
+
+ <./images/screenshot1.jpg>]
+<images/screenshot3.jpg, id=165, 1541.76pt x 2055.68pt>
+File: images/screenshot3.jpg Graphic file (type jpg)
+
+<use images/screenshot3.jpg>
+Package pdftex.def Info: images/screenshot3.jpg used on input line 562.
+(pdftex.def)             Requested size: 401.50146pt x 535.31111pt.
+ [40 <./images/screenshot2.png>] [41 <./images/screenshot3.jpg>]
+Underfull \hbox (badness 1509) in paragraph at lines 572--573
+\OT1/cmr/m/it/12 p^^Trem^^Sy^^Tslet!: prak-tick^^Sy pr^^Wuvodce tes-tov^^San^^S
+^^Pm a opra-vou chyb pou^^Tzitelnost webu\OT1/cmr/m/n/12 ,
+ []
+
+[42
+
+] [43] [44] [45] [46]
+Underfull \hbox (badness 2351) in paragraph at lines 665--666
+[]\OT1/cmr/m/n/12 Na po-sledn^^S^^Pch stan^^Sach t^^Seto pr^^Sace si lze prohl^
+^Sednout uk^^Sazky pr^^Sace a
+ []
+
+[47
+
+] [48] [49
 
 ]
-Underfull \hbox (badness 1142) in paragraph at lines 502--503
+Underfull \hbox (badness 1142) in paragraph at lines 711--712
 []\OT1/cmr/m/sc/12 Peoleo \OT1/cmr/m/it/12 Drakerz-Confrontation About \OT1/cmr
 /m/n/12 [on-line]. [cit. 2015-03-31]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 []\OT1/cmr/m/sc/12 Venture Beat \OT1/cmr/m/it/12 Drakerz-Confrontation augmente
 d-reality card game
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 \OT1/cmr/m/it/12 laun-ches in the U.S. \OT1/cmr/m/n/12 [on-line]. [cit. 2015-03
 -31]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 \OT1/cmr/m/n/12 http://venturebeat.com/2014/07/01/drazkerz-confrontation-augmen
 ted-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 523--524
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
 []\OT1/cmr/m/sc/12 Wikipedia \OT1/cmr/m/it/12 Wi-ki-pe-dia \OT1/cmr/m/n/12 [on-
 line]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 4013) in paragraph at lines 530--531
+Underfull \hbox (badness 4013) in paragraph at lines 739--740
 []\OT1/cmr/m/sc/12 Paul Burke \OT1/cmr/m/it/12 Ob-ject Fi-les (.obj) \OT1/cmr/m
 /n/12 [on-line]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
+Underfull \hbox (badness 10000) in paragraph at lines 746--747
 []\OT1/cmr/m/sc/12 M.H. Wil-li-ams \OT1/cmr/m/it/12 id Soft-ware Wants To Shor-
 ten Dev
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
+Underfull \hbox (badness 10000) in paragraph at lines 746--747
 \OT1/cmr/m/it/12 Cycles \OT1/cmr/m/n/12 [on-line]. [cit. 2015-04-02]. Do-stupn^
 ^Se z:
  []
 
 
-Overfull \hbox (51.23286pt too wide) in paragraph at lines 537--538
+Overfull \hbox (51.23286pt too wide) in paragraph at lines 746--747
 \OT1/cmr/m/n/12 http://web.archive.org/web/20110827005123/http://www.industryga
 mers.com/news/id-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 753--754
 []\OT1/cmr/m/sc/12 Wikipedia \OT1/cmr/m/it/12 Wi-ki-pe-dia \OT1/cmr/m/n/12 [on-
 line]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 551--552
+Underfull \hbox (badness 10000) in paragraph at lines 760--761
 []\OT1/cmr/m/sc/12 Wikipedia \OT1/cmr/m/it/12 Wi-ki-pe-dia \OT1/cmr/m/n/12 [on-
 line]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 774--775
 []\OT1/cmr/m/sc/12 Autodesk \OT1/cmr/m/it/12 FBX \OT1/cmr/m/n/12 [on-line]. [ci
 t. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
 []\OT1/cmr/m/sc/12 Autodesk \OT1/cmr/m/it/12 FBX SDK \OT1/cmr/m/n/12 [on-line].
  [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 572--573
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
 \OT1/cmr/m/n/12 http://usa.autodesk.com/adsk/servlet/pc/item?siteID=123112&id=1
 0775847
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--580
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
 []\OT1/cmr/m/sc/12 The Hu-man In-ter-face Tech-no-logy Lab, Uni-ver-sity of Wa-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--580
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
 \OT1/cmr/m/sc/12 shing-ton \OT1/cmr/m/it/12 Fe-a-ture list \OT1/cmr/m/n/12 [on-
 line]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--587
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 []\OT1/cmr/m/sc/12 The Hu-man In-ter-face Tech-no-logy La-bo-ra-tory New Ze-a-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--587
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 \OT1/cmr/m/sc/12 land \OT1/cmr/m/it/12 OS-GART web-site \OT1/cmr/m/n/12 [on-lin
 e]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 600--601
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
 []\OT1/cmr/m/sc/12 Qualcomm \OT1/cmr/m/it/12 3D File For-mats \OT1/cmr/m/n/12 [
 on-line]. [cit. 2015-04-02]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--601
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
 \OT1/cmr/m/n/12 https://developer.vuforia.com/library/articles/Solution/3D-File
 -Formats.
  []
@@ -1041,228 +1162,124 @@ Underfull \hbox (badness 10000) in paragraph at lines 600--601
 (/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2012/04/20 UCS: Unicode data U+2000..U+20FF
 )
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
 []\OT1/cmr/m/sc/12 The Gu-ar-dian \OT1/cmr/m/it/12 Sam-sung cre-a-tes drone, ro
 -bo-tics and vir-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
 \OT1/cmr/m/it/12 tual re-a-lity lab \OT1/cmr/m/n/12 [on-line]. [cit. 2015-04-12
 ]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
 \OT1/cmr/m/n/12 http://www.theguardian.com/technology/2015/feb/10/samsung-indep
 endent-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 []\OT1/cmr/m/sc/12 GSMA Mo-bile Eco-nomy \OT1/cmr/m/it/12 The Mo-bile Eco-nomy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
+Underfull \hbox (badness 10000) in paragraph at lines 831--832
 \OT1/cmr/m/it/12 2015 \OT1/cmr/m/n/12 [on-line]. [cit. 2015-04-12]. Do-stupn^^S
 e z:
  []
 
 
-Overfull \hbox (47.91763pt too wide) in paragraph at lines 622--623
+Overfull \hbox (47.91763pt too wide) in paragraph at lines 831--832
 \OT1/cmr/m/n/12 http://www.gsmamobileeconomy.com/GSMA[]Global[]Mobile[]Economy[
 ]Report[]2015.pdf
  []
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 636--637
+Underfull \hbox (badness 2564) in paragraph at lines 845--846
 []\OT1/cmr/m/sc/12 The Fun-tasty \OT1/cmr/m/it/12 TFTable-De-scrip-tor \OT1/cmr
 /m/n/12 [on-line]. [cit. 2015-04-12]. Do-stupn^^Se z:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
-[]\OT1/cmr/m/sc/12 Game gu-ide \OT1/cmr/m/it/12 Game gu-ide \OT1/cmr/m/n/12 [on
--line]. [cit. 2015-04-02]. Game gu-ide
+Underfull \hbox (badness 1342) in paragraph at lines 866--867
+[]\OT1/cmr/m/sc/12 Pavla Lich-novsk[]a a Eva Kar-be-rov[]a, Fi-lo-zo-fick[]a fa
+-kulta Ma-sa-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
-\OT1/cmr/m/n/12 Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se z: http://game-gui
-de.fr/wp-
+Underfull \hbox (badness 1194) in paragraph at lines 866--867
+\OT1/cmr/m/it/12 Tes-tov^^San^^S^^P a hod-no-cen^^S^^P roz-hran^^S^^P \OT1/cmr/
+m/n/12 [on-line]. [cit. 2015-05-11]. http://human-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
-[]\OT1/cmr/m/sc/12 Engadget \OT1/cmr/m/it/12 En-gad-get \OT1/cmr/m/n/12 [on-lin
-e]. [cit. 2015-04-02]. En-
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
+\OT1/cmr/m/n/12 computer-interaction.webnode.cz/testovani-a-hodnoceni-rozhrani/
+metody-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
-\OT1/cmr/m/n/12 gad-get Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se z:
+Underfull \hbox (badness 6893) in paragraph at lines 887--888
+[]\OT1/cmr/m/sc/12 Jakob Niel-sen \OT1/cmr/m/it/12 Usa-bi-lity In-spection Me-t
+hods \OT1/cmr/m/n/12 [on-line]. [cit. 2015-05-11].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
-\OT1/cmr/m/n/12 http://www.blogcdn.com/www.engadget.com/media/2009/06/arhrrrr-p
-ic-
+Overfull \hbox (56.70781pt too wide) in paragraph at lines 887--888
+\OT1/cmr/m/n/12 http://www.idemployee.id.tue.nl/g.w.m.rauterberg/lecturenotes/0
+H420/Nielsen[1994].pdf
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
-[]\OT1/cmr/m/sc/12 VTTResearch \OT1/cmr/m/it/12 Mar-ker trac-king \OT1/cmr/m/n/
-12 [on-line]. [cit. 2015-04-02].
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
-\OT1/cmr/m/n/12 VT-TRe-search Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se z:
- []
-
-
-Overfull \hbox (0.50423pt too wide) in paragraph at lines 671--672
-\OT1/cmr/m/n/12 http://virtual.vtt.fi/virtual/proj2/multimedia/media/images/Mul
-tiMarker.jpg
- []
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
-[]\OT1/cmr/m/sc/12 Wikipedia \OT1/cmr/m/it/12 Wi-ki-pe-dia \OT1/cmr/m/n/12 [on-
-line]. [cit. 2015-04-02]. Wi-ki-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
-\OT1/cmr/m/n/12 pe-dia.org Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se z:
- []
-
-
-Overfull \hbox (103.64618pt too wide) in paragraph at lines 679--680
-\OT1/cmr/m/n/12 http://upload.wikimedia.org/wikipedia/commons/f/f4/App[]iSkull,
-[]an[]augmented[]human[]skull.jpg
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
-[]\OT1/cmr/m/sc/12 Department of En-gi-nee-ring Science, Uni-ver-sity of Ox-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
-\OT1/cmr/m/sc/12 ford \OT1/cmr/m/it/12 SLAM \OT1/cmr/m/n/12 [on-line]. [cit. 20
-15-04-02]. Obr^^Sazek ve form^^Satu:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
-\OT1/cmr/m/n/12 JPEG. Do-stupn^^Se z: http://www.robots.ox.ac.uk/ la-v/-Pa-per-
-s/-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
-[]\OT1/cmr/m/sc/12 The Hu-man In-ter-face Tech-no-logy Lab, Uni-ver-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
-\OT1/cmr/m/sc/12 sity of Wa-shing-ton \OT1/cmr/m/it/12 AR-Tool-Kit Ben-chmarks 
-\OT1/cmr/m/n/12 [on-line].
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
-\OT1/cmr/m/n/12 [cit. 2015-04-03]. Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se
- z:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
-\OT1/cmr/m/n/12 http://www.hitl.washington.edu/artoolkit/documentation/benchmar
-k.htm
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
-[]\OT1/cmr/m/sc/12 Metaio GmbH \OT1/cmr/m/it/12 Me-taio iOS po-ly-count \OT1/cm
-r/m/n/12 [on-line]. [cit. 2015-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
-\OT1/cmr/m/n/12 04-03]. Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se z:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
-\OT1/cmr/m/n/12 http://dev.metaio.com/sdk/documentation/content-creation/3d-
- []
-
-
-Underfull \hbox (badness 4108) in paragraph at lines 711--712
-[]\OT1/cmr/m/sc/12 Davide 'Folletto' Ca-sali \OT1/cmr/m/it/12 Ham-bur-ger Icon 
-/ Le-xi-con Nug-get 2 \OT1/cmr/m/n/12 [on-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 711--712
-\OT1/cmr/m/n/12 line]. [cit. 2015-04-28]. Obr^^Sazek ve form^^Satu: JPEG. Do-st
-upn^^Se z:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 []\OT1/cmr/m/sc/12 Apple Inc. \OT1/cmr/m/it/12 Adap-ti-vity and La-y-out \OT1/c
 mr/m/n/12 [on-line]. [cit. 2015-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \OT1/cmr/m/n/12 04-28]. Obr^^Sazek ve form^^Satu: JPEG. Do-stupn^^Se z:
  []
 
 
-Overfull \hbox (430.37007pt too wide) in paragraph at lines 719--720
+Overfull \hbox (430.37007pt too wide) in paragraph at lines 899--900
 \OT1/cmr/m/n/12 https://developer.apple.com/library/ios/documentation/UserExper
 ience/Conceptual/MobileHIG/LayoutandAppearance.html#//apple[]ref/doc/uid/TP4000
 6556-
  []
 
-
-Overfull \hbox (338.3988pt too wide) in paragraph at lines 727--728
-\OT1/cmr/m/n/12 https://developer.apple.com/library/ios/documentation/UserExper
-ience/Conceptual/MobileHIG/Bars.html#//apple[]ref/doc/uid/TP40006556-
- []
-
-[38] (./dipp.aux)
+[52] (./dipp.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22106 strings out of 493488
- 481889 string characters out of 3141326
- 581464 words of memory out of 3000000
- 24954 multiletter control sequences out of 15000+200000
- 11549 words of font info for 40 fonts, out of 3000000 for 9000
+ 23218 strings out of 493488
+ 497666 string characters out of 3141326
+ 603627 words of memory out of 3000000
+ 26035 multiletter control sequences out of 15000+200000
+ 12674 words of font info for 45 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,14n,92p,1284b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,14n,92p,1482b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
-ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on dipp.pdf (38 pages, 2662790 bytes).
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/loc
+al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on dipp.pdf (52 pages, 3887069 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
+ 254 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

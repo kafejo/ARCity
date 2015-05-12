@@ -14,9 +14,10 @@
 \usepackage{listings}
 \usepackage[export]{adjustbox}
 \usepackage{float}
-\usepackage{caption}
+\usepackage[justification=centering]{caption}
 \usepackage{colortbl}
 \usepackage{tabularx}
+\usepackage{mathtools}
 
 \sloppy
 
@@ -27,6 +28,7 @@
 
 \clubpenalty 10000
 \widowpenalty 10000
+
 %
 %
 % START
@@ -43,7 +45,7 @@
 
 
 \podekovani{
-Rád bych poděkoval.. 
+Chtěl bych především poděkovat svým rodičům za jejich důslednou podporu v průběhu celého studia, přítelkyni za shovívavost nad mými hodinami strávenými před počítačem, kolegům z The Funtasty za brainstorming při vymýšlení konceptu a také Ing. Davidu Procházkovi, Ph.D. za příkladné vedení práce a cenné připomínky, rady a nápady.
 }
 
 \prohlasenimuz{V~Brně dne \today}
@@ -51,16 +53,18 @@ Rád bych poděkoval..
 \newpage\null\thispagestyle{empty}\newpage
 
 \abstrakt{
-Tato práce se zabývá rozšířenou realitou a jejím využitím ve hrách na~platformě iOS. Zkoumá aktuální přístupy her, které rozšířenou realitu využívají. Práce se zabývá jejich koncepty interakce a přidaných hodnot oproti běžným počítačovým hrám. Dále jsou představeny frameworky nabízející práci s rozšířenou realitou na mobilní platformě iOS a jejich srovnání na základě vhodnosti pro tvorbu hry. Poslední částí práce je návrh vlastní hry a následná implementace s použitím nejlépe ohodnoceného frameworku.
+Tato práce se zabývá rozšířenou realitou a jejím využitím ve hrách na~platformě iOS. Zkoumá aktuální přístupy her, které rozšířenou realitu využívají. Práce popisuje jejich koncepty interakce a přidaných hodnot oproti běžným hrám (bez rozšířené reality). Dále jsou představeny frameworky umožňující implementaci aplikací založených na rozšířené realitě pro mobilní platformu iOS a jejich srovnání na základě vhodnosti pro tvorbu hry. Poslední částí práce je návrh vlastní hry s důrazem na vyřešení či zamezení nedostatků vypozorovaných na již existujících hrách a jejich konceptech a následná implementace s použitím nejlépe ohodnoceného frameworku.
 }{}
 
 \abstract{
-EN abstract
+The paper discusses an augmented reality and its integration in games for iOS platform. It considers different kinds of approaches used in currently popular augmented reality games, namely their concepts and their benefits over usual games (without usage of the augmented reality). It describes frameworks that can be used to develop applications with an augmented reality for iOS and comparison of their features and suitability to be the foundation of an augmented reality game. The final section describes designing my own game which aims to avoid critical drawbacks found by observing existing games.
 }{}
 
+\klicovaslova{rozšířená realita, iOS, objective-c, Metaio knihovna}{}
+
+\keywords{augmented reality, iOS, objective-c, Metaio framework}{}
 
 \obsah
-
 
 %
 % úvod a cíl práce
@@ -69,12 +73,12 @@ EN abstract
 
 % 
 \sekce{Úvod}
-Myšlenku rozšířené reality (angl. \textit{Augmented reality}) nastínil již před více než sto lety americký spisovatel \textit{Lyman Frank Baum} \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat realitu a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Mobilní zařízení jsou v současné době nejrychleji rostoucím odvětvím \cite{mobile_economy}, jejich hardwarové konfigurace zajišťují prostředky pro bezproblémové vykreslování detailních modelů i chod herního enginu. Mnohé firmy vidí v AR a VR (Virtual reality) budoucnost hraní a proto investují do jejich výzkumu \cite{guardian_samsung}. Tato práce se zabývá aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
+Myšlenku rozšířené reality (angl. \textit{Augmented reality}) nastínil již před více než sto lety americký spisovatel \textit{Lyman Frank Baum} \cite{baum}, ale až v posledních letech s nástupem mobilních technologií získává na svém potencionálu více než kdy předtím. Mobilní technologie a přenositelná zařízení nám umožňují pomocí senzorů snímat naše okolí a obohacovat ji o uměle vytvořené prvky. Toho se dá využít v celé škále odvětví jako je zábavní průmysl, medicína, marketing, vzdělávání, navigace, sport a mnoho dalšího. Mobilní zařízení jsou v současné době nejrychleji rostoucím odvětvím \cite{mobile_economy}, jejich hardwarové konfigurace zajišťují prostředky pro bezproblémové vykreslování detailních modelů i chod herního enginu. Mnohé firmy vidí v AR a VR (Virtual reality) budoucnost hraní a proto investují do jejich výzkumu \cite{guardian_samsung}. Tato práce se zabývá aplikací rozšířené reality v zábavním průmyslu, konkrétně hrami. 
 
 % 
 % Cíl práce
 \sekce{Cíl práce}
-Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, která bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a jak a do jaké míry se bude hra odehrávat v rozšířené realitě. Dalším krokem bude zaopatření grafických podkladů a modelů pro hru a poslední krok spočívá v samotné implementaci.
+Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, která bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a využití rozšířené reality. Dalším krokem bude připravení grafických podkladů a modelů pro hru a následně samotná implementaci. Poslední kapitoly jsou pak věnovány uživatelskému testování, vyhodnocení a úvahami nad možnými vylepšeními.
 
 %
 % Rozšířená realita
@@ -89,7 +93,8 @@ Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích tech
 
 \begin{figure}[H]
     \includegraphics[width=330px, center]{images/marker-tracking.jpg}
-    \caption{Marker tracking}
+    \caption{VTTResearch, \textit{Marker tracking}.
+	[online]. [cit.~2015-04-02]. Obrázek ve formátu: JPEG. Dostupné z: http://virtual.vtt.fi/virtual/proj2/multimedia/media/images/MultiMarker.jpg}
     \label{marker_tracking}
 \end{figure}
 
@@ -98,7 +103,8 @@ Další možností jak umisťovat objekty do rozšířené reality je pomocí tz
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/markerless-tracking.jpg}
-    \caption{Markerless tracking}
+    \caption{Wikipedia, \textit{Markerless tracking}. [online]. [cit. 2015-04-02].
+	Obrázek ve formátu: JPEG. Dostupné z: http://upload.wikimedia.org/wikipedia/commons/f/f4/App\_iSkull,\_an\_augmented \_human\_skull.jpg}
     \label{markerless_tracking}
 \end{figure}
 
@@ -107,10 +113,15 @@ Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/slam.jpg}
-    \caption{SLAM: Simultaneous localization and mapping}
+    
+    \caption{Department of Engineering Science, University of Oxford, \textit{SLAM: Simultaneous localization and mapping}
+	[online]. [cit. 2015-04-02]. 
+	Obrázek ve formátu: JPEG. Dostupné z: http://www.robots.ox.ac.uk/~lav/Papers/castle\_etal\_iswc2008/castle\_etal\_iswc2008.jpg}
     \label{slam}
 \end{figure}
 
+\sekce{Srovnání}
+Z uvedených informací vyplývá, že implementačně nejjednodušším a nejdostupnějším řešením je Marker tracking za předpokladu potřeby rozpoznání více konkrétních míst v realitě. Mírně složitější, ale zato uživatelsky přívětivější řešení nabízí Markerless tracking v podobě možnosti rozpoznávání vzorů a obrázků. Pro situace, kdy nepotřebujeme nacházet konkrétní pozice, ale spíše plochy, je zde řešení typu SLAM, které je však z uvedených typů nejnáročnější na implementaci.
 
 %
 % Aktuální hry a jejich koncepty
@@ -131,8 +142,9 @@ Masově multiplayerová online hra vyvíjená startupem \textit{Niantics Labs}, 
 
 
 \begin{figure}[H]
+    \centering
     \includegraphics[width=320px, center]{images/ingress.jpg}
-    \caption{Screenshot ze hry Ingress}
+    \caption{\textit{Screenshot ze hry Ingress}. Yahoo Inc. Flickr [online]. [cit. 2015-04-02]. Obrázek ve formátu: JPEG. Dostupné z: https://farm9.staticflickr.com/8219/8266348091\_08fe415355\_o.jpg}
     \label{ingress_screenshot}
 \end{figure}
 
@@ -149,7 +161,8 @@ Karetní hra vyvíjená od roku 2010 francouzskou firmou \textit{Peoleo} s prvn�
 
 \begin{figure}[H]
     \includegraphics[width=424px, center]{images/drakerz-confrontation.jpg}
-    \caption{Screenshot ze hry Drakerz Confrontation}
+    \caption{\textit{Screenshot ze hry Drakerz Confrontation}. Game guide
+	[online]. [cit.~2015-04-02]. Obrázek ve formátu: JPEG. Dostupné z: http://game-guide.fr/wp-content/uploads/2014/03/drakerz-confrontation-05.jpg}
     \label{drakerz_screenshot}
 \end{figure}
 
@@ -159,14 +172,18 @@ Tento koncept kombinuje předchozí dva uvedené. Hráč v tomto případě prim
 % 
 % ARHrrrr!
 \podsekce{ARHrrrr!}
-Jednou z populárních her je hra \textit{ARhrrrr!} z dílny \textit{Georgia Tech Augmented Environments Lab}, která využívá vytištěné hrací plochy k vizualizaci části města (Markerless tracking), kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept herní plochy kombinované s interakcí pomocí mobilního zařízení využívá většina her a to z důvodu zachování veškeré uživatelské interakce na jednom místě, na zařízení. Hra je obohacena o různé doplňky, například položením bonbónu \textit{Skittles} na herní plochu vznikne nášlapná mina, kterou můžeme kliknutím na ni odjistit (příklad interakce s herní plochou). Různé barvy bonbónů mají navíc různé funkce.
+Jednou z populárních her je hra \textit{ARhrrrr!} z dílny \textit{Georgia Tech Augmented Environments Lab}, která využívá vytištěné hrací plochy k vizualizaci části města (\textit{Markerless tracking}), kterou napadají zombie a hráč v roli snipera v helikoptéře se pohybuje nad hrací plochou a střílí. Tento koncept s herní plochou a ovládáním výhradně přes zařízení je doplněn o ruzné podpůrné fukce ovládáné pomocí interakce se snímaným prostředím. Jako příklad lze uvést, že položením bonbónu \textit{Skittles} na herní plochu vznikne nášlapná mina, kterou můžeme kliknutím na ni odjistit (příklad interakce s herní plochou). Různé barvy bonbónů mají navíc různé funkce.
 
 \begin{figure}[H]
     \includegraphics[width=424px, center]{images/arhrrrr.jpg}
-    \caption{Screenshot ze hry ARhrrrr!}
+    \caption{\textit{Screenshot ze hry ARhrrrr!}.
+	[online]. [cit.~2015-04-02]. Obrázek ve~formátu: JPEG. Dostupné z: http://www.blogcdn.com/www.engadget.com/media/2009/06/arhrrrr-pic-rm-eng.jpg
+}
     \label{arhrrrr_screenshot}
 \end{figure}
 
+\sekce{Shrnutí}
+Hry využívají rozdílných konceptů podle úlohy, kterou rozšířená realita ve hře zastává. Hra \textit{Ingress} nám příkladně ukazuje využití konceptu interakce se zařízením, není zde potřeba nijak ovlivňovat hru prostřednictvím reality. Na takovém principu staví povětšinou karetní a deskové hry, jako příklad zde uvedena hra \textit{Drakerz Confrontation}. Tento přístup není moc uplatnitelný na mobilních zařízeních, je zde výhodnější použít statickou kameru. Třetím konceptem je pak kombinace dvou výše zmíněných, který nám dovoluje ovládat hru jak přes zařízení, tak přes realitu. Výhody tohoto konceptu jsou popsány na hře \textit{ARHrrrr!}.
 
 % 
 % Nova stranka
@@ -180,13 +197,16 @@ Kritéria hodnocení se odvíjí od náročnosti požadavků na aplikaci, v tomt
 \sekce{Přehled frameworků}
 
 \podsekce{ARToolKit}
-\textit{ARToolkit} byl původně vyvinut \textit{Hirokazu Katou na Nara Institute of Science and Technology} v roce 1999. Nyní je udržován \textit{The Human Interface Technology Lab na University of Washington} jako open source projekt s komerčníma licencema od \textit{ARToolWork}. Tento framework je dostupný pro všechny majoritní platformy (\textit{Windows, Linux, OS X, SGI}) s různými porty pro mobilní operační systémy (\textit{iOS, Android}). Mobilní verze tohoto frameworku portují již konkrétní firmy a vydávají jako vlastní produkt, nejsou tedy volně dostupné -- nepodařilo se sestavit testovací projekt pro tento framework a benchmarky uvedené v dokumentaci jsou velmi nepřesně specifikované (chybí specifikace hardwaru, na kterém byly tyto měření prováděny). 
+\textit{ARToolkit} byl původně vyvinut \textit{Hirokazu Katou na Nara Institute of Science and Technology} v roce 1999. Nyní je udržován \textit{The Human Interface Technology Lab na University of Washington} jako open source projekt s komerčníma licencema od \textit{ARToolWork}.
 
 \begin{figure}[H]
-    \includegraphics[width=324px, center]{images/artoolkit_benchmark.jpg}
-    \caption{Chyba sledování závislá na velikosti markeru}
+    \includegraphics[width=400px, center]{images/artoolkit_benchmark.png}
+    \caption{Chyba sledování závislá na velikosti markeru, Podle originálu: \textit{The Human Interface Technology Lab, University of Washington ARToolKit Benchmarks}
+	[online]. [cit. 2015-04-03]. Dostupné z: http://www.hitl.washington.edu/artoolkit/documentation/benchmark.htm
+}
     \label{artoolkit_benchmark}
 \end{figure}
+ Tento framework je dostupný pro všechny majoritní platformy (\textit{Windows, Linux, OS X, SGI}) s různými porty pro mobilní operační systémy (\textit{iOS, Android}). Mobilní verze tohoto frameworku portují již konkrétní firmy a vydávají jako vlastní produkt, nejsou tedy volně dostupné -- nepodařilo se sestavit testovací projekt pro tento framework a benchmarky uvedené v dokumentaci jsou velmi nepřesně specifikované (chybí specifikace hardwaru, na kterém byly tyto měření prováděny). 
 
 Mezi hlavní fukce frameworku patří kamerově pozicované a orientováné sledování, sledování černých čtverců s možností definice vlastních typů, jednoduchá kalibrace kamer \cite{artoolkit_features}. Podpora vykreslování modelů je pouze nízkoúrovňová, lze renderovat objekty pomocí \textit{OpenGL}. Většinou je využit v projektech jako část komplexního toolkitu pro práci s rozšířenou realitou např. \textit{OSGART} (kombinace \textit{ARToolKit} a \textit{OpenSceneGraph}) \cite{osgart} nebo \textit{ARToolKitPlus} (rozšířená verze \textit{ARToolKitu}, vývoj ukončen roku 2006) \cite{wagner_schmalstieg}. 
 
@@ -198,11 +218,13 @@ Dokumentace uvádí měření, ukazující udržení výkonu vykreslování 60 s
 \centering
     \includegraphics[width=424px, center]{images/Polycount_SDK_iOS_20fps.png}
 \captionsetup{justification=centering}
-    \caption{Rychlost vykreslování (v FPS) pro jednotlivé iOS zařízení závislé na počtu vykreslovaných polygonů}
+    \caption{Metaio GmbH, \textit{Rychlost vykreslování (v FPS) pro jednotlivé iOS zařízení závislé na počtu vykreslovaných polygonů}.
+	[online]. [cit. 2015-04-03]. 
+	Dostupné z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/}
     \label{metaio_benchmark}
 \end{figure}
 
-Také byl vytvořen testovací projekt, jehož jedinýmúkolem bylo rozeznávat 20 různých markerů. Na tomto projektu pak byly provedeny zkoušky rychlosti nalezení markeru v obrazu. Test byl prováděn na zařízení \textit{iPhone 5} (model A1429) firmy \textit{Apple}. Z výsledných hodnot byl vypočítán průměr 4,31 ms. 
+Také byl vytvořen testovací projekt, jehož jediný múkolem bylo rozeznávat 20~různých markerů. Na tomto projektu pak byly provedeny zkoušky rychlosti nalezení markeru v obrazu. Test byl prováděn na zařízení \textit{iPhone 5} (model A1429) firmy \textit{Apple}. Z výsledných hodnot byl vypočítán průměr 4,31 ms. 
 
 
 \textit{Metaio SDK} dokáže pracovat s modely ve formátech \textit{OBJ}, \textit{MD2} a \textit{FBX} a podporuje také jejich animace. Pod podmínkou vodoznaku a nemožnosti publikovat aplikaci na \textit{AppStore} nabízí volnou licenci na všechny verze svého frameworku. 
@@ -218,24 +240,7 @@ Framework psaný čistě pro platformu \textit{iOS} a tedy v \textit{Objective-C
 Pro zvolení správných technologií je nutné jako první navrhnout konceptuální model celé hry. Na základě tohoto modelu je pak potřeba zvolit technologie tak, abychom dosáhli danných kritérií. Konkrétně se jedná o volbu frameworku, 3D formátu pro modely a modelovací nástroj.
 
 \sekce{Koncept hry}
-Základní koncept hry spočívá v budování města -- budov -- a řízení ekonomiky tohoto města -- od toho znikl název ARCity -- ovlivňováním ekonomických parametrů (DPH, počet volných pracovních míst, obyvatelné parcely). Hra se je vizualizována na hrací desce o rozměrech 5x5 markerů. Každý marker představuje parcelu pro vytvoření takzvané zóny. Základní surovinou pro řízení hry jsou peníze. Základními ukazateli jsou pak spokojenost a počet obyvatel.  Za peníze může hráč nechat na prázných parcelách vystavět specifické zóny. Základní typy zón jsou čtyři -- obytná zóna, průmyslová zóna, obchodní zóna a kulturní zóna. Každá z těchto zón může ovlivňovat ukazatele, přinášet suroviny (peníze) nebo naopak spotřebovávat. Uprostřed města je již od počátku hry postavena radnice, která slouží k možnosti za určitých podmínek postoupit do vyšší úrovně. Vyšší úroveň nám pak otevírá nové možnosti jak vylepšovat zóny. Cílem hry je postavit město na nejvyšší úrovni. 
-
-Na začátku hry je hráči dovoleno stavět pouze základní zóny bez možnosti je vylepšit. Hráč může takovéto vylepšení odemknout získáním vyšší městské úrovně. Pro získání úrovně je potřeba splnit limity danné pro každou úrověň zvlášť, jedná se o kombinaci počtu obyvatel, jejich spokojenosti a městského rozpočtu. Po splnění těchto požadavků je hráči umožněno vylepšovat své zóny a tím dosáhnout větších profitů, obyvatel, pracovních míst a podobně.
-
-Hra využívá marker trackingu a je spustitelná na zařízeních se systémem iOS 8 s primárním cílením pro \textit{iPad}. Modely zón a budov jsou texturované a animované. Interakce se hrou probíhá pouze skrze mobilní zařízení, nikoliv s hrací deskou.
-
-\podsekce{Obytná zóna}
-Slouží k navýšení maximálního počtu obyvatel, které může město ubytovat. Počet obyvatel, kteří ve městě žijí (přistěhují se nebo se odstěhují), je závislý na stavu spokojenosti a počtu pracovních míst.
-
-\podsekce{Průmyslová zóna}
-Zaměstnává lidi ve městě -- vytváří pracovní místa a generuje peníze. Snižuje však kulturu města (ukazatel spokojenosti). 
-
-\podsekce{Kulturní zóna}
-Zvyšuje spokojenost obyvatel města, ale musí být dotována z městského rozpočtu.
-
-\podsekce{Obchodní zóna}
-Stejně jako průmyslová zóna vytváří pracovní místa, ale pouze v menším množství. Nemá však takový vliv na snižování spokojenosti uživatel. Také generuje malé množství peněz a jedná se o nejdražší zónu.
-
+Nosným prvkem celé hry je rozšířená realita. Na základě informací o možných typech trackingu jsem zvolil jako trackingovou metodu marker tracking pro její jednoduchou implementaci a možnost rozlišení markerů podle identifikátorů. Základem hry tedy je pole markerů s různými uspořádáními -- hráč si může zvolit na jakém typu herní plochy chce hrát. Na tomto poli budou vizualizovány herní modely s možností jejich animací. Pro interakci s objekty rozšířené reality je využito konceptu \textit{Interakce se zařízením}. Hra je simulací stavby a řízení vlastního města a je spustitelná na zařízeních se systémem \textit{iOS 8} s primárním cílením pro zařízení \textit{iPad}. 
 
 \sekce{Výběr frameworku}
 Pro výběr frameworku byly na základě herního konceptu stanoveny tyto kritéria:
@@ -254,20 +259,20 @@ Výsledky pro tyto kritéria jednotlivých představených frameworků můžeme 
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|
->{\columncolor[HTML]{EFEFEF}}l |C{25mm}|
->{\columncolor[HTML]{66E865}}C{25mm} |C{25mm}|C{25mm}|}
+>{\columncolor[HTML]{656565}}l |C{25mm}|
+>{\columncolor[HTML]{EFEFEF}}C{25mm} |C{25mm}|C{25mm}|}
 \hline
-\textbf{Framework}             & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{ARToolKit}} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{Metaio}} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{Qualcomm Vuforia}} & \cellcolor[HTML]{343434}{\color[HTML]{FFFFFF} \textbf{Augmented kit}} \\ \hline
-\textbf{Podpora iOS}                   & \textit{Částečně}                                                 & \textit{Ano}                                                   & \textit{Ano}                                                             & \textit{Ano}                                                          \\ \hline
-\textbf{Marker tracking}       & \cellcolor[HTML]{FFFFFF}\textit{Ano}                              & \textit{Ano}                                                   & \cellcolor[HTML]{FFFFFF}\textit{Ano}                                     & \cellcolor[HTML]{FFFFFF}\textit{Ne}                                   \\ \hline
-\textbf{3D formát modelů}      & \textit{Ne, pouze OpenGL}                                         & \textit{OBJ, FBX, MD2}                                         & \textit{Ne, pouze OpenGL}                                                & \textit{Ne}                                                           \\ \hline
-\textbf{Animace}               & \textit{Pouze GLUT}                                               & \textit{Ano (FBX, MD2)}                                        & \textit{Pouze GLUT}                                                              & \textit{Ne}                                                           \\ \hline
-\textbf{Licence}               & \textit{Komerční}                                                 & \textit{Omezená s vodoznakem}                                  & \textit{Omezená s vodoznakem}                                            & \textit{Omezená s vodoznakem}                                         \\ \hline
-\textbf{Dokumentace/tutoriály} & \textit{Ano/ne}                                                   & \textit{Ano/ano}                                               & \textit{Ano/ano}                                                         & \textit{Ano/pouze ukázka}                                             \\ \hline
+\color[HTML]{FFFFFF}\textbf{Framework}            & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textbf{ARToolKit}} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textbf{Metaio}} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textbf{Qualcomm Vuforia}} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} \textbf{Augmented kit}} \\ \hline
+\color[HTML]{FFFFFF}Podpora iOS                   & \textit{Částečně}                                                 & \textit{Ano}                                                   & \textit{Ano}                                                             & \textit{Ano}                                                          \\ \hline
+\color[HTML]{FFFFFF}Marker tracking       & \cellcolor[HTML]{FFFFFF}\textit{Ano}                              & \textit{Ano}                                                   & \cellcolor[HTML]{FFFFFF}\textit{Ano}                                     & \cellcolor[HTML]{FFFFFF}\textit{Ne}                                   \\ \hline
+\color[HTML]{FFFFFF}3D formát modelů      & \textit{Ne, pouze OpenGL}                                         & \textit{OBJ, FBX, MD2}                                         & \textit{Ne, pouze OpenGL}                                                & \textit{Ne}                                                           \\ \hline
+\color[HTML]{FFFFFF}Animace               & \textit{Pouze GLUT}                                               & \textit{Ano (FBX, MD2)}                                        & \textit{Pouze GLUT}                                                              & \textit{Ne}                                                           \\ \hline
+\color[HTML]{FFFFFF}Licence               & \textit{Komerční}                                                 & \textit{Omezená s vodoznakem}                                  & \textit{Omezená s vodoznakem}                                            & \textit{Omezená s vodoznakem}                                         \\ \hline
+\color[HTML]{FFFFFF}Dokumentace/tutoriály & \textit{Ano/ne}                                                   & \textit{Ano/ano}                                               & \textit{Ano/ano}                                                         & \textit{Ano/pouze ukázka}                                             \\ \hline
 \end{tabular}
 }
 \caption{Porovnání frameworků}
@@ -290,19 +295,23 @@ Formát \textit{MD2} se stal populárním díky firmě \textit{id Software's} \c
 \podsekce{FBX}
 Proprietární formát \textit{FBX} (FilmBoX) je od roku 2006 vyvíjen a spravován firmou \textit{Autodesk} \cite{autodesk_fbx}. Firma pro užívání tohoto formátu vydala \textit{FBX SDK}, který umožňuje zapis, čtení a konverze tohoto formátu \cite{autodesk_fbx_sdk}. Formát podporuje animace, textury a jelikož je vyvíjen stejnou firmou jako \textit{3Ds Max}, má v tomto softwaru i náležitou podporu pro export.
 
+\sekce{Shrnutí}
 
 \begin{table}[H]
-\centering
 \begin{tabular}{|c|c|c|c|}
 \hline
-Formát & Podpora animací & Podpora textur & Podpora exportu 3Ds Max  \\ \hline
-OBJ    & Ne              & Ano            & Ano                      \\ \hline
-MD2    & Ano             & Ano            & Pouze komerčním pluginem \\ \hline
-FBX    & Ano             & Ano            & Ano                      \\ \hline
+\rowcolor[HTML]{656565} 
+{\color[HTML]{FFFFFF} Formát}                      & {\color[HTML]{FFFFFF} Podpora animací} & {\color[HTML]{FFFFFF} Podpora textur} & {\color[HTML]{FFFFFF} Podpora exportu 3Ds Max}  \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} OBJ} & Ne                                     & Ano                                   & Ano                                             \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} MD2} & {\color[HTML]{000000} Ano}             & {\color[HTML]{000000} Ano}            & {\color[HTML]{000000} Pouze komerčním pluginem} \\ \hline
+\rowcolor[HTML]{EFEFEF} 
+\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} FBX} & {\color[HTML]{000000} Ano}             & {\color[HTML]{000000} Ano}            & {\color[HTML]{000000} Ano}                      \\ \hline
 \end{tabular}
-\caption{Shrnutí kritérií pro formáty}
+\caption{Porovnání formátů pro reprezentaci 3D modelů}
+\label{table:model-format-compare}
 \end{table}
-
 
 Na základě daných kritérií byl zvolen za nejvhodnější formát \textit{FBX}. Metaio sice podporuje tento formát, ale využívá k tomu utility zvané MeshConvertor, které je potřeba dodat \textit{FBX} model s případnými UV mapami textur modelu. Výsledným souborem je archiv formátu \textit{ZIP}, který obsahuje informace o daném modelu, přiložené textury, názvy animací a metadata. Tento \textit{ZIP} pak již lze snadno používat v \textit{Metaio SDK}.
 
@@ -316,7 +325,25 @@ Jediné kritérium stanovené pro výběr modelovacího nástroje je podpora exp
 
 \kapitola{ARCity}
 
-Tato kapitola popisuje jednotlivé součásti hry.  
+\sekce{Rozbor konceptu}
+Základní koncept hry spočívá v budování města -- budov -- a řízení ekonomiky tohoto města -- od toho znikl název ARCity -- ovlivňováním ekonomických parametrů (DPH, počet volných pracovních míst, obyvatelné parcely). Hra se je vizualizována na hrací desce. Rozměr hrací desky lze měnit přidáním další desky a tím navýšit rozměry z 5$\times$5 na 5$\times$10 až 5$\times$15 markerů. Větší rozměry nejsou podporovány a to zejména z důvodů hardwarové náročnosti. Každý marker představuje parcelu pro vytvoření takzvané zóny. Základní surovinou pro řízení hry jsou peníze. Základními ukazateli jsou pak spokojenost a počet obyvatel.  Za peníze může hráč nechat na prázných parcelách vystavět specifické zóny. Základní typy zón jsou čtyři -- obytná zóna, průmyslová zóna, obchodní zóna a kulturní zóna. Každá z těchto zón může ovlivňovat ukazatele, přinášet suroviny (peníze) nebo naopak spotřebovávat. Uprostřed města je již od počátku hry postavena radnice, která slouží k možnosti za určitých podmínek postoupit do vyšší úrovně. Vyšší úroveň nám pak otevírá nové možnosti jak vylepšovat zóny. Cílem hry je postavit město na nejvyšší úrovni. 
+
+Na začátku hry je hráči dovoleno stavět pouze základní zóny bez možnosti je vylepšit. Hráč může takovéto vylepšení odemknout získáním vyšší městské úrovně. Pro získání úrovně je potřeba splnit limity danné pro každou úrověň zvlášť, jedná se o kombinaci počtu obyvatel, jejich spokojenosti a městského rozpočtu. Po splnění těchto požadavků je hráči umožněno vylepšovat své zóny a tím dosáhnout větších profitů, obyvatel, pracovních míst a podobně.
+
+\podsekce{Obytná zóna}
+Slouží k navýšení maximálního počtu obyvatel, které může město ubytovat. Počet obyvatel, kteří ve městě žijí (přistěhují se nebo se odstěhují), je závislý na stavu spokojenosti a počtu pracovních míst. Zvýšením úrovně této zóny lze navýšit její obytnou kapacitu až na trojnásobek té základní.
+
+\podsekce{Průmyslová zóna}
+Zaměstnává lidi ve městě -- vytváří pracovní místa a generuje peníze. Snižuje však kulturu města (ukazatel spokojenosti). Obdobně lze také zvyšovat nabídku pracovních pozic navýšením úrovně zóny a to až na trojnásobek.
+
+\podsekce{Kulturní zóna}
+Zvyšuje spokojenost obyvatel města, ale musí být dotována z městského rozpočtu. Zvýšením úrovně získáme možnost uspokojení více obyvatel za mírně zvýšenou dotaci.
+
+\podsekce{Obchodní zóna}
+Stejně jako průmyslová zóna vytváří pracovní místa, ale pouze v menším množství. Nemá však takový vliv na snižování spokojenosti obyvatel. Také generuje malé množství peněz a jedná se o nejdražší zónu. Zvýšením úrovně této zóny zvyšujeme také její přijmy a počet volných pracovních míst. 
+
+\podsekce{Městská správa, radnice}
+Základní zóna, kterou má hráč již postavenou na startu hry a nelze ji zničit. Poskytuje možnost řízení velikosti daně a tím ovlivňovat příjmy a spokojenost obyvatel
 
 \sekce{Metaio}
 \textit{Metaio SDK} je knihovna napsaná v jazyce \textit{C++} a pro použití v \textit{Cocoa touch} projektu, který je vyvíjen v jazyce \textit{Objective-C} (nebo také nově ve \textit{Swiftu}), stačí knihovnu přilinkovat do tzv. bundle. Pro použití knihoven psaných v \textit{C++} má \textit{Cocoa touch} speciální formát s příponou .mm, kterému se říká \textit{Objective-C++}. Touto příponou dáváme překladači najevo kombinování těchto dvou jazyků v jednom souboru. 
@@ -348,9 +375,9 @@ Jak v modelu jednotlivé třídy figurují je navrženo jednoduchým UML diagram
 
 \begin{figure}[H]
 \centering
-    \includegraphics[width=400px, center]{images/model.png}
+    \includegraphics[width=420px, center]{images/model.png}
 \captionsetup{justification=centering}
-    \caption{Jednoduchý diagram tříd}
+    \caption{Aleš Kocur, \textit{Diagram tříd datového modelu}}
     \label{class_diagram}
 \end{figure}
 
@@ -362,9 +389,9 @@ Rozhraní, jakým uživatelé, hráči, interagují s prvky hry, jsou kritickou 
 
 \begin{figure}[H]
 \centering
-    \includegraphics[width=300px, center]{images/nav_bar_iphone.png}
+    \includegraphics[width=420px, center]{images/nav_bar_iphone.png}
 \captionsetup{justification=centering}
-    \caption{Navigation bar}
+    \caption{Aleš Kocur, \textit{Navigation bar ze hry ARCity}}
     \label{navigation_bar}
 \end{figure}
 
@@ -372,20 +399,20 @@ Z toho můžeme usoudit, že uživatel je zvyklý veškeré důležité navigač
 
 \begin{figure}[H]
 \centering
-    \includegraphics[width=300px, center]{images/hamburger_menu.png}
+    \includegraphics[width=100px, center]{images/hamburger_menu.png}
 \captionsetup{justification=centering}
-    \caption{Hamburger menu}
+    \caption{Aleš Kocur, \textit{Hamburger menu ze hry ARCity}}
     \label{hamburger-menu}
 \end{figure}
 
 
-Dalším důležitým aspektem návrhu rozhraní je rozměr samotného zařízení. Tato hra je primárně cílena na \textit{iPad}. Máme tedy k dispozici plochu čítající 2048 x 1536 pixelů s úhlopříčkou 12,9 palce. Hlavním obsahem hry je okno pro zobrazování rozšířené reality, je tudíž nutné pro něj vymezit dostatečně velký prostor. Z daného rozlišení můžeme usoudit, že při natočení zařízení do tzv. \textit{portrait} módu, tj. kratší stranou k sobě, výška displaye představuje oněch 2048 pixelů. Při využití části zhruba 500 pixelů na navigaci a ovládání, získáme přibližně čtvercovou plochu pro zobrazení okna rozšířené reality. Při takovém držení \textit{iPadu} oběma rukama zároveň, využívá hráč k ovládání své palce. Dosah a příjemnost takového ovládání ilustruje obrázek 123.
+Dalším důležitým aspektem návrhu rozhraní je rozměr samotného zařízení. Tato hra je primárně cílena na \textit{iPad}. Máme tedy k dispozici plochu čítající 2048$\times$1536 pixelů s úhlopříčkou 12,9 palce. Hlavním obsahem hry je okno pro zobrazování rozšířené reality, je tudíž nutné pro něj vymezit dostatečně velký prostor. Z daného rozlišení můžeme usoudit, že při natočení zařízení do tzv. \textit{portrait} módu, tj. kratší stranou k sobě, výška displaye představuje oněch 2048 pixelů. Při využití části zhruba 500 pixelů na navigaci a ovládání, získáme přibližně čtvercovou plochu pro zobrazení okna rozšířené reality. Při takovém držení \textit{iPadu} oběma rukama zároveň, využívá hráč k ovládání své palce. Dosah a příjemnost takového ovládání ilustruje \textit{Obrázek 12}.
 
 \begin{figure}[H]
 \centering
     \includegraphics[width=300px, center]{images/ipad-toucharea.png}
 \captionsetup{justification=centering}
-    \caption{Rozdělení dosazitelnosti prvků na iPadu 3. generace v portrait módu}
+    \caption{Aleš Kocur, \textit{Rozdělení dosazitelnosti prvků na iPadu 3. generace v portrait módu}, na základě vlastního měření}
     \label{class_diagram}
 \end{figure}
 
@@ -398,11 +425,13 @@ Složením výše uvedených věcí do jednoho získáme ideální návrh rozhra
 \centering
     \includegraphics[width=300px, center]{images/ipad_layout_ux.jpg}
 \captionsetup{justification=centering}
-    \caption{Výsledný návrh rozložení prvků}
+    \caption{Aleš Kocur, \textit{Výsledný návrh rozložení prvků pro hru ARCity}}
     \label{class_diagram}
 \end{figure}
 
 Z konceptu hry vyplývají 2 hlavní ovládací prvky. První umožňující stavbu zón a druhý zobrazení informací o vybrané postavené zóně s možností zónu vylepšit. Z tohoto předpokladu lze vyvodit, za jakých okolností je potřeba toto ovládání zobrazovat. V prvním případě je to když uživatel vybere práznou parcelu pro stavu zóny, v druhém pak při výběru nějaké konkrétní zóny. V kterémkoliv jiném případě není ovládací části potřeba a můžeme ji skrýt ve prospěch zvětšení plochy pro okno do rozšířené reality.
+
+\newpage
 
 \podsekce{Design}
 
@@ -421,7 +450,7 @@ Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, des
 \centering
     \includegraphics[width=430px, center]{images/ipad-layout.jpg}
 \captionsetup{justification=centering}
-    \caption{Ukázka z grafického návrhu aplikace}
+    \caption{Aleš Kocur, \textit{Ukázka z grafického návrhu aplikace}}
     \label{class_diagram}
 \end{figure}
  
@@ -433,13 +462,13 @@ Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, des
 \centering
     \includegraphics[width=400px, center]{images/core-data-model.png}
 \captionsetup{justification=centering}
-    \caption{Datový model}
+    \caption{Aleš Kocur, \textit{Datový model hry ARCity}}
     \label{class_diagram}
 \end{figure}
 
  \sekce{Výpočty ukazatelů}
  
- Hra pracuje se pěti typy ukazatelů stavu hry:
+ Hra pracuje s pěti typy ukazatelů stavu hry:
   
  \begin{itemize}
 \item Peníze
@@ -449,10 +478,172 @@ Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, des
 \item Daň
 \end{itemize}
  
- Ukazatel typu Peníze stojí na jednoduchém principu přičítání a odečítání hodnot stanovených jako cena za stavbu/vylepšení/provoz. Stejně tak maximální hodnota populace je součet postavených obytých zón respektive jejich kapacit, které se odvíjí od jejich úrovně vylepšení. Změna těchto hodnot probíhá právě při zmíněných úkonech -- stavba, vylepšení, provoz budovy.
+ Ukazatel typu Peníze stojí na jednoduchém principu přičítání a odečítání hodnot stanovených jako cena za stavbu/vylepšení/provoz. Stejně tak maximální hodnota populace je součet postavených obytých zón respektive jejich kapacit, které se odvíjí od jejich úrovně vylepšení. Změna těchto hodnot probíhá právě při zmíněných úkonech -- stavba, vylepšení, provoz budovy. Na stejném principu funguje i výpočet počtu pracovních míst.
  
- Dalšími typy ukazatelů jsou aktuální stav populace a spokojenost. Tyto hodnoty jsou vypočítávány v pravidelných intervalech a jsou ovlivňovány více aspekty. Četnost výpočtu 
+ Dalšími typy ukazatelů jsou aktuální stav populace a spokojenost. Tyto hodnoty jsou vypočítávány v pravidelných intervalech a jsou ovlivňovány více aspekty. Rychlost iterace těchto výpočtů stanovuje rychlost hry a na základě několika zkoušení byl jako ideální interval stanoven na 3 sekundy. Obecný princip výpočtu hodnot spočívá v nalezení nové hodnoty na základě parametrů příslušných danému ukazateli. Odečtením aktuálního stavu od této nové, očekávané hodnoty, zíkáme rozdíl mezi puvodním stavem a novým stavem a ten je vynásoben nějakou malou konstantou pohybující se kolem 0,5 a přičten k původnímu stavu. Tímto nám hodnoty např. po stavbě zóny přidávající spokojenost nevystoupají hodnoty skokově, nýbrž parabolicky během několika iterací.
  
+ Jako příklad uveďme počáteční stav spokojenosti 20 \%. Po stavbě kulturní zóny v první iteraci vypočteme novou hodnotu -- 60 \%.  Od nové hodnoty odečteme původní a získáme rozdíl: 
+ 
+ $$ 0,6 - 0,2 = 0,4 $$
+ 
+ Tento rozdíl je vynásoben číslem 0,5.
+ 
+ $$ 0,4 \times 0,5 =  0,2 $$
+ 
+ Přičtením k původnímu stavu dostáváme nový stav po první iteraci -- 40 \%. Stejným způsobem v dalších iteracích dostaneme nové hodnoty 50 \%, 55 \%, 57 \%, 58 \%, 59 \% a 60 \%. Celkový čas do stabilizace ukazatele lze pak vypočítat podle vzorce:
+ 
+ \begin{equation}
+t = h \times d
+\end{equation}
+ 
+ kde $t$ je výsledný čas, $h$ je počet hodnot resp. iterací a $d$ je délka trvání iterace v sekundách.
+Dozasením dostaneme výsledek v podobě délky trvání stabilizace a to 21 sekund.
+ 
+ Konkrétní vzorec pro každý ukazatel je navrhnut na jeho logické návaznosti k ostatním ukazatelům a ovlivňují se tudíž navzájem. Po každé změně ve hře následuje stav postupné stabilizace. Po několika iteracích se ukazatele hry stabilizují na určitou hodnotu. Pravidla pro výpočty zbylých ukazatelů jsou definovány těmito vzorci.
+ 
+ \podsekce{Počet obyvatel}
+ 
+ \begin{equation}
+p = mp \times s
+\end{equation}
+ 
+ kde $p$ je populace, $mp$ je maximální možná populace a $s$ je spokojenost.
+ 
+\podsekce{Spokojenost}
+
+\begin{equation}
+s = \frac{f(o,m) + f(o, sz) + g(dk, d)}{3}
+\end{equation}
+
+kde
+
+\begin{equation}
+f(x, y) = \left\{
+  \begin{array}{lr}
+     \frac{y}{x} & : x > y\\
+    1,0 & : jinak
+  \end{array}
+\right.
+\end{equation}
+
+\begin{equation}
+g(x, y) = \left\{
+  \begin{array}{lr}
+     1,0 & : \frac{y}{x} - 0,5 > 1,0\\
+     0 & : \frac{y}{x} - 0,5 < 0\\
+    \frac{y}{x} - 0,5 & : jinak
+  \end{array}
+\right.
+\end{equation}
+
+
+a $o$ je aktuální počet obyvatel, $m$ je počet pracovních míst, $sz$ je hodnota uspokojení z dosud postavených zón, $dk$ je konstanta pro průměrnou daň a $d$ je aktuální daň.
+
+\kapitola{Ukázky z práce}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/screenshot1.jpg}
+\captionsetup{justification=centering}
+    \caption{Aleš Kocur, \textit{Screenshot ze hry ARCity}}
+    \label{screenshot3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/screenshot2.png}
+\captionsetup{justification=centering}
+    \caption{Aleš Kocur, \textit{Hlavní menu ze hry ARCity}}
+    \label{screenshot3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/screenshot3.jpg}
+\captionsetup{justification=centering}
+    \caption{Aleš Kocur, \textit{Screenshot ze hry ARCity}}
+    \label{screenshot3}
+\end{figure}
+
+
+\newpage
+
+\kapitola{Testování uživatelského rozhraní}
+Jedním z pilířů použitelnoti je uživatelské testování. Mnoho skutečností, které programátor či designér aplikace považují za samozřejmé, nemusí být pro uživatele na první pohled patrné či srozumitelné. Steve Grug, autor knihy \textit{Nenuťte uživatele přemýšlet!: praktický průvodce testováním a opravou chyb použitelnost webu}, přirovnává uživatelské testování k návštěvě cizinců v rodném městě. Provádíme-li je po svém městě, všimneme si věcí, které jsme doposud nevnímali, protože jsme je brali jako samozřejmost \cite{krug_steve}.
+
+\sekce{Základní přístupy testování}
+Existují různé přístupy, jak lze uživatelské testování provádět. Liší se zejména v časové a technologické náročnosti. Vhodný typ testování je nutno zvolit na základě projektu, který má být testován. 
+
+\podsekce{Eye tracking}
+Jedná se o velmi populární metodu snímání uživatelského zacházení s produktem. K testování je potřeba člověka-testera, který bude daný produkt používat, a to nejlépe bez předchozí zkušenosti. Při testování se sledují pohyby očí v poměru k obrazovce a získáváme tím obraz uživatelova zájmu. Více porozované oblasti pak lze odlišit barvami a získáme pro jednotlivé obrazovky zóny největšího soustředění uživatelova zraku. Analýzou těchto dat pak můžeme zlepšit umíštění důležitých ovládacích prvků do zón s vysokým indexem soustředění, případně se změnou barevnosti a kontrastu pokusit tyto zóny přemístit. Ke snímání soustředěnosti zraku uživatele-testera je možno použít speciálních brýlí či helem. Toto řešení je nicméně nákladnější na počáteční nákup hardwaru a softwaru a proto vznikly alternativy. Tou je například pro testování mobilních aplikací metoda využití přední kamery pro snímání místa pozorování. Uživatelé-testeři jsou snímáni přímo zařízením během procesu testování a pozorovací mapy jsou generovány přímo pro konkrétní obrazovky, na kterých se právě tester nachází. Eye tracking lze samozřejmě využít i k jiným věcem než k uživatelskému testování, důkazem může být například firma uMoove vyvíjející SDK pro interakci s aplikacemi pomocí eye trackingu \cite{umoove}.
+
+\podsekce{Heuristic evaluation}
+Heuristická analýza uživatelského přístupu spočívá v prozkoumání uživatelského rozhraní a kontrole nedostatků na základě zkušeností. Zkušenostmi máme na mysli seznam poznatků, které by neměly být při návrhu rozhraní opomenuty. Výhoda tohoto testování je, že není potřeba uživatele-testera, ale tento test může být vyhodnocen kýmkoliv kompetentním v daném projektu. Zkoumáním lze pak například zjistit, že v některých situací uživatel ztrácí přehled o aktuálním stavu aplikace nebo nemá možnost návratu k přechozím stavům aplikace. Jedním ze zakladatelů tohoto přístupu je Jakob Nielsen, který vytvořil jakési desatero základních principů pro interaktivní design (překlad \cite{lichnovskakarberova}, originál \cite{nielsen}): 
+
+\begin{enumerate}
+\item Viditelnost stavu systému
+\item Spojení mezi systémem a reálným světem
+\item Uživatelská kontrola a svoboda
+\item Konzistence a standardizace
+\item Prevence chyb
+\item Rozpoznání místo vzpomínání
+\item Flexibilní a efektivní použití
+\item Estetický a minimalistický design
+\item Pomoc uživatelů poznat, pochopit a vzpamatovat se z chyb
+\item Nápověda a návody
+\end{enumerate} 
+
+Zamyšlením se nad těmito body v kontextu dané aplikace můžeme objevit její nedostatky.
+
+\podsekce{Focus Groups}
+Hlavní podstatou tohoto testování je doplnění informací o použitelnosti, zejména pak uplatnění některých funkcí. Testování je vedeno formou diskuze ve skupině několika lidí, nejlépe různých postavení, zájmů a pohlaví. Diskuzi vede moderátor a jeho hlavním úkolem je udržovat či překlánět diskuzi k potřebným tématům. Úskalím této medoty může být výskyt dominantního člena diskuzní skupiny, který následně strhává názory ostatních \cite{nielsen_focus_groups}.
+
+\podsekce{Cognitive walkthrough}
+Česky tzv. Kognitivní průchod je způsob testování uživatelského rozhraní za pomocí testerů, kteří zkoumají složitost průchodu aplikací s daným účelem. Testerem zde může být jak člověk nepodílející se na přímo na vývoji aplikace tak i naopak. Jako příklad průchodu lze uvést registraci, přihlášení a také specifické průchody typu rezervace v rezervačním systému a podobně. Takto se stanoví průchody a cíle pro danou aplikaci. V průchodu je hodnocena jednoduchost (počet akcí uživatele nutných k průchodu), intiutivnost (srozumitelnost informací), navigace (možnost návratu z nevyžádaných pozic). Při nalezení nedostatu při průchodu je zaznamenán a označen prioritou, podle které je mu pak nutno věnovat resp. nevěnovat pozornost. 
+
+\podsekce{Další metody a shrnutí}
+Metod testování uživatelskéro rozhraní je velmi mnoho. Za zmínku stojí dále také \textit{Formal usability inspections}, \textit{Pluralistics walkthroughs}, \textit{Feature inspection}, \textit{Consitency inspection} a \textit{Standard inspection}, a informace o nich lze nalézt v rešerši \textit{Usability Inspection Methods} napsané roku 1994 \textit{Jakobem Nielsenem} \cite{nielsen_methods}. 
+
+Pro testování této aplikace jsem zvolil metodu heuristické analýzy a to hlavně z důvodu možnosti testování mnou samým.
+
+\sekce{Heuristická analýza ARCity}
+Na základě uvedených informací bylo sepsáno 10 bodů odpovídající desateru základních principů popsaných v sekci \textit{Základní přístupy testování - MetodyHeuristic evaluation} a posouzeno v kontextu této aplikace.
+
+\podsekce{Viditelnost stavu systému}
+Této viditelnosti je dosaženo statickým umístěním ukazatelů hry do horní části obrazovky. Uživatel má v každém daném stavu hry možnost zjistit v jakém stavu se jeho město nachází (počet obyvatel, stav peněz, spokojenost, počet pracovních míst).
+
+\podsekce{Spojení mezi systémem a reálným světem}
+Veškeré texty jsou psány srozumitelně a výstižně. Některé důležité prvky doplňují pikrogramy pro ještě větší srozumitelnost na první pohled. Nevyskytují se zde žádné odborné termíny.
+
+\podsekce{Uživatelská kontrola a svoboda}
+Umístěním tlačítka pro menu v horním levém rohu má uživatel možnost kdykoliv hru pozastavit. Stejně tak při minimalizaci je aplikace automaticky ukládána a její případná terminace nemá následek na poslední stav hry. Možnost odvolání akcí při stavbě města není v učividných důvodů žádoucí.
+
+\podsekce{Konzistence a standardizace}
+Hra se drží standardních termínů pro zahájení hry (\textit{angl. New game}) či pokračování (\textit{angl. Continue}). Stejně tak zavádí názvy jednotlivých zón a tyto názvy jsou použity napříč celou aplikací při jejich zmínce.
+
+\podsekce{Prevence chyb}
+Design aplikace dovoluje uživateli provádět pouze platné tahy. Nemůže například nastat situace kdy při označení již postavené zóny by se uživateli zobrazilo menu pro stavbu nové zóny nebo opačně při označení prázdné parcely zobrazení menu s detaily a možností vylepšení. 
+
+\podsekce{Rozpoznání místo vzpomínání}
+Zobrazením menu s akcemi přesně ve chvíli kdy uživatel označí položku je pro uživatele snadno rozpoznatelným impulsem očekávajícím jeho reakci ve smyslu volby. Naopak jeho skrytím kdy volba není potřeba je upřednostněno místo pro herní plochu a tím vybízeno k provedení akce na herní desce.
+
+\podsekce{Flexibilní a efektivní použití}
+Náročnější uživatelé mají možnost jednoduše rozšířit herní plochu o další volné parcely přídáním až dvou dalších kopií herní plochy.
+
+\podsekce{Estetický a minimalistický design}
+Design je velmi minimalistický, kontrastní -- využívá pouze kombinace černé a bílé barvy -- a doplněn piktogramy, korespondující s černobílým designem. Snaží se vyjádřit přesnou podstatu každého užitého prvku.
+
+\podsekce{Pomoc uživatelů poznat, pochopit a vzpamatovat se z chyb}
+Rozsah chyb je natolik eliminován designem aplikace, že prosto zbývá pouze pro neidentifikovatelné chyby a kritické chyby kódu. V prvním případě se jedná o chybu kdy nejsou načteny textury objektů a tento stav je bohužel chybovým stavem použitého SDK a to nenabízí možnost jej ošetřit. V druhém pak končí chyba pádem aplikace. Všechny pády aplikací vypadají na iOS platformě stejně a uživateli je jasné, že je nutné aplikaci pustit znovu. Těmto chybám lze předejít pouze testováním kódu aplikace. Tento bod lze označit jako bod s nízkou prioritou pro vyřešení.
+
+\podsekce{Nápověda a návody}
+V menu má člověk přístupem na položku About and help možnost nechat si zobrazit základní informace o aplikaci, herní logice a jak s aplikací pracovat.
+
+\sekce{Zhodnocení}
+Na základě heuristické analýzy jsme došli k poznatku, že aplikace vyhovuje všem zmíněným bodům analýzy, pouze u předposledního bodu týkajícího se chybových stavů jsme zaznamenali drobný problém. Ten má však malou prioritu hlavně z důvodu velmi malé četnosti výskytu a také v podstatě nemožnosti opravy tohoto problému. 
+
+Pro důkladnější hodnocení bychom mohli provést také Focus group metodu pro vylepšení hratelnosti a názory samotných hráčů. Správným řízením směřování diskuze bychom také mohli získat cenné nápady na budoucí vylepšování hry, případné přidávání nových zón a ukazatelů či rozšířit možnosti rozšířené reality o nové funkce. 
+
 % 
 % Nova stranka
 \newpage
@@ -461,11 +652,26 @@ Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, des
 % Závěr
 %
 \kapitola{Závěr}
-Závěr
+
+\sekce{Zhodnocení dosažení cílů}
+Vody her s rozšířenou realitou jsou stále ještě neprobádané a v posledních letech přibylo konceptů i vydaných her. Většina her však stále ztroskotává na náročnosti přípravy k hraní z pohledu samotného hráče -- získání markerů nebo podkladů, webkamery nebo speciální zobrazovací zařízení, složité ovládání. Na základě poznatků o aktuálních hrách byla vytvořena hra s cílem eliminovat některé tyto nedostatky, aby byla dostupnější pro běžné hráče. 
+
+Jako zařízení byl zvolen \textit{iPad}, odpadá tedy nutnost speciálního zařízení. Hra má jednoduchou kontrastní, \textit{self-explanatory} grafiku. Jedinou predispozicí hry je nutnost tisku herní desky. Byl splněn cíl eliminovat co nejvíce nedostatků pozorovaných v podobných hrách.
+
+Ze získaných informací a jejich porovnáním bylo zjišťěno, že při volbě frameworku pro tvorbu hry s využitím rozšířené reality je k dispozici několik variant. Ne všechny jsou ale dobře zpracovány nebo poskytují jenom základní obecnou funkcionalitu. Na základě stanovených kritérií byl vybrán za nevhodnější framework Metaio. Kritéria a důvody, které k výběru vedly jsou shrnuty v kapitole \textit{Frameworky}. 
+
+Dále byly porovnány technologie, které lze použít pro tvorbu hry, jako je výběr formátu 3D modelů, modelovací nástroj (sekce \textit{Metodika - Formát 3D modelů} a dál) a také rozebrány některé pomocné nástroje (\textit{ARCity - Cocoapods}).
+
+Na posledních stanách této práce si lze prohlédnout ukázky práce a následné uživatelské testování, ze kterého vyplývá úspěch implementace v kontextu uživatelské přívětivosti zkoumané heuristickou analýzou. 
 
 %
 % Návrhy na vylepšení
 \sekce{Návrhy na vylepšení}
+Hratelnost vytvořené hry lze ještě zvýšit použitím markerless trackingu nebo metodami sledování neznámých prostředí (např. SLAM) eliminovat nutnost tisku herního podkladu úplně. Tyto metody jsou však implementačně výrazně náročnější nebo frameworky poskytující takovouto funkcionalitu nejsou zdarma. Hra by však byla hratelná na jakékoliv ploše a stala by se tak uživatelsky více přívětivou.
+
+Při brainstormingu s mými kolegy z The Funtasty padlo mnoho dalších nápadů na vylepšení. Jedna z těchto myšlenek mě velmi zaujala, myšlenka multiplayeru. Hráči, každý na svém zařízení, by hráli hru, která by se synchronizovala pomocí bluetooth mezi sebou. Zajímavé je i pojetí multiplayeru, kooperační mód, ve kterém spoluhráči budují jedno obrovské město, či soutěžní mód, ve kterém se předhánějí na jedné ploše kohož město bude největší. Takovýto multiplayer by však byl hůře řešitelný se zmíněným bezmarkerovým řešením, bylo by potřeba pro snadnější implementaci mít marker alespoň jeden, který by sloužil jako opěrný synchronizační bod pro hrající zařízení. 
+
+Herních vylepšení samotné hry se nabízí také mnoho, třeba více úrovní nebo více zón. Troufám si však říct, že nejlepší podněty k vylepšení by vzešly od samotných hráčů. 
 
 %
 %
@@ -473,7 +679,8 @@ Závěr
 \kapitola{Přílohy}
 Na přiloženém CD jsou k dispozici tyto přílohy: 
 \begin{itemize}
-\item priloha1
+\item arcity\_workspace - kompletní zdrojové soubory k vytvořené hře
+\item source - veškeré vlastní podklady a zdrojové texty využité při tvorbě této práce
 \end{itemize}
 
 
@@ -482,12 +689,12 @@ Na přiloženém CD jsou k dispozici tyto přílohy:
 % 
 \begin{literatura}
 
+
 \citace{baum}{BAUM, 1901} {
 	\autor{L. Frank Baum}
 	\nazev{The Master Key: An Electrical Fairy Tale, Founded Upon the Mysteries of Electricity and the Optimism of Its Devotees}
 	BiblioBazaar, 2006, ISBN 978-1426409240
 }
-
 
 \citace{klein_visual_tracking}{Klein, 2012}
 {
@@ -637,80 +844,51 @@ In Proc. 12th Computer Vision Winter Workshop (CVWW'07), Sankt Lambrecht, Austri
 	[online]. [cit. 2015-04-12]. Dostupné z: https://github.com/thefuntasty/TFTableDescriptor
 }
 
+\citace{krug_steve}{KRUG, 2010}
+{
+	\autor{KRUG, Steve}
+	\nazev{Nenuťte uživatele přemýšlet!: praktický průvodce testováním a opravou chyb použitelnost webu.}
+	Vyd. 1. Brno: Computer Press, 2010, 165 s. ISBN 978-80-251-2923-4.
+}
+
+\citace{umoove}{UMOOVE, 2015}
+{
+	\autor{uMoove Inc.}
+	\nazev{uMoove website}
+	[online]. [cit. 2015-05-11]. http://umoove.me/
+}
+
+\citace{lichnovskakarberova}{LICHNOVSKA KARBEROVA, 2010}
+{
+	\autor{Pavla Lichnovská a Eva Karberová, Filozofická fakulta Masarykovy univerzity Kabinet informačních studií a knihovnictví}
+	\nazev{Testování a hodnocení rozhraní}
+	[online]. [cit. 2015-05-11]. http://human-computer-interaction.webnode.cz/testovani-a-hodnoceni-rozhrani/metody-testovani/heuristicka-analyza/
+}
+
+\citace{nielsen}{NIELSEN, 1995}
+{
+	\autor{Jakob Nielsen}
+	\nazev{10 Usability Heuristics for User Interface Design}
+	[online]. [cit. 2015-05-11]. http://www.nngroup.com/articles/ten-usability-heuristics/
+}
+
+\citace{nielsen_focus_groups}{NIELSEN, 1997}
+{
+	\autor{Jakob Nielsen}
+	\nazev{The Use and Misuse of Focus Groups}
+	[online]. [cit. 2015-05-11]. http://www.nngroup.com/articles/focus-groups/
+}
+
+\citace{nielsen_methods}{NIELSEN, 1994}
+{
+	\autor{Jakob Nielsen}
+	\nazev{Usability Inspection Methods}
+	[online]. [cit. 2015-05-11]. http://www.idemployee.id.tue.nl/g.w.m.rauterberg/lecturenotes/0H420/Nielsen[1994].pdf
+}
+
+
 
 % Obrazky
-
-\citace{ingress_screenshot}{Flickr, 2015}
-{
-	\autor{Yahoo Inc.}
-	\nazev{Flickr}
-	[online]. [cit. 2015-04-02]. Flickr
-	Obrázek ve formátu: JPEG. Dostupné z: https://farm9.staticflickr.com/8219/8266348091\_08fe415355\_o.jpg
-}
-
-\citace{drakerz_screenshot}{Game guide, 2015}
-{
-	\autor{Game guide}
-	\nazev{Game guide}
-	[online]. [cit. 2015-04-02]. Game guide
-	Obrázek ve formátu: JPEG. Dostupné z: http://game-guide.fr/wp-content/uploads/2014/03/drakerz-confrontation-05.jpg
-}
-
-\citace{arhrrrr_screenshot}{Engadget, 2015}
-{
-	\autor{Engadget}
-	\nazev{Engadget}
-	[online]. [cit. 2015-04-02]. Engadget
-	Obrázek ve formátu: JPEG. Dostupné z: http://www.blogcdn.com/www.engadget.com/media/2009/06/arhrrrr-pic-rm-eng.jpg
-}
-
-\citace{marker_tracking}{VTTResearch, 2015}
-{
-	\autor{VTTResearch}
-	\nazev{Marker tracking}
-	[online]. [cit. 2015-04-02]. VTTResearch
-	Obrázek ve formátu: JPEG. Dostupné z: http://virtual.vtt.fi/virtual/proj2/multimedia/media/images/MultiMarker.jpg
-}
-
-\citace{markerless_tracking}{Wikipedia, 2015}
-{
-	\autor{Wikipedia}
-	\nazev{Wikipedia}
-	[online]. [cit. 2015-04-02]. Wikipedia.org
-	Obrázek ve formátu: JPEG. Dostupné z: http://upload.wikimedia.org/wikipedia/commons/f/f4/App\_iSkull,\_an\_augmented\_human\_skull.jpg
-}
-
-\citace{slam}{Department of Engineering Science, University of Oxford, 2008}
-{
-	\autor{Department of Engineering Science, University of Oxford}
-	\nazev{SLAM}
-	[online]. [cit. 2015-04-02]. 
-	Obrázek ve formátu: JPEG. Dostupné z: http://www.robots.ox.ac.uk/~lav/Papers/castle\_etal\_iswc2008/castle\_etal\_iswc2008.jpg
-}
-
-\citace{artoolkit_benchmark}{HITLab, 2015}
-{
-	\autor{The Human Interface Technology Lab, University of Washington}
-	\nazev{ARToolKit Benchmarks}
-	[online]. [cit. 2015-04-03]. 
-	Obrázek ve formátu: JPEG. Dostupné z: http://www.hitl.washington.edu/artoolkit/documentation/benchmark.htm
-}
-
-\citace{metaio_benchmark}{Metaio, 2015}
-{
-	\autor{Metaio GmbH}
-	\nazev{Metaio iOS polycount}
-	[online]. [cit. 2015-04-03]. 
-	Obrázek ve formátu: JPEG. Dostupné z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/
-}
-
-\citace{hamburger-menu}{Dribble, 2015}
-{
-	\autor{Davide 'Folletto' Casali}
-	\nazev{Hamburger Icon / Lexicon Nugget 2}
-	[online]. [cit. 2015-04-28]. 
-	Obrázek ve formátu: JPEG. Dostupné z: https://dribbble.com/shots/880056-Hamburger-Icon-Lexicon-Nugget-2
-}
 
 \citace{importance-driven-layout}{Apple, 2015}
 {
@@ -718,14 +896,6 @@ In Proc. 12th Computer Vision Winter Workshop (CVWW'07), Sankt Lambrecht, Austri
 	\nazev{Adaptivity and Layout}
 	[online]. [cit. 2015-04-28]. 
 	Obrázek ve formátu: JPEG. Dostupné z: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LayoutandAppearance.html\#//apple\_ref/doc/uid/TP40006556-CH54-SW1
-}
-
-\citace{navigation_bar}{Apple, 2015}
-{
-	\autor{Apple Inc.}
-	\nazev{Bars}
-	[online]. [cit. 2015-04-28]. 
-	Obrázek ve formátu: JPEG. Dostupné z: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Bars.html\#//apple\_ref/doc/uid/TP40006556-CH12-SW1
 }
 
 %

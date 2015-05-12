@@ -140,9 +140,17 @@
       {\sffamily\bfseries Abstrakt}\par\medskip
        \noindent #1 \par \medskip #2}}
 
-\def\abstract#1#2{\vspace*{3cm}{\noindent
+\def\abstract#1#2{\vspace*{1cm}{\noindent
       {\sffamily\bfseries Abstract}\par\medskip
        \noindent #1 \par \medskip #2}}
+
+\def\klicovaslova#1#2{\vspace*{1cm}{\noindent
+      {\sffamily\bfseries Klíčová slova}\par\medskip
+       \noindent #1 \par \medskip #2}}
+
+\def\keywords#1#2{\vspace*{1cm}{\noindent \ignorespacesafterend
+      {\sffamily\bfseries Keywords}\par \medskip
+       \noindent \ignorespacesafterend \setlength{\parindent}{0cm}  #1 \par \setlength{\parindent}{0cm} \medskip #2}}
 
 %%%%%%%%%%%%%%%%%%%%%% Obsah
 

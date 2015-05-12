@@ -225,7 +225,8 @@
     CGFloat diff = 1.0;
 
     if (population > jobVacancies) {
-        diff = MAX(0, (2.0 - (population / jobVacancies)));
+//        diff = MAX(0, (2.0 - (population / jobVacancies)));
+        diff = jobVacancies / population;
     }
 
     NSSet *satisfyingZones = [self zonesForZoneTypes:[NSSet setWithObjects:@(ZoneTypeCultural), @(ZoneTypeShopping), nil]];
@@ -239,10 +240,10 @@
     CGFloat commonSatisfaction = 1.0;
     
     if (population > satisfactionLevel) {
-       commonSatisfaction = MAX(0, (2.0 - (population / satisfactionLevel)));
+//       commonSatisfaction = MAX(0, (2.0 - (population / satisfactionLevel)));
+        commonSatisfaction = satisfactionLevel / population;
     }
     
-
     return (diff + commonSatisfaction) / 2;
     
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="GameSession" representedClassName="GameSession" syncable="YES">
-        <attribute name="last_played" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastPlayed" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="session" inverseEntity="Player" syncable="YES"/>
         <relationship name="plots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Plot" inverseName="gameSession" inverseEntity="Plot" syncable="YES"/>
     </entity>
@@ -19,14 +19,14 @@
     </entity>
     <entity name="Zone" representedClassName="Zone" syncable="YES">
         <attribute name="currentPopulation" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="level_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="type_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="levelId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="typeId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="plot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotZone" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <elements>
         <element name="GameSession" positionX="34" positionY="-108" width="128" height="88"/>
         <element name="Player" positionX="-198" positionY="-106" width="128" height="118"/>
         <element name="Plot" positionX="-47" positionY="74" width="128" height="88"/>
-        <element name="Zone" positionX="-236" positionY="45" width="128" height="105"/>
+        <element name="Zone" positionX="-236" positionY="45" width="128" height="103"/>
     </elements>
 </model>
