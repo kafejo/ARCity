@@ -31,27 +31,18 @@
     
     NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"selection" ofType:@"zip"];
     
-    if (modelPath) {
-        graphicsCore.selection = metaioSDK->createGeometry([modelPath UTF8String]);
-        
-        if (graphicsCore.selection) {
-            
-            graphicsCore.selection->setScale(metaio::Vector3d(6, 6, 6));
-            graphicsCore.selection->setRotation(metaio::Rotation(M_PI_2, 0, 0));
-            graphicsCore.selection->setCoordinateSystemID(1000);
-            graphicsCore.selection->setVisible(false);
-            graphicsCore.selection->setTransparency(0.4f);
-            graphicsCore.selection->setAnimationSpeed(12.0f);
-            
-        } else {
-            NSLog(@"Error! Cannot load plot geometry!");
-            assert(false);
-        }
-        
-    } else {
-        NSLog(@"Cannot find model");
-    }
+    NSAssert(modelPath != nil, @"Cannot find model path!");
     
+    graphicsCore.selection = metaioSDK->createGeometry([modelPath UTF8String]);
+    
+    NSAssert(graphicsCore.selection != nil, @"Cannot load plot geometry!");
+        
+    graphicsCore.selection->setScale(metaio::Vector3d(6, 6, 6));
+    graphicsCore.selection->setRotation(metaio::Rotation(M_PI_2, 0, 0));
+    graphicsCore.selection->setCoordinateSystemID(1000);
+    graphicsCore.selection->setVisible(false);
+    graphicsCore.selection->setTransparency(0.4f);
+    graphicsCore.selection->setAnimationSpeed(12.0f);
     
     return graphicsCore;
 }
@@ -130,6 +121,7 @@
         
         item.object = [self loadGeometryFromPath:[GlobalConfig pathToModelForZoneType:plot.plotZone.type level:plot.plotZone.level]];
         item.object->setCoordinateSystemID(plot.markerId.intValue);
+        
         item.type = plot.plotZone.type;
        [self applyBuildingSettings:item.object];
         
@@ -229,6 +221,7 @@
             } else {
                 
                 self.selection->startAnimation("Take 001", true);
+                
                 self.selection->setVisible(true);
                 
                 if (self.delegate) {

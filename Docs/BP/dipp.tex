@@ -57,12 +57,12 @@ Tato práce se zabývá rozšířenou realitou a jejím využitím ve hrách na~
 }{}
 
 \abstract{
-The paper discusses an augmented reality and its integration in games for iOS platform. It considers different kinds of approaches used in currently popular augmented reality games, namely their concepts and their benefits over usual games (without usage of the augmented reality). It describes frameworks that can be used to develop applications with an augmented reality for iOS and comparison of their features and suitability to be the foundation of an augmented reality game. The final section describes designing my own game which aims to avoid critical drawbacks found by observing existing games.
+This thesis discusses an augmented reality and its integration in games for iOS platform. It outlines different kinds of approaches used in currently popular augmented reality games, namely their concepts and their benefits over usual games (without usage of the augmented reality). It describes frameworks that can be used to develop applications with an augmented reality for iOS and comparison of their features and suitability to be the foundation of an augmented reality game. The key section describes design of my own game which aims to avoid critical drawbacks found by observing existing games, as well as implementation based on the most suitable framework.
 }{}
 
-\klicovaslova{rozšířená realita, iOS, objective-c, Metaio knihovna}{}
+\klicovaslova{rozšířená realita, iOS, Objective-C, Metaio framework}{}
 
-\keywords{augmented reality, iOS, objective-c, Metaio framework}{}
+\keywords{augmented reality, iOS, Objective-C, Metaio framework}{}
 
 \obsah
 
@@ -78,7 +78,7 @@ Myšlenku rozšířené reality (angl. \textit{Augmented reality}) nastínil ji�
 % 
 % Cíl práce
 \sekce{Cíl práce}
-Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, která bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku na základě výše uvedených kritérií. Poté je potřeba důkladně navrhnout herní systém a využití rozšířené reality. Dalším krokem bude připravení grafických podkladů a modelů pro hru a následně samotná implementaci. Poslední kapitoly jsou pak věnovány uživatelskému testování, vyhodnocení a úvahami nad možnými vylepšeními.
+Cílem práce je prozkoumat možnosti her v rozšířené realitě na mobilní plaformě iOS a vytvořit hru, která bude rozšířené reality využívat jako obohacujícího prvku pro hráče. Prvním a zároveň velmi důležitým krokem je zvolení správného frameworku. Poté je potřeba důkladně navrhnout herní systém a využití rozšířené reality. Dalším krokem bude připravení grafických podkladů a modelů pro hru a následně samotná implementace. Poslední kroky jsou pak věnovány uživatelskému testování, vyhodnocení a diskuzí nad možnými vylepšeními.
 
 %
 % Rozšířená realita
@@ -93,8 +93,7 @@ Jedním z nejjednodušších a také nejspolehlivějších rozpoznávacích tech
 
 \begin{figure}[H]
     \includegraphics[width=330px, center]{images/marker-tracking.jpg}
-    \caption{VTTResearch, \textit{Marker tracking}.
-	[online]. [cit.~2015-04-02]. Obrázek ve formátu: JPEG. Dostupné z: http://virtual.vtt.fi/virtual/proj2/multimedia/media/images/MultiMarker.jpg}
+    \caption[]{Marker tracking. \textit{Zdroj: \cite{marker_tracking}}}
     \label{marker_tracking}
 \end{figure}
 
@@ -103,8 +102,7 @@ Další možností jak umisťovat objekty do rozšířené reality je pomocí tz
 
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/markerless-tracking.jpg}
-    \caption{Wikipedia, \textit{Markerless tracking}. [online]. [cit. 2015-04-02].
-	Obrázek ve formátu: JPEG. Dostupné z: http://upload.wikimedia.org/wikipedia/commons/f/f4/App\_iSkull,\_an\_augmented \_human\_skull.jpg}
+    \caption{Markerless tracking. \textit{Zdroj: \cite{markerless_tracking}}}
     \label{markerless_tracking}
 \end{figure}
 
@@ -114,14 +112,12 @@ Umisťovat virtuální objekty do snímané reality lze i bez známých vzorů a
 \begin{figure}[H]
     \includegraphics[width=350px, center]{images/slam.jpg}
     
-    \caption{Department of Engineering Science, University of Oxford, \textit{SLAM: Simultaneous localization and mapping}
-	[online]. [cit. 2015-04-02]. 
-	Obrázek ve formátu: JPEG. Dostupné z: http://www.robots.ox.ac.uk/~lav/Papers/castle\_etal\_iswc2008/castle\_etal\_iswc2008.jpg}
+    \caption[]{SLAM: Simultaneous localization and mapping. \textit{Zdroj: \cite{slam}}}
     \label{slam}
 \end{figure}
 
 \sekce{Srovnání}
-Z uvedených informací vyplývá, že implementačně nejjednodušším a nejdostupnějším řešením je Marker tracking za předpokladu potřeby rozpoznání více konkrétních míst v realitě. Mírně složitější, ale zato uživatelsky přívětivější řešení nabízí Markerless tracking v podobě možnosti rozpoznávání vzorů a obrázků. Pro situace, kdy nepotřebujeme nacházet konkrétní pozice, ale spíše plochy, je zde řešení typu SLAM, které je však z uvedených typů nejnáročnější na implementaci.
+Z uvedených informací vyplývá, že implementačně nejjednodušším a nejdostupnějším řešením je \textit{marker tracking} za předpokladu potřeby rozpoznání více konkrétních míst v realitě. Mírně složitější, ale zato uživatelsky přívětivější řešení nabízí \textit{markerless tracking} v podobě možnosti rozpoznávání vzorů a obrázků. Pro situace, kdy nepotřebujeme nacházet konkrétní pozice, ale spíše plochy, je zde řešení typu SLAM, které je však z uvedených typů nejnáročnější na implementaci.
 
 %
 % Aktuální hry a jejich koncepty
@@ -144,12 +140,12 @@ Masově multiplayerová online hra vyvíjená startupem \textit{Niantics Labs}, 
 \begin{figure}[H]
     \centering
     \includegraphics[width=320px, center]{images/ingress.jpg}
-    \caption{\textit{Screenshot ze hry Ingress}. Yahoo Inc. Flickr [online]. [cit. 2015-04-02]. Obrázek ve formátu: JPEG. Dostupné z: https://farm9.staticflickr.com/8219/8266348091\_08fe415355\_o.jpg}
+    \caption[ingress_screenshot]{Screenshot ze hry Ingress, \textit{Zdroj: \cite{ingress_screenshot}}}
     \label{ingress_screenshot}
 \end{figure}
 
 \sekce{Interakce s herní deskou}
-Dalším konceptem je interakce s herní deskou, kdy hráč interaguje pomocí gest nebo stisknutím virtuálních tlačítek na desce. Tento koncept štěpí interakční část a zobrazovací (hráč manipuluje s prvky na desce, ale výsledek vidí pouze přes zařízení) a pro uživatele může být v případech mobilního telefonu obzvlášť nepříjemný na ovládání, více vhodný je například na brýle. Z tohoto důvodu je také tento koncept v mobilních hrách téměř nepoužívaný. Mezi hry využívající tohoto přístupu jsou povětšinou hry původem deskové či karetní a rozšířenou realitu zde využívají spíše pro zvýšení intenzity zážitku ze hry vizualizacema procesů, které si jinak člověk musí pouze představovat. 
+Dalším konceptem je interakce s herní deskou, kdy hráč interaguje pomocí gest nebo stisknutím virtuálních tlačítek na desce. Tento koncept štěpí interakční část a zobrazovací (hráč manipuluje s prvky na desce, ale výsledek vidí pouze přes zařízení) a pro uživatele může být v případech mobilního telefonu obzvlášť nepříjemný na ovládání, více vhodný je například na brýle. Z tohoto důvodu je také tento koncept v mobilních hrách téměř nepoužívaný. Mezi hry využívající tohoto přístupu jsou povětšinou hry původem deskové či karetní a rozšířenou realitu zde využívají spíše pro zvýšení intenzity zážitku ze hry vizualizacemi procesů, které si jinak člověk musí pouze představovat. 
 
 %
 % Drakerz-Confrontation 
@@ -161,8 +157,7 @@ Karetní hra vyvíjená od roku 2010 francouzskou firmou \textit{Peoleo} s prvn�
 
 \begin{figure}[H]
     \includegraphics[width=424px, center]{images/drakerz-confrontation.jpg}
-    \caption{\textit{Screenshot ze hry Drakerz Confrontation}. Game guide
-	[online]. [cit.~2015-04-02]. Obrázek ve formátu: JPEG. Dostupné z: http://game-guide.fr/wp-content/uploads/2014/03/drakerz-confrontation-05.jpg}
+    \caption[]{Screenshot ze hry Drakerz Confrontation. \textit{Zdroj: \cite{drakerz_screenshot} }}
     \label{drakerz_screenshot}
 \end{figure}
 
@@ -176,9 +171,7 @@ Jednou z populárních her je hra \textit{ARhrrrr!} z dílny \textit{Georgia Tec
 
 \begin{figure}[H]
     \includegraphics[width=424px, center]{images/arhrrrr.jpg}
-    \caption{\textit{Screenshot ze hry ARhrrrr!}.
-	[online]. [cit.~2015-04-02]. Obrázek ve~formátu: JPEG. Dostupné z: http://www.blogcdn.com/www.engadget.com/media/2009/06/arhrrrr-pic-rm-eng.jpg
-}
+    \caption[]{Screenshot ze hry ARhrrrr!. \textit{Zdroj: \cite{arhrrrr_screenshot}}}
     \label{arhrrrr_screenshot}
 \end{figure}
 
@@ -201,9 +194,7 @@ Kritéria hodnocení se odvíjí od náročnosti požadavků na aplikaci, v tomt
 
 \begin{figure}[H]
     \includegraphics[width=400px, center]{images/artoolkit_benchmark.png}
-    \caption{Chyba sledování závislá na velikosti markeru, Podle originálu: \textit{The Human Interface Technology Lab, University of Washington ARToolKit Benchmarks}
-	[online]. [cit. 2015-04-03]. Dostupné z: http://www.hitl.washington.edu/artoolkit/documentation/benchmark.htm
-}
+    \caption[]{Chyba sledování závislá na velikosti markeru. \textit{Originál: \cite{artoolkit_benchmark}}}
     \label{artoolkit_benchmark}
 \end{figure}
  Tento framework je dostupný pro všechny majoritní platformy (\textit{Windows, Linux, OS X, SGI}) s různými porty pro mobilní operační systémy (\textit{iOS, Android}). Mobilní verze tohoto frameworku portují již konkrétní firmy a vydávají jako vlastní produkt, nejsou tedy volně dostupné -- nepodařilo se sestavit testovací projekt pro tento framework a benchmarky uvedené v dokumentaci jsou velmi nepřesně specifikované (chybí specifikace hardwaru, na kterém byly tyto měření prováděny). 
@@ -218,14 +209,11 @@ Dokumentace uvádí měření, ukazující udržení výkonu vykreslování 60 s
 \centering
     \includegraphics[width=424px, center]{images/Polycount_SDK_iOS_20fps.png}
 \captionsetup{justification=centering}
-    \caption{Metaio GmbH, \textit{Rychlost vykreslování (v FPS) pro jednotlivé iOS zařízení závislé na počtu vykreslovaných polygonů}.
-	[online]. [cit. 2015-04-03]. 
-	Dostupné z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/}
+    \caption{Rychlost vykreslování (v FPS) pro jednotlivé iOS zařízení závislé na počtu vykreslovaných polygonů. \textit{Zdroj: \cite{metaio_benchmark}}}
     \label{metaio_benchmark}
 \end{figure}
 
-Také byl vytvořen testovací projekt, jehož jediný múkolem bylo rozeznávat 20~různých markerů. Na tomto projektu pak byly provedeny zkoušky rychlosti nalezení markeru v obrazu. Test byl prováděn na zařízení \textit{iPhone 5} (model A1429) firmy \textit{Apple}. Z výsledných hodnot byl vypočítán průměr 4,31 ms. 
-
+Také byl vytvořen testovací projekt, jehož jediným úkolem bylo rozeznávat 20~různých markerů. Na tomto projektu pak byly provedeny zkoušky rychlosti nalezení markeru v obrazu. Test byl prováděn na zařízení \textit{iPhone 5} (model A1429) firmy \textit{Apple}. Z výsledných hodnot byl vypočítán průměr 4,31 ms. 
 
 \textit{Metaio SDK} dokáže pracovat s modely ve formátech \textit{OBJ}, \textit{MD2} a \textit{FBX} a podporuje také jejich animace. Pod podmínkou vodoznaku a nemožnosti publikovat aplikaci na \textit{AppStore} nabízí volnou licenci na všechny verze svého frameworku. 
 
@@ -348,6 +336,45 @@ Základní zóna, kterou má hráč již postavenou na startu hry a nelze ji zni
 \sekce{Metaio}
 \textit{Metaio SDK} je knihovna napsaná v jazyce \textit{C++} a pro použití v \textit{Cocoa touch} projektu, který je vyvíjen v jazyce \textit{Objective-C} (nebo také nově ve \textit{Swiftu}), stačí knihovnu přilinkovat do tzv. bundle. Pro použití knihoven psaných v \textit{C++} má \textit{Cocoa touch} speciální formát s příponou .mm, kterému se říká \textit{Objective-C++}. Touto příponou dáváme překladači najevo kombinování těchto dvou jazyků v jednom souboru. 
 
+\podsekce{Nahrávání modelů}
+Následující kód ukazuje inicializaci 3D modelu a jeho naslednou konfiguraci.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/code_model_loading.png}
+\captionsetup{justification=centering}
+%    \caption[]{Navigation bar ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
+    \label{navigation_bar}
+\end{figure}
+
+Konkrétně jde o nahrání modelu zobrazovaného jako indikátor označení zóny. Po úspěšném vytvoření geometrie jsou jí nastaveny základní parametry jako zvětšení, rotace či rychlost animace. Asercí jsou ověřeny stavy kritických chyb. 
+
+\podsekce{Spouštění animací}
+Pokud jsme modelu vytvořili v modelovacím programu animaci a řádně ji s modelem vyexportovali a následně přibalili do zip archivu, \textit{Metaio} se postará o její zpracování. Jediné co je potřeba znát, je pojmenovaní dané animace. Tu pak lze pustit jedoduše jednou metodou jak lze vidět v následujícím kódu.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=200px, center]{images/code_animation.png}
+\captionsetup{justification=centering}
+%    \caption[]{Navigation bar ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
+    \label{navigation_bar}
+\end{figure}
+
+\podsekce{Přiřazení markeru}
+Za předpokladu správného nastavení \textit{Metaia} konfiguračním \textit{XML}, můžeme vytvořeným geometriím snadno přiřazovat identifikátor markeru na kterém se má zobrazovat.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=430px, center]{images/code_coordinate.png}
+\captionsetup{justification=centering}
+%    \caption[]{Navigation bar ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
+    \label{navigation_bar}
+\end{figure}
+
+V tomto případě je \textit{item.object} geometrie typu \textit{metaio::IGeometry *} a nastavujeme jí coordinační systémový identifikátor na hodnotu podle daného plotu. 
+
+Jak vidíme z uvedených příkladů, \textit{Metaio} nám velmi ulehčuje práci s modely. Jedinou věcí, na kterou si musíme při práci dát pozor, je si uvědomit, že pracujeme s C++ instancemi tříd. C++ narozdíl od Objective-C nedisponuje \textit{ARC (Automatic reference counting)} a je proto nutné spravovat uvolňování instancí z paměti ručně.
+
 \sekce{Cocoapods}
 Pro usnadnění připojování pomocných frameworků do projektu vznikl open source projekt s názvem \textit{Cocoapods}. Tento tzv. dependency manager napsaný v jazyce \textit{Ruby} má za úkol přidávat, odebírat nebo aktualizovat použité externí frameworky. Seznam frameworků je definován textovým sobourem s názvem Podfile, jsou v něm definice zdrojů, verzí a targetu projektu, do kterých mají být frameworky přilinkovány. Veškeré frameworky použité v této hře jsou vydány pod svobodými licencemi (většinou \textit{MIT}).
 
@@ -377,7 +404,7 @@ Jak v modelu jednotlivé třídy figurují je navrženo jednoduchým UML diagram
 \centering
     \includegraphics[width=420px, center]{images/model.png}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Diagram tříd datového modelu}}
+    \caption[]{Diagram tříd datového modelu. \textit{Zdroj: Aleš Kocur}}
     \label{class_diagram}
 \end{figure}
 
@@ -391,7 +418,7 @@ Rozhraní, jakým uživatelé, hráči, interagují s prvky hry, jsou kritickou 
 \centering
     \includegraphics[width=420px, center]{images/nav_bar_iphone.png}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Navigation bar ze hry ARCity}}
+    \caption[]{Navigation bar ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
     \label{navigation_bar}
 \end{figure}
 
@@ -401,7 +428,7 @@ Z toho můžeme usoudit, že uživatel je zvyklý veškeré důležité navigač
 \centering
     \includegraphics[width=100px, center]{images/hamburger_menu.png}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Hamburger menu ze hry ARCity}}
+    \caption[]{Hamburger menu ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
     \label{hamburger-menu}
 \end{figure}
 
@@ -412,10 +439,9 @@ Dalším důležitým aspektem návrhu rozhraní je rozměr samotného zařízen
 \centering
     \includegraphics[width=300px, center]{images/ipad-toucharea.png}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Rozdělení dosazitelnosti prvků na iPadu 3. generace v portrait módu}, na základě vlastního měření}
+    \caption[]{Rozdělení dosažitelnosti prvků na iPadu 3. generace v portrait módu na základě vlastního měření. \textit{Zdroj: Aleš Kocur}}
     \label{class_diagram}
 \end{figure}
-
 
 Jak můžeme vidět, nejdosažitelnější části displaye se nachází ve spodních části displaye. Na základě takovéto úvahy dojdeme k závěru, že pro snadno dosažitelné ovládací prvky by se mělo ovládání hry vyskytovat někde ve spodní části displaye. Jelikož prostřední část máme vyhrazenou pro okno do rozšířené reality, jediné místo zbývá na spodním okraji displaye. 
 
@@ -425,7 +451,7 @@ Složením výše uvedených věcí do jednoho získáme ideální návrh rozhra
 \centering
     \includegraphics[width=300px, center]{images/ipad_layout_ux.jpg}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Výsledný návrh rozložení prvků pro hru ARCity}}
+    \caption[]{Výsledný návrh rozložení prvků pro hru ARCity. \textit{Zdroj: Aleš Kocur}}
     \label{class_diagram}
 \end{figure}
 
@@ -450,9 +476,11 @@ Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, des
 \centering
     \includegraphics[width=430px, center]{images/ipad-layout.jpg}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Ukázka z grafického návrhu aplikace}}
+    \caption[]{Ukázka z grafického návrhu aplikace. \textit{Zdroj: Aleš Kocur}}
     \label{class_diagram}
 \end{figure}
+ 
+ Snímky obrazovky z hotové hry lze najít v druhé části přílohy. 
  
  \sekce{Ukládání dat}
  
@@ -462,7 +490,7 @@ Na základě těchto pravidel byl navrhnut vysoce kontrastní, černobílý, des
 \centering
     \includegraphics[width=400px, center]{images/core-data-model.png}
 \captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Datový model hry ARCity}}
+    \caption{Datový model hry ARCity. \textit{Zdroj: Aleš Kocur}}
     \label{class_diagram}
 \end{figure}
 
@@ -538,33 +566,6 @@ g(x, y) = \left\{
 
 
 a $o$ je aktuální počet obyvatel, $m$ je počet pracovních míst, $sz$ je hodnota uspokojení z dosud postavených zón, $dk$ je konstanta pro průměrnou daň a $d$ je aktuální daň.
-
-\kapitola{Ukázky z práce}
-
-\begin{figure}[H]
-\centering
-    \includegraphics[width=400px, center]{images/screenshot1.jpg}
-\captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Screenshot ze hry ARCity}}
-    \label{screenshot3}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-    \includegraphics[width=400px, center]{images/screenshot2.png}
-\captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Hlavní menu ze hry ARCity}}
-    \label{screenshot3}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-    \includegraphics[width=400px, center]{images/screenshot3.jpg}
-\captionsetup{justification=centering}
-    \caption{Aleš Kocur, \textit{Screenshot ze hry ARCity}}
-    \label{screenshot3}
-\end{figure}
-
 
 \newpage
 
@@ -677,11 +678,40 @@ Herních vylepšení samotné hry se nabízí také mnoho, třeba více úrovní
 %
 % Přílohy
 \kapitola{Přílohy}
+\sekce{Datové přílohy}
 Na přiloženém CD jsou k dispozici tyto přílohy: 
 \begin{itemize}
 \item arcity\_workspace - kompletní zdrojové soubory k vytvořené hře
 \item source - veškeré vlastní podklady a zdrojové texty využité při tvorbě této práce
 \end{itemize}
+
+\newpage
+
+\sekce{Ukázky z práce}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/screenshot1.jpg}
+\captionsetup{justification=centering}
+    \caption{Screenshot ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
+    \label{screenshot3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/screenshot2.png}
+\captionsetup{justification=centering}
+    \caption{Hlavní menu ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
+    \label{screenshot3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=400px, center]{images/screenshot3.jpg}
+\captionsetup{justification=centering}
+    \caption{Screenshot ze hry ARCity. \textit{Zdroj: Aleš Kocur}}
+    \label{screenshot3}
+\end{figure}
 
 
 % 
@@ -890,7 +920,79 @@ In Proc. 12th Computer Vision Winter Workshop (CVWW'07), Sankt Lambrecht, Austri
 
 % Obrazky
 
-\citace{importance-driven-layout}{Apple, 2015}
+\citace{ingress_screenshot}{Flickr, 2015}
+{
+	\autor{Yahoo Inc.}
+	\nazev{Flickr}
+	[online]. [cit. 2015-04-02]. Flickr
+	Obrázek ve formátu: JPEG. Dostupné z: https://farm9.staticflickr.com/8219/8266348091\_08fe415355\_o.jpg
+}
+
+\citace{drakerz_screenshot}{Game guide, 2015}
+{
+	\autor{Game guide}
+	\nazev{Game guide}
+	[online]. [cit. 2015-04-02]. Game guide
+	Obrázek ve formátu: JPEG. Dostupné z: http://game-guide.fr/wp-content/uploads/2014/03/drakerz-confrontation-05.jpg
+}
+
+\citace{arhrrrr_screenshot}{Engadget, 2015}
+{
+	\autor{Engadget}
+	\nazev{Engadget}
+	[online]. [cit. 2015-04-02]. Engadget
+	Obrázek ve formátu: JPEG. Dostupné z: http://www.blogcdn.com/www.engadget.com/media/2009/06/arhrrrr-pic-rm-eng.jpg
+}
+
+\citace{marker_tracking}{VTTResearch, 2015}
+{
+	\autor{VTTResearch}
+	\nazev{Marker tracking}
+	[online]. [cit. 2015-04-02]. VTTResearch
+	Obrázek ve formátu: JPEG. Dostupné z: http://virtual.vtt.fi/virtual/proj2/multimedia/media/images/MultiMarker.jpg
+}
+
+\citace{markerless_tracking}{Wikipedia, 2015}
+{
+	\autor{Wikipedia}
+	\nazev{Wikipedia}
+	[online]. [cit. 2015-04-02]. Wikipedia.org
+	Obrázek ve formátu: JPEG. Dostupné z: http://upload.wikimedia.org/wikipedia/commons/f/f4/App\_iSkull,\_an\_augmented\_human\_skull.jpg
+}
+
+\citace{slam}{Department of Engineering Science, University of Oxford, 2008}
+{
+	\autor{Department of Engineering Science, University of Oxford}
+	\nazev{SLAM}
+	[online]. [cit. 2015-04-02]. 
+	Obrázek ve formátu: JPEG. Dostupné z: http://www.robots.ox.ac.uk/~lav/Papers/castle\_etal\_iswc2008/castle\_etal\_iswc2008.jpg
+}
+
+\citace{artoolkit_benchmark}{HITLab, 2015}
+{
+	\autor{The Human Interface Technology Lab, University of Washington}
+	\nazev{ARToolKit Benchmarks}
+	[online]. [cit. 2015-04-03]. 
+	Obrázek ve formátu: JPEG. Dostupné z: http://www.hitl.washington.edu/artoolkit/documentation/benchmark.htm
+}
+
+\citace{metaio_benchmark}{Metaio, 2015}
+{
+	\autor{Metaio GmbH}
+	\nazev{Metaio iOS polycount}
+	[online]. [cit. 2015-04-03]. 
+	Obrázek ve formátu: JPEG. Dostupné z: http://dev.metaio.com/sdk/documentation/content-creation/3d-animation/polygon-count/general-guidelines/
+}
+
+\citace{hamburger-menu}{Dribble, 2015}
+{
+	\autor{Davide 'Folletto' Casali}
+	\nazev{Hamburger Icon / Lexicon Nugget 2}
+	[online]. [cit. 2015-04-28]. 
+	Obrázek ve formátu: JPEG. Dostupné z: https://dribbble.com/shots/880056-Hamburger-Icon-Lexicon-Nugget-2
+}
+
+\citace{importance-driven-layout}{Aleš Kocur, 2015}
 {
 	\autor{Apple Inc.}
 	\nazev{Adaptivity and Layout}

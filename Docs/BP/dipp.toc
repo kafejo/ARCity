@@ -6,72 +6,76 @@
 \contentsline {subsection}{\numberline {2.1}Metody vizu\IeC {\'a}ln\IeC {\'\i }ho sledov\IeC {\'a}n\IeC {\'\i }}{12}
 \contentsline {subsubsection}{Marker tracking}{12}
 \contentsline {subsubsection}{Markerless tracking}{13}
-\contentsline {subsubsection}{Sledov\IeC {\'a}n\IeC {\'\i } nezn\IeC {\'a}m\IeC {\'y}ch prost\IeC {\v r}ed\IeC {\'\i }}{14}
-\contentsline {subsection}{\numberline {2.2}Srovn\IeC {\'a}n\IeC {\'\i }}{15}
-\contentsline {section}{\numberline {3}Vyu\IeC {\v z}it\IeC {\'\i } roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'e} reality, koncepty vyu\IeC {\v z}it\IeC {\'e} ve hr\IeC {\'a}ch}{16}
-\contentsline {subsection}{\numberline {3.1}Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{16}
-\contentsline {subsubsection}{Ingress}{16}
-\contentsline {subsection}{\numberline {3.2}Interakce s hern\IeC {\'\i } deskou}{17}
-\contentsline {subsubsection}{Drakerz Confrontation}{18}
-\contentsline {subsection}{\numberline {3.3}Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{18}
-\contentsline {subsubsection}{ARHrrrr!}{19}
-\contentsline {subsection}{\numberline {3.4}Shrnut\IeC {\'\i }}{19}
-\contentsline {section}{\numberline {4}Framework}{20}
-\contentsline {subsection}{\numberline {4.1}Krit\IeC {\'e}ria hodnocen\IeC {\'\i }}{20}
-\contentsline {subsection}{\numberline {4.2}P\IeC {\v r}ehled framework\IeC {\r u}}{20}
-\contentsline {subsubsection}{ARToolKit}{20}
-\contentsline {subsubsection}{Metaio}{21}
-\contentsline {subsubsection}{Qualcomm Vuforia}{22}
-\contentsline {subsubsection}{Augmented kit}{23}
-\contentsline {section}{\numberline {5}Metodika}{24}
-\contentsline {subsection}{\numberline {5.1}Koncept hry}{24}
-\contentsline {subsection}{\numberline {5.2}V\IeC {\'y}b\IeC {\v e}r frameworku}{24}
-\contentsline {subsection}{\numberline {5.3}Form\IeC {\'a}t 3D model\IeC {\r u}}{25}
-\contentsline {subsubsection}{OBJ}{25}
-\contentsline {subsubsection}{MD2}{25}
-\contentsline {subsubsection}{FBX}{26}
-\contentsline {subsection}{\numberline {5.4}Shrnut\IeC {\'\i }}{26}
-\contentsline {subsection}{\numberline {5.5}Modelovac\IeC {\'\i } n\IeC {\'a}stroj}{26}
-\contentsline {section}{\numberline {6}ARCity}{27}
-\contentsline {subsection}{\numberline {6.1}Rozbor konceptu}{27}
-\contentsline {subsubsection}{Obytn\IeC {\'a} z\IeC {\'o}na}{27}
-\contentsline {subsubsection}{Pr\IeC {\r u}myslov\IeC {\'a} z\IeC {\'o}na}{27}
-\contentsline {subsubsection}{Kulturn\IeC {\'\i } z\IeC {\'o}na}{27}
-\contentsline {subsubsection}{Obchodn\IeC {\'\i } z\IeC {\'o}na}{28}
-\contentsline {subsubsection}{M\IeC {\v e}stsk\IeC {\'a} spr\IeC {\'a}va, radnice}{28}
-\contentsline {subsection}{\numberline {6.2}Metaio}{28}
-\contentsline {subsection}{\numberline {6.3}Cocoapods}{28}
-\contentsline {subsubsection}{MagicalRecord}{28}
-\contentsline {subsubsection}{TFTableDescriptor}{28}
-\contentsline {subsection}{\numberline {6.4}Model}{29}
-\contentsline {subsection}{\numberline {6.5}U\IeC {\v z}ivatelsk\IeC {\'e} rozhran\IeC {\'\i }}{30}
-\contentsline {subsubsection}{Design}{34}
-\contentsline {subsection}{\numberline {6.6}Ukl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } dat}{36}
-\contentsline {subsection}{\numberline {6.7}V\IeC {\'y}po\IeC {\v c}ty ukazatel\IeC {\r u}}{36}
-\contentsline {subsubsection}{Po\IeC {\v c}et obyvatel}{37}
-\contentsline {subsubsection}{Spokojenost}{38}
-\contentsline {section}{\numberline {7}Uk\IeC {\'a}zky z pr\IeC {\'a}ce}{39}
-\contentsline {section}{\numberline {8}Testov\IeC {\'a}n\IeC {\'\i } u\IeC {\v z}ivatelsk\IeC {\'e}ho rozhran\IeC {\'\i }}{42}
-\contentsline {subsection}{\numberline {8.1}Z\IeC {\'a}kladn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stupy testov\IeC {\'a}n\IeC {\'\i }}{42}
-\contentsline {subsubsection}{Eye tracking}{42}
-\contentsline {subsubsection}{Heuristic evaluation}{42}
-\contentsline {subsubsection}{Focus Groups}{43}
-\contentsline {subsubsection}{Cognitive walkthrough}{43}
-\contentsline {subsubsection}{Dal\IeC {\v s}\IeC {\'\i } metody a shrnut\IeC {\'\i }}{44}
-\contentsline {subsection}{\numberline {8.2}Heuristick\IeC {\'a} anal\IeC {\'y}za ARCity}{44}
-\contentsline {subsubsection}{Viditelnost stavu syst\IeC {\'e}mu}{44}
-\contentsline {subsubsection}{Spojen\IeC {\'\i } mezi syst\IeC {\'e}mem a re\IeC {\'a}ln\IeC {\'y}m sv\IeC {\v e}tem}{44}
-\contentsline {subsubsection}{U\IeC {\v z}ivatelsk\IeC {\'a} kontrola a svoboda}{44}
-\contentsline {subsubsection}{Konzistence a standardizace}{44}
-\contentsline {subsubsection}{Prevence chyb}{44}
-\contentsline {subsubsection}{Rozpozn\IeC {\'a}n\IeC {\'\i } m\IeC {\'\i }sto vzpom\IeC {\'\i }n\IeC {\'a}n\IeC {\'\i }}{45}
-\contentsline {subsubsection}{Flexibiln\IeC {\'\i } a efektivn\IeC {\'\i } pou\IeC {\v z}it\IeC {\'\i }}{45}
-\contentsline {subsubsection}{Estetick\IeC {\'y} a minimalistick\IeC {\'y} design}{45}
-\contentsline {subsubsection}{Pomoc u\IeC {\v z}ivatel\IeC {\r u} poznat, pochopit a vzpamatovat se z chyb}{45}
-\contentsline {subsubsection}{N\IeC {\'a}pov\IeC {\v e}da a n\IeC {\'a}vody}{45}
-\contentsline {subsection}{\numberline {8.3}Zhodnocen\IeC {\'\i }}{45}
-\contentsline {section}{\numberline {9}Z\IeC {\'a}v\IeC {\v e}r}{47}
-\contentsline {subsection}{\numberline {9.1}Zhodnocen\IeC {\'\i } dosa\IeC {\v z}en\IeC {\'\i } c\IeC {\'\i }l\IeC {\r u}}{47}
-\contentsline {subsection}{\numberline {9.2}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{47}
-\contentsline {section}{\numberline {10}P\IeC {\v r}\IeC {\'\i }lohy}{49}
-\contentsline {section}{\numberline {11}Reference}{50}
+\contentsline {subsubsection}{Sledov\IeC {\'a}n\IeC {\'\i } nezn\IeC {\'a}m\IeC {\'y}ch prost\IeC {\v r}ed\IeC {\'\i }}{13}
+\contentsline {subsection}{\numberline {2.2}Srovn\IeC {\'a}n\IeC {\'\i }}{14}
+\contentsline {section}{\numberline {3}Vyu\IeC {\v z}it\IeC {\'\i } roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'e} reality, koncepty vyu\IeC {\v z}it\IeC {\'e} ve hr\IeC {\'a}ch}{15}
+\contentsline {subsection}{\numberline {3.1}Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{15}
+\contentsline {subsubsection}{Ingress}{15}
+\contentsline {subsection}{\numberline {3.2}Interakce s hern\IeC {\'\i } deskou}{16}
+\contentsline {subsubsection}{Drakerz Confrontation}{17}
+\contentsline {subsection}{\numberline {3.3}Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{17}
+\contentsline {subsubsection}{ARHrrrr!}{18}
+\contentsline {subsection}{\numberline {3.4}Shrnut\IeC {\'\i }}{18}
+\contentsline {section}{\numberline {4}Framework}{19}
+\contentsline {subsection}{\numberline {4.1}Krit\IeC {\'e}ria hodnocen\IeC {\'\i }}{19}
+\contentsline {subsection}{\numberline {4.2}P\IeC {\v r}ehled framework\IeC {\r u}}{19}
+\contentsline {subsubsection}{ARToolKit}{19}
+\contentsline {subsubsection}{Metaio}{20}
+\contentsline {subsubsection}{Qualcomm Vuforia}{21}
+\contentsline {subsubsection}{Augmented kit}{21}
+\contentsline {section}{\numberline {5}Metodika}{22}
+\contentsline {subsection}{\numberline {5.1}Koncept hry}{22}
+\contentsline {subsection}{\numberline {5.2}V\IeC {\'y}b\IeC {\v e}r frameworku}{22}
+\contentsline {subsection}{\numberline {5.3}Form\IeC {\'a}t 3D model\IeC {\r u}}{23}
+\contentsline {subsubsection}{OBJ}{23}
+\contentsline {subsubsection}{MD2}{23}
+\contentsline {subsubsection}{FBX}{24}
+\contentsline {subsection}{\numberline {5.4}Shrnut\IeC {\'\i }}{24}
+\contentsline {subsection}{\numberline {5.5}Modelovac\IeC {\'\i } n\IeC {\'a}stroj}{24}
+\contentsline {section}{\numberline {6}ARCity}{25}
+\contentsline {subsection}{\numberline {6.1}Rozbor konceptu}{25}
+\contentsline {subsubsection}{Obytn\IeC {\'a} z\IeC {\'o}na}{25}
+\contentsline {subsubsection}{Pr\IeC {\r u}myslov\IeC {\'a} z\IeC {\'o}na}{25}
+\contentsline {subsubsection}{Kulturn\IeC {\'\i } z\IeC {\'o}na}{25}
+\contentsline {subsubsection}{Obchodn\IeC {\'\i } z\IeC {\'o}na}{26}
+\contentsline {subsubsection}{M\IeC {\v e}stsk\IeC {\'a} spr\IeC {\'a}va, radnice}{26}
+\contentsline {subsection}{\numberline {6.2}Metaio}{26}
+\contentsline {subsubsection}{Nahr\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } model\IeC {\r u}}{26}
+\contentsline {subsubsection}{Spou\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } animac\IeC {\'\i }}{26}
+\contentsline {subsubsection}{P\IeC {\v r}i\IeC {\v r}azen\IeC {\'\i } markeru}{27}
+\contentsline {subsection}{\numberline {6.3}Cocoapods}{27}
+\contentsline {subsubsection}{MagicalRecord}{27}
+\contentsline {subsubsection}{TFTableDescriptor}{27}
+\contentsline {subsection}{\numberline {6.4}Model}{28}
+\contentsline {subsection}{\numberline {6.5}U\IeC {\v z}ivatelsk\IeC {\'e} rozhran\IeC {\'\i }}{29}
+\contentsline {subsubsection}{Design}{33}
+\contentsline {subsection}{\numberline {6.6}Ukl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i } dat}{35}
+\contentsline {subsection}{\numberline {6.7}V\IeC {\'y}po\IeC {\v c}ty ukazatel\IeC {\r u}}{35}
+\contentsline {subsubsection}{Po\IeC {\v c}et obyvatel}{36}
+\contentsline {subsubsection}{Spokojenost}{37}
+\contentsline {section}{\numberline {7}Testov\IeC {\'a}n\IeC {\'\i } u\IeC {\v z}ivatelsk\IeC {\'e}ho rozhran\IeC {\'\i }}{38}
+\contentsline {subsection}{\numberline {7.1}Z\IeC {\'a}kladn\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stupy testov\IeC {\'a}n\IeC {\'\i }}{38}
+\contentsline {subsubsection}{Eye tracking}{38}
+\contentsline {subsubsection}{Heuristic evaluation}{38}
+\contentsline {subsubsection}{Focus Groups}{39}
+\contentsline {subsubsection}{Cognitive walkthrough}{39}
+\contentsline {subsubsection}{Dal\IeC {\v s}\IeC {\'\i } metody a shrnut\IeC {\'\i }}{40}
+\contentsline {subsection}{\numberline {7.2}Heuristick\IeC {\'a} anal\IeC {\'y}za ARCity}{40}
+\contentsline {subsubsection}{Viditelnost stavu syst\IeC {\'e}mu}{40}
+\contentsline {subsubsection}{Spojen\IeC {\'\i } mezi syst\IeC {\'e}mem a re\IeC {\'a}ln\IeC {\'y}m sv\IeC {\v e}tem}{40}
+\contentsline {subsubsection}{U\IeC {\v z}ivatelsk\IeC {\'a} kontrola a svoboda}{40}
+\contentsline {subsubsection}{Konzistence a standardizace}{40}
+\contentsline {subsubsection}{Prevence chyb}{40}
+\contentsline {subsubsection}{Rozpozn\IeC {\'a}n\IeC {\'\i } m\IeC {\'\i }sto vzpom\IeC {\'\i }n\IeC {\'a}n\IeC {\'\i }}{41}
+\contentsline {subsubsection}{Flexibiln\IeC {\'\i } a efektivn\IeC {\'\i } pou\IeC {\v z}it\IeC {\'\i }}{41}
+\contentsline {subsubsection}{Estetick\IeC {\'y} a minimalistick\IeC {\'y} design}{41}
+\contentsline {subsubsection}{Pomoc u\IeC {\v z}ivatel\IeC {\r u} poznat, pochopit a vzpamatovat se z chyb}{41}
+\contentsline {subsubsection}{N\IeC {\'a}pov\IeC {\v e}da a n\IeC {\'a}vody}{41}
+\contentsline {subsection}{\numberline {7.3}Zhodnocen\IeC {\'\i }}{41}
+\contentsline {section}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{43}
+\contentsline {subsection}{\numberline {8.1}Zhodnocen\IeC {\'\i } dosa\IeC {\v z}en\IeC {\'\i } c\IeC {\'\i }l\IeC {\r u}}{43}
+\contentsline {subsection}{\numberline {8.2}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{43}
+\contentsline {section}{\numberline {9}P\IeC {\v r}\IeC {\'\i }lohy}{45}
+\contentsline {subsection}{\numberline {9.1}Datov\IeC {\'e} p\IeC {\v r}\IeC {\'\i }lohy}{45}
+\contentsline {subsection}{\numberline {9.2}Uk\IeC {\'a}zky z pr\IeC {\'a}ce}{46}
+\contentsline {section}{\numberline {10}Reference}{49}
