@@ -12,9 +12,10 @@
 
 @interface GCItem : NSObject
 
-@property (nonatomic) metaio::IGeometry *placeholder;
-@property (nonatomic) metaio::IGeometry *object;
+@property (nonatomic, assign) metaio::IGeometry *placeholder;
+@property (nonatomic, assign) metaio::IGeometry *object;
 @property (nonatomic) ZoneType type;
+@property (nonatomic) ZoneLevel level;
 
 + (instancetype)item;
 

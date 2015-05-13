@@ -8,6 +8,10 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
     #import "CoreData+MagicalRecord.h"
+
+    #define UA_isIPad   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    #define UA_isIPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
 #endif
 
-#define REGISTER_CELL_FOR_TABLE(_cellClass, _table) ([_table registerNib:[UINib nibWithNibName:NSStringFromClass([_cellClass class]) bundle:nil] forCellReuseIdentifier:[_cellClass identifier]])
+

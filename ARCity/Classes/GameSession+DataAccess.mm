@@ -13,7 +13,7 @@
 @implementation GameSession (DataAccess)
 
 + (instancetype)lastGameSession {
-    NSArray *session = [GameSession MR_findAllSortedBy:@"last_played" ascending:NO];
+    NSArray *session = [GameSession MR_findAllSortedBy:@"lastPlayed" ascending:NO];
     
     if (session && session.count != 0) {
         return [session firstObject];
@@ -31,6 +31,7 @@
     session.player.tax = [GlobalConfig defaultTaxValue];
     session.player.satisfaction = [GlobalConfig defaultSatisfaction];
     session.player.population = [GlobalConfig defaultPopulation];
+    
     [session.managedObjectContext MR_saveToPersistentStoreAndWait];
     return session;
 }

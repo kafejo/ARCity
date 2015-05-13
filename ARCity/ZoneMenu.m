@@ -72,7 +72,8 @@ NSString * const kZoneMenuItemEnumKey = @"zone_id";
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [ZoneCell preferredSize];
+    CGFloat itemWidth = [UIScreen mainScreen].bounds.size.width / 4 - 2;
+    return CGSizeMake(itemWidth, self.bounds.size.height - 2);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

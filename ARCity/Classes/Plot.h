@@ -2,7 +2,7 @@
 //  Plot.h
 //  ARCity
 //
-//  Created by Aleš Kocur on 27/04/15.
+//  Created by Aleš Kocur on 13/05/15.
 //  Copyright (c) 2015 metaio GmbH. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 @interface Plot : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * markerId;
-@property (nonatomic, retain) Zone *plotZone;
 @property (nonatomic, retain) GameSession *gameSession;
+@property (nonatomic, retain) Zone *plotZone;
 
 @end

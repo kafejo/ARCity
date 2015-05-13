@@ -32,22 +32,27 @@
     return self;
 }
 
-+ (instancetype)sharedEngine {
-    static Engine * sharedEngine;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedEngine = [[Engine alloc] init];
-    });
-    
-    return sharedEngine;
-}
+//+ (instancetype)sharedEngine {
+//    static Engine * sharedEngine;
+//    
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        sharedEngine = [[Engine alloc] init];
+//    });
+//    
+//    return sharedEngine;
+//}
 
 - (NSTimer *)gameClock {
     if (!_gameClock) {
         _gameClock = [NSTimer scheduledTimerWithTimeInterval:[GlobalConfig gameSpeed] target:self selector:@selector(gameTick) userInfo:nil repeats:YES];
     }
     return _gameClock;
+}
+
+- (void)dealloc {
+    [self.graphicsCore stopDrawingCurrentGameSession];
+    self.delegate = nil;
 }
 
 - (void)setupWithMetaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK gameSession:(GameSession *)session{
@@ -60,9 +65,15 @@
             [self.session addPlotsObject:[Plot plotWithMarkerId:i forSession:self.session]];
         }
         
+        
+        [self buildZone:ZoneTypeCityHall atPlot:[self plotForMarkerId:10] completion:^(BOOL success) {
+            
+        }];
+        
+        
     }
     
-    self.session.last_played = [NSDate new];
+    self.session.lastPlayed = [NSDate new];
     [self.session.managedObjectContext MR_saveToPersistentStoreAndWait];
     
     // Init graphics core
@@ -126,8 +137,11 @@
         
         if ([self subtractMoneyIfPossible:zonePrice]) {
             completion(YES);
+            
             if (self.delegate && type == ZoneTypeHouse) {
                 [self.delegate didChangePopulation:self.session.player.population maximum:[self populationMaximum]];
+            } else if (self.delegate && (type == ZoneTypeIndustry || type == ZoneTypeShopping)) {
+                [self.delegate didChangeJobVacancies:@([self jobVacancies])];
             }
         } else {
             NSLog(@"Error! Cannot subtract money");
@@ -203,24 +217,30 @@
 }
 
 - (NSSet *)zonesForZoneTypes:(NSSet *)zoneTypes {
-    return [[self.session.plots filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(plotZone != nil) AND (plotZone.type_id IN %@)", zoneTypes]] valueForKey:@"plotZone"];
+    return [[self.session.plots filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(plotZone != nil) AND (plotZone.typeId IN %@)", zoneTypes]] valueForKey:@"plotZone"];
 }
 
 - (CGFloat)satisfaction {
     return [self.session.player.satisfaction floatValue];
 }
 
-- (CGFloat)newSatisfaction {
-    
-    CGFloat population = self.session.player.population.integerValue;
-    
-    NSSet *jobZones = [self zonesForZoneTypes:[NSSet setWithObjects:@(ZoneTypeIndustry), @(ZoneTypeShopping), nil]];
-    
+- (NSUInteger)jobVacancies {
     NSUInteger jobVacancies = 0;
+    NSSet *jobZones = [self zonesForZoneTypes:[NSSet setWithObjects:@(ZoneTypeIndustry), @(ZoneTypeShopping), nil]];
     
     for (Zone *zone in jobZones) {
         jobVacancies += [[GlobalConfig jobVacanciesFaktorForZone:zone.type level:zone.level] integerValue];
     }
+    
+    return jobVacancies;
+}
+
+- (CGFloat)newSatisfaction {
+    
+    CGFloat population = self.session.player.population.integerValue;
+    
+    
+    NSUInteger jobVacancies = [self jobVacancies];
     
     CGFloat diff = 1.0;
 
@@ -244,7 +264,10 @@
         commonSatisfaction = satisfactionLevel / population;
     }
     
-    return (diff + commonSatisfaction) / 2;
+    CGFloat taxSatisfaction = 1.0 - self.tax.floatValue;
+    
+    
+    return (diff + commonSatisfaction + taxSatisfaction) / 3;
     
 }
 
@@ -268,7 +291,7 @@
 
 - (NSNumber *)populationMaximum {
     
-    NSSet *houseZones = [[self.session.plots filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(plotZone != nil) AND (plotZone.type_id IN %@)", @[@(ZoneTypeHouse), @(ZoneTypeCityHall)]]] valueForKey:@"plotZone"];
+    NSSet *houseZones = [[self.session.plots filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"(plotZone != nil) AND (plotZone.typeId IN %@)", @[@(ZoneTypeHouse), @(ZoneTypeCityHall)]]] valueForKey:@"plotZone"];
     NSUInteger count = 0;
     for (Zone *zone in houseZones) {
         count += [GlobalConfig populationFaktorForZone:zone.type level:zone.level].integerValue;
@@ -298,8 +321,55 @@
     return NO;
 }
 
+- (void)calculateMoney {
+    NSUInteger jobs = self.jobVacancies;
+    CGFloat tax = self.tax.floatValue;
+    
+    NSUInteger income = jobs * tax * 3;
+    
+    self.session.player.money = @(self.session.player.money.integerValue + income);
+    if (self.delegate) {
+        [self.delegate didChangeMoney:self.session.player.money];
+    }
+    
+}
+
 - (NSNumber *)money {
     return self.session.player.money;
+}
+
+- (NSNumber *)tax {
+    return self.session.player.tax;
+}
+
+- (void)increaseTax:(CGFloat)amount {
+    
+    if ( self.session.player.tax.floatValue + amount < 1.0) {
+        self.session.player.tax = @(self.session.player.tax.floatValue + amount);
+    } else {
+        self.session.player.tax = @(1.0);
+    }
+    
+    if (self.delegate) {
+        [self.delegate didChangeTax:self.session.player.tax];
+    }
+    
+    [self.session.managedObjectContext MR_saveOnlySelfAndWait];
+}
+
+
+- (void)decreaseTax:(CGFloat)amount {
+    if (self.session.player.tax.floatValue - amount > 0.0) {
+        self.session.player.tax = @(self.session.player.tax.floatValue + amount);
+    } else {
+        self.session.player.tax = @(0.0);
+    }
+    
+    if (self.delegate) {
+        [self.delegate didChangeTax:self.session.player.tax];
+    }
+    
+    [self.session.managedObjectContext MR_saveOnlySelfAndWait];
 }
 
 #pragma mark - Graphics core delegate
@@ -321,6 +391,8 @@
 - (void)gameTick {
     [self calculateSatisfaction];
     [self calculatePopulation];
+    [self calculateMoney];
+    [self.session.managedObjectContext MR_saveOnlySelfAndWait];
 }
 
 - (void)pauseGame {
@@ -330,6 +402,11 @@
 
 - (void)unpauseGame {
     [self.gameClock fire];
+}
+
+- (void)stop {
+    [self.gameClock invalidate];
+
 }
 
 @end

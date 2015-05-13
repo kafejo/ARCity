@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="GameSession" representedClassName="GameSession" syncable="YES">
         <attribute name="lastPlayed" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="session" inverseEntity="Player" syncable="YES"/>
@@ -9,7 +9,7 @@
         <attribute name="money" optional="YES" attributeType="Integer 32" defaultValueString="500000" syncable="YES"/>
         <attribute name="population" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="satisfaction" optional="YES" attributeType="Float" defaultValueString="50" syncable="YES"/>
-        <attribute name="tax" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="tax" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameSession" inverseName="player" inverseEntity="GameSession" syncable="YES"/>
     </entity>
     <entity name="Plot" representedClassName="Plot" syncable="YES">

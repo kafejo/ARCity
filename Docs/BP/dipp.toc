@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {3}Vyu\IeC {\v z}it\IeC {\'\i } roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'e} reality, koncepty vyu\IeC {\v z}it\IeC {\'e} ve hr\IeC {\'a}ch}{15}
 \contentsline {subsection}{\numberline {3.1}Interakce se za\IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }m}{15}
 \contentsline {subsubsection}{Ingress}{15}
-\contentsline {subsection}{\numberline {3.2}Interakce s hern\IeC {\'\i } deskou}{16}
+\contentsline {subsection}{\numberline {3.2}Interakce s~hern\IeC {\'\i } deskou}{16}
 \contentsline {subsubsection}{Drakerz Confrontation}{17}
 \contentsline {subsection}{\numberline {3.3}Sm\IeC {\'\i }\IeC {\v s}en\IeC {\'a} interakce}{17}
 \contentsline {subsubsection}{ARHrrrr!}{18}
@@ -41,11 +41,11 @@
 \contentsline {subsubsection}{M\IeC {\v e}stsk\IeC {\'a} spr\IeC {\'a}va, radnice}{26}
 \contentsline {subsection}{\numberline {6.2}Metaio}{26}
 \contentsline {subsubsection}{Nahr\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } model\IeC {\r u}}{26}
-\contentsline {subsubsection}{Spou\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } animac\IeC {\'\i }}{26}
+\contentsline {subsubsection}{Spou\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } animac\IeC {\'\i }}{27}
 \contentsline {subsubsection}{P\IeC {\v r}i\IeC {\v r}azen\IeC {\'\i } markeru}{27}
 \contentsline {subsection}{\numberline {6.3}Cocoapods}{27}
-\contentsline {subsubsection}{MagicalRecord}{27}
-\contentsline {subsubsection}{TFTableDescriptor}{27}
+\contentsline {subsubsection}{MagicalRecord}{28}
+\contentsline {subsubsection}{TFTableDescriptor}{28}
 \contentsline {subsection}{\numberline {6.4}Model}{28}
 \contentsline {subsection}{\numberline {6.5}U\IeC {\v z}ivatelsk\IeC {\'e} rozhran\IeC {\'\i }}{29}
 \contentsline {subsubsection}{Design}{33}
@@ -69,7 +69,7 @@
 \contentsline {subsubsection}{Rozpozn\IeC {\'a}n\IeC {\'\i } m\IeC {\'\i }sto vzpom\IeC {\'\i }n\IeC {\'a}n\IeC {\'\i }}{41}
 \contentsline {subsubsection}{Flexibiln\IeC {\'\i } a efektivn\IeC {\'\i } pou\IeC {\v z}it\IeC {\'\i }}{41}
 \contentsline {subsubsection}{Estetick\IeC {\'y} a minimalistick\IeC {\'y} design}{41}
-\contentsline {subsubsection}{Pomoc u\IeC {\v z}ivatel\IeC {\r u} poznat, pochopit a vzpamatovat se z chyb}{41}
+\contentsline {subsubsection}{Pomoc u\IeC {\v z}ivatel\IeC {\r u} poznat, pochopit a vzpamatovat se z~chyb}{41}
 \contentsline {subsubsection}{N\IeC {\'a}pov\IeC {\v e}da a n\IeC {\'a}vody}{41}
 \contentsline {subsection}{\numberline {7.3}Zhodnocen\IeC {\'\i }}{41}
 \contentsline {section}{\numberline {8}Z\IeC {\'a}v\IeC {\v e}r}{43}
@@ -77,5 +77,5 @@
 \contentsline {subsection}{\numberline {8.2}N\IeC {\'a}vrhy na vylep\IeC {\v s}en\IeC {\'\i }}{43}
 \contentsline {section}{\numberline {9}P\IeC {\v r}\IeC {\'\i }lohy}{45}
 \contentsline {subsection}{\numberline {9.1}Datov\IeC {\'e} p\IeC {\v r}\IeC {\'\i }lohy}{45}
-\contentsline {subsection}{\numberline {9.2}Uk\IeC {\'a}zky z pr\IeC {\'a}ce}{46}
+\contentsline {subsection}{\numberline {9.2}Uk\IeC {\'a}zky z~pr\IeC {\'a}ce}{46}
 \contentsline {section}{\numberline {10}Reference}{49}

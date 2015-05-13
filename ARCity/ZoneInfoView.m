@@ -41,13 +41,15 @@
         case ZoneTypeCityHall:
             self.zoneNameLabel.text = NSLocalizedString(@"CITYHALL_ZONE", nil);
             self.zoneDescriptionLabel.text = NSLocalizedString(@"CITYHALL_ZONE_DESC", nil);
-            
+
             break;
             
             
         default:
             break;
     }
+
+    
     
     self.zoneIconView.image = [GlobalConfig iconForZoneType:zone.type];
     
@@ -60,6 +62,34 @@
     
         self.zoneNextLevelLabel.text = [NSString stringWithFormat:@"Level %lu for %@", (unsigned long)zone.level + 2, [[GlobalConfig currencyFormatter] stringFromNumber:[GlobalConfig priceForZone:zone.type level:zone.level + 1]]];
         self.upgradeButton.hidden = NO;
+    }
+    
+    if (zone.type == ZoneTypeCityHall) {
+        self.upgradeButton.hidden = YES;
+        self.increaseButton.hidden = NO;
+        self.decreaseButton.hidden = NO;
+        self.zoneNextLevelLabel.hidden = YES;
+        self.zoneCurrentLevelLabel.hidden = YES;
+    } else {
+        self.upgradeButton.hidden = NO;
+        self.increaseButton.hidden = YES;
+        self.decreaseButton.hidden = YES;
+        self.zoneNextLevelLabel.hidden = NO;
+        self.zoneCurrentLevelLabel.hidden = NO;
+    }
+    
+}
+
+- (IBAction)updateTax:(id)sender {
+    
+    if (sender == self.increaseButton) {
+        if (self.delegate) {
+            [self.delegate increaseTax];
+        }
+    } else if (sender == self.decreaseButton) {
+        if (self.delegate) {
+            [self.delegate decreaseTax];
+        }
     }
     
 }

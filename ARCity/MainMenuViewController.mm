@@ -52,11 +52,16 @@ static NSString * const kRowTagAbout = @"RowTagAbout";
     self.tableDescriptor.delegate = self;
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-// 
-//}
-//
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([GameSession lastGameSession] && !self.session && [self.tableDescriptor rowForTag:kRowTagContinue] == nil) {
+        self.session = [GameSession lastGameSession];
+        [self.tableDescriptor insertRow:[TFRowDescriptor descriptorWithRowClass:[MainMenuCell class] data:NSLocalizedString(@"CONTINUE_GAME", @"Menu item for continuing in last played game") tag:kRowTagContinue] inFrontOfRow:[self.tableDescriptor rowForTag:kRowTagNewGame]];
+    }
+    
+}
+
 //- (void)viewDidDisappear:(BOOL)animated {
 //    [super viewDidDisappear:animated];
 // 
@@ -68,9 +73,14 @@ static NSString * const kRowTagAbout = @"RowTagAbout";
     
     if ([rowDescriptor.tag isEqualToString:kRowTagNewGame]) {
         self.session = [GameSession newSession];
+        [self pushToGameController];
+    } else if ([rowDescriptor.tag isEqualToString:kRowTagAbout]) {
+        [self performSegueWithIdentifier:@"about" sender:self];
+    } else if ([rowDescriptor.tag isEqualToString:kRowTagContinue]) {
+        [self pushToGameController];
     }
     
-    [self pushToGameController];
+
 }
 
 #pragma mark - Navigation

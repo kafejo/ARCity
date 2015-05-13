@@ -25,19 +25,19 @@
     if (level == ZoneLevel1) {
         switch (zoneType) {
             case ZoneTypeHouse:
-                return @3000;
+                return @50000;
                 break;
             case ZoneTypeIndustry:
-                return @4000;
+                return @100000;
                 break;
             case ZoneTypeShopping:
-                return @5000;
+                return @150000;
                 break;
             case ZoneTypeCultural:
-                return @2000;
+                return @70000;
                 break;
             case ZoneTypeCityHall:
-                return @2000;
+                return @0;
                 break;
                 
             default:
@@ -47,19 +47,19 @@
     } else if (level == ZoneLevel2) {
         switch (zoneType) {
             case ZoneTypeHouse:
-                return @3000;
+                return @100000;
                 break;
             case ZoneTypeIndustry:
-                return @4000;
+                return @140000;
                 break;
             case ZoneTypeShopping:
-                return @5000;
+                return @200000;
                 break;
             case ZoneTypeCultural:
-                return @2000;
+                return @100000;
                 break;
             case ZoneTypeCityHall:
-                return @2000;
+                return @0;
                 break;
                 
             default:
@@ -70,19 +70,19 @@
     } else if (level == ZoneLevel3) {
         switch (zoneType) {
             case ZoneTypeHouse:
-                return @3000;
+                return @140000;
                 break;
             case ZoneTypeIndustry:
-                return @4000;
+                return @200000;
                 break;
             case ZoneTypeShopping:
-                return @5000;
+                return @250000;
                 break;
             case ZoneTypeCultural:
-                return @2000;
+                return @150000;
                 break;
             case ZoneTypeCityHall:
-                return @2000;
+                return @0;
                 break;
                 
             default:
@@ -325,7 +325,7 @@
 }
 
 + (NSNumber *)defaultTaxValue {
-    return @200;
+    return @0.15;
 }
 
 + (NSNumber *)defaultSatisfaction {
@@ -350,7 +350,12 @@
         case ZoneTypeCultural:
             return [UIImage imageNamed:@"cultural_zone"];
             break;
+
+        case ZoneTypeCityHall:
+            return [UIImage imageNamed:@"city_hall"];
+            break;
             
+
         default:
             break;
     }
@@ -377,6 +382,10 @@
             
         case ZoneTypeCultural:
             baseName = @"cultural_zone";
+            break;
+            
+        case ZoneTypeCityHall:
+            baseName = @"main_zone";
             break;
             
         default:

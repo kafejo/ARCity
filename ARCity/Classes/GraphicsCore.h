@@ -22,7 +22,7 @@
 
 @interface GraphicsCore : NSObject
 
-@property (nonatomic) id<GraphicsCoreDelegate> delegate;
+@property (nonatomic, weak) id<GraphicsCoreDelegate> delegate;
 
 + (instancetype)graphicsCoreWithMetaioSDK:(metaio::IMetaioSDKIOS *)metaioSDK;
 

@@ -15,10 +15,10 @@
 @interface GraphicsCore ()
 
 @property (nonatomic) metaio::IMetaioSDKIOS *metaioSDK;
-@property metaio::IGeometry *selection;
+@property (nonatomic, assign) metaio::IGeometry *selection;
 @property (nonatomic, strong) NSMutableDictionary *graphicsItems;
-@property (nonatomic) GameSession *currentSession;
-@property (nonatomic) NSTimer *timer;
+@property (nonatomic, strong) GameSession *currentSession;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -56,6 +56,12 @@
         
     }
     return self;
+}
+
+- (void)dealloc {
+    
+    self.delegate = nil;
+    [self.timer invalidate];
 }
 
 //- (metaio::IMetaioSDKIOS *)metaioSDK {
@@ -123,6 +129,8 @@
         item.object->setCoordinateSystemID(plot.markerId.intValue);
         
         item.type = plot.plotZone.type;
+        item.level = plot.plotZone.level;
+        
        [self applyBuildingSettings:item.object];
         
         if (item.placeholder->isVisible()) {
@@ -130,7 +138,7 @@
         }
         
     } // Plot changed his building
-    else if (plot.plotZone && item.object && item.type != plot.plotZone.type) {
+    else if (plot.plotZone && item.object && (item.type != plot.plotZone.type || item.level != plot.plotZone.level)) {
        
         // first unload current geometry
         self.metaioSDK->unloadGeometry(item.object);
@@ -140,6 +148,7 @@
         item.object->setCoordinateSystemID(plot.markerId.intValue);
         [self applyBuildingSettings:item.object];
         item.type = plot.plotZone.type;
+        item.level = plot.plotZone.level;
         
     } else if (!plot.plotZone && item.object) {
         self.metaioSDK->unloadGeometry(item.object);

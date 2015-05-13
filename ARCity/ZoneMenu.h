@@ -20,6 +20,6 @@
 @interface ZoneMenu : UIView
 
 @property (nonatomic, strong) IBOutlet UIView *contentView;
-@property (nonatomic) id<ZoneMenuDelegate> delegate;
+@property (nonatomic, assign) id<ZoneMenuDelegate> delegate;
 
 @end

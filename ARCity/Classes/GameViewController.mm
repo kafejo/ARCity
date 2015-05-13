@@ -7,14 +7,19 @@
 #import "LoadingView.h"
 #import "GlobalConfig.h"
 
-@interface GameViewController()<EngineDelegate, ZoneMenuDelegate>
+@interface GameViewController()<EngineDelegate, ZoneMenuDelegate, ZoneInfoDelegate>
 @property (strong, nonatomic) IBOutlet ZoneMenu *zoneMenuView;
 
 @property (strong, nonatomic) IBOutlet UIButton *moneyButton;
 @property (strong, nonatomic) IBOutlet UIButton *populationButton;
 @property (strong, nonatomic) IBOutlet UIButton *satisfactionButton;
+@property (strong, nonatomic) IBOutlet UIButton *jobButton;
+@property (strong, nonatomic) IBOutlet UIButton *taxButton;
+
+
 @property (strong, nonatomic) IBOutlet ZoneInfoView *zoneInfoView;
 @property (strong, nonatomic) LoadingView *loadingView;
+@property (strong, nonatomic) Engine *engine;
 
 @end
 
@@ -32,7 +37,7 @@
     [self.view bringSubviewToFront:self.loadingView];
     self.loadingView.frame = [UIScreen mainScreen].bounds;
     
-	
+    self.zoneInfoView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,9 +49,9 @@
     }
     
     [self loadTrackingConfiguration];
-    Engine *engine = [Engine sharedEngine];
-    [engine setupWithMetaioSDK:m_pMetaioSDK gameSession:self.session];
-    engine.delegate = self;
+    self.engine = [[Engine alloc] init];
+    [self.engine setupWithMetaioSDK:m_pMetaioSDK gameSession:self.session];
+    self.engine.delegate = self;
     
     self.zoneMenuView.delegate = self;
     self.zoneMenuView.hidden = YES;
@@ -57,7 +62,9 @@
     [super viewDidAppear:animated];
     [self.loadingView show];
     
-    [self didChangeMoney:[Engine sharedEngine].money];
+    [self didChangeMoney:self.engine.money];
+    [self didChangeTax:self.engine.tax];
+    [self didChangeJobVacancies:@(self.engine.jobVacancies)];
     
 }
 
@@ -78,17 +85,29 @@
 
 }
 
+- (void)dealloc {
+    NSLog(@"DEALOc!");
+    [self.engine stop];
+    
+    std::vector<metaio::IGeometry *> geometries = m_pMetaioSDK->getLoadedGeometries();
+    
+    for (auto it = geometries.begin(); it != geometries.end(); ++it ) {
+        m_pMetaioSDK->unloadGeometry(*it);
+    }
+    
+}
+
 #pragma mark - Zone menu delegate
 
 - (void)zoneMenu:(ZoneMenu *)menu didSelectZoneType:(ZoneType)zoneType {
-    Engine *engine = [Engine sharedEngine];
     
-    if ([engine isSelectedPlot]) {
-        [engine buildZone:zoneType atPlot:[engine selectedPlot] completion:^(BOOL success) {
+    
+    if ([self.engine isSelectedPlot]) {
+        [self.engine buildZone:zoneType atPlot:[self.engine selectedPlot] completion:^(BOOL success) {
             
             if (success) {
                 NSLog(@"Built!");
-                [self showMenuByPlot:[engine selectedPlot]];
+                [self showMenuByPlot:[self.engine selectedPlot]];
             } else {
                 [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NOT_ENOUGH_MONEY", nil) message:NSLocalizedString(@"NOT_ENOUGH_MONEY_FOR_ZONE", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil] show];
             }
@@ -134,8 +153,16 @@
 
 - (void)didChangePopulation:(NSNumber *)population maximum:(NSNumber *)populationMaximum {
     [self.populationButton setTitle:[NSString stringWithFormat:@"%@/%@", population, populationMaximum] forState:UIControlStateNormal];
+
 }
 
+- (void)didChangeJobVacancies:(NSNumber *)jobVacancies {
+    [self.jobButton setTitle:jobVacancies.stringValue forState:UIControlStateNormal];
+}
+
+- (void)didChangeTax:(NSNumber *)tax {
+    [self.taxButton setTitle:[NSString stringWithFormat:@"%0.0f%%", tax.floatValue * 100.0] forState:UIControlStateNormal];
+}
 
 #pragma mark - @protocol metaioSDKDelegate
 
@@ -270,7 +297,7 @@
     const float scale = self.glkView.contentScaleFactor;
     
     
-    [[Engine sharedEngine] processTouchAtPoint:CGPointMake(loc.x * scale, loc.y * scale)];
+    [self.engine processTouchAtPoint:CGPointMake(loc.x * scale, loc.y * scale)];
 	
 }
 
@@ -282,10 +309,10 @@
 
 - (IBAction)upgradeSelectedZone:(id)sender {
     
-    if ([[Engine sharedEngine] isSelectedPlot]) {
-        Plot *selectedPlot = [[Engine sharedEngine] selectedPlot];
+    if ([self.engine isSelectedPlot]) {
+        Plot *selectedPlot = [self.engine selectedPlot];
         
-        [[Engine sharedEngine] upgradeZoneAtPlot:selectedPlot completion:^(BOOL success) {
+        [self.engine upgradeZoneAtPlot:selectedPlot completion:^(BOOL success) {
             if (success) {
                 [self.zoneInfoView setupWithZone:selectedPlot.plotZone];
             }
@@ -293,6 +320,14 @@
         
     }
     
+}
+
+- (void)increaseTax {
+    [self.engine increaseTax:0.01];
+}
+
+- (void)decreaseTax {
+    [self.engine decreaseTax:0.01];
 }
 
 
