@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="204" y="424"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="28q-lP-K4T">
             <objects>
-                <viewController id="7w3-ae-Vrn" sceneMemberID="viewController">
+                <viewController id="7w3-ae-Vrn" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gfd-FR-9Mg"/>
                         <viewControllerLayoutGuide type="bottom" id="pn1-S0-jYP"/>
@@ -135,11 +135,24 @@
                                     <constraint firstItem="gdy-Wh-9PT" firstAttribute="top" secondItem="eHS-dF-9X8" secondAttribute="top" constant="10" id="zfE-2y-MRW"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjk-Am-1tK">
+                                <rect key="frame" x="285" y="466" width="30" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="0.1377895176410675" green="0.090420149266719818" blue="0.059483394026756287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="7w3-ae-Vrn" eventType="touchUpInside" id="6lX-Jh-In2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="eHS-dF-9X8" secondAttribute="centerY" id="M9b-9o-gsq"/>
                             <constraint firstAttribute="centerX" secondItem="eHS-dF-9X8" secondAttribute="centerX" id="azv-dG-SSy"/>
+                            <constraint firstItem="pn1-S0-jYP" firstAttribute="top" secondItem="gjk-Am-1tK" secondAttribute="bottom" constant="100" id="kc1-On-Q8M"/>
+                            <constraint firstAttribute="centerX" secondItem="gjk-Am-1tK" secondAttribute="centerX" id="pSE-BG-pUo"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -293,37 +306,32 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="LM3-p7-oVg"/>
+                                        <exclude reference="jsL-g1-fiy"/>
+                                        <exclude reference="r1k-Qw-5ft"/>
                                         <exclude reference="X7W-Fj-HKW"/>
                                         <exclude reference="w9E-wu-Aq6"/>
                                         <exclude reference="wPP-r7-HFn"/>
-                                        <exclude reference="jsL-g1-fiy"/>
-                                        <exclude reference="r1k-Qw-5ft"/>
-                                        <exclude reference="MI0-Gv-Ifm"/>
-                                        <exclude reference="cHo-BB-lbY"/>
                                         <exclude reference="CCG-r9-ULl"/>
                                         <exclude reference="iWC-ij-KLU"/>
                                         <exclude reference="m3v-vQ-uS6"/>
                                         <exclude reference="nwr-oF-3RW"/>
                                         <exclude reference="rhp-5O-5M2"/>
+                                        <exclude reference="MI0-Gv-Ifm"/>
+                                        <exclude reference="cHo-BB-lbY"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="LM3-p7-oVg"/>
                                         <exclude reference="RtR-fb-bYm"/>
-                                        <exclude reference="eD8-Sv-Hc7"/>
-                                        <exclude reference="kLB-80-06o"/>
-                                        <include reference="w9E-wu-Aq6"/>
-                                        <include reference="wPP-r7-HFn"/>
                                         <exclude reference="JIR-D5-4Jn"/>
                                         <include reference="jsL-g1-fiy"/>
                                         <exclude reference="q4z-fE-f4I"/>
                                         <include reference="r1k-Qw-5ft"/>
-                                        <include reference="MI0-Gv-Ifm"/>
-                                        <exclude reference="SJd-4e-RGd"/>
-                                        <exclude reference="T7e-sa-fE6"/>
-                                        <include reference="cHo-BB-lbY"/>
-                                        <exclude reference="w66-XU-bQk"/>
+                                        <exclude reference="eD8-Sv-Hc7"/>
+                                        <exclude reference="kLB-80-06o"/>
+                                        <include reference="w9E-wu-Aq6"/>
+                                        <include reference="wPP-r7-HFn"/>
                                         <exclude reference="BsQ-Wd-Thf"/>
                                         <include reference="CCG-r9-ULl"/>
                                         <exclude reference="Xj2-zb-NLX"/>
@@ -331,6 +339,11 @@
                                         <include reference="m3v-vQ-uS6"/>
                                         <include reference="nwr-oF-3RW"/>
                                         <include reference="rhp-5O-5M2"/>
+                                        <include reference="MI0-Gv-Ifm"/>
+                                        <exclude reference="SJd-4e-RGd"/>
+                                        <exclude reference="T7e-sa-fE6"/>
+                                        <include reference="cHo-BB-lbY"/>
+                                        <exclude reference="w66-XU-bQk"/>
                                     </mask>
                                 </variation>
                             </view>

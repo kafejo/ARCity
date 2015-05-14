@@ -63,6 +63,7 @@
 		90A17E561B03ACDE00BC9C6E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A17E551B03ACDE00BC9C6E /* Player.m */; };
 		90A17E591B03ACDF00BC9C6E /* Zone.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A17E581B03ACDF00BC9C6E /* Zone.m */; };
 		90D5DBE31AB9BC9E006EA193 /* Zone+DataAccess.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90D5DBE21AB9BC9E006EA193 /* Zone+DataAccess.mm */; };
+		90F0B0B21B04866B0000C0F0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F0B0B11B04866B0000C0F0 /* AboutViewController.m */; };
 		9E384CF4190ABC470037E16E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E384CF3190ABC470037E16E /* CoreImage.framework */; };
 		9E6C92FE177C85FF0048052B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FD177C85FF0048052B /* OpenGLES.framework */; };
 		9E6C9300177C86020048052B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6C92FF177C86020048052B /* Security.framework */; };
@@ -168,6 +169,8 @@
 		90A17E581B03ACDF00BC9C6E /* Zone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zone.m; sourceTree = "<group>"; };
 		90D5DBE11AB9BC9E006EA193 /* Zone+DataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Zone+DataAccess.h"; sourceTree = "<group>"; };
 		90D5DBE21AB9BC9E006EA193 /* Zone+DataAccess.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Zone+DataAccess.mm"; sourceTree = "<group>"; };
+		90F0B0B01B04866B0000C0F0 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		90F0B0B11B04866B0000C0F0 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		9E384CF3190ABC470037E16E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E6C92FB177C85D90048052B /* metaioSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = metaioSDK.framework; sourceTree = "<group>"; };
 		9E6C92FD177C85FF0048052B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -398,6 +401,8 @@
 			children = (
 				9095FA381ABC5165006CD0FA /* MainMenuViewController.h */,
 				9095FA391ABC5165006CD0FA /* MainMenuViewController.mm */,
+				90F0B0B01B04866B0000C0F0 /* AboutViewController.h */,
+				90F0B0B11B04866B0000C0F0 /* AboutViewController.m */,
 			);
 			name = "Main menu";
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				9095FA471ABC58DB006CD0FA /* GameSession+DataAccess.mm in Sources */,
 				9095FA3A1ABC5165006CD0FA /* MainMenuViewController.mm in Sources */,
 				90A17E501B03ACDC00BC9C6E /* Plot.m in Sources */,
+				90F0B0B21B04866B0000C0F0 /* AboutViewController.m in Sources */,
 				9095FA401ABC5597006CD0FA /* MainMenuCell.m in Sources */,
 				9E7FFE08177C856600477DDE /* AppDelegate.mm in Sources */,
 				901ACE061AEE854F003944A3 /* GlobalConfig.mm in Sources */,
