@@ -360,7 +360,7 @@
 
 - (void)decreaseTax:(CGFloat)amount {
     if (self.session.player.tax.floatValue - amount > 0.0) {
-        self.session.player.tax = @(self.session.player.tax.floatValue + amount);
+        self.session.player.tax = @(self.session.player.tax.floatValue - amount);
     } else {
         self.session.player.tax = @(0.0);
     }
