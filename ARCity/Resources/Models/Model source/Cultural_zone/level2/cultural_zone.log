@@ -1,0 +1,17 @@
+FBXMeshConverter version 1.1.0
+Fbx-Conversion log of Model source/Cultural_zone/level2/cultural_zone.FBX
+
+logfile-output: Model source/Cultural_zone/level2/cultural_zone.log
+fbx-output-path: Model source/Cultural_zone/level2/
+file import started...
+file import done.
+
+
+file export started...
+writing mfbx file...
+writing mfbx file done. [1 mesh][5207 vtx]
+creating zip package started...
+adding file to zip: cultural_zone_map.jpg
+adding file to zip: cultural_zone.mfbx
+creating zip package done.
+file export done.
